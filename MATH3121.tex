@@ -2585,18 +2585,217 @@ For example, $\sigma = \left(\begin{array}{ccccccc}
 
         \nline
 
-        $| A_4 | = \frac{1}{2} | S_4 | = \frac{1}{2} 4! = 12$
+        $| A_4 | = \frac{1}{2} | S_4 | = \frac{1}{2} 4! = 12$\\
+
+        How to find the elements in $A_4$?\\
+
+        Consider regular tetrahedron. Note that tetrahedron have $120^{\circ}, 240^{\circ}$ of rotational symmetry.\\
+
+        Thus totally there are 8 elements related to this symmetry. And there are 3 more elements, that are obtained by rotating with $180^{\circ}$. And there is one identity element $e$. This gives all 12 elements in $A_4$.\\
+        
+        Rotational symmetry: By watching at the 4 vertex of the tetrahedron, and
+        rotate (read) clockwisely, we have 4 elements to be $(2, 3, 4), (1, 4, 3), (4,
+        1, 2), (3, 2, 1)$. Rotating anti-clockwisely, we have other 4 elements to be
+        $(4, 3, 2), (3, 4, 1), (2, 1, 4), (1, 2, 3)$.\\
+
+Also the other 3 elements are $(1, 2) (3, 4), (1, 3) (2, 4), (1, 4) (2, 3)$,
+they are formed by joining the midpoints of each line segments. 
+
     \end{example}
 \end{expbox}
+
+\newpage
+
+\section{Cosets and the Theorem of Lagrange}
+
+\begin{defbox}
+    \begin{definition}[Coset]
+        The left coset of $H$ containing $a, a \in G$ is $$a H = \{ a h : h \in H \}$$
+        The right coset of $H$ containing $a$ is $$H a = \{ h a : h \in H \}$$.
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $H = \{ h_1, \ldots, h_k \}$, then $a H = \{ a h_1, \ldots, a h_k \}$. 
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $H = \{ e, (1, 2) \}$. $G = S_3 =\{e, (1, 2), (1, 3), (2, 3), (1, 2, 3), (1, 3, 2)\}$. Then we have:
+        \begin{eqnarray*}
+            e H      & = & \{ e e, e (1, 2) \} =\{e, (1, 2)\}\\
+            (1, 2) H & = & \{(1, 2) e, (1, 2) (1, 2)\}=\{(1, 2), e\}= (1, 2) H\\
+            (1, 3) H & = & \{(1, 3) e, (1, 3) (1, 2)\}= \{ (1, 3), (1, 2, 3) \}\\
+            (2, 3) H & = & \{(2, 3) e, (2, 3) (1, 2)\}=\{(2, 3), (1, 3, 2)\}\\
+            (1, 2, 3) H & = & \{(1, 2, 3) e, (1, 2, 3) (1, 2)\}=\{(1, 2, 3), (1, 3)\}\\
+            (1, 3, 2) H & = & \{(1, 3, 2) e, (1, 3, 2) (1, 2)\}=\{(1, 3, 2), (2, 3)\}
+          \end{eqnarray*}
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $G = (\mathbb{Z}, +), \infixand H = 3\mathbb{Z}$. Then the coset of $H$
+        containing 1:
+        \begin{eqnarray*}
+          1 + 3\mathbb{Z} & = & \{ 1 + 3 n : n \in \mathbb{Z} \}\\
+          2 + 3\mathbb{Z} & = & \{ 2 + 3 n : n \in \mathbb{Z} \}\\
+          4 + 3\mathbb{Z} & = & \{ 4 + 3 n : n \in \mathbb{Z} \} = \{ 1 + 3 n : n
+          \in \mathbb{Z} \} = 1 + 3\mathbb{Z}
+        \end{eqnarray*}
+        Different cosets such as $1 + 3  \mathbb{Z}$ and $2 + 3\mathbb{Z}$ have empty
+        intersection. 
+      \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example*}
+        Let $A_n$ be a alternating group on $n$ symbols $S_n$, and $A_n \subset
+        S_n$. Then $A_n$ is the set of even permutations in $S_n$. For example, $A_3
+        = \{ e, (1, 2, 3), (1, 3, 2) \}$. Then $(1, 2) A_n$ is the set of all odd permutations. 
+      \end{example*}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let $H = \{ h_1, \ldots, h_n \}$, and $| H | = n$. Then $| a H | = | \{ a h_1,
+        \ldots, a h_n \} | = n$. For any $a, b \in G$, given $a H, b H$, we have only two possible relations:
+        $$\left\{\begin{array}{lll}
+        a H & = & b H\\
+        a H \cap b H & = & \emptyset
+        \end{array}\right.$$
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Suppose $a H \cap b H \neq \emptyset$, then exists $c \in a H \cap b H$.\\
+
+            Then $c \in a H = a h_1, h_1 \in H$, and $c \in b H = b h_2, h_2 \in H$.\\
+            
+            $(a H \subset b H)$\\
+            
+            For arbitrary $a h \in a H$, $h \in H$. As $a h_1 = b h_2 \Rightarrow a = b
+            h_2 h^{- 1}_1$. Thus $a h = b h_2 h^{- 1}_1 h = b (h_2 h^{- 1}_1 h) \in b H$.\\
+            
+            The opposite direction can be proven similarly. 
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}[Lagrange theorem]
+        If $H$ is a subgroup of a finite group $G$, then $|G|$ is a multiple of $|H|$.
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Let $a_1 H, \ldots, a_n H$ be a array of all left cosets. Let $G = a_1 H
+            \sqcup \ldots \sqcup a_n H$.
+
+            \nline
+            
+            Then $| G | = | a_1 H | + \cdots + | a_n H | = | H | + \cdots + | H | = n | H
+            |$
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+\begin{expbox}
+    \begin{example}
+        Take the vector space of $\mathbb{R}^2$, where $\dim (\mathbb{R}^2) = 2$. Let
+        $H = \left\{ \left(\begin{array}{c}
+          x\\
+          0
+        \end{array}\right) : x \in \mathbb{R} \right\}$. Then $H$ is the set of $x -
+        \tmop{axis}$. Moreover, $\left(\begin{array}{c}
+          0\\
+          1
+        \end{array}\right) + H = \left\{ \left(\begin{array}{c}
+          x\\
+          1
+        \end{array}\right) : x \in \mathbb{R} \right\}$. $H$ is now a horizontal line.
+        Thus $\mathbb{R}^2$ is a disjoint union of horizontal lines.
+    \end{example}
+\end{expbox}
+
+Note: Everything proven for left coset also holds for right cosets.
+
+\begin{thmbox}
+    \begin{corollary}
+        If $|G|=p$ is prime, then $G$ is cyclic group. 
+    \end{corollary}
+    \begin{prfbox}
+        \begin{proof}
+            Choose arbitrary element $a \in G, a \neq e$. Consider $\cyclic{a}= \text{cyclic
+            subgroup generated by a.}$ Then such group must contain at least 2 element,
+            namely $\{ a, e \}$. Then $| \cyclic{a}| \geq 2$. By Lagrange theorem, $| \cyclic{a}|$
+            is a divisor of $| G | = p$. As $p$ is prime ,then $| \cyclic{a}| = p \neq 1$.
+            Thus $\cyclic{a}= G$. 
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}[*]
+        The order of an element of a finite group is a divisor of the order of the group.
+    \end{theorem}
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        If $H_1, H_2$ are subgroup of the finite group $G$, and $| H_1 |$ and $| H_2
+        |$ are relatively prime, prove that $H_1 \cap H_2 = \{ e \}$.
+    \end{example}
+    \begin{prfbox}
+        \begin{proof}
+            Let $|H_1\cap H_2|=p$. Since $H_1\cap H_2$ is a subgroup of both $H_1$ and $H_2$, by Lagrange theorem, we have 
+            \begin{eqnarray*}
+                |H_1| & = & ap\\
+                |H_2| & = & bp
+            \end{eqnarray*}
+
+            Since $|H_1|,|H_2|$ are relatively prime, therefore gcd$(ap,bp)=1$. Assume that $p\geq 2$.\\
+
+            Then if $a=b$, then gcd$(ap,bp)=ap=bp\geq2$, which contradicts the fact that $|H_1|,|H_2|$ are relatively prime.\\
+
+            Since $a\neq b$, then we must have $p=1$, otherwise gcd$(ap,bp)>2$.\\
+
+            The group $|H_1\cap H_2|=p$ is thus trivial. i.e.$H_1\cap H_2={e}$
+        \end{proof}
+    \end{prfbox}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If $V_1, V_2$ are subspace in vector space $V$, then $V_1 \cap V_2$ is a
+        subspace of $V$. However, $V_1 \cup V_2$ might not be a subgroup of $V$.\\
+
+        In general, if $H_1, H_2$ are subgroup of $G$, then $H_1 \cup H_2$ is not a
+        subrgroup of $H$.
+    \end{theorem}
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $U_n = \{ z \in \mathbb{C}: z^n = 1 \} = \left\{ e^{\frac{2 \pi i}{n} k} :
+        k = 1, 2, \ldots, k - 1 \right\}$. Then $| U_n | = n$. Take a special example
+        $U_{10}$.\\
+
+        Then $U_2, U_5$ are also subgroups of $U_{10}$ as $| U_2 | = 2, | U_5 | = 5$.
+        Moreover, $| U_2 | \infixand | U_5 |$ are relatively prime, thus $U_2 \cap U_5
+        = \{ e \}$ . 
+    \end{example}
+\end{expbox}
+
+-Oct 5 finished-
 
 \end{document}
 
 \begin{thmbox}
     \begin{theorem}
+        
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
-
         \end{proof}
     \end{prfbox}
 \end{thmbox}
