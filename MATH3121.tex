@@ -840,9 +840,31 @@ The following theorem is very important throughtout the entire course!
             By left cancellation law, $e'=e''$
         \end{proof}
     \end{prfbox}
-    
 \end{thmbox}
 
+\begin{expbox}
+    \begin{example}[2023 Homework 1, Problem 3, Modified]
+        If $(G, *)$ is a group, $a, b, c \in G$, prove that $abc = e$ implies that $bca = e$. 
+    \end{example}
+    \begin{prfbox}
+        \begin{proof}[1]
+            Since $a,b,c\in G$, by associative property of groups, we have:
+            $$abc=a(bc)=e$$
+            By the property of inverse element of groups, we also have:
+            $$a(bc)=(bc)a=e$$
+            Therefore, if $abc=e$, then $abc=(bc)a=bca=e$.              
+        \end{proof}
+    \end{prfbox}
+    \begin{prfbox}
+        \begin{proof}[2]
+            Consider the element $g=a^{-1}abca$. For the associativity, we have $g=a^{-1}(abc)a=a^{-1}ea$.\\\\
+            On the other hand, we have $g=(a^{-1}a)bca=bca$.\\\\
+            Above all, we proved that $bca=e$.
+        \end{proof}
+    \end{prfbox}
+\end{expbox}
+
+\newpage
 
 \section{Subgroups}
 
@@ -1066,6 +1088,7 @@ Let $G$ be a group under $*$. Then we will be using the following set of notatio
     
 \end{thmbox}
 
+\newpage
 
 \section{Cyclic Groups}
 
@@ -1420,5 +1443,363 @@ With the above theorem, we can prove the following theorem:
     \end{prfbox}
 \end{thmbox}
 
+\begin{thmbox}
+    \begin{corollary}
+        Let $m,n$ be non-zero integers. Then $m\Z\cap n\Z=N\Z$ for some positive integer $N$.\\
 
+        Moreover, $N$ is a common multiple of $m,n$.
+    \end{corollary}    
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        The order of $a$ is the number of elements in $\cyclic{a}$.
+    \end{theorem}    
+    \begin{prfbox}
+        \begin{proof}
+            If order of $a$ is finite, then there exists $n \in \mathbb{Z}_{> 0}$, $a^n = e, a^j \neq
+            e$, $1 \leq j < n$.\\
+
+            Then $\cyclic{a} = \{ e, a, a^2, a^3, \ldots, a^{n - 1}, a^n = e, \ldots, \}$\\
+
+            Therefore $\cyclic{a}$ has $n$ elements.\\
+
+            Suppose there are non-distinct elements in the set, then $a^j = a^i
+            \implies e = a^{j - i}$ which leads to contradiction as we have for any $j
+            < n, a^j \neq e$.\\
+
+            If the order of $a$ is infinite, then
+            \[ \cyclic{a} = \{ e, a, a^2, \ldots \} \]
+            Suppose that there are non-distinct elements in the set, then $a^j = a^i
+            \Rightarrow e = a^{j - i}$ which leads to contradiction as we have for any $j
+            < n, a^j \neq e$.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        Consider a group $\text{GL} (2, \mathbb{R})$, compute the order of the
+        following element.
+        \[ a = \left[\begin{array}{cc}
+            0 & 1\\
+            - 1 & 0
+        \end{array}\right], b = \left[\begin{array}{cc}
+            1 & 0\\
+            2 & 1
+        \end{array}\right], c = \left[\begin{array}{cc}
+            \cos \left( \frac{\pi}{101} \right) & - \sin \left( \frac{\pi}{101}
+            \right)\\
+            \sin \left( \frac{\pi}{101} \right) & \cos \left( \frac{\pi}{101} \right)
+        \end{array}\right] \]\\\\
+        Note that $a^2 = \left[\begin{array}{cc}
+        0 & 1\\
+        - 1 & 0
+        \end{array}\right] \left[\begin{array}{cc}
+        0 & 1\\
+        - 1 & 0
+        \end{array}\right] = \left[\begin{array}{cc}
+        - 1 & 0\\
+        0 & - 1
+        \end{array}\right]$, we deduce that $(a^2)^2 = a^4 = I$, but still we
+        need to check $a^3$. $a^3 = \left[\begin{array}{cc}
+        - 1 & 0\\
+        0 & - 1
+        \end{array}\right] \left[\begin{array}{cc}
+        0 & 1\\
+        - 1 & 0
+        \end{array}\right] = \left[\begin{array}{cc}
+        0 & 1\\
+        - 1 & 0
+        \end{array}\right]$. The order of $a$ is $4$.\\\\
+
+        For $b,$ note that $b^2 = \left[\begin{array}{cc}
+        1 & 0\\
+        2 & 1
+        \end{array}\right] \left[\begin{array}{cc}
+        1 & 0\\
+        2 & 1
+        \end{array}\right] = \left[\begin{array}{cc}
+        1 & 0\\
+        4 & 1
+        \end{array}\right], b^3 = \left[\begin{array}{cc}
+        1 & 0\\
+        6 & 1
+        \end{array}\right]$, by observation, we have $b^n =
+        \left[\begin{array}{cc}
+        1 & 0\\
+        2 n & 1
+        \end{array}\right] \neq I$.
+        The order of $b$ is therefore $\infty$.\\\\
+
+        For $c$, since for any rotational matrix, we
+        have
+        \[ A^n_{\theta} = \left[\begin{array}{cc}
+            \cos n \theta & - \sin n \theta\\
+            \sin n \theta & \cos n \theta
+        \end{array}\right] \]
+        As a result, we have
+        \[ c^{202} = I \]
+        Thus the order of $c$ is 202.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $G$ be a group. $a\in G$ has order $n$. Suppose $a^m=e,m\in\Z$, prove that $m=nk,k\in\Z$.
+    \end{example}    
+    \begin{prfbox}
+        \begin{proof}
+            We write $m=nq+r$ for some $0\leq r < n$, then $r=m-nq$. Therefore, 
+            \begin{eqnarray*}
+                a^r & = & a^{m-nq}\\
+                    & = & a^ma^{-nq}\\
+                    & = & a^m(a^n)^{-q}\\
+                    & = & ee^{-q}\\
+                    & = & e
+            \end{eqnarray*}
+            Therefore $r$ must be equals to $0$. Thus $m=nq$.
+        \end{proof}
+    \end{prfbox}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $G$ be a group, $a,b\in G$. Prove that $ab$ and $ba$ have the same order.
+    \end{example}
+    \begin{prfbox}
+        \begin{proof}
+            Suppose $n$ is a natural number. $(ab)^n=e$ implies $\underbrace{(ab)(ab)...(ab)}_{n}=e$. 
+            \begin{eqnarray*}
+                (ab)(ab)...(ab) & = & e\\
+               b(ab)(ab)...(ab) & = & be\\
+               (ba)(ba)...(ba)b & = & eb\\
+                (ba)(ba)...(ba) & = & e
+            \end{eqnarray*}
+            Similarly, we can prove $(ba)^n=e$ implies $(ab)^n=e$.
+        \end{proof}
+    \end{prfbox}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Suppose $G$ is finite. $a \in G$, prove that $\exists n \in \mathbb{Z}_{> 0}$, $a^n = e$.
+    \end{example}
+    \begin{prfbox}
+        \begin{proof}
+            Assume that $| G | = N$, then  \{$a, a^2, a^3, \ldots, a^N, a^{N + 1}$\}  have
+        $N + 1$ element . Then there exists 2 element which are not unique from the
+        piegonhole principle. Let $a^i \infixand a^j$ be such element, where $i < j$.
+        Then by cancellation law we have $a^{j - i} = e$.
+        \end{proof}
+    \end{prfbox}
+\end{expbox}
+
+Now we state a lemma which will be useful for the proofs after (And also in exams and homework).
+
+\begin{thmbox}
+    \begin{lemma}
+        Suppose $G$ is finite group, $| G | = n$, $G = \{ a_1, a_2, \ldots, a_n \}$.
+        For $a \in G$, $\{ a a_1, a a_2, \ldots, a a_n \}$ is a distinct list.
+    \end{lemma}
+    \begin{prfbox}
+        \begin{proof}
+            Assume that two terms in the list are equal. By cancellation law:
+            $$aa_i=aa_j\implies a_i=a_j$$
+            Then $\{ a a_1, a a_2, \ldots, a a_n \}$ is simply a permutation of $G$.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        If $G$ is abelian, $| G | = n$, prove that for any $a \in G$, we have $a^n =e$.
+    \end{example}
+    \begin{prfbox}
+        
+    \begin{proof}
+        We list out the element $G=\{a_1,...,a_n\}$. Then $aa_1,aa_2,...,aa_n$ is a permutation of the list.
+        As $G$ is abelian, therefore:
+        \begin{eqnarray*}
+            a_1,...,a_n & = & aa_,aa_2,...,aa_n\\
+            a^na_1,...,a^na_n & = & a_1,...,a_n\\
+            a^n & = & e
+        \end{eqnarray*}
+    \end{proof} 
+\end{prfbox}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $G={e,a,b}$ be a group. We can write a table on binary operation:
+        \begin{center}
+            {\center{$\begin{array}{|cccc|}
+                \hline
+                \ast & e & a & b\\
+                e & e & a & b\\
+                a & a & b & e\\
+                b & b & e & a\\
+                \hline
+              \end{array}$}}
+        \end{center}
+        Note that the table is of permutation, and only hold for 2 and 3 element group.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}[Braid Groups]
+        Let $B_3$ be a braid group with 3 strings. Define $\sigma \infixand \tau$ to be the following.
+    \end{example}
+\begin{center}
+    \begin{tabular}{l|l}
+        \begin{tikzpicture}
+            \draw[draw=black, fill=black, thin, solid] (-1.00,2.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (0.00,2.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (-1.00,0.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (0.00,0.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (1.00,2.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (1.00,0.00) circle (0.1);
+            \draw[draw=black, thin, solid] (1.00,2.00) -- (1.00,0.00);
+            \draw[draw=black, thin, solid] (-1.00,2.00) -- (0.00,0.00);
+            \draw[draw=black, thin, solid] (0.00,2.00) -- (-0.4,1.2);
+            \draw[draw=black, thin, solid] (-1.00,0.00) -- (-0.6,0.8);
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}
+            \draw[draw=black, fill=black, thin, solid] (-1.00,2.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (0.00,2.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (-1.00,0.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (0.00,0.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (1.00,2.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (1.00,0.00) circle (0.1);
+
+            \draw[draw=black, thin, solid] (-1,2) -- (1,0);
+            \draw[draw=black, thin, solid] (-1,0) -- (-0.43,1.14);
+            \draw[draw=black, thin, solid] (0,2) -- (-0.23,1.54);
+            \draw[draw=black, thin, solid] (0,0) -- (0.23,0.46);
+            \draw[draw=black, thin, solid] (1,2) -- (0.43,0.86);
+
+        \end{tikzpicture}\\
+        $\sigma$ & $\tau$\\
+    \end{tabular}
+\end{center}
+\nline
+
+One may define the multiplication, $\sigma \ast \tau$, by joining the graph together with $\sigma$'s bottom and $\tau$'s top. For example, $\sigma \ast\tau$ will be:
+
+\begin{center}
+\begin{tabular}{l}
+    \begin{tikzpicture}
+        \draw[draw=black, fill=black, thin, solid] (-1.00,2.00) circle (0.1);
+        \draw[draw=black, fill=black, thin, solid] (0.00,2.00) circle (0.1);
+        \draw[draw=black, fill=black, thin, solid] (-1.00,0.00) circle (0.1);
+        \draw[draw=black, fill=black, thin, solid] (0.00,0.00) circle (0.1);
+        \draw[draw=black, fill=black, thin, solid] (1.00,2.00) circle (0.1);
+        \draw[draw=black, fill=black, thin, solid] (1.00,0.00) circle (0.1);
+
+        \draw[draw=black, fill=black, thin, solid] (-1.00,0.00) circle (0.1);
+        \draw[draw=black, fill=black, thin, solid] (0.00,0.00) circle (0.1);
+        \draw[draw=black, fill=black, thin, solid] (-1.00,-2.00) circle (0.1);
+        \draw[draw=black, fill=black, thin, solid] (0.00,-2.00) circle (0.1);
+        \draw[draw=black, fill=black, thin, solid] (1.00,0.00) circle (0.1);
+        \draw[draw=black, fill=black, thin, solid] (1.00,-2.00) circle (0.1);
+        
+        \draw[draw=black, thin, solid] (1.00,2.00) -- (1.00,0.00);
+        \draw[draw=black, thin, solid] (-1.00,2.00) -- (0.00,0.00);
+        \draw[draw=black, thin, solid] (0.00,2.00) -- (-0.4,1.2);
+        \draw[draw=black, thin, solid] (-1.00,0.00) -- (-0.6,0.8);
+
+        \draw[draw=black, thin, solid] (-1,0) -- (1,-2);
+        \draw[draw=black, thin, solid] (-1,-2) -- (-0.43,-0.86);
+        \draw[draw=black, thin, solid] (0,0) -- (-0.23,-0.46);
+        \draw[draw=black, thin, solid] (0,-2) -- (0.23,-1.54);
+        \draw[draw=black, thin, solid] (1,0) -- (0.43,-1.14);
+    \end{tikzpicture}\\
+    $\sigma * \tau$
+\end{tabular}
+
+\end{center}
+
+The identity element $e$ is defined as: 
+
+\begin{center}
+    \begin{tabular}{l}
+        \begin{tikzpicture}
+            \draw[draw=black, fill=black, thin, solid] (-1.00,2.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (0.00,2.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (-1.00,0.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (0.00,0.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (1.00,2.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (1.00,0.00) circle (0.1);
+    
+            \draw[draw=black, thin, solid] (-1,2) -- (-1,0);
+            \draw[draw=black, thin, solid] (1,2) -- (1,0);
+            \draw[draw=black, thin, solid] (0,0) -- (0,2);
+        \end{tikzpicture}\\
+        $e$
+    \end{tabular}
+\end{center}
+\end{expbox}
+
+\begin{expbox}
+    The inverse of $\sigma$ is given by:
+\begin{center}
+    \begin{tabular}{l}
+        \begin{tikzpicture}
+            \draw[draw=black, fill=black, thin, solid] (-1.00,2.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (0.00,2.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (-1.00,0.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (0.00,0.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (1.00,2.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (1.00,0.00) circle (0.1);
+            \draw[draw=black, thin, solid] (1.00,2.00) -- (1.00,0.00);
+            \draw[draw=black, thin, solid] (0.00,2.00) -- (-1.00,0.00);            
+            \draw[draw=black, thin, solid] (-1.00,2.00) -- (-0.6,1.2);
+            \draw[draw=black, thin, solid] (0.00,0.00) -- (-0.4,0.80);
+        \end{tikzpicture}\\
+        $\sigma^{-1}$    
+    \end{tabular}
+\end{center}
+To see the reason, consider $\sigma * \sigma^{-1}$:
+\begin{center}
+    \begin{tabular}{l}
+        \begin{tikzpicture}
+            \draw[draw=black, fill=black, thin, solid] (-1.00,2.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (0.00,2.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (-1.00,0.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (0.00,0.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (1.00,2.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (1.00,0.00) circle (0.1);
+            \draw[draw=black, thin, solid] (1.00,2.00) -- (1.00,0.00);
+            \draw[draw=black, thin, solid] (-1.00,2.00) -- (0.00,0.00);
+            \draw[draw=black, thin, solid] (0.00,2.00) -- (-0.4,1.2);
+            \draw[draw=black, thin, solid] (-1.00,0.00) -- (-0.6,0.8);
+
+            \draw[draw=black, fill=black, thin, solid] (-1.00,0.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (0.00,0.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (-1.00,-2.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (0.00,-2.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (1.00,0.00) circle (0.1);
+            \draw[draw=black, fill=black, thin, solid] (1.00,-2.00) circle (0.1);
+            \draw[draw=black, thin, solid] (1.00,0.00) -- (1.00,-2.00);
+            \draw[draw=black, thin, solid] (0.00,0.00) -- (-1.00,-2.00);            
+            \draw[draw=black, thin, solid] (-1.00,0.00) -- (-0.6,-0.8);
+            \draw[draw=black, thin, solid] (0.00,-2.00) -- (-0.4,-1.2);
+
+        \end{tikzpicture}
+        $\sigma * \sigma^{-1}$
+    \end{tabular}
+\end{center}
+and then when you try to move the two strings, they will become the identity element.\\\\
+In fact every braid can be represented with 4 types of elements only, and each element has inverse, thus in general every braid has inverse under such ``Multiplication''.
+\end{expbox}
+
+\setcounter{section}{7}
+\newpage
+\section{Groups of Permutations}
+\begin{defbox}
+    \begin{definition}[Permutation]
+        Let $A$ be a nonempty set. A map $\phi : A \rightarrow A$ is called a permutation of A, if it is one to one and onto.
+    \end{definition}
+\end{defbox}
 \end{document}
