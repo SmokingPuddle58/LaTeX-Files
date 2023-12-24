@@ -7,6 +7,8 @@
 \usepackage{graphicx}
 \usepackage{centernot}
 \usepackage{tikz}
+\usepackage{tikz-cd}
+
 \usepackage{tabularx}
 \usepackage{pgfcore}
 
@@ -39,6 +41,7 @@
 \newcommand{\infixand}{\text{ and }}
 \newcommand{\ord}[1]{\text{ord}(#1)}
 \newcommand{\tmop}{\text}
+\newcommand{\xequal}[1]{\stackrel{#1}{=}}
 
 
 \newtcolorbox{prfbox}{colback=gray!10,colframe=black!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=0pt}
@@ -3402,6 +3405,706 @@ $(\impliedby)$
         \end{proof}
     \end{prfbox}
 \end{expbox}
+
+
+\begin{expbox}
+    \begin{example}
+        If $\p_1 : G_1 \rightarrow G_2$ is a homomorphism, $\p_2 : G_2 \rightarrow
+        G_3$ is a homomorphism, then $\p_1 \circ \p_2 : G_1 \rightarrow G_3$ is also a
+        homomorphism.
+        \begin{prfbox}
+            \begin{proof}
+                Take $x, y \in G_1$. We want to prove that $\left( \p_1 \circ \p_2 \right) (x
+                y) = \left( \p_1 \circ \p_2 \right) (x) \ast \left( \p_1 \circ \p_2 \right)
+                (y)$.
+
+                Note that:
+                \begin{eqnarray*}
+                \tmop{LHS} & = & \p_2 \left( \p_1 (x y) \right) = \p_2 \left( \p_1 (x) \ast
+                \p_1 (y) \right) = \p_2 \left( \p_1 (x) \right) \ast \p_2 \left( \p_1 (y)
+                \right)\\
+                \tmop{RHS} & = & \left( \p_1 \circ \p_2 \right) (x) \ast \left( \p_1 \circ
+                \p_2 \right) (y) = \p_2 \left( \p_1 (x) \right) \ast \p_2 \left( \p_1 (y)
+                \right)\\
+                & = & \tmop{LHS}
+                \end{eqnarray*}
+            \end{proof}
+        \end{prfbox}
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Find a homomorphism
+        \[ f : \tmop{GL} (2, \mathbb{R}) \rightarrow \mathbb{R} \]
+        such that $f (2 I) = 3$. 
+    \end{example}
+    \begin{ansbox}
+            Consider:
+            \[ \tmop{GL} (2, \mathbb{R}) \xrightarrow{\det} \mathbb{R}^{\ast}
+               \xrightarrow{\tmop{abs}} \mathbb{R}_{> 0} \xrightarrow{\log_a} \mathbb{R}
+               \left( \xrightarrow{c} \mathbb{R} \right) \]
+            Then $f (A) = \log_a | \det (A) |$ for some $a$. Note that
+            \begin{eqnarray*}
+              \log_a | \det (2 I) | & = & 3\\
+              \log_a 4 & = & 3\\
+              4 & = & a^3\\
+              a & = & \sqrt[3]{4}
+            \end{eqnarray*}
+          
+          Thus the homomorphism required is $\p = \log_{\sqrt[3]{4}} | \det (A) |$.
+    \end{ansbox}
+\end{expbox}
+
+
+\begin{expbox}
+    \begin{example}
+        Let $C[0, 2]$ be the space of continuous function on $[0, 2]$. The integration map $\sigma : C[0, 2] \to \R$
+        $$\sigma(f)=\int_0^2 f(x)dx$$
+        is a linear map, so it is a homomorphism.
+    \end{example}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let $\p : G \rightarrow G'$ be a homomorphism of groups. Then we have:\\
+        \begin{itemize}
+        \item $\p (e) = e'$ where $e$ is the identity for $G$, while $e'$ is the
+        identity for $G'$.\\
+        
+        \item $\p (a^{- 1}) = \p (a)^{- 1}$.\\
+        
+        \item If $H \subset G$ is a subgroup, then $\p (H) = \left\{ \p (h) : h \in
+        H \right\}$ is a subgroup of $G'$.\\
+        
+        \item If $H' \subset G'$ is a subgroup, $\p^{- 1} (H') = \left\{ h \in G :
+        \p (h) \in H' \right\}$ is a subgroup of $G$.\\
+        \end{itemize}
+    \end{theorem}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{prfbox}
+        \begin{proof}
+            (1)
+            \begin{eqnarray*}
+            \because \text{\quad} e a & = & a\\
+            \p (e a) = \p (e) \p (a) = \p (a) & = & e' \p (a)\\
+            \p (e) \p (a) & = & e' \p (a)\\
+            \p (e) & = & e'
+            \end{eqnarray*}
+            (2)
+            \begin{eqnarray*}
+            \because a a^{- 1} & = & e\\
+            \p (a a^{- 1}) = \p (e) & \xequal{(1)} & e'\\
+            \p (a) \p (a^{- 1}) & = & e'\\
+            \p (a^{- 1}) & = & \p^{- 1} (a)
+            \end{eqnarray*}
+            (3)
+
+            If $\p (h_1), \p (h_2) \in \p (H), h_1, h_2 \in H$,
+            \begin{eqnarray*}
+            \p (h_1) \p (h_2) = \p (h_1 h_2) & \in & \p (H)
+            \end{eqnarray*}
+            This proves that $\p (H)$ is closed.\\
+
+            As $e \in H$, thus $e' = \p (e) \in \p (H)$. If $\p (h) \in \p (H), h \in H$,
+            then $\p (h)^{- 1} \xequal{(2)} \p (h^{- 1}) \in \p (H) $\\
+
+            These properties proves that $\p (H)$ is a subgroup.\\
+
+            (4)\\
+
+            If $h_1, h_2 \in \p^{- 1} (H')$, then $\p (h_1), \p (h_2) \in H'$. As $H'$ is
+            a subgroup, thus\\
+            \begin{eqnarray*}
+            \p (h_1) \p (h_2) & \in & H'\\
+            \p (h_1 h_2) & \in & H'\\
+            h_1 h_2 & \in & \p^{- 1} (H')
+            \end{eqnarray*}\\
+            This proves that $\p^{- 1} (H')$ is closed.\\
+
+            Note that $\p (e) = e' \in H$, thus $e \in \p^{- 1} (H')$.\\
+
+            If $h \in \p^{- 1} (H')$, then $\p (h) \in H'$. As $H'$ is a subgroup, thus
+            $\p (h)^{- 1} \in H'$.\\
+
+            As $\p (h^{- 1}) = \p (h)^{- 1} \in H'$, thus $h^{- 1} \in H$.\\
+
+            These properties proves that $\p^{- 1} (H')$ is a subgroup.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+
+\begin{defbox}
+    \begin{definition}[Kernal for linear map]
+        If $T : V \rightarrow V'$ is a linear map, then $\ker (T) = T^{- 1} (0)$
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        Consider:
+\[ (\ast) \left\{\begin{array}{l}
+     2 x_1 + 3 x_2 - x_3 = 0\\
+     x_1 + 4 x_2 + 5 x_3 = 0
+   \end{array}\right. \]
+Then $T : \mathbb{R}^3 \rightarrow \mathbb{R}^2$, where
+\[ T \left(\begin{array}{c}
+     x_1\\
+     x_2\\
+     x_3
+   \end{array}\right) = \left(\begin{array}{ccc}
+     2 & 3 & - 1\\
+     1 & 4 & 5
+   \end{array}\right) \left(\begin{array}{c}
+     x_1\\
+     x_2\\
+     x_3
+   \end{array}\right) \]
+Solving $(\ast)$ is equivalent of finding the kernal of $T$. 
+    \end{example}
+\end{expbox}
+
+\begin{defbox}
+    \begin{definition}
+        Let $\p^{- 1} (e') = \left\{ a \in G : \p (a) = e' \right\}$ be a subgroup of
+        $G$. Such group is called the kernal of $\p$. Written as $\ker \left(
+        \p \right)$.
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $A : m \times n$ be a matrix, Then $A$ defines a linear map $T_A :
+        \mathbb{R}^n \rightarrow \mathbb{R}^m$, where $T_A (v) = A v$.
+
+        Then
+        \begin{eqnarray*}
+        \ker (T_A) & = & \{ x \in \mathbb{R}^n : T_A (x) = 0 \}\\
+        & = & \{ x \in \mathbb{R}^n : A x = 0 \}\\
+        & = & \text{solution set of homogenous system $A x = 0$}
+        \end{eqnarray*}
+    \end{example}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let $\p : G \rightarrow G'$ be a homomorphism of groups, $\ker \left( \p
+        \right) = H$.\\
+
+        Let $b \in G'$, $\p^{- 1} (b) = \left\{ a \in G : \p (a) = b \right\}$ has
+        two cases:\\
+        \begin{itemize}
+        \item Case 0: $\p^{- 1} (b) = \emptyset$\\
+        
+        \item Case 1: $\p^{- 1} (b) \neq \emptyset$, then let $a \in \p^{- 1}
+        (b)$, then $\p^{- 1} (b) = a H$
+        \end{itemize}
+    \end{theorem}
+            \begin{prfbox}
+                \begin{proof}
+                    If case 1 does not happen, then $\p^{- 1} (b) \neq \emptyset$. Then we can
+                    find $a \in G$ such that $\p (a) = b$.\\
+
+                    We want to prove $\p^{- 1} (b) = a H$.\\
+
+                    \begin{tabular}{|c|}
+                    \hline
+                    $\p^{- 1} (b) \subseteq a H$\\
+                    \hline
+                    \end{tabular}\\
+
+                    For arbitrary $a h \in a H, b \in H$, then
+                    \begin{eqnarray*}
+                    \p (a h) & = & \p (a) \p (h)\\
+                    & = & b e'\\
+                    & = & b
+                    \end{eqnarray*}
+                    this proves that $a h \in \p^{- 1} (b)$ and $\p^{- 1} (b) \subseteq a H$.\\
+
+                    \begin{tabular}{|c|}
+                    \hline
+                    $\p^{- 1} (b) \subseteq a H$\\
+                    \hline
+                    \end{tabular}\\
+
+                    For arbritary $c \in \p^{- 1} (b)$, note that
+                    \begin{eqnarray*}
+                    \p (a^{- 1} c) & = & \p (a^{- 1}) \p (c)\\
+                    & = & b^{- 1} b\\
+                    & = & e'
+                    \end{eqnarray*}
+                    Thus $a^{- 1} \in \ker \left( \p \right) = H$, thus $\p^{- 1} \subset a H$.\\
+
+                    This proves such theorem.
+                \end{proof}
+            \end{prfbox}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{corollary}
+        A group of homomorphism $\p : G \rightarrow G'$ is a one to one map if and only if $\ker
+        \left( \p \right) = \{ e \}$.
+    \end{corollary}
+    \begin{prfbox}
+        \begin{proof}
+            If $\p$ is one to one, then $\p (e) = e'$, this implies that $ \ker \left( \p
+            \right) = \p^{- 1} (e') = e$.\\
+
+            Conversely if $\ker \left( \p \right) = \{ e \}$, then for $b \in G$, we have
+            $\p^{- 1} (b) = \emptyset$ or equal to $a \ker \left( \p \right) = \{ a \}$.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{corollary}
+        If $G, G'$ are finite groups, $\p : G \rightarrow G'$ is a homomorphism, and
+        $\p$ is onto, then $| G' |$ is a divisor of $| G |$.
+    \end{corollary}
+    \begin{prfbox}
+        \begin{proof}
+            Note that $\p$ is onto, thus $\forall b \in G'$, $\p^{- 1} (b) = \emptyset$,
+            then $\p^{- 1} (b) = a H$ for some $a \in G$, $H = \ker \left( \p \right)$.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+
+\begin{expbox}
+    \begin{example}
+        Let $G =\mathbb{C}^{\ast}, G' =\mathbb{R}^{\ast}$. Then let $\p :
+        \mathbb{C}^{\ast} \rightarrow \mathbb{R}^{\ast}$, where $\p (z) = | z |$. Note
+        that $| z w | = | z | | w |$, thus $\p$ is a group homomorphism.\\
+
+        Then $H = \ker \left( \p \right) = \{ z \in \mathbb{C}^{\ast} : | z | = 1 \}
+        = \{ z \in \mathbb{C}^{\ast} : z \bar{z} = 1 \}$.\\
+
+        Let $\p^{- 1} (b) = \{ z \in \mathbb{C}^{\ast} : | z | = b \}$, then if:\\
+        \begin{itemize}
+        \item $b < 0, \p^{- 1} (b) = \emptyset$\\
+        
+        \item $b > 0, \p^{- 1} (b) = b H$
+        \end{itemize}
+    \end{example}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If $A : m \times n$ is a matrix, we consider the system of linear equations:
+        \[ A x = b \qquad (\ast) \]
+        Where $x, b$ are column vector, where $x : n \times 1, b : m \times 1$, then
+        there are two cases:\\
+        \begin{itemize}
+        \item $(\ast)$ has no solution\\
+        
+        \item If $x = a \in \mathbb{R}^m$ is a solution, then every other solution
+        can be written as :
+        \[ a + h_1 : h \text{ is a solution of $A x = 0$} \]
+        \end{itemize}
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Since $A$ defines a linear map $T_A : \mathbb{R}^n \rightarrow
+            \mathbb{R}^m$, $T_A (x) = A x$. Then $T_A$ is a group homomorphism.\\
+
+            Then $\ker (T_A) = \{ x \in \mathbb{R}^n : T_A (x) = 0 \} = \text{solution set
+            of $A x = 0$}$.\\
+
+            Solving $A x = b$ is equivalent of finding $T^{- 1}_A (b)$. 
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{defbox}
+    \begin{definition}[Normal subgroup]
+        A subgroup $H$ of a group $G$ is a normal subgroup if $\forall g \in G$, $g H = H g$
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        If $G$ is abelian, then every subgroup is normal.\\
+
+        Consider $S_3$, let $\{ e \} \in S_3$, then such group is normal. Actually
+        for any group $G$, $\{ e \}$ and $G$ are normal.\\
+
+        Let $H = \{ e, (1, 2) \} \subset S_3$, then:
+        \begin{eqnarray*}
+        (1, 3) H & = & \{ (1, 3), (1, 2, 3) \}\\
+        H (1, 3) & = & \{ (1, 3), (1, 3, 2) \}
+        \end{eqnarray*}
+        $H$ is thus not a normal subgroup.
+    \end{example}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{lemma}
+        A subgroup $H \subset G$ is normal if and only if $\forall g \in G, b \in H$,
+        then
+        \[ g b g^{- 1} = H \]
+    \end{lemma}
+    \begin{prfbox}
+        \begin{proof}
+            \begin{tabular}{|c|}
+                \hline
+                $\Rightarrow$\\
+                \hline
+              \end{tabular}\\
+              
+              Suppose $H$ is normal, then $g H = H g$, then $g h \in g H = H g$, then $g h =
+              h' g$ for some $h' \in H$. Then:\\
+              
+              $g h g^{- 1} = h' \in H$, hence $\forall g \in G, b \in H$, $g b g^{- 1} =
+              H$.\\
+              
+              \begin{tabular}{|c|}
+                \hline
+                $\Leftarrow$\\
+                \hline
+              \end{tabular}\\
+              
+              Suppose that $g h g^{- 1} \in H, \forall g \in G, b \in H$, we want to prove
+              $H$ is normal, i.e. $g H = H g$ for all $g \in G$.\\
+              
+              \begin{tabular}{|c|}
+                \hline
+                $g H \subset H g$\\
+                \hline
+              \end{tabular}\\
+              
+              $\forall g h \in g H, h \in H$, we have $g h = g h g^{- 1} g$, as $g h g^{- 1}
+              \in H$, thus $g h = (g h g^{- 1}) g \in H g$.\\
+              
+              Thus $g H \subset H g$.\\
+              
+              \begin{tabular}{|c|}
+                \hline
+                $H g \subset g H$\\
+                \hline
+              \end{tabular}\\
+              
+              $\forall h g \in H g, h \in H$, we have $h g = g g^{- 1} h g \in g H$, thus $H
+              g \subset g H$.\\
+              
+              Thus $g H = H g$. This proves that $H$ is normal.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        Prove that $A_n$ is a normal subgroup of $S_n$. 
+    \end{example}
+    \begin{prfbox}
+        \begin{proof}
+            Let $h \in A_n, g \in S_n$. Then consider:\\
+            \begin{itemize}
+            \item Case 0: if $g$ is even, then $g \in A_n$, then $g h g^{- 1} \in A_n$\\
+            
+            \item Case 1: if $g$ is odd, then $g^{- 1}$ is also odd. Then $g h$ is odd.
+            Thus $g h g^{- 1}$ is even. 
+            \end{itemize}
+        \end{proof}
+    \end{prfbox}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If $\pi : G \rightarrow G'$ is a homomorphism, then $\ker (\pi)$ is a normal
+        subgroup of $G$. 
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            If $h \in \ker (\pi)$, $g \in G$, then $\pi (g h g^{- 1}) = \pi (g) \pi (h)
+            \pi (g^{- 1}) = \pi (g) \pi (g^{- 1}) = \pi (g g^{- 1}) = \pi (e) = e'$. Thus $g h g^{- 1} \in \ker (\pi)$.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        Define special linear group as:
+        \[ \tmop{SL} (n, \mathbb{R}) = \{ A \in \tmop{GL} (n, \mathbb{R}) : \det A = 1
+        \} \]
+        then $\tmop{SL} (n, \mathbb{R})$ is a normal subgroup of $\tmop{GL} (n,
+        \mathbb{R})$.
+    \end{example}
+\end{expbox}
+
+\newpage
+
+\section{Factor Groups}
+
+\begin{thmbox}
+    \begin{theorem}
+        If $H$ is normal subgroup of $G$, let $G / H$ be the set of all left/right
+        cosets of $H$, then:\\
+        \begin{enumerate}
+        \item Binary operation on $G / H$ defined by:
+        \[ (a H) \cdot (b H) = (a b) H \]
+        is well defined.\\
+        \item $G / H$ is a group under the binary operation in $(1)$.\\
+        \end{enumerate}
+        Then $G / H$ is called factor group of $G$ by $H$.
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            \begin{tabular}{|c|}
+                \hline
+                $(1)$\\
+                \hline
+              \end{tabular}\\
+              
+              If $a H = a' H, b H = b' H$, then we want to verify $(a b) H = (a' b') H$.\\
+              
+              Because $a' \in a' H = a H$, thus $a' \in a H$. Thus $a' = a h_1$ for some
+              $h_1 \in H$.\\
+              
+              Similarly, $b H = b' H$ implies that $b' = b h_2$ for some $h_2 \in H$.\\
+              
+              Thus $a' b' = a b b^{- 1} h_1 b h_2$. Note that $H$ is normal, thus $b^{- 1}
+              h_1 b \in H$, hence $b^{- 1} h_1 b h_2 \in H$, then $a' b' \in a b H$.\\
+              
+              $a' b' \in a' b' H \cap a b H$. Therefore the intersection is non-empty, this
+              implies that $a' b' H = a b H$.\\
+              
+              \begin{tabular}{|c|}
+                \hline
+                $(2)$\\
+                \hline
+              \end{tabular}\\
+              
+              \begin{tabular}{|c|}
+                \hline
+                Associativity\\
+                \hline
+              \end{tabular}
+              \begin{eqnarray*}
+                ((a H) (b H)) (c H) & = & (a b H) (c H) = (a b c) H\\
+                (a H) ((b H) (c H)) & = & (a H) (b c H) = (a b c) H
+              \end{eqnarray*}
+              Thus the associativity holds in $G / H$.\\
+              
+              \begin{tabular}{|c|}
+                \hline
+                Identity\\
+                \hline
+              \end{tabular}\\
+              
+              The $H$ itself is the identity element, and $H$ must exist, thus the identity
+              element must also exist.\\
+              
+              \begin{tabular}{|c|}
+                \hline
+                Inverse\\
+                \hline
+              \end{tabular}\\
+              
+              The inverse is the $a^{- 1} H$.\\
+              
+              Thus $G / H$ is a group. 
+        \end{proof}
+    \end{prfbox}
+
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $G =\mathbb{Z}$, and $H = 3\mathbb{Z}$. Then $a h = a + 3\mathbb{Z}$ and
+        $\mathbb{Z}/ 3\mathbb{Z}$ is $\{ 3\mathbb{Z}, 1 + 3\mathbb{Z}, 2 + 3\mathbb{Z}
+        \}$.\\
+
+        Moreover, $(a + 3\mathbb{Z}) + (b + 3\mathbb{Z}) = (a + b) + 3\mathbb{Z}$.
+        Note that $\mathbb{Z}/ 3\mathbb{Z}=\mathbb{Z}_3$.\\
+
+        In general, $\mathbb{Z}/ n\mathbb{Z}=\mathbb{Z}_n$
+
+    \end{example}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        \begin{itemize}
+            \item If $G$ is finite, then $| G / H | = \text{number of cosets of $H$=}
+            \frac{| G |}{| H |}$.\\
+            
+            \item Let $H$ be a normal subgroup of $G$, $G / H$ be the factor group of
+            $G$ by $H$. Then the map\\
+            
+            $\gamma : G \rightarrow G / H, \gamma (a) = a H$ is a homomorphism and $\ker
+            (\gamma) = H$.\\
+            
+            \item If $\p : G \rightarrow G'$ is a group homomorphism, then $\ker \left(
+            \p \right) = \left\{ x \in G : \p (x) = e' \right\}$ is a normal subgroup of
+            $G$.
+          \end{itemize}
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            \begin{eqnarray*}
+                \gamma (a b) & = & a b H\\
+                \gamma (a) \gamma (b) & = & (a H) (b H) = a b H\\
+                \gamma (a b) & = & \gamma (a) \gamma (b)
+              \end{eqnarray*}
+              Thus $\gamma$ must be a homomorphism.
+              \begin{eqnarray*}
+                \ker (\gamma) & = & \{ a \in G : \gamma (a) = e H \}\\
+                & = & \{ a \in G : a H = e H \}\\
+                & = & \{ a \in G : a \in H \}\\
+                & = & H
+              \end{eqnarray*}
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}[The Fundamental Homomorphism Theorem for Groups]
+        Suppose that $\p : G \rightarrow G'$ is a group homomorphism, with $\ker
+        \left( \p \right) = H$, then:\\
+        \begin{itemize}
+            \item $\p (G)$ is a subgroup of $G'$.\\
+            
+            \item $\mu : G / H \rightarrow \p (G)$ given by $\mu (a H) = \p (a)$ is well
+            defined, and is isomorphism.\\
+            
+            \item $\p = \mu \circ \gamma$. The relationship can be represented by the
+            following diagram.\\
+
+        \end{itemize}
+
+        \begin{center}
+            
+        \begin{tikzcd}
+            G \arrow[rd, "\gamma"] \arrow[rr, "\phi"] &                       & \phi(G) \\
+                                                      & G/H \arrow[ru, "\mu"] &        
+        \end{tikzcd}
+        \end{center}
+        
+        
+    \end{theorem}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{prfbox}
+        \begin{proof}
+            We only prove the second property.\\
+
+            \begin{tabular}{|c|}
+            \hline
+            Well-defineness\\
+            \hline
+            \end{tabular}\\
+
+            If $a H = a' H$, then we want to prove $\p (a) = \p (a')$.\\
+
+            As $a' \in a' H = a H$, $a' \in a H$, $a' = a h$ for some $h \in H$.
+
+            $$\p (a') = \p (a h) = \p (a) \p (h) = \p (a) e' = \p (a) \left( h \in H =
+            \ker \left( \p \right) \right)$$
+
+            This proves the well-definess.\\
+
+            \begin{tabular}{|c|}
+            \hline
+            $\mu$ is homomorphism\\
+            \hline
+            \end{tabular}\\
+
+            Note that
+            \begin{eqnarray*}
+            \mu ( (a H) (b H)) & = & \mu (a b H) = \p (a b)\\
+            \mu (a H) \mu (b H) & = & \p (a) \p (b) = \p (a b)
+            \end{eqnarray*}
+            Thus $\mu (a H) \mu (b H) = \mu ( (a H) (b H))$, thus $\mu$ is homomorphism.\\
+
+            \begin{tabular}{|c|}
+            \hline
+            $\mu$ is one-to-one\\
+            \hline
+            \end{tabular}\\
+
+            Note that $\mu$ is clearly onto.\\
+
+            To prove that $\mu$ is one-to-one, we prove that $\ker (\mu) = \{ e H \}$.\\
+            \begin{eqnarray*}
+            a H \in \ker (\mu) &  & \mu (a H) = e'\\
+            \p (a) = e' &  & a \in \ker \left( \p \right) = H\\
+            a H & = & H
+            \end{eqnarray*}\\
+            Thus $\ker (\mu) = \{ H \}$.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        Identify the factor group of $\mathbb{C}^{\ast} / U_n$, moreover, is there any
+        group homomorphism $\p : \mathbb{C}^{\ast} \rightarrow G'$ where $U_n = \ker
+        \left( \p \right)$.
+    \end{example}
+    \begin{ansbox}
+        Let $\p : \mathbb{C}^{\ast} \rightarrow \mathbb{C}^{\ast}$ be the homomorphism
+        given by $\p (z) = z^n$.\\
+
+        Note that $\ker \left( \p \right) = \left\{ z \in \mathbb{C}^{\ast} : \p (z)
+        = 1 \right\} = \{ z \in \mathbb{C}^{\ast} : z^n = 1 \} = U_n$.\\
+
+        We claim that $\p (\mathbb{C}^{\ast}) =\mathbb{C}^{\ast}$ (i.e. $\p$ is onto).\\
+
+        For arbitrary $b \in \mathbb{C}^{\ast}$, the equation $z^n = b$ is always
+        solvable (Fundamental theorem of algebra).
+        \begin{prfbox}
+            \begin{proof}
+                Write $b = r e^{i \theta}$, then $z = r^{\frac{1}{n}} e^{\frac{i
+                \theta}{n}}$ satisfies $z^n = b$
+            \end{proof}
+        \end{prfbox}
+    \end{ansbox}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If $S \subset V$ is a subspace of vector space $V$, recall that every vector
+        space $V$ is abelian group under the addition, and $S$ is a subgroup of $(V,
+        +)$.\\
+
+        Then $V / S$ is the set of left costs of $S$, which is $\{ a + s : a \in V
+        \}$. This is the factor group of\enspace$V$ by $S$.\\
+
+        For every $k \in \mathbb{R}$, we can define the scalar multiplcation on $V /
+        S$: $k (a + S) = k a + S$ is well-defined.
+    \end{theorem}
+
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}[The linear algebra version of 1st fundamental theorem for linear maps]
+        If $\p : V \rightarrow V'$ is a linear map, $S = \ker \left( \p \right) =
+        \left\{ x \in V : \p (x) = 0 \right\}$, then $\mu : V / S \Rightarrow \p (V')$
+        given by
+
+        $\mu (a + V) = \p (a)$ is well-defined, moreover, it is linear isomorphism.
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Note that $\dim (V / S) = \dim V - \dim S$.\\
+
+            If $e_1, \ldots, e_n$ is a basis for $S$, we can extend the set $\{ e_1,
+            \ldots, e_n \}$ to a basis $\{ e_1, \ldots, e_n, \ldots, e_N \}$ to get a
+            basis for $V_1$. where $\dim (V) = N$. Then $e_{n + 1} + S, \ldots, e_n + S$
+            is a basis for $V / S$.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\newpage
+
+\setcounter{section}{15}
+
+\section{Group action on a set}
 
 \end{document}
 
