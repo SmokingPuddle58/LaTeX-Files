@@ -1,3 +1,5 @@
+%!TEX program = lualatex
+
 \documentclass{article}
 \usepackage{tcolorbox}
 \usepackage{ntheorem}
@@ -8,7 +10,7 @@
 \usepackage{centernot}
 \usepackage{tikz}
 \usepackage{tikz-cd}
-
+\usepackage{emoji}
 \usepackage{tabularx}
 \usepackage{pgfcore}
 
@@ -28,6 +30,7 @@
 \theoremstyle{break}
 \newtheorem*{proof}{Proof. }
 
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -3279,7 +3282,7 @@ There are another theorem that can be used to prove the example, but before that
         If $\p : G \rightarrow G'$ is an isomorphism, $a \in G$, then for any
         positive integer $n$,
         \begin{eqnarray*}
-        a^n = e & \tmop{iff} & \p (a)^n = e'
+        a^n = e & \tmop{if and only if} & \p (a)^n = e'
         \end{eqnarray*}
         and moreover, $a \infixand \p (a)$ have the same order.
     \end{theorem}
@@ -4283,26 +4286,817 @@ This is called the orbit of $x$.
   Then $t \cdot v$ is the position of $v$ after time $t$. This forms a group
   action.
 
-\end{document}
+  \begin{expbox}
+    \begin{example}
+        Let $\tmop{GL} (2, \mathbb{R})$ acts on $\mathbb{R}^2$, then the orbit of
+        $\left(\begin{array}{c}
+        0\\
+        0
+        \end{array}\right) = \left\{ g \left(\begin{array}{c}
+        0\\
+        0
+        \end{array}\right) : g \in \tmop{GL} (2, \mathbb{R}) \right\} = \left\{
+        \left(\begin{array}{c}
+        0\\
+        0
+        \end{array}\right) \right\}$.\\
 
-\begin{defbox}
-    \begin{definition}[]
-        
-    \end{definition}
-\end{defbox}
+        The orbit of $\left(\begin{array}{c}
+        1\\
+        0
+        \end{array}\right) = \left\{ \left(\begin{array}{cc}
+        a & b\\
+        c & d
+        \end{array}\right) \left(\begin{array}{c}
+        1\\
+        0
+        \end{array}\right) : a d - b c \neq 0 \right\} = \left\{
+        \left(\begin{array}{c}
+        a\\
+        c
+        \end{array}\right) : a d - b c \neq 0 \right\} =\mathbb{R}^2 -
+        \left(\begin{array}{c}
+        0\\
+        0
+        \end{array}\right)$
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Consider $G = S_5$ acts on $X = \{ 1, \ldots, 5 \}$. Then $G 1 = \{ \sigma (1)
+: \sigma \in S_5 \} = X$.
+
+In fact, $G 1 = G 2 = G 3 = G 4 = G 5 = X$.
+    \end{example}
+\end{expbox}
 
 \begin{thmbox}
     \begin{theorem}
-        
+        Let $G$ be a finite group, which $G$ acts on a set $X$. Then for every $x \in
+X$,
+\[ | G x | \cdot | G_x | = | G | \]
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
+            Let $G / G_x$ be the set of all left cosets of $G_x$.\\
+
+            Define a map $\varphi : G / G_x \rightarrow G x$ by
+            \[ \varphi (g G_x) = g x \]
+            Note that $\varphi$ is well defined, i.e.
+            \[ g_1 G_x = g_2 G_x \Rightarrow g_1 x = g_2 x \]\\
+            \begin{tabular}{|c|}
+            \hline
+            Onto\\
+            \hline
+            \end{tabular}
+            \begin{eqnarray*}
+            g_1 G_x = g_2 G_x & \Rightarrow & g_1 = g_2 h, h \in G_x\\
+            g_1 x & = & (g_2 h) x\\
+            & = & g_2 (h x)\\
+            & = & g_2 x \hspace*{\fill} (\because b \in G_x)
+            \end{eqnarray*}
+            Obviously $\varphi$ is a onto map.\\
+
+            \begin{tabular}{|c|}
+            \hline
+            One-to-one\\
+            \hline
+            \end{tabular}\\
+
+            Suppose:
+            \begin{eqnarray*}
+            \varphi (g_1 G_x) & = & \varphi (g_2 G_x)\\
+            g_1 x & = & g_2 x\\
+            g_2^{- 1} g_1 x & = & g^{- 1}_2 g_2 x = x\\
+            h = g_2^{- 1} g_1 & \in & G_x\\
+            g_2 h = g_1 & \tmop{so} & g_1 G_x = g_2 G_x
+            \end{eqnarray*}
+            Hence $\varphi$ is one-to-one.\\
+
+            This imples $\varphi$ is a bijection.\\
+
+            Thus
+            \[ \frac{| G |}{| G_x |} = | G / G_x | = | G x | \Rightarrow | G | = | G_x |
+            | G x | \]
         \end{proof}
     \end{prfbox}
 \end{thmbox}
 
 \begin{expbox}
     \begin{example}
-        
+        Consider a cube, where $X$ is the set of 6 faces, $G$ is the symmetry group of
+the cube. $G$ acts on $X$, and $X = \{ 1, 2, 3, 4, 5, 6 \}$.
+
+Then $G 1 = X$, and as $| G_1 | = 4$ (The rotation symmetry is 4), thus $| G |
+= 4 \times 6 = 24$.
     \end{example}
 \end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Consider a regular tetrahedron, let $G$ be a symmetry group, and $G$ acts on
+$V = \{ 1, 2, 3, 4 \}$. Then $G 1 = V$, and also $| G_1 | = 3$, thus $| G | =
+| G_1 | \times | G 1 | = 3 \times 4 = 12$, moreover, the group is a subgroup
+of $S_4$. Actually the group is exactly $A_4$.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Consider a cube. And let $G$ be the symmetry group of the cube.\\
+
+        Let $F$ be the set of faces, then $| F | = 6$ and $G$ acts on $F$.\\
+
+        Also $G 1 = F$ and $G_1 = \text{set of symmetries that preserves face 1}$,
+        and $| G_1 | = 4$.\\
+
+        Then $| G | = 4 \times 6 = 24$.\\
+
+        Now, consider the set of vertices $V$, then $| V | = 8$ and $G$ also acts on
+        $V$.\\
+
+        Then $G 1 = V$. By the theorem, we have $| G | = | G_1 |  | G 1 | \Rightarrow
+        24 = 8 | G_1 | \Rightarrow | G_1 | = 3$.\\
+
+        Finally, let $E$ be the set of all edges, then $| E | = 12$ and $G$ also acts
+        on $| E |$.\\
+
+        Then $G 1 = E$. As $| G | = | G_1 |  | G_1 | \Rightarrow | G_1 | = 2$.
+    \end{example}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{proposition}
+        If $G$ acts on $X$, then:\\
+        \begin{itemize}
+        \item If $x_1, x_2 \in X$, then $G x_1 = G x_2$ or $G x_1 \cap G x_2 =
+        \emptyset$.\\
+        
+        \item $X$ is a disjoint union of orbits.
+        \end{itemize}
+    \end{proposition}
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $\tmop{GL} (2.\mathbb{R})$ acts on $\mathbb{R}^2$. Then $\{ 0 \}$ is an
+        orbit, and $\mathbb{R}^2 \backslash \{ 0 \}$ is also an orbit. Then
+        \[ \mathbb{R}^2 = \{ 0 \} \sqcup \mathbb{R}^2 \backslash \{ 0 \} \]
+        Let $U = \{ z \in \mathbb{C}: | z | = 1 \}$, then $U$ acts on $\mathbb{C}$ by
+        \[ z a : z \in U_1, a \in \mathbb{C} \]
+        Then convert $U$ as polar form, we have $U = \{ e^{i \theta} : \theta \in [0,
+        2 \pi) \}$.\\   
+
+        Note that $| z a | = | z |  | a | = | a |$. Thus the orbit $U a$ is a circle
+        centered at origin, with radius of $| a |$.
+    \end{example}
+\end{expbox}
+
+\newpage
+
+\setcounter{section}{17}
+
+\section{Ring and Fields}
+
+\begin{defbox}
+    \begin{definition}[Ring]
+        A ring is a set $R$ with an addition and a multiplcation following the axioms
+        below:\\
+        \begin{enumerate}
+        \item $(R, +)$ is an abelian \textbf{group}.\\
+        
+        \item $\times$ is associative. i.e. $(a \times b) \times c = a \times (b
+        \times c), \forall a, b, c \in R$.\\
+        
+        \item Distributive law holds. i.e.
+        \begin{eqnarray*}
+            (a + b) \times c & = & a \times c + b \times c\\
+            c \times (a + b) & = & c \times a + c \times b
+        \end{eqnarray*}
+        $\forall a, b, c \in R$
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        For a positive integer $n$, let $\mathbb{Z}_n = \{ 0, 1, \ldots, n - 1 \}$.\\
+
+        Define $+$ as the modulo $n$ addition, and $\times$ as the modulo $n$
+        multiplcation.\\
+
+        Then $(\mathbb{Z}_n, +, \times)$ is a ring, and it is finite.\\ 
+
+        Consider $\mathbb{Z}_9 = \{ 0, \ldots, 8 \}$. Then $7 \times 8 = 56 = 2$.
+    \end{example}
+\end{expbox}
+
+\begin{defbox}
+    \begin{definition}[Commutative ring]
+        A ring $R$ is a commutative ring, if the multiplcation is commutative. i.e.
+        \[ a b = b a \]
+        $\forall a, b \in \mathbb{R}$.
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        For each $n \geq 2$, let $M_n (\mathbb{R})$ be the set of $n \times n$
+        matrices. On $M_n (\mathbb{R})$ we have matrix addition and matrix
+        multiplcation.\\
+        
+        Then $M_n (\mathbb{R})$ is a ring under $+$ and $\times$.\\
+        
+        However, such ring is not a commutative ring.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Consider $C (\mathbb{R})$ be the space of all continuous functions on
+        $\mathbb{R}$.\\
+        
+        Define $+$ to be function addition, and $\times$ to be function multiplcation.\\
+        
+        Then $C (\mathbb{R})$ is a ring.\\
+        
+        Let $C^{\infty} (\mathbb{R})$ be the function on $\mathbb{R}$ that has
+        derivative of all order, then it is also a ring.\\
+        
+        Moreover, $C^{\infty} (\mathbb{R}) \subset C (\mathbb{R})$. For example, take
+        $f = | x |$, then $f \in C (\mathbb{R})$, but $f \nin C^{\infty}
+        (\mathbb{R})$.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        If $R_1, \ldots, R_n$ are rings, then the product set $R_1 \times \cdots
+        \times R_n$ is a ring under $(a_1, \ldots, a_n) + (b_1, \ldots, b_n) = (a_1 + b_1, \ldots, a_n + b_n)$, and $(a_1, \ldots, a_n) \times (b_1, \ldots, b_n) = (a_1 \times b_1, \ldots, a_n \times b_n).$
+    \end{example}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If $R$ is a ring, with additive identity $0$, and for $a \in R$, we denote its
+        inverse in additive group by $- a$. Then\\
+        \begin{itemize}
+        \item $(0 a) = (a 0) = 0$\\
+        
+        \item $a (- b) = (- a) b = - (a b)$\\
+        
+        \item $(- a) (- b) = a b$
+        \end{itemize}
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            \begin{enumerate}
+                \item Note that:
+                \begin{eqnarray*}
+                  0 a & = & (0 + 0) a\\
+                  & = & 0 a + 0 a\\
+                  0 a & = & 0
+                \end{eqnarray*}
+                The case $a 0 = 0$ can be proved similarly.\\
+
+                \item Note that:
+                \begin{eqnarray*}
+                  a (- b) + a b & = & a (- b + b)\\
+                  & = & a 0\\
+                  & = & 0\\
+                  a (- b) & = & - a b
+                \end{eqnarray*}
+                The case $- a (b) = a (- b)$ can be proved similarly.\\
+
+                \item
+                \begin{eqnarray*}
+                    (- a) (- b) + a (- b) & = & (- a + a) (- b)\\
+                    & = & 0 (- b)\\
+                    & = & 0\\
+                    (- a) (- b) - a b & = & 0\\
+                    (- a) (- b) & = & a b
+                  \end{eqnarray*}
+            \end{enumerate}
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{defbox}
+    \begin{definition}[Ring homomorphism]
+        Let $R, R'$ be two rings, Define $\phi : R \rightarrow R'$ is called a ring
+        homomorphism if:
+        \begin{eqnarray*}
+          \phi (a + b) & = & \phi (a) + \phi (b)\\
+          \phi (a b) & = & \phi (a) \phi (b)
+        \end{eqnarray*}
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        The map $\phi : \mathbb{Z} \rightarrow \mathbb{Z}_3$, $\phi (n) =
+        \left\{\begin{array}{ll}
+          0 & \text{, if $n$ is a multiple of 3}\\
+          1 & \text{, if $n$ has remainder 1 divided by 3}\\
+          2 & \text{, if $n$ has remainder 2 divided by 3}
+        \end{array}\right.$ gives a homomorphism.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        For arbitrary positive integer $n$, $\phi : \mathbb{Z} \rightarrow \mathbb{Z},
+        \phi (a) = a \tmop{ mod } n$ is a ring homomorphism.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $\phi : \mathbb{R} \rightarrow M_2 (\mathbb{R}), \phi (a) =
+        \left(\begin{array}{cc}
+          a & 0\\
+          0 & a
+        \end{array}\right) = a I_2$ gives a ring homomorphism, where $I_2$ is the
+        identity for $2 \times 2$ matrix.
+    \end{example}
+    \begin{prfbox}
+        \begin{proof}
+            \begin{eqnarray*}
+                \phi (a + b) & = & \left(\begin{array}{cc}
+                  a + b & 0\\
+                  0 & a + b
+                \end{array}\right)\\
+                & = & \left(\begin{array}{cc}
+                  a & 0\\
+                  0 & a
+                \end{array}\right) + \left(\begin{array}{cc}
+                  b & 0\\
+                  0 & b
+                \end{array}\right)\\
+                & = & \phi (a) + \phi (b)\\
+                \phi (a b) & = & \left(\begin{array}{cc}
+                  a b & 0\\
+                  0 & a b
+                \end{array}\right)\\
+                & = & \left(\begin{array}{cc}
+                  a & 0\\
+                  0 & a
+                \end{array}\right) \left(\begin{array}{cc}
+                  b & 0\\
+                  0 & b
+                \end{array}\right)\\
+                & = & \phi (a) \phi (b)
+              \end{eqnarray*}
+              Thus $\phi$ gives a ring homomorphism.
+        \end{proof}
+    \end{prfbox}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $\phi : \mathbb{C} \rightarrow M_2 (\mathbb{R})$. Imagine $\mathbb{C}$ to
+        be a $2 - \dim$ vector space over $\mathbb{R}$.\\
+        
+        Then we can represent $\mathbb{C}= \{ a + b i : a, b \in \mathbb{R} \}$. Then
+        it has a basis of $1, i$ over $\mathbb{R}$.\\
+        
+        Consider a map: $\mathbb{C} \rightarrow \mathbb{C}, z \mapsto (a + b i) z$ is
+        a linear map.\\
+        
+        Define $T_{a + b i} (z) = (a + b i) z$. Then $T$ is a linear transformation.\\
+        
+        Note that
+        \begin{eqnarray*}
+          T_{a + b i} (1) & = & a + b i\\
+          T_{a + b i} (i) & = & - b + a i
+        \end{eqnarray*}
+        Then the matrix for $T_{a + b i} = \left(\begin{array}{cc}
+          a & - b\\
+          b & a
+        \end{array}\right)$. Then $\phi (a + b i) = \left(\begin{array}{cc}
+          a & - b\\
+          b & a
+        \end{array}\right)$ is a ring homomorphism.
+    \end{example}
+    \begin{prfbox}
+        \begin{proof}
+            Trivial (Actually I don't want to type but it should be trivial for our reader right \emoji{squinting-face-with-tongue})
+        \end{proof}
+    \end{prfbox}
+\end{expbox}
+
+\begin{defbox}
+    \begin{definition}[Ring isomorphism]
+        An isomorphism $\phi : R \rightarrow R'$ from ring $R$ to ring $R'$ is a
+        homomorphism that is bijective.
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $\phi : \mathbb{C} \rightarrow A$, where $A = \left\{
+            \left(\begin{array}{cc}
+              a & - b\\
+              b & a
+            \end{array}\right) : a, b \in \mathbb{R} \right\}$ is a ring, and $\phi (a + b i) = \left(\begin{array}{cc}
+    a & - b\\
+    b & a
+\end{array}\right)$ gives a ring \textbf{isomorphism}.
+    \end{example}
+\end{expbox}
+
+\begin{defbox}
+    \begin{definition}[Ring with unity and Unit]
+        A ring $R$ with multiplcative identity element (unity) is a ring
+        {\underline{with unity}}. It is usually denoted by 1, which satisfies $1
+        \times a = a \times 1 = a, \forall a \in R$.\\
+        
+        Let $R$ be a ring with unity $1$, suppose that $1 \neq 0$, an element $u$ is
+        called a unit (Invertible element) if there is $u' \in R$ such that $u u' = u'
+        u = 1$.\\
+        
+        \begin{tabular}{|c|}
+          \hline
+          Why $1 \neq 0$?\\
+          \hline
+        \end{tabular}\\
+        
+        In a ring $R$ with unity $1$, and $1 = 0$, then $0 a = 0 = 1 a = a$. This
+        imples $R$ is trivial, i.e. $R = \{ 0 \}$.
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        $\mathbb{Z}, \mathbb{R}, \mathbb{Q}, \mathbb{C}, M_n (\mathbb{R}),
+        \mathbb{Z}_n$ all are ring with unity. However, $2\mathbb{Z}= \{ 2 n : n \in
+        \mathbb{Z} \}$ is a ring, without unity.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Consider the ring $\mathbb{Z}$, only $1, - 1$ are units.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        For $\mathbb{Q}, \mathbb{R}, \mathbb{C}$, all nonzero elements are units.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        For $M_n (\mathbb{R})$, all invertible matrices are units.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        For $C [0, 1]$, $f$ is a unit if and only if $f (a) \neq 0, \forall a \in [0, 1]$.
+    \end{example}
+\end{expbox}
+
+\begin{defbox}
+    \begin{definition}[Division Ring and Field]
+        Let $R$ be a ring with unity 1, we call $R$ a division ring if every nonzero
+        element $a \in R$ is a unit.\\
+        
+        A commutative division ring is called a field.\\
+        
+        Also, a field can be defined as following, with $R$ being a ring:\\
+        \begin{itemize}
+          \item $R$ is commutative.\\
+          
+          \item $R$ has a unity $1$.\\
+          
+          \item For all $a \in R, a \neq 0, a^{- 1}$ exists.
+        \end{itemize}
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        $\mathbb{Q}, \mathbb{R}, \mathbb{C}$ are fields. However, $\mathbb{Z}$ is not a field since only $\{1,-1\}$ are units. For most of the element, the inverse does not exist.
+    \end{example}
+\end{expbox}
+
+\newpage
+
+\section{Integral Domains}
+
+\begin{tabular}{|c|}
+    \hline
+    Intuition\\
+    \hline
+  \end{tabular}
+  
+  In $\mathbb{Z}, \mathbb{Q}, \mathbb{R}, \mathbb{C}$, if $a \neq 0, b \neq 0$,
+  then $a b \neq 0$. However, consider the following example:
+  
+\begin{expbox}
+    \begin{example}
+        In $\mathbb{Z}_{10}, 4 \neq 0, 5 \neq 0$. However, $4 \times 5 = 20 = 0$.
+      \end{example}
+\end{expbox}
+
+\begin{defbox}
+    \begin{definition}[Zero divisor]
+        Let $R$ be a commutative ring. $a \in R$ is called a zero divisor if $a \neq
+        0$, and there is $b \neq 0, a b = 0$.
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        In $\mathbb{Z}, \mathbb{Q}, \mathbb{R}, \mathbb{C}$, there are no zero
+        divisors.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Consider $\mathbb{Z}_{10} = \{ 0, \ldots, 9 \}$. The zero divisors are $2, 4,
+        5, 6, 8$. 
+    \end{example}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If $R$ is a commutative ring with unity $1, 1 \neq 0$, suppose $u \in R$ is a
+        unit, then $u$ is not a zero divisor. 
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Assume that $u$ is a zero divisor. Then $\exists b \in R, b \neq 0, u b = 0$.
+            Then:
+            \begin{eqnarray*}
+              u^{- 1} u b & = & u^{- 1} 0\\
+              b & = & 0
+            \end{eqnarray*}
+            Given that $b \neq 0$, this leads to a contradiction.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        Consider $C [0, 1]$, let:
+        \begin{eqnarray*}
+          f (x) = \left\{\begin{array}{ll}
+            0 & , x \in \left[ 0, \frac{1}{2} \right]\\\\
+            x - \frac{1}{2} & , x \in \left[ \frac{1}{2}, 1 \right]
+          \end{array}\right. & \tmop{and} & g (x) = \left\{\begin{array}{ll}
+            \frac{1}{2} - x & , x \in \left[ 0, \frac{1}{2} \right]\\\\
+            0 & , x \in \left[ \frac{1}{2}, 1 \right]
+          \end{array}\right.
+        \end{eqnarray*}
+        Then $f (x) g (x) = 0$. i.e. $f, g$ are zero divisor of $C [0, 1]$.
+    \end{example}
+\end{expbox}
+
+\begin{defbox}
+    \begin{definition}[Integral domain]
+        A ring $D$ is a integral domain, if it satisfies:\\
+        \begin{enumerate}
+          \item $D$ is a commutative ring.\\
+          
+          \item $D$ has a nonzero unity $1$.\\
+          
+          \item $D$ has no zero divisors.
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        $\mathbb{Z}, \mathbb{Q}, \mathbb{R}, \mathbb{C}$ are integral domains.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        $C [0, 1]$ is not integral domain.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        $\mathbb{Z}_{10}$ is not a integral domain.
+    \end{example}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        if $n$ is not prime number, then $\mathbb{Z}_n$ is not a integral domain.
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            \begin{tabular}{|c|}
+                \hline
+                If $n$ is not prime number, then $\mathbb{Z}_n$ is not a integral domain.\\
+                \hline
+              \end{tabular}\\
+              
+              If $n$ is not a prime number, then $n = a b$ where $a \in (0, n), b \in (0,
+              n)$.\\
+              
+              Then $a \neq 0, b \neq 0, a b = n = 0$, thus $a, b$ are zero divisors.\\
+              
+              \begin{tabular}{|c|}
+                \hline
+                If $p$ is a prime number, then $\mathbb{Z}_p$ is a integral domain.\\
+                \hline
+              \end{tabular}\\
+              
+              Let $\mathbb{Z}_p = \{ 0, 1, \ldots, p - 1 \}$, if $a, b \in \mathbb{Z}_p, a
+              \neq 0, b \neq 0, a b = 0$, then the usual product $a b$ is a multiple of $p$.\\
+              
+              This imples that one of $a, b$ is a multiple of $p$. This contradicts to $a
+              \neq 0 \infixand b \neq 0$ in $\mathbb{Z}_p$.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Every field is an integral domain.
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Suppose $F$ is a field, If $F$ has zero divisor, then for some $a \neq 0, b
+            \neq 0, a b = 0$.\\
+            
+            As $a \neq 0$, and $F$ is a ring, thus $a^{- 1}$ exists. Hence
+            \begin{eqnarray*}
+              a b & = & 0\\
+              a^{- 1} a b & = & 0\\
+              b & = & 0
+            \end{eqnarray*}
+            Which leads to contradiction.\\
+            
+            This implies that $F$ has no zero-divisors. So $F$ is a integral domain.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+From this we can see the following relation:
+
+\begin{center}
+    rings $\supset$ commutative rings $\supset$ integral domains $\supset$ fields
+\end{center}
+
+\begin{thmbox}
+    \begin{theorem}
+        If $R$ is a commutative ring, $a \neq 0$, $a$ is not a zero-divisor, then we
+        have
+        $$ab=ac\implies b=c$$
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            \begin{eqnarray*}
+                a b = a c & \Rightarrow & a b - a c = 0\\
+                & \Rightarrow & a (b - c) = 0\\
+                & \Rightarrow & (b - c) = 0\\
+                & \Rightarrow & b = c
+              \end{eqnarray*}
+              as $a$ is not a zero-divisor.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Every \textbf{finite} integral domain $D$ is a field. 
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Assume that, for $a \in D$, we need to prove $a^{- 1}$ exists for any $a \neq
+            0$.\\
+            
+            We list all element in $D :$
+            \[ D = \{ 0, 1, a_2, \ldots, a_n \} \]
+            where $| D | = n + 1$.\\
+            
+            Consider the following list
+            \[ \{ a 0, a 1, a a_2, \ldots, a a_n \} \]
+            As $a b = a c \Rightarrow b = c$ thus the list is distinct. Therefore there is
+            $a_i$, where $i \in [1, n]$, s.t. $a a_i = 1$.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{corollary}
+        If $p$ is prime, then $\mathbb{Z}_p$ is a field.
+    \end{corollary}
+\end{thmbox}
+
+\newpage
+
+\section{Fermat's and Euler's Theorem}
+
+
+
+\begin{thmbox}
+    \begin{theorem}[Fermat's theorem]
+        If $p$ is prime, $a \in \mathbb{Z}$, then $a^p - a$ is a multiple of $p$.
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            If $a = 0$, then $a^p - a = 0$ is a multiple of $p$.\\
+
+            If $a$ is a negative number, then $n$ is positive. We then have:
+            \begin{eqnarray*}
+              a^p - a & = & (- n)^p - (- n)\\
+              & = & - n^p + n\\
+              & = & - (n^p - n)
+            \end{eqnarray*}
+            So we can reduce the case where $a$ is negative to $a$ is positive.\\
+            
+            Now we prove by induction.\\
+            
+            Let $a = 1$, then
+            \begin{eqnarray*}
+              a^p - a & = & 0
+            \end{eqnarray*}
+            The result holds.\\
+            
+            Now suppose for $a = n$, the result holds. Then for $a = n + 1$, we have:
+            \begin{eqnarray}
+              a^p - a & = & (n + 1)^p - (n + 1)\nonumber\\
+              & = & \sum^p_{j = 0} \left(\begin{array}{c}
+                p\\
+                j
+              \end{array}\right) n^j - (n + 1)\nonumber\\
+              & = & \sum^{p \tmmathbf{- 1}}_{j = \tmmathbf{1}} \left(\begin{array}{c}
+                p\\
+                j
+              \end{array}\right) n^j + \left(\begin{array}{c}
+                p\\
+                0
+              \end{array}\right) n^0 + \left(\begin{array}{c}
+                p\\
+                p
+              \end{array}\right) n^p - (n + 1)\nonumber\\
+              & = & \sum^{p \tmmathbf{- 1}}_{j = \tmmathbf{1}} \left(\begin{array}{c}
+                p\\
+                j
+              \end{array}\right) n^j + n^p - n
+            \end{eqnarray}
+            By induction assumption, we have $n^p - n$ is a multiple of $p$.\\
+            
+            For $j \in [1, p - 1]$, we have $\left(\begin{array}{c}
+              p\\
+              j
+            \end{array}\right) = \frac{p!}{j! (p - j) !}$.\\
+            
+            Note that $p$ is prime, therefore $p$ is not a divisor of $j! (p - j) ! = (1
+            \times 2 \times \cdots \times j) (1 \times 2 \times \cdots \times (p - j))$.\\
+            
+            Thus $\left(\begin{array}{c}
+              p\\
+              j
+            \end{array}\right)$ is a multiple of $p$. So $(1)$ is a multiple of $p$.\\
+            
+            The results holds for $a = n + 1$.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $a = 3, p = 5$, then $3^5 - 3 = 240$ and it is multiple of 5.
+    \end{example}
+\end{expbox}
+
+\end{document}
+\begin{defbox}
+    \begin{definition}[]
+
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{theorem}
+
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+
+    \end{example}
+\end{expbox}
+
+
+
+
+
