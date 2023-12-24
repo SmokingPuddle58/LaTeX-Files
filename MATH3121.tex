@@ -5732,12 +5732,137 @@ For a more detailed proof of this section, please refer to the textbook P.190.
     \end{theorem}
 \end{thmbox}
 
+\newpage
+
 {\noindent}\begin{tabularx}{1.0\textwidth}{|@{}X@{}|}
     \hline    
          The following topics are extra topics that \textbf{WILL NOT} appear in final exam.\\
     \hline
-  \end{tabularx}
+\end{tabularx}
 
+In the following, we will talk about:
+\begin{itemize}
+\item Jordan Canonical form of square matrices over $\mathbb{C}$
+
+\item Polynomial Rings
+
+\item Famous impossibility theorems
+\end{itemize}
+
+\newpage
+
+\section*{Add. Topic 1. Jordan Canonical Forms of Square Matrices}
+\begin{defbox}
+    \begin{definition}[Similar matrices]
+        Two $n \times n$ matrices $A$ and $B$ are said to be similar, if there is $n
+        \times n$ invertible matrices $T$, s.t
+        \[ B = T A T^{- 1} \]
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        $\tmop{GL} (n, \mathbb{R})$ acts on $M_n (\mathbb{R})$ by $g \ast A = g A g^{-
+        1}$.
+        
+        Thus we can claim that $A, B$ are similar, if $A, B$ are in the same orbit.
+    \end{example}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If $A, B$ are similar, then $| A | = | B |$
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            \begin{eqnarray*}
+                \det (B) & = & \det (T A T^{- 1})\\
+                & = & \det (T) \det (A) \det (T^{- 1})\\
+                & = & \det (T T^{- 1}) \det (A)\\
+                & = & \det (A)
+            \end{eqnarray*}
+        \end{proof}
+    \end{prfbox}
+    However, the converse may not be true. For example, $\left[\begin{array}{cc}
+        1 & 0\\
+        0 & 1
+      \end{array}\right] \infixand \left[\begin{array}{cc}
+        2 & 0\\
+        0 & \frac{1}{2}
+      \end{array}\right]$ are not similar.
+      \begin{prfbox}
+        \begin{proof}
+
+            \nline
+
+            $T \left[\begin{array}{cc}
+                1 & 0\\
+                0 & 1
+              \end{array}\right] T^{- 1} = T T^{- 1} = \left[\begin{array}{cc}
+                1 & 0\\
+                0 & 1
+              \end{array}\right]$, therefore $\left[\begin{array}{cc}
+                1 & 0\\
+                0 & 1
+              \end{array}\right]$ is only similar to itself.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+\begin{thmbox}
+    \begin{theorem}
+        If $A$ and $B$ are similar, then their characteristic polynomial are equal.\\
+
+        Note that characteristic polynomial is defined by $| x I_n - A |$ for any $n
+        \times n$ matrix $A$.
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}'
+            \begin{eqnarray*}
+                \tmop{char} (B) & = & \det (x I_n - B)\\
+                & = & \det (x I_n - T A T^{- 1})\\
+                & = & \det (T (x I_n - A) T^{- 1})\\
+                & = & \det (x I_n - A)\\
+                & = & \tmop{char} (A)
+              \end{eqnarray*}
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If $| x I_n - A | = | x I_n - B |$, then $A$ may not be necessarily similar to
+        $B$.
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Let $A = \left[\begin{array}{cc}
+                2 & 0\\
+                0 & 2
+              \end{array}\right], B = \left[\begin{array}{cc}
+                2 & 1\\
+                0 & 2
+              \end{array}\right]$, then $| A | = | B | = 4$. However,
+              \begin{eqnarray*}
+                | A - x I | & = & \left|\begin{array}{cc}
+                  2 - x & 0\\
+                  0 & 2 - x
+                \end{array}\right| = (2 - x)^2\\
+                | B - x I | & = & \left|\begin{array}{cc}
+                  2 - x & 1\\
+                  0 & 2 - x
+                \end{array}\right| = (2 - x)^2
+              \end{eqnarray*}
+              If $A, B$ are similar, then
+              \begin{eqnarray*}
+                B & = & T A T^{- 1}\\
+                & = & T (2 I) T^{- 1}\\
+                & = & 2 I\\
+                & = & A
+              \end{eqnarray*}
+              Therefore $A$ is only similar to itself. Contradition!
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
 
 \end{document}
 
