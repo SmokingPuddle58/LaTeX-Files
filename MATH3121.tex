@@ -2757,9 +2757,9 @@ Note: Everything proven for left coset also holds for right cosets.
 
             Then if $a=b$, then gcd$(ap,bp)=ap=bp\geq2$, which contradicts the fact that $|H_1|,|H_2|$ are relatively prime.\\
 
-            Since $a\neq b$, then we must have $p=1$, otherwise gcd$(ap,bp)>2$.\\
+            Since $a\neq b$, then we must have $p=1$, otherwise gcd$(ap,bp)\geq2$.\\
 
-            The group $|H_1\cap H_2|=p$ is thus trivial. i.e.$H_1\cap H_2={e}$
+            The group $|H_1\cap H_2|=p$ is thus trivial. i.e. $H_1\cap H_2=\{e\}$
         \end{proof}
     \end{prfbox}
 \end{expbox}
@@ -2786,9 +2786,630 @@ Note: Everything proven for left coset also holds for right cosets.
     \end{example}
 \end{expbox}
 
--Oct 5 finished-
+\newpage
+
+\section{Direct Products and Finitely Generated Abelian Groups}
+
+\begin{defbox}
+    \begin{definition}[Direct set]
+        If $S_1, S_2$ are sets, then direct set $S_1 \times S_2 = \{ (x, y) : x \in
+        S_1, y \in S_2 \}$.
+
+        Moreover if $S_1 \ldots S_n$ are sets, then their direct product set is
+        \[ S_1 \times \cdots \times S_n = \{ (a_1, a_2, \ldots, a_n) : a_1 \in S_1,
+        \ldots, a_n \in S_n \} \]
+        The cardinality, $| S_1 \times \cdots \times S_n | = | S_1 | \ast \ldots \ast
+        | S_n |$.
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $S_1 = \{ a, b \}, S_2 = \{ 1, 2, 3 \}$, then $S_1 \times S_2 = \{ (a, 1),
+        (a, 2), (a, 3), (b, 1), (b, 2), (b, 3) \}$.
+
+        \nline
+
+        $\mathbb{R}^2 \times \mathbb{R}^3 = \{ (a, b) : a \in \mathbb{R}^2, b \in
+        \mathbb{R}^3 \} = \{ (a_1, a_2, b_1, b_2, b_3) : (a_1, a_2) \in \mathbb{R}^2,
+        (b_1, b_2, b_3) \in \mathbb{R}^3 \},$
+        
+        $\text{and} \dim (\mathbb{R}^2 \times \mathbb{R}^3) = 5$.
+    \end{example}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Suppose $G_1, \ldots, G_n$ are groups, then $G_1 \times \cdots \times G_n$ has
+the binary operation
+\[ (a_1, \ldots, a_n) \times (b_1, \ldots, b_n) = (a_1 b_1, a_2 b_2, \ldots,
+   a_n b_n) \]
+The directed product set is a group under such operation. 
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Identity: If $e_1 \in G_1, \ldots, e^m$ are the identity elemens,s then
+            identity element is $(e_1, \ldots, e_n) .$
+
+            Associativity: We proof that $(a_1, \ldots, a_n) (b_1, \ldots, b_n) (c_1,
+            \ldots, c_n) \in G_1 \times \cdots \times G_n$
+            \begin{eqnarray*}
+            \tmop{LHS} & = & ((a_1, \ldots, a_n) (b_1, \ldots, b_n)) (c_1, \ldots,
+            c_n)\\
+            & = & (a_1 b_1, \ldots, a_n b_n) (c_1, \ldots, c_n)\\
+            & = & (a_1 b_1 c_1, \ldots, a_n b_n c_n)\\
+            \tmop{RHS} & = & (a_1, \ldots, a_n) ((b_1, \ldots, b_n) (c_1, \ldots,
+            c_n))\\
+            & = & (a_1, \ldots, a_n) (b_1 c_1, \ldots, b_n c_n)\\
+            & = & (a_1 (b_1 c_1), \ldots, (a_n (b_n c_n)))
+            \end{eqnarray*}
+            Thus each of $G_1, \ldots, G_n$ has associativity, so associativity holds for
+            any $G_1 \times \cdots \times G_n$.
+
+            Inverse: The inverse for $(a_1, \ldots, a_n)$ is $(a_1^{- 1}, \ldots, a_n^{-
+            1})$. To prove that, consider
+            \begin{eqnarray*}
+            (a_1, \ldots, a_n) (a_1^{- 1}, \ldots, a_n^{- 1}) & = & (a_1 a^{- 1}_1,
+            \ldots, a_n a_n^{- 1}) = (e_1, \ldots, e_n)\\
+            (a_1^{- 1}, \ldots, a_n^{- 1}) (a_1, \ldots, a_n) & = & (a_1^{- 1} a_1,
+            \ldots, a_n^{- 1} a_n) = (e_1, \ldots, e_n)
+            \end{eqnarray*}
+            This proves that the directed product set is a group under multiplication.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If $G_1, \ldots, G_n$ are Abelian group, then $G_1 \times \cdots \times G_n$
+        is also Abelian group. 
+    \end{theorem}
+
+\end{thmbox}
+
+
+\begin{expbox}
+    \begin{example}
+        Give a finite Abelian group that is not cyclic.
+        Consider the following finite group we've discussed so far:
+        \[ S_n, A_n, \mathbb{Z}_n, V_n \]
+        Note that $S_n, A_n$ are not Abelian, for $n \geq 3 \infixand n \geq 4$. While
+        $\mathbb{Z}_n$ is Abelian and cyclic. $V_n$ is cyclic.\\
+
+        Consider the group (Hint of HW)
+        \[ G = \left\{ \left(\begin{array}{cc}
+            a & 0\\
+            0 & b
+        \end{array}\right) : a, b \in \{ 1, - 1 \} \right\} \]
+        $G$ is Abelian as the diagonal matrix commutes.\\
+
+        $G$ is not cyclic, as $G$ is going to generate 2 element subgroup. How about
+        if we want to generate more such example?\\
+
+        Consider $S_1 = \{ 1, - 1 \}$ to be a subgroup under $\cdot$. Let $S_2 = \{ 1,
+        - 1 \}$. By consider direct product, we have:\\
+
+        Consider $\mathbb{Z}_5 \times \mathbb{Z}_5$, note that $| \mathbb{Z}_5 \times
+        \mathbb{Z}_5 | = 25$. The group is Abelian, but the group is not cyclic, as if
+        we take any $(a, b) \in \mathbb{Z}_5 \times \mathbb{Z}_5$, then $(a, b) +
+        \cdots + (a, b) = (5 a, 5 b) = (0, 0)$. Thus $(a, b)$ will generate a group of
+        5 elements, but not 25 elements. Thus $\mathbb{Z}_5 \times \mathbb{Z}_5$ is
+        never cyclic.\\
+
+        Consider $\mathbb{Z}_3 \times \mathbb{Z}_5$, is $\mathbb{Z}_3 \times
+        \mathbb{Z}_5$ cyclic?\\
+
+        {\noindent}\begin{tabularx}{1.0\textwidth}{|@{}X@{}|}
+        \hline
+        If $| G | = n$, then $G$ is cyclic, if and only if $G$ has an element where
+        its order is $n$.\\
+        \hline
+        \end{tabularx}\\
+
+        Consider $\underbrace{(1,1)+...+(1,1)}_{n}=(n,n)=(0,0)$if and only $n$ is a multiple of 3 and multiple of 5. As $3, 5$ are
+        relatively prime, thus this means $n$ need to be a multiple of $15$. The order
+        of $(1, 1)$ therefore is 15.\\
+
+        Thus the group is cyclic.\\
+
+        In general, $\mathbb{Z}_m \times \mathbb{Z}_n$ is cyclic, if and only if $m,
+        n$ are relatively prime, moreover $(1, 1)$ is a generator. 
+    \end{example}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If $G$ is a cyclic group of order $m$, $G'$ is a cyclic group of order $n$, if
+        $m, n$ are relatively prime, then $G \times G'$ is cyclic.
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Let $G = \cyclic{a}$, $G' = \cyclic{b}$, so a has order m and b has order n. Consider $(a, b) \in G \times G'$, it
+            has order mn, which is $|G \times G'|$, so $G \times G'$ is cyclic.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{defbox}
+    \begin{definition}
+        If $G$ is a group, $S$ is a subset, then we say $S$ generates $G$, if every
+        element $g \in G$ can be expressed as $g = a^{k_1}_1 \ldots a^{k_m}_m$, for
+        some $a_1, \ldots, a_m \in S$, and $k_1, \ldots, k_n \in \mathbb{Z}$.
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        Consider $S_n$. Let $S$ be a set of all transpositions, then $S$ generates
+        $S_n$. (As every permutation can be written as transpositions). 
+    \end{example}
+\end{expbox}
+\begin{expbox}
+    \begin{example}
+        Let $S' = \{ (1, 2), \ldots, (n - 1, n) \}$. This interchange two integers.
+        Then $S'$ can generate $S_n$. (Not required)
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Consider $\tmop{GL} (3, \mathbb{R})$, the $3 \times 3$ invertible real
+        matrices.
+
+        We Consider the following method to find the inverse. (Commonly used in
+        linear algebra course)
+        \[ (A|I) \xrightarrow{\text{series of row operation}} (I|B) \]
+        Then when you perform row operations, you are actually multiplying an
+        elementary matrix $E_i$. Hence we have:
+        \begin{eqnarray*}
+        (A|I) & \xrightarrow{\text{$1^{\tmop{st}}$ row operation}} & (E_1 A_1 |E_1
+        I_3)\\
+        & \xrightarrow{\text{$2^{\tmop{nd}}$ row operation}} & (E_2 E_1 A_1 |E_2
+        E_1 I_3)\\
+        & \vdots & \\
+        & \xrightarrow{\text{$m^{\tmop{th}}$ row operation}} & (E_m E_{m - 1}
+        \ldots E_2 E_1 A_1 |E_m E_{m - 1} \ldots E_2 E_1 I_3)\\
+        &  & \\
+        (E_m E_{m - 1} \ldots E_2 E_1) A & = & I\\
+        A^{- 1} & = & (E_m E_{m - 1} \ldots E_2 E_1)
+        \end{eqnarray*}
+        Thus if we let $S = \text{all $3 \times 3$ elementary matrices}$, then $S$
+        generates $\tmop{GL} (3, \mathbb{R})$.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $E$ be the set of $n \times n$ matrices. $n \times n$ matrix $A$ is called
+        an elementary matrix $A$, if $A$ is obtained from $I_n$ by performing a single
+        elementary row operation, including:\\
+
+        \begin{itemize}
+        \item Multiplying a row by a non-zero scalar\\
+        
+        \item Interchanging two rows\\
+        
+        \item Adding multiple of a row to another row\\
+        \end{itemize}
+        Take $n = 2$, we have:
+        \[ E = \left\{ \left(\begin{array}{cc}
+            c & 0\\
+            0 & 1
+        \end{array}\right), \left(\begin{array}{cc}
+            1 & 0\\
+            0 & c
+        \end{array}\right), \left(\begin{array}{cc}
+            0 & 1\\
+            1 & 0
+        \end{array}\right), \left(\begin{array}{cc}
+            1 & c\\
+            0 & 1
+        \end{array}\right), \left(\begin{array}{cc}
+            1 & 0\\
+            c & 1
+        \end{array}\right) \right\}, c \in \mathbb{R}\backslash \{ 0 \} \]
+        We say that $E$ generates $\tmop{GL} (n, \mathbb{R})$
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Consider $\mathbb{Z} \times \mathbb{Z}= \{ (m, n) : m, n \in \mathbb{R} \}
+        \subset \mathbb{R}^2$. Then $S = \{ (0, 1), (1, 0) \}$ generates $\mathbb{Z}
+        \times \mathbb{Z}$.\\
+
+        In general, $(m, n) = m (1, 0) + n (0, 1)$.\\
+
+        Also consider $\mathbb{Z} \times \mathbb{Z} \times \mathbb{Z}$, then $T = \{
+        (0, 0, 1), (0, 1, 0), (0, 0, 1) \}$ generates $\mathbb{Z}^3$.\\
+
+        Consider $\mathbb{Z}_9 \times \mathbb{Z}_8$, then as $1$ generates
+        $\mathbb{Z}_9 \infixand \mathbb{Z}_8$ (As both of them are cyclic), thus $S =
+        \{ (0, 1), (1, 0) \}$ generates $\mathbb{Z}_9 \times \mathbb{Z}_8$.
+    \end{example}
+\end{expbox}
+
+\begin{defbox}
+    \begin{definition}[Finitely generated group]
+        A group $G$ is called a finitely generated group, if there is finite subset $S$ that generates $G$.
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        A finite group is finitely generated.\\
+
+        $\mathbb{Z}, \mathbb{Z} \times \mathbb{Z}, \mathbb{Z} \times \mathbb{Z} \times
+        \mathbb{Z}, \ldots$ are finitely generated.\\
+
+        $\mathbb{Z}_{k_1} \times \cdots \times Z_{k_n} \times
+        \underset{m}{\underbrace{\mathbb{Z} \times \cdots \times \mathbb{Z}}}$ is
+        finitely generated. 
+    \end{example}
+\end{expbox}
+
+\begin{defbox}
+    \begin{definition}[Isomorphic (Brief introduction)]
+        $G \infixand G'$ is isomorphic, if there is $\phi : G \rightarrow G'$, where
+        $\phi$ is bijective, and $\phi$ preserves group structure, i.e. $\phi (a b) =
+        \phi (a) \phi (b)$.
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{theorem}[* Fundamental Theorem of finitely generated Abelian Groups *]
+        Every finitely generated Abelian group is {\textbf{isomorphic}} to a direct
+        product of cyclic groups in the form
+        \[ \mathbb{Z}_{p_1^{r_1}} \times \cdots \times \mathbb{Z}_{p_n^{r_n}} \times
+        \cdots \times {\underbrace{\mathbb{Z} \times \cdots \times
+        \mathbb{Z}}_{m}} \]
+        where $p_1, \ldots, p_n$ are primes, $r_1, \ldots, r_n$ are positive integers.
+        $m > 0$. 
+    \end{theorem}
+\end{thmbox}
+
+\begin{defbox}
+    \begin{definition}[Vector Space]
+        A vector space is a set with two operation: addition, $+ : V \times V
+        \rightarrow V$, and scalar multiplication, $\cdot : \mathbb{R} \times V
+        \rightarrow V$, following the 8 axioms below:\\
+        \begin{enumerate}
+        \item $+$ is commutative: $a + b = b + a$\\
+        
+        \item $+$ is associative: $(a + b) + c = a + (b + c)$\\
+        
+        \item There is $0 \in V$, s.t. $0 + a = a + 0 = a$\\
+        
+        \item $\forall a \in V, \exists !a \in V, a + (- a) = 0$\\
+        
+        \item $\exists 1 \in V$, s.t. $1 \cdot a = a \cdot 1 = a$\\
+        
+        \item $\forall k_1, k_2 \in \mathbb{R}, k_1 (k_2 \cdot a) = (k_1 k_2) a$\\
+        
+        \item $(k_1 + k_2) a = k_1 a + k_2 a$\\
+        
+        \item $k (a + b) = k a + k b$
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        The following groups are isomorphic. 
+        \[ \mathbb{R}^3 \infixand V = \{ a x^2 + b x + c : a, b, c \in \mathbb{R} \}
+        \]
+        The following groups are \textbf{NOT} isomorphic.
+        \[ G = \left\{ \left(\begin{array}{cc}
+            a & 0\\
+            0 & b
+        \end{array}\right) : a, b \in (1, - 1) \right\} \infixand G' =\mathbb{Z}_4
+        \]
+    \end{example}
+\end{expbox}
+
+\newpage
+
+\setcounter{section}{12}
+
+\section{Homomorphisms}
+
+\begin{defbox}
+    \begin{definition}[Homomorphism]
+        A map $\phi : G \rightarrow G'$ is homomorphism (of groups) if $\phi (a \ast
+        b) = \phi (a) \star \phi (b)$, where $\ast$ is the operation on $G$, while $\star$ is the operation on $G'$. 
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}[Isomorphism]
+        $\phi : G \rightarrow G'$ is an isomorphism of groups, if and only if:\\
+        \begin{itemize}
+        \item $\phi$ is a bijection\\
+        
+        \item $\phi$ is a homomorphism\\
+        \end{itemize}
+        Two groups $G_1 \infixand G_2$ are isomorphic, if there exists an isomorphism
+        $\phi : G_1 \rightarrow G_2$
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $\mathbb{R}$ is a group under $+$, and $\mathbb{R}_{> 0}$ is a group under
+        multiplication. Find an isomorphism $\phi : \mathbb{R} \rightarrow
+        \mathbb{R}_{> 0}$.
+        
+            \begin{ansbox}
+                Take $\phi : \mathbb{R} \rightarrow \mathbb{R}_{> 0} = e^x$. Then $\phi (x)$
+                is actually a bijection. And also $e^{a + b} = e^a e^b$. This imples that
+                actually
+
+                $\mathbb{R} \infixand \mathbb{R}_{> 0}$ are isomorphic, even under the
+                different operations. 
+            \end{ansbox}
+
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Consider $\p : \mathbb{R} \rightarrow \mathbb{R}, \p (x) = 2 x$. Then $\p$ is a isomorphism.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Consider the regular tetrahedron again, there are totally 12 symmtries, let
+        $G$ be the symmetry group, then $| G | = 12$. Note that every symmetry is a
+        permutation of $\{ 1, 2, 3, 4 \}$, thus $G \subset S_4$ and $G = A_4$.        
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+       
+        Consider a square, Then $| G | = 8$, including 4 rotations and 4
+        reflections. 
+  
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Consider a regular triangle. There are rotational symmetry, which are $\{
+        120^{\circ}, 240^{\circ}, 360^{\circ} = 0^{\circ} \}$, and also there are 3
+        reflections. Thus $| G | = 6$. Thus such group is isomorphic to $S_3$.    
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $\p : \mathbb{R} \rightarrow \mathbb{R}^{\ast}$, where $\p \mapsto e^x$.
+        Then $\p$ is a homomorphism. Note that $\mathbb{R}$ has binary operation $+$,
+        while $\mathbb{R}^{\ast}$ has binary operation $\ast$.
+        \begin{prfbox}
+            \begin{proof}
+                    Since $e^{x+y}=e^xe^y$
+                    Therefore $\p (x + y) = \p (x) \cdot \p (y)$.
+            \end{proof}
+        \end{prfbox}
+        Note that $\p$ is not a isomorphism, because $\p$ is not surjective. However,
+        if $\p : \mathbb{R} \rightarrow \mathbb{R}^{\ast}_{> 0}$, then $\p$ is a
+        isomorphism.
+    \end{example}
+\end{expbox}
+
+\begin{defbox}
+    \begin{definition}[Isomorphic groups]
+        Two groups $G_1, G_2$ are isomorphic, if there exists an isomorphism $\p : G_1
+        \rightarrow G_2$.
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        Prove that $S_3$ and $\mathbb{Z}_6$ are not isomorphic.
+        \begin{prfbox}
+            \begin{proof}
+                Suppose $S_3$ and $\mathbb{Z}_6$ are isomorphism. Then we have an isomorphism
+                $\p : S_3 \rightarrow \mathbb{Z}_6$.\\
+
+                We start with the fact that $(1, 2) (1, 3) \neq (1, 3) (1, 2)$.\\
+
+                \begin{eqnarray*}
+                \tmop{LHS} & = & \left(\begin{array}{ccc}
+                    1 & 2 & 3\\
+                    3 & 1 & 2
+                \end{array}\right)\\
+                \tmop{RHS} & = & \left(\begin{array}{ccc}
+                    1 & 2 & 3\\
+                    2 & 3 & 1
+                \end{array}\right) \neq \tmop{LHS}
+                \end{eqnarray*}
+                Note that by homomorphism property,
+                \begin{eqnarray*}
+                \p ((1, 2) (1, 3)) & = & \p (1, 2) + \p (1, 3)\\
+                \p ((1, 3) (1, 2)) & = & \p (1, 3) + \p (1, 2)\\
+                & = & \p (1, 2) + \p (1, 3)\\
+                & = & \p ((1, 2) (1, 3))
+                \end{eqnarray*}
+                By the property of homomorphism,
+                \begin{eqnarray*}
+                \p ((1, 3) (1, 2)) & = & \p ((1, 2) (1, 3))\\
+                (1, 3) (1, 2) & = & (1, 2) (1, 3)
+                \end{eqnarray*}
+                Contradiction!
+            \end{proof}
+        \end{prfbox}
+    \end{example}
+\end{expbox}
+
+There are another theorem that can be used to prove the example, but before that we need to introduce several theorems. 
+
+\begin{thmbox}
+    \begin{theorem}
+        If $\p : G \rightarrow G'$ is an homomorphism, $e \in G$ is the identity
+        element of $G$, while $e' \in G'$ is the identity element of $G'$, then $\p
+        (e) = e'$
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Note that
+            \begin{eqnarray*}
+            \p (a \ast e) & = & \p (a)\\
+            & = & \p (a) \p (e)\\
+            & = & \p (a) \ast e'
+            \end{eqnarray*}
+            By cancellation law, we have
+            \begin{eqnarray*}
+            \p (a) \ast e' & = & \p (a) \p (e)\\
+            \p (e) & = & e'
+            \end{eqnarray*}
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If $\p : G \rightarrow G'$ is an isomorphism, $a \in G$, then for any
+        positive integer $n$,
+        \begin{eqnarray*}
+        a^n = e & \tmop{iff} & \p (a)^n = e'
+        \end{eqnarray*}
+        and moreover, $a \infixand \p (a)$ have the same order.
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+                $(\implies)$
+              
+              If $a^n = e$, apply $\p$ on both sides, we have
+              \begin{eqnarray*}
+                \p (a^n) & = & \p (e) = e'\\
+                \p (a \ast a \ldots \ast a) & = & \p (a) \ldots \p (a) = \p (a)^n\\
+                \p (a)^n & = & e'
+              \end{eqnarray*}
+$(\impliedby)$
+              \begin{eqnarray*}
+                \p (a)^n & = & \p (a \ast a \ldots \ast a) = \p (a^n) \hspace*{\fill} \left(
+                \text{property of homomorphism} \right)\\
+                \p (a^n) & = & \p (e)\\
+                a^n & = & e
+              \end{eqnarray*}
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Any two cyclic groups of equal order are isomorphic. 
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Suppose $G \infixand G'$ are cyclic, and $| G | = | G' |$, then consider
+            following cases:\\
+            
+                [Case 0: $| G | = | G' | = n \in \mathbb{Z}_{> 0}$]
+
+            \begin{eqnarray*}
+                G & = & \{ e, a, a^2, \ldots, a^{n - 1} \}, \infixand a^n = e\\
+                G' & = & \{ e, b, b^2, \ldots, b^{n - 1} \}, \infixand b^n = e
+            \end{eqnarray*}
+
+            Let $\p : G \rightarrow G'$. Then $\p (a^k) = b^k$ is a isomorphism.\\
+            
+
+                [Case 1: $| G | = | G' | = \infty$]
+
+            \begin{eqnarray*}
+            G & = & \{ a^n : n \in \mathbb{Z} \}\\
+            G' & = & \{ b^n : n \in \mathbb{Z} \}
+            \end{eqnarray*}
+            Then $\p : G \rightarrow G'$, $\p (a^n) = b^n$ is a isomorphism.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let $\p : G \rightarrow G', \p (x) = x$ is always isomorphic.\\
+
+        Moreover, $\Phi : G \rightarrow G', \Phi (x) = e'$ is always homomorphic, but
+        not isomorphic.
+    \end{theorem}
+
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $\p : \mathbb{C}^{\ast} \rightarrow \mathbb{C}^{\ast}$, where $\p (z) = \p
+        (x + y i) = \sqrt{x^2 + y^2}$, then $\p$ is homomorphism. 
+    \end{example}
+\end{expbox}
+\begin{expbox}
+    \begin{example}
+        Let $\p : \mathbb{C}^{\ast} \rightarrow \mathbb{C}^{\ast}$, where $\p (z) =
+        z^n, n \in \mathbb{Z}$, then $\p$ is homomorphism.
+    \end{example}
+\end{expbox}
+\begin{expbox}
+    \begin{example}
+        Let $\p : \mathbb{R}^{\ast} \rightarrow \mathbb{R}^{\ast}$, where $\p (x) = |
+        x |$, then $\p$ is homomorphism.
+    \end{example}
+\end{expbox}
+\begin{expbox}
+    \begin{example}
+        $\tmop{Let} \p : \det : \tmop{GL} (n, \mathbb{R}) \rightarrow
+        \mathbb{R}^{\ast}, \p (A) = \det (A)$ forms an homomorphism.
+    \end{example}
+\end{expbox}    
+
+\begin{thmbox}
+    \begin{theorem}
+        If $G$ is an Abelian group, where $n \in \mathbb{Z}$, then $\p : G \rightarrow
+        G$, $\p (a) = a^n$ is a homomorphism.
+    \end{theorem}
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $\p : \mathbb{R}_{> 0} \rightarrow \mathbb{R}, \p (x) = \log_a (x)$ is a
+        group homomorphism.\\
+
+        Note that $\p$ is one-to-one and onto, thus $\p$ is also an isomorphism. 
+    \end{example}
+    \begin{prfbox}
+        \begin{proof}
+            We need to prove that the map $\p$ is bijective.\\
+
+            [one-to-one]\\
+
+            Note that:
+            \begin{eqnarray*}
+            \log_a x & = & \frac{\ln x}{\ln a}\\
+            (\log_a x)' & = & \frac{1}{x \ln a} > 0 \hspace*{\fill} (\because a > 1)
+            \end{eqnarray*}
+            Thus $\p$ is strictly increasing, $\p$ is one-to-one.\\
+
+            [Onto]\\
+
+            As:
+            \begin{eqnarray*}
+            \lim_{x \rightarrow 0} \log_a x & = & - \infty\\
+            \lim_{x \rightarrow \infty} \log_a x & = & \infty
+            \end{eqnarray*}
+            And $\p$ is continuous, thus $\p$ is onto.
+        \end{proof}
+    \end{prfbox}
+\end{expbox}
 
 \end{document}
+
+\begin{defbox}
+    \begin{definition}
+        
+    \end{definition}
+\end{defbox}
 
 \begin{thmbox}
     \begin{theorem}
