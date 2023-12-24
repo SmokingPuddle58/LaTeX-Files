@@ -3543,7 +3543,7 @@ $(\impliedby)$
 
 
 \begin{defbox}
-    \begin{definition}[Kernal for linear map]
+    \begin{definition}[Kernel for linear map]
         If $T : V \rightarrow V'$ is a linear map, then $\ker (T) = T^{- 1} (0)$
     \end{definition}
 \end{defbox}
@@ -3568,14 +3568,14 @@ Then $T : \mathbb{R}^3 \rightarrow \mathbb{R}^2$, where
      x_2\\
      x_3
    \end{array}\right) \]
-Solving $(\ast)$ is equivalent of finding the kernal of $T$. 
+Solving $(\ast)$ is equivalent of finding the kernel of $T$. 
     \end{example}
 \end{expbox}
 
 \begin{defbox}
     \begin{definition}
         Let $\p^{- 1} (e') = \left\{ a \in G : \p (a) = e' \right\}$ be a subgroup of
-        $G$. Such group is called the kernal of $\p$. Written as $\ker \left(
+        $G$. Such group is called the kernel of $\p$. Written as $\ker \left(
         \p \right)$.
     \end{definition}
 \end{defbox}
@@ -5072,7 +5072,676 @@ From this we can see the following relation:
     \end{example}
 \end{expbox}
 
+\begin{thmbox}
+    \begin{theorem}[Equivalent Formulation of Fermat's Theorem]
+        If $p$ is a prime, $a$ is \textbf{NOT} a multiple of $p$, then $a^{p - 1} -
+        1$ is a multiple of $p$.
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Note that
+            \begin{eqnarray*}
+              a^p - a & = & a (a^{p - 1} - 1)
+            \end{eqnarray*}
+            As $a$ is not a multiple of $p$, therefore $a^{p - 1} - 1$ must be a multiple
+            of $p$.\\
+            
+            Conversely, we have:
+            \begin{eqnarray*}
+              a (a^{p - 1} - 1) & = & a^p - a
+            \end{eqnarray*}
+            As $a^{p - 1} - 1$ is a multiple of $p$, it follows that $a^p - a$ must be a
+            multiple of $p$.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{defbox}
+    \begin{definition}[Euler's phi function]
+        Define $\varphi (n)$ for some positive integer $n$, where it satisfies:
+        \begin{eqnarray*}
+          \varphi (1) & = & 1\\
+          \varphi (m n) & = & \varphi (m) \varphi (n)\\
+          \varphi (p^k) & = & p^k - p^{k - 1}
+        \end{eqnarray*}
+        For some relatively prime $m, n$, and prime power $p^k  (p \in \mathbb{P}, k
+        \geq 1)$
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        \begin{eqnarray*}
+            \varphi (300) & = & \varphi (3) \varphi (2^2) \varphi (5^2)\\
+                          & = & (3 - 1) (2^2 - 2) (5^2 - 5)\\
+                          & = & 80
+          \end{eqnarray*}
+    \end{example}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}[Euler's Theorem]
+        For $n \in \mathbb{Z}_{> 0}$, if $a$ is relatively prime to $n$, then
+        $a^{\varphi (n) - 1}$ is a multiple of $n$.\\
+        
+        Moreover, $n = p$ is a prime, then $\varphi (p) = p - 1$, hence $a^{p - 1} -
+        1$ is a multiple of $p$.
+
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            We consider $a$ as an element in $Z_n$, since $a$ is relatively prime to $n$, $a \in G_n$. By the corollary
+            of Lagrangian Theorem, $a^{|Gn|} = 1$ in $G_n$, so $a^{\phi(n)-1}$ is a multiple of $n$.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\newpage
+
+\section{The Field of Quotients of an Integral Domain}
+
+We first recall some previous knowledges.
+
+\begin{defbox}
+    \begin{definition}[Integral domain]
+        A ring $D$ is a integral domain, if it satisfies:\\
+        \begin{enumerate}
+          \item $D$ is a commutative ring.\\
+          
+          \item $D$ has a nonzero unity $1$.\\
+          
+          \item $D$ has no zero divisors.
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If $F$ is a field, then $F$ is a integral domain. However the converse may not
+        be correct.\\
+        
+        But if $R$ is integral domain, and $R$ is finite, then $R$ is a field.
+    \end{theorem}
+\end{thmbox}
+
+\setemojifont{Noto Color Emoji}
+
+\begin{expbox}
+    \begin{example}
+        We want to produce more example where a ring is an integral domain.\\
+
+        Consider $A =\mathbb{Z} \times \mathbb{Z}$.\\
+        
+        $A$ is commutative. It contains an unit of $(1, 1) \neq (0, 0)$. Consider $(1,
+        0) \times (0, 1) = (0, 0)$. Therefore there is zero divisors.\\
+        
+        By the definition, $\mathbb{Z} \times \mathbb{Z}$ is not a integral domain. \emoji{face-with-open-mouth}
+    \end{example}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let $F$ be a field, $R \subset F$ is a subring. If $1 \in R$, then $R$ is an
+        integral domain.
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            (1) $R$ is commutative obviously.\\
+
+            (2) $R$ contains an unity, by definition.\\
+            
+            (3) If $a, b \in R$, $a \neq 0, b \neq 0, a b = 0$, because $F$ is a field,
+            therefore $a^{- 1}$ exists. Multiplying $a^{- 1}$ on both side, we have:
+            \begin{eqnarray*}
+              a^{- 1} a b & = & a^{- 1} 0\\
+              b & = & 0
+            \end{eqnarray*}
+            Contradiction!
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\setcounter{example}{0}
+
+\begin{expbox}
+    \begin{example}[Continued]
+        Let's consider the following with the help of above theorem.\\
+
+        Let $F =\mathbb{C}$ be a field.\\
+        
+        Then $\mathbb{Z}, \mathbb{Q}, \mathbb{R}$ are subrings of $F$.\\
+        
+        Define $\mathbb{Z} [i] = \{ m + n i : m, n \in \mathbb{Z} \}$. It is called
+        the ring of Gaussian integers. Then we have:
+        \begin{eqnarray*}
+          (m + n i) + (m' + n' i) & = & (m + m') + (n + n') i\\
+          (m + n i) (m' + n' i) & = & (m m' - n n') + (m n' + n m') i
+        \end{eqnarray*}
+        Therefore the operation is closed, and moreover, we have $- (m + n i) = (- m)
+        + (- n) i$ is the addition inverse in $\mathbb{Z} [i]$.\\
+        
+        Finally, we have $1 + 0 i = 1 \in \mathbb{Z} [i]$. Therefore there is unity in
+        $\mathbb{Z} [i]$.\\
+        
+        Therefoe $\mathbb{Z} [i]$ is a subring of $\mathbb{C}$ containing $1$.
+        Therefore it is an integral domain.\\
+        
+        Note that:
+        \[ 5 = (2 + i) (2 - i) \]
+        Therefore 5 is not a prime in $\mathbb{Z} [i]$. However, 7 and 3 are prime in
+        $\mathbb{Z} [i]$.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        For arbitrary positive integer $d$, define
+        \[ \mathbb{Z} \left[ \sqrt{d} \right] = \left\{ m + n \sqrt{d} : m, n \in
+           \mathbb{Z} \right\} \]
+        is a subring of $\mathbb{R}$.\\
+        
+        Note that:
+        \begin{eqnarray*}
+          \left( m + n \sqrt{d} \right) \left( m' + n' \sqrt{d} \right) & = & m m' + m
+          n' \sqrt{d} + n m' \sqrt{d} + n m' \sqrt{d}^2\\
+          & = & (m m' + d n m') + (m n' + n m') \sqrt{d}
+        \end{eqnarray*}
+        and $1 \in \mathbb{Z} \left[ \sqrt{d} \right]$, therefore $\mathbb{Z} \left[
+        \sqrt{d} \right]$ is a subring of $\mathbb{R}$. $\mathbb{Z} \left[ \sqrt{d}
+        \right]$ is a integral domain.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+
+        \nline
+
+        Define $A = \left\{ m + n d^{\frac{1}{3}} : m, n \in \mathbb{Z} \right\}$.\\
+
+        Note it is closed under $+$.\\
+        
+        And
+        \begin{eqnarray*}
+          \left( m + n d^{\frac{1}{3}} \right) \left( m' + n' d^{\frac{1}{3}} \right)
+          & = & \left( m m' + n m' d^{\frac{2}{3}} \right) (m n' + n m')
+          d^{\frac{1}{3}}
+        \end{eqnarray*}\\
+        Note that $d^{\frac{2}{3}}$ is not in $A$. Therefore $A$ is not a subring.\\
+
+        However, if we modify the condition s.t.
+        \[ A = \left\{ m + n d^{\frac{1}{3}} + p d^{\frac{2}{3}} : m, n, p \in
+           \mathbb{Z} \right\} \]
+        then $A$ is a subring.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example} 
+
+        \nline
+
+        Define $A = \left\{ \frac{b}{3^m} : b \in \mathbb{Z}, m \geq 0 \right\}$. We
+        have
+        \begin{eqnarray*}
+        \frac{b_1}{3^{m_1}} + \frac{b_2}{3^{m_2}} & = & \frac{b_1 3^{m_2} + b_2
+        3^{m_1}}{3^{m_1 + m_2}}\\
+        \frac{b_1}{3^{m_1}} \times \frac{b_2}{3^{m_2}} & = & \frac{b_1 b_2}{3^{m_1 +
+        m_2}}
+        \end{eqnarray*}
+        Therefore the operation is closed under $+, \times$.\\
+
+        Note that $\mathbb{Z} \subsetneq A \subsetneq \mathbb{Q}$. For example,
+        $\frac{1}{2} \nin A$.
+    \end{example}
+\end{expbox}
+
+Given an integral domain $D$, we want to prove a field $F$ such that
+\begin{enumerate}
+  \item $D \subset F$
+  
+  \item $F$ is as small as possible
+\end{enumerate}
+We can do the following:
+
+Consider $D =\mathbb{Z}$, $\mathbb{Q}= \left\{ \frac{p}{q} : p \in \mathbb{Z},
+q \in \mathbb{Z}^{\ast} \right\}$.
+
+Let $\hat{F} = \{ (a, b) : a \in D, b \in D^{\ast} \}$. Think of $(a, b)
+\text{ as } \frac{a}{b}$. We define $+, \times$ on $\hat{F}$, where
+\begin{eqnarray*}
+  (a_1, b_1) + (a_2, b_2) & = & (a_1 b_2 + a_2 b_1, b_1 b_2)\\
+  (a_1, b_1) (a_2, b_2) & = & (a_1 a_2, b_1 b_2) \hspace*{\fill} \left( b_1
+  b_2 \neq 0, \forall b_1, b_2 \neq 0 \text{ as integral domain} \right)
+\end{eqnarray*}
+Then $+, \times$ are both commutative and associative.
+
+We further have $(0, 1)$ is the additive identity element, while $(1, 1)$ is
+the multiplicative identity element.
+
+However, we notice that
+\begin{eqnarray*}
+  {}[(a_1, b_1) + (a_2, b_2)] (c, d) & = & ((a_1 b_2 + a_2 b_1) c, b_1 b_2
+  d)\\
+  (a_1, b_1) (c, d) + (a_2, b_2) (c, d) & = & (a_1 c b_2 d + b_1 d a_2 c, b_1
+  b_2 d d)\\
+  {}[(a_1, b_1) + (a_2, b_2)] (c, d) & \neq & (a_1, b_1) (c, d) + (a_2, b_2)
+  (c, d)
+\end{eqnarray*}
+Our assumption fails. We need to modify our addition and multiplication.
+
+We define an equivalence relation on $\hat{F}$,
+
+\begin{center}
+    $(a, b) \sim (a', b')$ if and only if $a b' = b a'$
+\end{center}
+
+We want to prove $\sim$ is an equivalence relation.
+
+\begin{thmbox}
+    \begin{lemma}
+        $\sim$ is an equivalence relation on $\hat{F}$.
+    \end{lemma}
+    \begin{prfbox}
+        \begin{proof}
+            \begin{proof}
+                \begin{itemize}
+                    \item Reflexive: $(a, b) \sim (a, b)$ since $ab = ba$ as the
+                    multiplication in $D$ is commutative.\\
+                    
+                    \item Symmetric: If $(a, b) \sim (c, d)$, then $ad = bc$.
+                    Since multiplcation in $D$ is commutative, therefore $cb =
+                    da$, consequently $(c, d) \sim (a, b)$.\\
+                    
+                    \item Transitive: If $(a, b) \sim (c, d)$ and $(c, d) \sim (r, s)$, then
+                    $ad = bc$ and $cs = dr$. Using these relations
+                    and the fact that multiplcation in $D$ is commutative, we have:
+                    \[ asd = sad = sbc = bcs = bdr =
+                       brd \]
+                    Now $d = 0$ and $D$ is an integral domain, therefore cancellation law holds.
+                    From $asd = brd$, we have $as = br$. Thus $(a,
+                    b) \sim (r, s)$.
+                  \end{itemize}
+            \end{proof}
+            
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+Followed by that, we want to define additions and multiplications for $F$, where $F$ is the set of equivalence classes of $\hat{F}$.
+\begin{thmbox}
+    \begin{lemma}
+            Define the addition and multiplcation on $\hat{F}$ as:
+            \begin{eqnarray*}
+                (a,b)+(c,d) & = & (ad+bc,bd)\\
+                (a,b)*(c,d) & = & (ac,bd)
+            \end{eqnarray*}
+            the equation above give well-defined operations of addition and multiplication on $\hat{F}$.
+    \end{lemma}
+\end{thmbox}
+
+After checking two lemmas above, $+, \times$ on $\hat{F}$ decends to $+, \times$ on $F$.
+
+\begin{thmbox}
+    \begin{lemma}
+        $(F, +, \times)$ is a field. 
+    \end{lemma}
+
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{lemma}
+        $F$ can be regarded as containing $D$.
+    \end{lemma}
+\end{thmbox}
+
+With such lemma above, we have the following theorem.
+
+\begin{thmbox}
+    \begin{theorem}[Field of quotients]
+        Any integral domain $D$ can be enlarged to (or embedded in) a field $F$ such that every
+        element of $F$ can be expressed as a quotient of two elements of $D$. (Such a field $F$ is a
+        field of quotients of $D$.)
+    \end{theorem}
+\end{thmbox}
+
+For a more detailed proof of this section, please refer to the textbook P.190.
+
+\setcounter{section}{25}
+
+\newpage
+
+\section{Homomorphism and Factor Rings}
+
+\begin{defbox}
+    \begin{definition}[Ring Homomorphism]
+        Let $R$ and $R'$ be rings. A map $\phi : R \rightarrow R'$ is called ring
+        homomorphism if
+        \begin{eqnarray*}
+          \phi (a + b) & = & \phi (a) + \phi (b)\\
+          \phi (a b) & = & \phi (a) \phi (b)
+        \end{eqnarray*}
+        for any $a, b \in R$.
+    \end{definition}
+\end{defbox}
+
+
+\begin{expbox}
+    \begin{example}
+        Let $\phi : \mathbb{C} \rightarrow \mathbb{C}$, $\phi \mapsto \bar{z}$ gives
+        an homomorphism.
+    \end{example}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If $\phi : \mathbb{Q} \rightarrow \mathbb{Q}$ is a ring homomorphism, then
+        either $\phi (x) = x$ or $\phi (x) = 0$ for all $x \in \mathbb{Q}$.
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            \begin{eqnarray*}
+                1 \times 1 & = & 1\\
+                \phi (1 \times 1) & = & \phi (1)\\
+                \phi (1)^2 & = & \phi (1)\\
+                \phi (1) = 0 & \tmop{or} & \phi (1) = 1
+              \end{eqnarray*}
+              If $\phi (1) = 0$, then
+              \begin{eqnarray*}
+                \phi (x) & = & \phi (1 \times x)\\
+                & = & \phi (1) \phi (x)\\
+                & = & 0
+              \end{eqnarray*}
+              If $\phi (1) = 1$, then
+              \begin{eqnarray*}
+                \phi (2) & = & \phi (1 + 1)\\
+                & = & 2
+              \end{eqnarray*}
+              For any positive integer $n$, we have $n = 1 + \cdots + 1 \Rightarrow \phi (n)
+              = \phi (1 + \cdots + 1) = n \phi (1) = n$.\\
+              
+              If $n$ is negative, we have $\phi (- n) = - \phi (n) = - n$.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        If $R_1, \ldots, R_n$ are rings, then $R_1 \times \cdots \times R_n$ is the
+        product ring.
+        
+        For each $i \in [1, n]$, consider projection map $\pi_i : R_1 \times \cdots
+        \times R_n \rightarrow R_i$, $\pi_i (a_1, \ldots, a_n) = a_i$ is a ring
+        homomorphism.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        $\pi : \mathbb{Z} \rightarrow \mathbb{Z}_n$, where $\pi (a) = a \tmop{mod} n$
+        is a ring homomorphism.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Consider $\phi : C [0, 7] \rightarrow \mathbb{R}$, $\phi (f) = f (3)$ is a
+        ring homomorphism. In general, $\phi (f) = f (l)$ for any $l \in [0, 7]$ is a
+        ring homomorphism.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        $\phi : \mathbb{R} \rightarrow M_2 (R)$, where $\phi (a) =
+        \left[\begin{array}{cc}
+          a & 0\\
+          0 & 0
+        \end{array}\right]$ is a ring homomorphism.
+    \end{example}
+    \begin{prfbox}
+        \begin{proof}
+
+            \nline
+
+        \begin{center}
+            $\begin{array}{lll}
+                \phi (a + b) & = & \left[\begin{array}{cc}
+                a + b & 0\\
+                0 & 0
+                \end{array}\right]\\\\
+                & = & \left[\begin{array}{cc}
+                a & 0\\
+                0 & 0
+                \end{array}\right] + \left[\begin{array}{cc}
+                b & 0\\
+                0 & 0
+                \end{array}\right]\\\\
+                & = & \phi (a) + \phi (b)\\\\
+                \phi (a b) & = & \left[\begin{array}{cc}
+                a b & 0\\
+                0 & 0
+                \end{array}\right]\\\\
+                & = & \left[\begin{array}{cc}
+                a & 0\\
+                0 & 0
+                \end{array}\right] \left[\begin{array}{cc}
+                b & 0\\
+                0 & 0
+                \end{array}\right]\\\\
+                & = & \phi (a) \phi (b)
+            \end{array}$
+        \end{center}
+        \end{proof}
+    \end{prfbox}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If $\phi : R \rightarrow R', \varphi : R' \rightarrow R''$ are ring
+        homomorphism, then their composition:
+        \[ \phi \circ \varphi : R \rightarrow R'' \]
+        is also a ring homomorphism.
+    \end{theorem}
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        If $R$ is a ring with unity 1, $a \in R$ is an multiplcative invertible
+        element.\\
+        
+        Define a map $\phi : R \rightarrow R, \phi (x) = a x a^{- 1}$ is a ring
+        homomorphism.
+    \end{example}
+\end{expbox}
+\begin{defbox}
+    \begin{definition}[Subring]
+        If $R$ is a ring, a nonempty subset $S \subset R$ is called a subring if $S$
+        is closed under addition and multiplication, and $S$ is a ring under $+
+        \infixand \times$.
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        $\mathbb{Z}$ is a subring of $\mathbb{Q}, \mathbb{R}, \mathbb{C}$.
+    \end{example}
+    \begin{prfbox}
+        \begin{proof}
+            If a set $S$ is closed under addition and multiplication, to check $S$ is a
+            subring, it is enough to check $0$ is in $S$ and $a \in S \Rightarrow - a \in S$, since associativity holds if $R$ is a ring. Distributive law also holds, given that $R$ is a ring.
+
+        \end{proof}
+    \end{prfbox}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let $\phi : R \rightarrow R'$ is a ring homomorphism, then:\\
+        \begin{enumerate}
+          \item $\phi (0) = 0'$\\
+          
+          \item $\phi (- a) = - \phi (a), \forall a \in R$\\
+          
+          \item If $S \subset R$ is a subring, then $\phi (S)$ is a subring of $R'$.\\
+          
+          \item If $S' \subset R'$ is a subring, then $\phi^{- 1} (S')$ is a subring
+          of $R$.\\
+          
+          \item Do note that $\phi (a^{- 1}) \tmmathbf{\neq} \phi (a)^{- 1}$
+        \end{enumerate}
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Because $\phi (a + b) = \phi (a) + \phi (b)$ implies that $\phi : R
+            \rightarrow R'$ is an group homomorphism of additive group, therefore (1),(2)
+            are true.\\
+            
+            (3),(4) are left as exercise.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{defbox}
+    \begin{definition}[Kernel]
+        Let $\phi : R \rightarrow R'$ be a ring homomorphism. Then
+        \[ \phi^{- 1} (0') = \{ a \in R : \phi (a) = 0' \} \]
+        is called the kernel of $\phi$. It is written as $\ker (\phi)$.
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        $\ker (\phi)$ is a subring of $R$. 
+    \end{theorem}
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        Consider $\phi : C [0, 7] \rightarrow \mathbb{R}$, $\phi (f) = f (3)$ is a
+        ring homomorphism. Moreover, the kernel is given by:
+        \[ \ker (\phi) = \{ f \in C [0, 7] : f (3) = 0 \} \]
+    \end{example}
+\end{expbox}
+
+\begin{defbox}
+    \begin{definition}[Ideal]
+        Let $R$ be a ring, a subset $I \subset R$ is called an ideal, if:\\
+        \begin{enumerate}
+          \item $I$ is a subgroup of $(R, +)$\\
+          
+          \item For all $a \in R, b \in I$, then $a b \in I, b a \in I$\\
+        \end{enumerate}
+        Note that an ideal is a subring, however the converse might be false.
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        For any integer $n$, we have $n\mathbb{Z}$ is an ideal of $\mathbb{Z}$.
+    \end{example}
+    \begin{prfbox}
+        \begin{proof}
+            1. $n\mathbb{Z}$ is a subgroup of $(\mathbb{Z}, +)$.\\
+
+            2. If $a \in \mathbb{Z}, b \in n\mathbb{Z}, b = n c, c \in \mathbb{Z}$, then
+            $a b = a (n c) = n (a c) \in \mathbb{Z}$.
+        \end{proof}
+    \end{prfbox}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{lemma}
+        If $\phi : R \rightarrow R'$ is a ring homomorphism, then $\ker (\phi)$ is an
+        ideal of $R$.
+    \end{lemma}
+    \begin{prfbox}
+        \begin{proof}
+            Since $\phi$ is an additive group homomorphism from $R \rightarrow R'$,
+            thus $\ker (\phi)$ is an additive subgroup of $R$.\\
+            
+            If $a \in R, b \in \ker \phi$, we want to prove that $a b \in \ker (\phi)$ and
+            $b a \in \ker (\phi)$.\\
+            
+            Check:
+            \begin{eqnarray*}
+              \phi (a b) & = & \phi (a) \phi (b)\\
+              & = & \phi (a) 0'\\
+              & = & 0'\\
+              \phi (b a) & = & \phi (b) \phi (a)\\
+              & = & 0' \phi (a)\\
+              & = & 0'
+            \end{eqnarray*}
+            $\ker (\phi)$ is therefore an ideal of $R$.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let $I$ be an ideal of $R$, let $R / I$ be the set of coset $a + I$. Define $+
+        \infixand \times$ on $R / I$ as follow:
+        \begin{eqnarray*}
+          (a + I) + (b + I) & = & (a + b) + I\\
+          (a + I) (b + I) & = & a b + I
+        \end{eqnarray*}
+        (Proof of multiplication is well-defined)
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            For $a + I = a' + I, b + I = b' + I$, then we have $a b + I = a' b' + I$. To
+            prove $a b + I = a' b' + I$, we may prove $a b - a' b' \in I$.\\
+            
+            Note that:
+            \begin{eqnarray*}
+              a b - a' b' & = & a b - a' b + a' b - a' b'\\
+              & = & (a - a') b + a' (b - b')
+            \end{eqnarray*}
+            as $a - a', b - b' \in I$, therefore, $(a - a') b \in I \infixand a' (b - b')
+            \in I$, and as addition is closed in $I$, the proof is complete.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let $I$ be an ideal of the ring $R$, then $R / I$ is a ring under addition and
+        multiplication defined as above.\\
+        
+        The ring $R / I$ is called the factor ring of $R$ by $I$. 
+    \end{theorem}
+
+\end{thmbox}
+
+
+\begin{expbox}
+    \begin{example}
+        Let $10\mathbb{Z}$ be an ideal of $\mathbb{Z}$.\\
+
+        Then $\mathbb{Z}/ 10\mathbb{Z}= \{ 0 + 10\mathbb{Z}, \ldots, 9 + 10\mathbb{Z}
+        \} = \{ 0, 1, \ldots, 9 \} =\mathbb{Z}_{10}$
+    \end{example}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}[Fundamental homomorphism theorem for Rings]
+        If $\phi : R \rightarrow R'$ is a ring homomorphism with $\ker (\phi) = N$,
+        then the map given by $\mu : R / N \rightarrow \phi (R')$
+        \[ \mu (a + N) = \phi (a) \]
+        is well defined and is isomorphism of rings. 
+    \end{theorem}
+\end{thmbox}
+
+{\noindent}\begin{tabularx}{1.0\textwidth}{|@{}X@{}|}
+    \hline    
+         The following topics are extra topics that \textbf{WILL NOT} appear in final exam.\\
+    \hline
+  \end{tabularx}
+
+
 \end{document}
+
+
 \begin{defbox}
     \begin{definition}[]
 
