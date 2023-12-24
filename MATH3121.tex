@@ -42,6 +42,8 @@
 \newcommand{\ord}[1]{\text{ord}(#1)}
 \newcommand{\tmop}{\text}
 \newcommand{\xequal}[1]{\stackrel{#1}{=}}
+\newcommand{\tmscript}[1]{\text{\scriptsize{$#1$}}}
+
 
 
 \newtcolorbox{prfbox}{colback=gray!10,colframe=black!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=0pt}
@@ -4106,10 +4108,185 @@ Solving $(\ast)$ is equivalent of finding the kernal of $T$.
 
 \section{Group action on a set}
 
+    \begin{tabular}{|c|}
+        \hline
+        Intuition\\
+        \hline
+    \end{tabular}
+    
+    Consider a group $S_5$, let $X = \{ 1, \ldots, 5 \}$ to be as set. For $\sigma
+    \in S_5, i \in X$, applying $\sigma$ to $i$, we get $\sigma (i)$.
+    
+    We then can create a map, where $(\sigma, i) \mapsto \sigma (i)$, with the
+    following properties.
+    \begin{itemize}
+        \item $\sigma \tau (i) = \sigma (\tau (i))$
+        
+        \item $e (i) = i$
+    \end{itemize}
+    This is considered as a group action. Formal definition is given below:
+
+\begin{defbox}
+\begin{definition}[Group Action]
+
+        
+        Let $G$ be a group, $X$ be a set. An group action of $G$ on $X$ is a map:
+        \[ G \times X \rightarrow X \]
+        we will write the image of $(g, x)$ as $g \times x$ or $g x$, such that:
+        \begin{enumerate}
+          \item $e x = x, \forall x$
+          
+          \item $g_1 g_2 (x) = g_1 (g_2 (x)), \forall g_1, g_2 \in G, x \in X$
+        \end{enumerate}
+      \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $\sigma \in S_n$, and let $x \in X = \{ 1, \ldots, n \}$.\\
+
+        Then $\sigma x$ is the image of $x$ under permutation $\sigma$.\\
+
+        Note that $e x = x, \forall x \in X$, and $(\sigma_1 \sigma_2) x = \sigma_1
+        (\sigma_2 (x))$, thus this is a action of $S_n$ on set $S$, or we say $S_n$
+        acts on $X$.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        If $A$ is a $2 \times 2$ matrix, then $A$ introduces a linear map from
+        $\mathbb{R}^2 \rightarrow \mathbb{R}^2$ for $v \in \mathbb{R}^2 = \left\{
+        \left(\begin{array}{c}
+        x\\
+        y
+        \end{array}\right) : x, y \in \mathbb{R} \right\}$
+    \end{example}
+\end{expbox}
+
+
+\begin{expbox}
+    \begin{example}
+        Let $G = \tmop{GL} (2, \mathbb{R})$. For any $g \in \tmop{GL} (2,
+        \mathbb{R})$, and $v \in \mathbb{R}^2$, $(g, v) = g v$. This is an action of
+        $\tmop{GL} (2, \mathbb{R})$ on $\mathbb{R}^2$.
+    \end{example}
+    \begin{prfbox}
+        \begin{proof}
+            The identity element is given by $I_2 = \left(\begin{array}{cc}
+                1 & 0\\
+                0 & 1
+              \end{array}\right)$, and $I_2 v = v$
+              
+              Moreover, $(A B) v = A (B v)$ as matrix multiplcation is associative.
+        \end{proof}
+    \end{prfbox}
+    In general, $\tmop{GL} (n, \mathbb{R})$ acts on $\mathbb{R}^n$ with $(A, v)
+    \mapsto A v$ by the properties of matrix multiplication.
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $G$ be a symmetry group of a square. Then $| G | = 8$.\\
+
+        Let $R_a$ be the rotation along the centre anticlockwisely by $a^{\circ}$.\\
+
+        Then when $a = 90, 180, 270$, they form symmetry, and they can form a
+        subgroup.\\
+
+        Let $L_M$ be the reflexion along the axis $M$.\\
+
+        Then $G = \{ R_0, R_{90}, R_{180}, R_{270}, L_A, L_B, L_C, L_D \}$.\\
+
+        $G$ acts on $V = \{ 1, 2, 3, 4 \}$, which is the sets of vertices.\\
+
+        Moreover, $G$ can also acts on $E = \text{set of edges}$.
+    \end{example}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let $G$ act on $X$. For each $x \in X$, we introduce following:
+        \[ G_x = \{ g \in G : g x = x \} \]
+        $G_x$ is always a subgroup of $G$. Such group $G_x$ is called the isotropy
+        subgroup or stabilizer of $x$.
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            \begin{tabular}{|c|}
+                \hline
+                Closeness\\
+                \hline
+              \end{tabular}\\
+              
+              If $g_1 g_2 \in G_x$, then $(g_1 g_2) x = g_1 (g_2 x) = g_1 (x) = x$, thus
+              $g_1 g_2 \in G_x$, thus $G_x$ is closed in operation.\\
+              
+              \begin{tabular}{|c|}
+                \hline
+                Identity\\
+                \hline
+              \end{tabular}\\
+              
+              As $e x = x$, thus $e \in G_x$, thus identity element is in the set $G_x$.\\
+              
+              \begin{tabular}{|c|}
+                \hline
+                Inverse\\
+                \hline
+              \end{tabular}\\
+              
+              If $g \in G_x$, then we want to prove $g^{- 1} x = x$. Note that:
+              \begin{eqnarray*}
+                g x & = & x\\
+                g^{- 1} g x & = & g^{- 1} x\\
+                (g^{- 1} g) x & = & g^{- 1} x\\
+                e x & = & g^{- 1} x\\
+                g^{- 1} x & = & x
+              \end{eqnarray*}
+              Thus $g^{- 1} \in G_x$.\\
+              
+              Thus $G_x$ is the subgroup.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $G = S_5$ acts on $X = \{ 1, 2, 3, 4, 5 \}$.\\
+
+        Then $G_1 = \left\{ \left(\begin{array}{ccccc}
+        1 & 2 & 3 & 4 & 5\\
+        1 & a & b & c & d
+        \end{array}\right) : a, b, c, d \text{ is a permutation of } 2, 3, 4, 5
+        \right\}$. The group is isomorphic to $S_4$. Thus $| G_1 | = 4! = 24$.
+    \end{example}
+\end{expbox}
+
+\begin{defbox}
+    \begin{definition}[Orbit]
+        Let $G$ act on $X$, $x \in X$, then define:
+        \[ G x = \{ g x : g \in G \} \subset X \]
+This is called the orbit of $x$.
+    \end{definition}
+\end{defbox}
+
+\begin{tabular}{|c|}
+    \hline
+    Intuition\\
+    \hline
+  \end{tabular}
+  
+  Consider an orbit system. Let $t \in \mathbb{R}$ acts on the space
+  $\mathbb{R}^3$, and $v \in \mathbb{R}^3$.
+  
+  Then $t \cdot v$ is the position of $v$ after time $t$. This forms a group
+  action.
+
 \end{document}
 
 \begin{defbox}
-    \begin{definition}
+    \begin{definition}[]
         
     \end{definition}
 \end{defbox}
