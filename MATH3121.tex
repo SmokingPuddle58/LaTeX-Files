@@ -1,5 +1,4 @@
 %!TEX program = lualatex
-
 \documentclass{article}
 \usepackage{tcolorbox}
 \usepackage{ntheorem}
@@ -5124,7 +5123,7 @@ From this we can see the following relation:
         For $n \in \mathbb{Z}_{> 0}$, if $a$ is relatively prime to $n$, then
         $a^{\varphi (n) - 1}$ is a multiple of $n$.\\
         
-        Moreover, $n = p$ is a prime, then $\varphi (p) = p - 1$, hence $a^{p - 1} -
+        Moreover, if $n = p$ is a prime, then $\varphi (p) = p - 1$, hence $a^{p - 1} -
         1$ is a multiple of $p$.
 
     \end{theorem}
@@ -5734,20 +5733,26 @@ For a more detailed proof of this section, please refer to the textbook P.190.
 
 \newpage
 
-{\noindent}\begin{tabularx}{1.0\textwidth}{|@{}X@{}|}
-    \hline    
-         The following topics are extra topics that \textbf{WILL NOT} appear in final exam.\\
-    \hline
-\end{tabularx}
 
-In the following, we will talk about:
-\begin{itemize}
-\item Jordan Canonical form of square matrices over $\mathbb{C}$
+\begin{center}
+    \vspace*{\fill}
+        The following topics are extra topics that \textbf{WILL NOT} appear in final exam.
 
-\item Polynomial Rings
+        \nline
+        \nline
+        \nline
 
-\item Famous impossibility theorems
-\end{itemize}
+        In the following, we will talk about:
+        \begin{itemize}
+        \item Jordan Canonical form of square matrices over $\mathbb{C}$
+
+        \item Polynomial Rings
+
+        \item Famous impossibility theorems
+        \end{itemize}
+    \vspace*{\fill}
+\end{center}
+
 
 \newpage
 
@@ -5863,6 +5868,655 @@ In the following, we will talk about:
         \end{proof}
     \end{prfbox}
 \end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If $F$ is a field, then we can define $m \times n$ matrix over $F$, with
+        entries are in $F$.       
+    \end{theorem}
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        For example, we can have complex matrices like $\left[\begin{array}{cc}
+            1 + i & 0\\
+            2 & i
+          \end{array}\right]$.\\
+          
+          If $A, B$ are complex matrices, $A, B$ are said to be similar if there is $ n
+          \times n$ invertible complex matrices $T$, s.t.
+          \[ T A T^{- 1} = B \]  
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        The matrix
+        \[ A = \left(\begin{array}{cc}
+             \cos 30^{\circ} & - \sin 30^{\circ}\\
+             \sin 30^{\circ} & \cos 30^{\circ}
+           \end{array}\right) = \left(\begin{array}{cc}
+             \frac{\sqrt{3}}{2} & - \frac{1}{2}\\
+             \frac{1}{2} & \frac{\sqrt{3}}{2}
+           \end{array}\right) \]
+        is \textbf{not} diagonalizable over $\mathbb{R}$. However, it is
+        diagonalizable over $\mathbb{C}$.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        The matrix
+        \[ B = \left[\begin{array}{cc}
+             2 & 1\\
+             0 & 2
+           \end{array}\right] \]
+        is \textbf{not} diagnoalizable even over $\mathbb{C}$.
+    \end{example}
+    \begin{prfbox}
+        \begin{proof}
+            Suppose it is diagonalizable. Then
+            \begin{eqnarray*}
+              \left[\begin{array}{cc}
+                2 & 1\\
+                0 & 2
+              \end{array}\right] & = & T \left[\begin{array}{cc}
+                \lambda_1 & \\
+                & \lambda_2
+              \end{array}\right] T^{- 1}
+            \end{eqnarray*}
+            Note that the matrix has eigenvalue with multiplicity 2, and
+            $\left[\begin{array}{cc}
+              \lambda_1 & \\
+              & \lambda_2
+            \end{array}\right]$ has eigenvalues of $\lambda_1, \lambda_2$.
+            
+            Therefore $\lambda_1 = \lambda_2 = 2$. Thus:
+            \begin{eqnarray*}
+              \left[\begin{array}{cc}
+                2 & 1\\
+                0 & 2
+              \end{array}\right] & = & T \left[\begin{array}{cc}
+                2 & 0\\
+                0 & 2
+              \end{array}\right] T^{- 1}\\
+              & = & T (2 I) T^{- 1}\\
+              & = & 2 I\\
+              & = & \left[\begin{array}{cc}
+                2 & 0\\
+                0 & 2
+              \end{array}\right]
+            \end{eqnarray*}
+            Contradiction!
+        \end{proof}
+    \end{prfbox}
+\end{expbox}
+
+\begin{defbox}
+    \begin{definition}[Jordan block]
+        A $n \times n$ Jordan block is a $n \times n$ upper triangular matrix s.t. all
+        diagonal entries are equal, and the entries that are are $(i + 1)$ are $1$,
+        remaining entries are all $0$. where $i \in [1, n - 1]$.
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        Any $1 \times 1$ matrix is a Jordan block. 
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        The general format for Jordan block for $2 \times 2$ matrix is given by
+        $\left[\begin{array}{cc}
+          \lambda & 1\\
+          0 & \lambda
+        \end{array}\right]$
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        The general format for Jordan block for $3 \times 3$ matrix is given by \
+        $\left[\begin{array}{ccc}
+          \lambda & 1 & 0\\
+          0 & \lambda & 1\\
+          0 & 0 & \lambda
+        \end{array}\right]$
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        The general format for Jordan block for $4 \times 4$ matrix is given by \
+        $\left[\begin{array}{cccc}
+          \lambda & 1 & 0 & 0\\
+          0 & \lambda & 1 & 0\\
+          0 & 0 & \lambda & 1\\
+          0 & 0 & 0 & \lambda
+        \end{array}\right]$
+    \end{example}
+\end{expbox}
+
+\begin{defbox}
+    \begin{definition}[Jordan Canonical Form]
+        A $n \times n$ matrix $A$ is called a Jordan Canonical form, if $A$ can be
+        written as a {\underline{blockwise diagonal matrix}}, s.t. for each diagonal
+        block is a Jordan block.
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        Consider a $5 \times 5$ matrix,
+        \begin{eqnarray*}
+          A & = & \left[\begin{array}{ccccc}
+            1 & 2 &  &  & \\
+            4 & 5 &  &  & \\
+            &  & 1 & 5 & \\
+            &  & 0 & 4 & \\
+            &  &  &  & 3
+          \end{array}\right]
+        \end{eqnarray*}
+        This is called blockwise diagonal matrix. However the matrix is not in Jordan
+        block.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        The matrix
+        \[ B = \left[\begin{array}{ccccc}
+             2 & 1 &  &  & \\
+             & 2 &  &  & \\
+             &  & 3 & 1 & \\
+             &  &  & 3 & \\
+             &  &  &  & 4
+           \end{array}\right] \]
+        is also blockwise diagonal matrix but not in Jordan block.
+    \end{example}
+\end{expbox}
+
+In general, there are different types of block matrix. For example, the one we mentioned above is $(2,2,1)$.
+
+\begin{thmbox}
+    \begin{theorem}
+        For every $n \times n$ matrix $A$ over $\mathbb{C}$, there is an $n \times n$
+        invertible matrix $T$ over $\mathbb{C}$, s.t. $T A T^{- 1}$ is of Jordan
+        Canonical form. The Jordan blocks in $T A T^{- 1}$ are unique up to
+        conjugation.
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Note for every nonconstant polynomial, $f (z)$ over $\mathbb{C}$ has a root in
+            $\mathbb{Z}$. (Fundamental theorem in Algebra).
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+Recall back that:
+
+\begin{thmbox}
+    \begin{theorem}[Fundamental Theorem of finitely generated Abelian Groups]
+    
+        Every finitely generated Abelian group is isomorphic to a
+        direct product of cyclic groups in the form
+        \[ \mathbb{Z}_{p_1^{r_1}} \times \cdots \times \mathbb{Z}_{p_n^{r_n}} \times
+           \cdots \times \underset{m}{\underbrace{\mathbb{Z} \times \cdots \times
+           \mathbb{Z}}} \]
+        where $p_1, \ldots, p_n$ are primes, $r_1, \ldots, r_n$ are positive
+        integers. $m > 0$. 
+      \end{theorem}
+\end{thmbox}
+in higher algebra. The two theorems can be considered as a special case of a single theorem.
+
+\newpage
+
+\section*{Add. Topic 2. Polynomial Rings}
+
+\begin{defbox}
+    \begin{definition}[Polynomials]
+        A polynomial over $\mathbb{R}$ is an expression
+        \[ a_n x^n + \cdots + a_1 x + a_0 \]
+        where $a_n, \ldots, a_1 \in \mathbb{R}$.\\
+        
+        We use $\mathbb{R} [x]$ to denote all polynomial in variable $x$ with coeff in
+        $\mathbb{R}$.
+    \end{definition}
+\end{defbox}
+
+As we can add and multiply polynomials, therefore $\mathbb{R} [x]$ is a
+commutative ring with unity $1$. Note $\mathbb{R}$ is a subring of $\mathbb{R}
+[x]$.
+
+Now we wish to check if $\mathbb{R} [x]$ is a integral domain.
+
+Suppose $f \mapsto a_n x_n + \cdots + a_1 x + a_0$. Suppose $g \mapsto b_m
+x_m + \cdots + b_1 x + b_0$.
+
+Then
+\begin{eqnarray*}
+  f g & = & a_n b_m + \cdots + a_0 b_0\\
+  c_k & = & \sum^k_{i = 0} a_i b_{k - i}
+\end{eqnarray*}
+Since $a_i \neq 0, b_i \neq 0, a_i b_{k - i} \neq 0$.
+
+Therefore $f g \neq 0$. $\mathbb{R} [x]$ is therefore an integral domain.
+
+We therefore have the following theorem:
+
+\begin{thmbox}
+    \begin{theorem}
+        If $f \in \mathbb{R} [x]$, $f$ is nonzero. Then we have for $f = a_n x^n +
+        \cdots + a_0$, $\deg (f) = n$. Moreover, $\deg (f g) = f + g$
+    \end{theorem}
+\end{thmbox}
+
+\begin{defbox}
+    \begin{definition}[Polynomial over $R$]
+        Let $R$ be a commutative ring with unity $1$, then a polynomial over $R$ is an
+        expression of
+        \[ a_n x_n + \cdots + a_0 \]
+        where all coeff are element in the ring $R$.
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let ${R} [x]$ be the set of polynomial in variable $x$ with coeff in
+        $R$.
+        
+        Then this is a commutative ring with unity $1$. Moreover, $R$ is a subring of
+        $R [x]$.
+    \end{theorem}
+\end{thmbox}
+\begin{expbox}
+    \begin{example}
+        Let $f, g \in R [x]$ are nonzero, is it true that $\deg (f g) = \deg (f) +
+        \deg (g)$?
+        \begin{ansbox}
+            False! Consider $R =\mathbb{Z}_6$. Let $f \mapsto 3 x^2 + 1, g \mapsto 2 x +
+            1$. Then $f g = 6 x^3 + 3 x^2 + 2 x + 1 = 3 x^2 + 2 x + 1$. Then the degree
+            for $f g = 2$ while $\deg (f) + \deg (g) = 3$!    
+        \end{ansbox}
+    \end{example}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{proposition}
+        If $R$ is an integral domain, $f, g \in R [x]$, $f \neq 0, g \neq 0$, then $f
+        g \neq 0$, therefore $R [x]$ is a integral domain. Moreover, $\deg (f) + \deg
+        (g) = \deg (f g)$.
+    \end{proposition}
+\end{thmbox}
+
+\begin{defbox}
+    \begin{definition}[Derivative in $R$]
+        If $f \mapsto a_n x^n + \cdots + a_1 x + a_0$, we define $f' \mapsto n a_n
+        x^{n - 1} + \cdots + a_1$. (Just like the usual formula for derivative.)
+    \end{definition}
+\end{defbox}
+The usual definition (First principle) for derivative on $\mathbb{R}$ does not
+hold. However, we have the formula in $\mathbb{R}$ holds in $R$
+also.
+
+If $f$ is a constant, $f = a_0$, then $f' = 0$. However, the converse is not
+always true.
+
+\begin{thmbox}
+    \begin{proposition}
+        If $F$ is a field, $f \in F [x]$, then we say $c \in F$ is a root
+        of $f$ if $f (c) = 0$.
+    \end{proposition}
+\end{thmbox}
+
+For example, can we find all the roots of $x^5 - x + 1 \in \mathbb{Z}_5 [x]$.
+
+Yes, we can plug in $x = 1, \ldots, 5$. We then have $f$ have no roots in
+$\mathbb{Z}_5$.
+
+Are there any simplier ways? Also yes! By Fermat Little theorem, $x^5 - x =
+1$, therefore $x^5 - x + 1 \neq 0$.
+
+\begin{thmbox}
+    \begin{proposition}
+        If $f \in F [x]$, $\deg (f) = n > 0$, then we have:\\
+        \begin{itemize}
+          \item $c \in F$ is a root of $f$ iff $f (x) = (x - c) g (x)$ for some $g \in
+          F [x]$, and $\deg (g) = n - 1$.\\
+          
+          \item $f$ has at most $n$ roots in $F$. 
+        \end{itemize}
+    \end{proposition}
+    \begin{prfbox}
+        \begin{proof}
+            \begin{eqnarray*}
+                f (x) & = & (x - c) g (x)\\
+                f (c) & = & (c - c) g (x)\\
+                & = & 0 g (x) = 0
+              \end{eqnarray*}
+              Conversely, if $c$ is a root of $f$, i.e. $f (c) = 0$, then
+              \[ a_n c^n + \cdots + a_0 = 0 \]
+              We then have
+              \begin{eqnarray*}
+                f (x) & = & f (x) - f (c)\\
+                & = & (a_n x^n + \cdots + a_1 x + a_0) - (a_n c^n + \cdots + a_1 c + a_0)\\
+                & = & (a_n) (x^n - c^n) + \cdots + a_1 (x - c)
+              \end{eqnarray*}
+              Note that $x^n - c^n = (x - c) (x^{n - 1} + \cdots + c^{n - 1})$, hence $f =
+              (x - c) g (x)$ for some $g (x)$.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\newpage
+
+\section*{Add. Topic 3. Introduction to field theory}
+
+\begin{defbox}
+    \begin{definition}[Field]
+        A field is a ring, $F$ satisfying three properties:\\
+    
+        1. $F$ is commutative.\\
+        
+        2. $F$ has $1$ as unity, where $1 \neq 0$.\\
+        
+        3. Every nonzero element $a \in F$ has a multiplicative inverse $a^{- 1} \in
+        F$. 
+    \end{definition}
+\end{defbox}
+
+For arbitrary number $\alpha \in \mathbb{C}$, $\alpha$ generates a field
+$\mathbb{Q} (\alpha) \text{ in } \mathbb{C}$.
+\[ \mathbb{Q} (\alpha) = \left\{ \begin{array}{c|}
+    \frac{a_n \alpha^n + \cdots + a_1 \alpha + a_0}{b_m \alpha^n + \cdots +
+    b_1 \alpha + b_0}
+    \end{array} a_0, \ldots, a_n, b_1, \ldots, b_m \in \mathbb{Q}, m, n \in
+    \mathbb{Z}_{\geq 0}, b_m \alpha^n + \cdots + b_1 \alpha + b_0 \neq 0
+    \right\} \]
+We pick $\alpha = 0$, then $\mathbb{Q} (\alpha) =\mathbb{Q} (0) = \left\{
+\begin{array}{c|}
+\frac{a_0}{b_0}
+\end{array} a_0, b_0 \in \mathbb{Q}, b_0 \neq 0 \right\} =\mathbb{Q}$
+
+Pick $\alpha = 1$, then $\mathbb{Q} (\alpha) =\mathbb{Q}$. For any rational
+number $\alpha$, we have $\mathbb{Q} (\alpha) =\mathbb{Q}$ also.
+
+Pick any $\alpha \nin \mathbb{Q}$, but $\alpha \in \mathbb{Q} (a)$, for
+example, we can pick $\alpha = \frac{\alpha + 0}{0 \alpha + 1} \in \alpha$.
+
+
+
+\begin{thmbox}
+    \begin{theorem}
+        If we pick $\alpha = i$, we then have $\mathbb{Q} (i) = \left\{\begin{array}{c|}
+            a i + b
+            \end{array} \hspace{0.4em} a, b \in \mathbb{Q} \right\}$
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Since
+            \begin{eqnarray*}
+              a_n i^n + a_{n - 1} i^{n - 1} + \cdots + a_1 i + a_0 & = & c i + d, (c, d)
+              \in \mathbb{Q}^2\\
+              b_m i^m + b_{m - 1} i^{m - 1} + \cdots + b_1 i + b_0 & = & v i + s, (v, s)
+              \in \mathbb{Q}^2
+            \end{eqnarray*}
+            And therefore,
+            \begin{eqnarray*}
+              \mathbb{Q} (i) & = & \left\{ \begin{array}{c|}
+                \frac{c i + d}{v i + s}
+              \end{array} c, d, v, s \in \mathbb{Q}, r, s \text{ not both zero} \right\}\\
+              & = & \left\{ \begin{array}{c|}
+                a i + b
+              \end{array} \hspace{0.4em} a, b \in \mathbb{Q} \right\}
+            \end{eqnarray*}
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+Note that $\mathbb{Q} (\pi)$ is a very large set, however, $\mathbb{Q} (\pi)
+\subsetneq \mathbb{R}$, since $\mathbb{Q} (\pi)$ is countably finite, however
+$\mathbb{R}$ itself is not countable.
+
+\begin{defbox}
+    \begin{definition}[Fiel extension]
+        If $F$ is a field, an extension of $F$ is a field $E$ with $F \subset E$. We
+        say $F$ is a subfield of $E$, and $E$ is a extension of $F$.
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        $\mathbb{Q}$ is the smallest subfield in $\mathbb{C}$.
+    \end{example}
+    \begin{prfbox}
+        \begin{proof}
+            If $F$ is a subfield in $\mathbb{C}$, then $1 + 1 + \cdots + 1 = n \in F$. We
+            have $- n \in F$, and $n^{- 1} \in F$, and $\frac{m}{n} = m n^{- 1} \in F$.
+            Hence $\mathbb{Q} \subset F$.
+        \end{proof}
+    \end{prfbox}
+\end{expbox}
+
+\begin{defbox}
+    \begin{definition}[Vector space over a field]
+        If $F$ is a field, a vector space over $F$ is a set $V$ with addition and
+        scalar multiplication s.t.\\
+        \begin{enumerate}
+            \item $(V, +)$ is a abelian group. (This imples 0 exists, $a^{- 1}$ exists,
+            and operation is associative)\\
+            
+            \item $(k_1 k_2) v = k_1 (k_2 v), \forall k_1, k_2 \in F, v \in V$. Also $1
+            \times v = v$\\
+            
+            \item $(k_1 + k_2) v = k_1 v + k_2 v, k (v_1 + v_2) = k v_1 + k v_2$
+          \end{enumerate}
+    \end{definition}
+\end{defbox}
+Almost all results and concepts in linear algebra course can be generalized to a linear algebra over F. For example, linearly independence, basis, ...
+
+\begin{expbox}
+    \begin{example}
+
+        \nline
+
+        Consider $F^2 = \left\{ \left[\begin{array}{c}
+            a\\
+            b
+          \end{array}\right] : a, b \in F \right\}$. Define $+$ and scalar
+          multiplication as same in $\mathbb{R}^2$.
+          
+          Then $F^2$ has a basis of $e_1 = \left(\begin{array}{c}
+            1\\
+            0
+          \end{array}\right), e_2 = \left(\begin{array}{c}
+            0\\
+            1
+          \end{array}\right)$.
+    \end{example}
+\end{expbox}
+
+\begin{defbox}
+    \begin{definition}[Dimension of a vector space]
+        A vector space $V$ over $F$ has a dimension $n$, $n \in \mathbb{Z}_{\geqslant
+        0}$, written as $\dim_F V = n$, if $V$ has a basis consisting of $n$ vector
+        spaces. If $V$ has no finite basis , then $\dim_F V = \infty$.
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+            $\mathbb{R}^{\infty} = \{ (a_1, \ldots, a_n) : a_1, \ldots, \in \mathbb{R}
+            \}$ is a vector space with infinitely dimension.
+    \end{example}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If $F \subset E$, $E$ is a field extension of field $F$, then $E$ is
+        automatically a vector space over $F$.
+    \end{theorem}
+\end{thmbox}
+
+\begin{defbox}
+    \begin{definition}[Degree of extension]
+        The degree of the extension $F \subset E$ is $[E : F] = \dim_F E$.
+      \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        $[\mathbb{C}: \mathbb{R}] = \dim_{\mathbb{R}} \mathbb{C}= 2$.
+    \end{example}
+\end{expbox}
+
+Consider the example we mentioned earlier:
+\begin{expbox}
+    \begin{example}
+        For arbitrary number $\alpha \in \mathbb{C}$, $\alpha$ generates a field
+        $\mathbb{Q} (\alpha) \text{ in } \mathbb{C}$.
+        \[ \mathbb{Q} (\alpha) = \left\{ \begin{array}{c|}
+             \frac{a_n \alpha^n + \cdots + a_1 \alpha + a_0}{b_m \alpha^n + \cdots +
+             b_1 \alpha + b_0}
+           \end{array} a_0, \ldots, a_n, b_1, \ldots, b_m \in \mathbb{Q}, m, n \in
+           \mathbb{Z}_{\geq 0}, b_m \alpha^n + \cdots + b_1 \alpha + b_0 \neq 0
+           \right\} \]
+    \end{example}
+\end{expbox}
+then $[\mathbb{Q} (\alpha) : \mathbb{Q}] = \left\{\begin{array}{lll}
+    1 & , & a \in \mathbb{Q}\\
+    2 & , & a = i\\
+    & \vdots & 
+\end{array}\right.$
+
+\begin{defbox}
+    \begin{definition}[Algebraic and Transcendal Number]
+        $\alpha$ is called an algebraic number if there is $f (x) \in \mathbb{Q} (x)$,
+        s.t. $f (a) = 0$. We say $\alpha$ is transcendal if $\alpha$ is not algebraic.
+        
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        $e, \pi$ are transcendal number. 
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        Let $\bar{\mathbb{Q}}$ be the set of all algebraic number, then
+        $\bar{\mathbb{Q}}$ is a subfield of $\mathbb{C}$.\\ 
+        
+        $\mathbb{C}- \bar{\mathbb{Q}}$ is the set of transcendal number, moreover,
+        this set is uncountable.
+    \end{example}
+\end{expbox}
+
+\begin{defbox}
+    \begin{definition}[Constructible number]
+        A real number $\alpha \in \mathbb{R}$ is called a constructible number if we
+        can constructible a line segment with length $| \alpha |$ in a finitely number
+        of steps from the given segment of length 1 by using a straight edge and a
+        compass.
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        $\R$ can be classifield into two types: Construstible number and non-constructible number.
+    \end{theorem}
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        All integers are constructable. All rational numbers are constructable.
+    \end{example}
+\end{expbox}
+
+\begin{expbox}
+    \begin{example}
+        If $\gamma$ is constructable, then $\gamma^{\frac{1}{2}}$ is constructable as
+        well.
+    \end{example}
+    \begin{prfbox}
+        \begin{proof}
+
+            Consider:
+
+            \nline
+
+            \begin{center}
+                \begin{tikzpicture}
+                    \draw[draw=black, thin, solid] (0,0) circle (1);
+                    \draw[draw=black, thin, solid] (-1.00,0.00) -- (0.2,0.00);
+                    \node[label={45:$1$}] at (0.15,-0.6) {};
+                    \draw[draw=black, thin, solid] (0.2,0.00) -- (1.00,0.00);
+                    \node[label={45:$r$}] at (-0.7,-0.6) {};
+                    \draw[draw=black, thin, solid] (-1.00,0.00) -- (0.2,0.98);
+                    \node[label={45:$\sqrt{r}$}] at (-0.6,0.0) {};
+                    \draw[draw=black, thin, solid] (1.00,0.00) -- (0.2,0.98);
+                    \draw[draw=black, thin, solid] (0.2,0.00) -- (0.2,0.98);
+
+                \end{tikzpicture}        
+            \end{center}
+
+
+
+        \end{proof}
+    \end{prfbox}
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let $C$ be the set of constructible. Then\\
+
+        \begin{enumerate}
+            \item C is a subfield of $\mathbb{R}$.\\
+            \item Any element in $C$ is algebraic.\\
+            \item $[\mathbb{Q} (\alpha) : \mathbb{Q}] = 2^k, k \in \mathbb{Z}_{\geq 0}$, for
+            any $\alpha \in C$.
+        \end{enumerate}
+    \end{theorem}
+\end{thmbox}
+
+\begin{expbox}
+    \begin{example}
+        \nline
+
+        $2^{\frac{1}{3}}$ is not constructible.
+    \end{example}
+    \begin{prfbox}
+        \begin{proof}
+
+            \nline
+
+            $\left[ \mathbb{Q} \left( 2^{\frac{1}{3}} \right) : \mathbb{Q} \right] = 3
+            \nin 2^k$
+        \end{proof}
+    \end{prfbox}
+    In general, given $a \in \mathbb{Z}_{> 0}$, if $a \nin \mathbb{Z}$, then
+$a^{\frac{1}{3}}$ is never constructible.
+\end{expbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        It is not possible to trisect a given angle using straight edge and compass.
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            If such statement is true, then one may construct $20^{\circ}$ from
+            $60^{\circ}$. But
+            \begin{eqnarray*}
+              {}[\mathbb{Q} (\cos 20^{\circ}) : \mathbb{Q}] & = & 3
+            \end{eqnarray*}
+            Then $\cos 20^{\circ}$ is not constructible.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
 
 \end{document}
 
