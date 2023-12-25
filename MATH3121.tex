@@ -93,7 +93,9 @@
 
     In this winter, I decided to remake it with LaTeX to improve readability. (Also to train my LaTeX skill)
 
-    If you found any error, please contact SmokingPuddle58. Many thanks.\\
+    If you found any error, please contact SmokingPuddle58. Many thanks.
+
+    \bigskip
 
 
 \begin{thmbox}
@@ -120,7 +122,7 @@
     &\\
 \end{tabular}
 
-Some special symbols, notations and functions that will appear in this note:\\
+Some special symbols, notations and functions that will appear in this note:\bigskip
 
 \begin{center}
 
@@ -155,8 +157,8 @@ Some special symbols, notations and functions that will appear in this note:\\
 
 \section{Sets and Relations}
 
-To define a finite set, one may choose to list out every element in the set.\\
-However, with infinite set, we may choose to characterize the set.\\
+To define a finite set, one may choose to list out every element in the set.\bigskip
+However, with infinite set, we may choose to characterize the set.\bigskip
 For example, we may write the set of all odd numbers as:
         $$A=\{a\in\R|a=2n+1,n\in\Z\}$$
 and some sets like:
@@ -178,9 +180,9 @@ For example, we have
 
 \begin{defbox}
     \begin{definition}[Union, intersection]
-        If $A,B$ are sets, then:\\
-        \\
-        The union of $A$ and $B$, denoted by $A \cup B$, are defined as $\left\{ x|x \in A \text{ or } x \in B \right\}$. \\
+        If $A,B$ are sets, then:\bigskip
+
+        The union of $A$ and $B$, denoted by $A \cup B$, are defined as $\left\{ x|x \in A \text{ or } x \in B \right\}$. \bigskip
         
         The intersection of $A$ and $B$, denoted by $A \cap B$, are defined as $\left\{ x|x \in A \text{ and } x \in B \right\}$.            
     \end{definition}    
@@ -190,12 +192,12 @@ With union and intersection of sets, we have the following theorem:
 
 \begin{thmbox}
     \begin{theorem}[Laws of operation of sets]
-        The following laws holds for any set $A,B,C$
+        The following laws holds for any set $A,B,C$ \bigskip
         \begin{enumerate}
-            \item Distributive law:\\
+            \item Distributive law:\bigskip
                     $$(A\cap B)\cup C=(A\cup C)\cap (B\cup C)$$
                     $$(A\cup B)\cap C=(A\cap C)\cup (B\cap C)$$
-            \item De Morgan's law:\\
+            \item De Morgan's law:\bigskip
                     $$(A\cap B)'=A' \cup B'$$
                     $$(A\cup B)'=A' \cap B'$$
         \end{enumerate}
@@ -236,7 +238,8 @@ With union and intersection of sets, we have the following theorem:
             As $(A \cup B) \cap C \subset (A \cap C) \cup (B \cap C)$ and $(A \cap C)
             \cup (B \cap C) \subset (A \cup B) \cap C$ and hence
             \[ (A \cup B) \cap C = (A \cap C) \cup (B \cap C) \]
-            2. can be proved with similar methods as above.\\\\
+            2. can be proved with similar methods as above.\bigskip
+
             Proof of 0.1.2 (De Morgan's law) is left as exercise.
           \end{proof}
     \end{prfbox}
@@ -266,8 +269,10 @@ For example, if $f(x)=x^2-1$, then $f$ is a map, where $f:\R\to\R$.
 
 \begin{expbox}
     \begin{example}
-        Let $A={1,2,3},B={4,5}$, how many maps from $A$ to $B$ are there?\\\\
-        There are two ways to choose $f(1)$, two ways to choose $f(2)$, and 2 ways to choose $f(3)$. \\
+        Let $A={1,2,3},B={4,5}$, how many maps from $A$ to $B$ are there?\bigskip
+
+        There are two ways to choose $f(1)$, two ways to choose $f(2)$, and 2 ways to choose $f(3)$. \bigskip
+
         Therefore there are $2^3=8$ functions from $A$ to $B$.
     \end{example}
 \end{expbox}
@@ -281,47 +286,58 @@ We extend the concept to other sets which contains different numbers of element.
 
 \begin{defbox}
     \begin{definition}[One-to-one, Onto]
-       For a map $f:A\to B$:\\\\
-       The map is one-to-one (injection), if $a_1\neq a_2$ implies $f(a_1)\neq f(a_2)$.\\
-       The map is onto (surjection), if for every element $b\in B$, there is $a\in A$ with $f(a)=b$. \\
+       For a map $f:A\to B$:\bigskip
+
+       The map is one-to-one (injection), if $a_1\neq a_2$ implies $f(a_1)\neq f(a_2)$.\bigskip
+
+       The map is onto (surjection), if for every element $b\in B$, there is $a\in A$ with $f(a)=b$. \bigskip
+
        The map is one-to-one correspondence (bijection), if $f$ is both one-to-one and onto.
     \end{definition}
 \end{defbox}
 
 \begin{expbox}
     \begin{example}[One-to-one]
-        $f:\R\to\R, f(x)=3x-1$ is one-to-one.\\
+        $f:\R\to\R, f(x)=3x-1$ is one-to-one.\bigskip
+
         $h:\R\to\R, h(x)=3x^2-1$ is NOT one-to-one.
     \end{example}
 \end{expbox}
 
 \begin{expbox}
     \begin{example}[Onto]
-        $f:\R\to\R, f(x)=3x-1$ is onto.\\
+        $f:\R\to\R, f(x)=3x-1$ is onto.\bigskip
+
         $h:\R\to\R, g(x)=e^x$ is NOT onto since negative numbers are not in image of $g$.
     \end{example}
 \end{expbox}
 
 \begin{expbox}
     \begin{example}[One-to-one correspondence]
-        $f:\R\to\R, f(x)=3x-1$ is bijection.\\
+        $f:\R\to\R, f(x)=3x-1$ is bijection.\bigskip
+
         $h:\R\to\R, h(x)=3x^2-1$ is NOT bijection because it is not onto.
     \end{example}
 \end{expbox}
 
 \begin{defbox}
     \begin{definition}[Cardinality of sets]
-        Given two sets $A,B$.\\\\
-        $A,B$ have the same cardinality, if and only if there is a bijection $f:A\to B$.\\
-        If there is a injection $g:A\to B$, then $A$ has a smaller cardinality than $B$. Also, $|A|\neq |B|.$\\
-        If there is a surjection $h:A\to B$, then $A$ has a larger cardinality than $B$. Also, $|A|\neq |B|.$\\\\
+        Given two sets $A,B$.\bigskip
+
+        $A,B$ have the same cardinality, if and only if there is a bijection $f:A\to B$.\bigskip
+
+        If there is a injection $g:A\to B$, then $A$ has a smaller cardinality than $B$. Also, $|A|\neq |B|$.\bigskip
+
+        If there is a surjection $h:A\to B$, then $A$ has a larger cardinality than $B$. Also, $|A|\neq |B|$.\bigskip
+
         Two finite sets $A,B$ have the same cardinality if and only if they have same number of elements in the set. 
     \end{definition}
 \end{defbox}
 
 \begin{expbox}
     \begin{example}
-        Let $A={1,2,3,4,5},B={4,5,6,7}$. Find the number of map such that the map is one-to-one.\\\\
+        Let $A={1,2,3,4,5},B={4,5,6,7}$. Find the number of map such that the map is one-to-one.\bigskip
+
         Since $|A| > |B|$, it is impossible to find a one-to-one map.    
     \end{example}
 \end{expbox}
@@ -350,7 +366,8 @@ set $B$ is ``larger" than set $A$ in terms of cardinality.
 
 \begin{expbox}
     \begin{example}
-        Prove that $(-\frac{\pi}{2},\frac{\pi}{2})=|(-1,1)$\\\\
+        Prove that $(-\frac{\pi}{2},\frac{\pi}{2})=|(-1,1)|$.\bigskip
+
         Since $f:(-\frac{\pi}{2},\frac{\pi}{2})\to(-1,1),f(x)=\frac{2}{\pi}x$ is bijective, thus both sets have equal cardinality.
     \end{example}
 \end{expbox}
@@ -372,8 +389,8 @@ set $B$ is ``larger" than set $A$ in terms of cardinality.
     \begin{definition}[Equivalence relation]
         Let $A$ be a set, a equivalence relation $\sim$ is defined if it satisfies the following properties:
         \begin{enumerate}
-            \item $a \sim a$ 
-            \item $a \sim b \implies b \sim a$
+            \item $a \sim a$ \bigskip
+            \item $a \sim b \implies b \sim a$\bigskip
             \item $a \sim b \text{ and } b \sim c \implies a \sim c$
         \end{enumerate}
     \end{definition}
@@ -390,27 +407,27 @@ set $B$ is ``larger" than set $A$ in terms of cardinality.
 
 \begin{expbox}
     \begin{example}
-        Define an relationship $\sim$ if and only if $f (a_1, b_1) = f (a_2, b_2)$, where $f (a, b) = a^2 + b^2$.\\ The relation $\sim$ is equivalence relationship.
+        Define an relationship $\sim$ if and only if $f (a_1, b_1) = f (a_2, b_2)$, where $f (a, b) = a^2 + b^2$.\bigskip The relation $\sim$ is equivalence relationship.
     \end{example}
 \end{expbox}
 
 \begin{thmbox}
     \begin{theorem}
         Given an equivalence relation $\sim$ on $A$, for $a \in A$, define
-$\overset{\sim}{a} \overset{}{} = \{ x \in A|x \sim a \}$. Then
-$\overset{\sim}{a}$ is a subset of $A$.
+        $\overset{\sim}{a} \overset{}{} = \{ x \in A|x \sim a \}$. Then
+        $\overset{\sim}{a}$ is a subset of $A$.\bigskip
 
-For any $a_1, a_2 \in A$, we have either $\overset{\sim}{a_1} = \overset{\sim}{a_2}$,
-or $\overset{\sim}{a_1} \cap \overset{\sim}{a_2} = \emptyset$
+        For any $a_1, a_2 \in A$, we have either $\overset{\sim}{a_1} = \overset{\sim}{a_2}$,
+        or $\overset{\sim}{a_1} \cap \overset{\sim}{a_2} = \emptyset$
     \end{theorem}
 \end{thmbox}
 
 \begin{defbox}
     \begin{definition}[Partial order]
-        Let $A$ be a set. A relation $\leq$ on $A$ is called partial order on $A$ if for any $a,b,c\in A$,
+        Let $A$ be a set. A relation $\leq$ on $A$ is called partial order on $A$ if for any $a,b,c\in A$,\bigskip
         \begin{enumerate}
-            \item $a \leq a$
-            \item $a \leq a$ and $b \leq a$ implies $a=b$
+            \item $a \leq a$\bigskip
+            \item $a \leq a$ and $b \leq a$ implies $a=b$\bigskip
             \item $a \leq b$ and $b \leq c$ implies $a \leq c$
         \end{enumerate}
     \end{definition}
@@ -424,12 +441,12 @@ If $A=\R$, then the relation is the inequality sign we commonly used.
 
 \begin{defbox}
     \begin{definition}[Complex number $\C$]
-        Define $\C$ to be a set $\C=\{a+bi|a,b\in\R\}$ with two operations $+,\cdot,$ such that:\\
+        Define $\C$ to be a set $\C=\{a+bi|a,b\in\R\}$ with two operations $+,\cdot,$ such that:\bigskip
         \begin{enumerate}
-            \item Addition: $(a+bi)+(c+di)=(a+c)+(b+d)i$\\
-            \item Multiplication:\\
+            \item Addition: $(a+bi)+(c+di)=(a+c)+(b+d)i$\bigskip
+            \item Multiplication:\bigskip
             \begin{enumerate}
-                \item $\cdot$ is distributive with respect to $+$\\
+                \item $\cdot$ is distributive with respect to $+$\bigskip
                 \item $i\cdot i=-1$
             \end{enumerate}
         \end{enumerate}
@@ -529,10 +546,10 @@ We define a group as the following:
 
 \begin{defbox}
     \begin{definition}[Group]
-        A group is a set $G$ with a binary operation $*$ on $G$ such that the following axioms are satisfied:\\
+        A group is a set $G$ with a binary operation $*$ on $G$ such that the following axioms are satisfied:\bigskip
         \begin{enumerate}
-            \item There is $e\in G$, s.t. $\forall a\in G, e*a=a*e*a$ (Existance of identity element)
-            \item For every $a\in G,\exists a'\in G,$ s.t. $a'*a=a*a'=e$ (Existance of inverse element)
+            \item There is $e\in G$, s.t. $\forall a\in G, e*a=a*e*a$ (Existance of identity element)\bigskip
+            \item For every $a\in G,\exists a'\in G,$ s.t. $a'*a=a*a'=e$ (Existance of inverse element)\bigskip
             \item For any $a,b,c\in G, (a*b)*c=a*(b*c)$ (Associativity)
         \end{enumerate}
     \end{definition}
@@ -543,22 +560,20 @@ We define a group as the following:
         Prove that $(\R,+)$ is a group.
 
 \begin{ansbox}
-    Since: \\
+    Since: \bigskip
     \begin{enumerate}       
-        \item There is $0\in\R,0+a=a+0=a,\forall a\in\R$
-        \item There is $-a\in\R,-a+a=a+(-a)=0,\forall a\in\R$
-        \item Addition is associative in $\R$
+        \item There is $0\in\R,0+a=a+0=a,\forall a\in\R$.\bigskip
+        \item There is $-a\in\R,-a+a=a+(-a)=0,\forall a\in\R$.\bigskip
+        \item Addition is associative in $\R$.\bigskip
     \end{enumerate}
-    \begin{tabular}{ll}
-        &\\
-    \end{tabular}
     
     Therefore $(\R,+)$ is a group by definition.
 \end{ansbox}
     \end{example}
 \end{expbox}
 
-Note that $\Z,\Q,\C$ are groups under the binary operation $+$.\\\\
+Note that $\Z,\Q,\C$ are groups under the binary operation $+$.
+
 However, $\N$ is not a group under $+$ since there is no $a'\in\N$, s.t. $a+a'=0$.
 
 \begin{expbox}
@@ -585,17 +600,13 @@ We will apply this notation for other sets also, such as $\Z,\C,\Q,...$
             \end{tabular}
     
             \begin{enumerate}
-                \item There is $1\in \C^*$, s.t. $a\cdot 1=1\cdot a=a$
+                \item There is $1\in \C^*$, s.t. $a\cdot 1=1\cdot a=a.$\bigskip
                 \item The inverse element exists, since:
                 $$\frac{1}{a+bi}=\frac{1}{a+bi}\left(\frac{a-bi}{a+bi}\right)=\frac{a-bi}{a^2+b^2}=\frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}i$$
-                and $(a+bi)\left( \frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}i\right)=1$
-                \item The operation is associative for sure.
+                and $(a+bi)\left( \frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}i\right)=1$.\bigskip
+                \item The operation is associative for sure.\bigskip
             \end{enumerate}
-    
-            \begin{tabular}{ll}
-                &\\
-            \end{tabular}
-    
+
             Hence $\C^*$ a group under multiplication by definition.
     
         \end{ansbox}
@@ -611,15 +622,15 @@ We will apply this notation for other sets also, such as $\Z,\C,\Q,...$
 
 \begin{expbox}
     \begin{example}
-        Let $M_n (\mathbb{R})$ be a set of $n \times n$ matrice, with all real number entries.\\
+        Let $M_n (\mathbb{R})$ be a set of $n \times n$ matrice, with all real number entries.\bigskip
 
-        If $n \geq 2$, then the multiplication is not commutative and therefore not abelian.\\
+        If $n \geq 2$, then the multiplication is not commutative and therefore not abelian.\bigskip
 
         However, is $M_n (\mathbb{R})$ a group under matrix multiplication?
 
         \begin{ansbox}
             Let $A \in M_n (\mathbb{R})$. Note that there is matrix with $| A | = 0$, for such matrix, There is no
-            $A'$, s.t. $A A' = A' A = I$\\
+            $A'$, s.t. $A A' = A' A = I$.\bigskip
     
             Thus $M_n (\mathbb{R})$ is not a group under matrix multiplication.    
         \end{ansbox}
@@ -637,21 +648,21 @@ Similarly, we can create a new set, where $| A | \neq 0, \forall A \in M_n
             Is $\text{GL} (n, \mathbb{R})$ a group under matrix multiplication?
             \begin{ansbox}
                 We first prove that the operation is binary. We need to prove that $A \times
-                B \in \text{GL} (n, \mathbb{R})$\\
+                B \in \text{GL} (n, \mathbb{R})$.\bigskip
                 
-                Note that $| A \cdot B | = | A | | B | \neq 0$. Thus the operation is closed.\\
+                Note that $| A \cdot B | = | A | | B | \neq 0$. Thus the operation is closed.\bigskip
                 
                 We now prove that $\text{GL} (n, \mathbb{R})$ is a group under matrix
-                multiplication.\\
+                multiplication.\bigskip
                 \begin{enumerate}
-                  \item There is $I_n$, such that $I_n A = A I_n = A$\\
+                  \item There is $I_n$, such that $I_n A = A I_n = A$.\bigskip
                   
                   \item As $| A | \neq 0, \forall A \in \text{GL} (n, \mathbb{R})$, thus
-                  there is $A^{- 1}$, s.t. $A A^{- 1} = A^{- 1} A = I$\\
+                  there is $A^{- 1}$, s.t. $A A^{- 1} = A^{- 1} A = I$.\bigskip
                   
-                  \item It is obvious that the multiplication of matrix is associative.\\
+                  \item It is obvious that the multiplication of matrix is associative.\bigskip
                 \end{enumerate}
-                Thus $\text{GL} (n, \mathbb{R})$ is a group under matrix multiplication.\\    
+                Thus $\text{GL} (n, \mathbb{R})$ is a group under matrix multiplication.\bigskip
             \end{ansbox}
             Note that when $n \geq 2$, the group is not Abelian.
           \end{example*}
@@ -660,7 +671,7 @@ Similarly, we can create a new set, where $| A | \neq 0, \forall A \in M_n
 
 \begin{defbox}
     \begin{definition}[Finite groups]
-        For a group $(G, \ast)$,\\
+        For a group $(G, \ast)$,\bigskip
         \begin{itemize}
             \item The group is called finite group, if $G$ is a finite set.
             
@@ -674,30 +685,30 @@ Similarly, we can create a new set, where $| A | \neq 0, \forall A \in M_n
         Let $U_n = \{ z \in \mathbb{C}|z^n = 1 \}$. Consider the multiplication operation in $U_n$.
 
         \begin{ansbox}
-            We first prove the set is closed under multiplication.\\
+            We first prove the set is closed under multiplication. \bigskip
 
-            Pick any 2 arbitrary element from $U_n$, $z_1 \text{ and } z_2$.\\
+            Pick any 2 arbitrary element from $U_n$, $z_1 \text{ and } z_2$.\bigskip
     
             Note that $(z_1 \cdot z_2)^n = z_1^n \cdot z^n_2 = 1 \cdot 1 = 1 \in U_n$ (As
             $1^n = 1, \forall n \in \mathbb{N}$), hence $z_1 \cdot z_2 \in U_n$. $U_n$ is
-            closed under $\cdot$. $\cdot$ is a binary operator.\\
+            closed under $\cdot$. $\cdot$ is a binary operator.\bigskip
     
-            Now we prove that $(U_n, \cdot)$ is a group.\\
+            Now we prove that $(U_n, \cdot)$ is a group.\bigskip
     
             \begin{itemize}
             \item There is an identity element $1 \in U_n$, such that $z^n \cdot 1 = 1
-            \cdot z^n = z^n$\\
+            \cdot z^n = z^n$.\bigskip
             
             \item If $z \in U_n$, then $\left( \frac{1}{z} \right)^n = \frac{1}{z^n} =
             \frac{1}{1} = 1 \in U_n$, thus $\forall z \in U_n, \exists \frac{1}{z^n}$,
-            s.t. $z^n \left( \frac{1}{z^n} \right) = 1$\\
+            s.t. $z^n \left( \frac{1}{z^n} \right) = 1$.\bigskip
             
-            \item Complex number are associative under multiplication.\\
+            \item Complex number are associative under multiplication.\bigskip
             \end{itemize}
-            Thus $(U_n, \cdot)$ is a group.\\
+            Thus $(U_n, \cdot)$ is a group.\bigskip
     
             Note that we may express $U_n = \left\{ e^{\frac{2 \pi i}{n} k} |k = 0, 1,
-            \ldots, n - 1 \right\}$, hence $| U_n | = n$\\
+            \ldots, n - 1 \right\}$, hence $| U_n | = n$.\bigskip
     
             \hrulefill
     
@@ -755,7 +766,7 @@ The following theorem is very important throughtout the entire course!
 
 \begin{thmbox}
     \begin{theorem}[Left and right cancellation law]
-        If $(G, \ast)$ is a group, then the left cancellation and right cancellation law holds in group.\\
+        If $(G, \ast)$ is a group, then the left cancellation and right cancellation law holds in group.\bigskip
         \begin{itemize}
             \item Left cancellation law: $a*b=a*c\implies b=c$
             \item Right cancellation law: $a*b=c*b\implies a=c$
@@ -785,21 +796,22 @@ The following theorem is very important throughtout the entire course!
         \end{warning}
         \begin{prfbox}
             \begin{proof}
-                Pick two element from $\text{ GL} (\mathbb{Z}, 2)$, where $A =
+                
+                Pick two element from $\text{GL} (\mathbb{Z}, 2)$, where $A =
                 \left[\begin{array}{cc}
                   1 & 1\\
                   0 & 1
                 \end{array}\right], B = \left[\begin{array}{cc}
                   1 & 0\\
                   2 & 1
-                \end{array}\right]$.\\
+                \end{array}\right]$.\bigskip
                 
-                (Remark: Lower triangle matrix and Upper triangle matrix do not commute)\\
+                (Remark: Lower triangle matrix and Upper triangle matrix do not commute)\bigskip
                 
                 Define $C = A B A^{- 1} \implies C A = A B$ (By multiplying $A$ on both
-                side)\\
+                side)\bigskip
                 
-                Find the inverse of $A$: (Trick)\\
+                Find the inverse of $A$: (Trick)\bigskip
                 
                 $\left[\begin{array}{cc}
                   1 & x\\
@@ -819,7 +831,7 @@ The following theorem is very important throughtout the entire course!
                 \end{array}\right] = \left[\begin{array}{cc}
                   1 & - 1\\
                   0 & 1
-                \end{array}\right]$\\
+                \end{array}\right]$\bigskip
                 
                 As a result, we have $C = \left[\begin{array}{cc}
                   1 & 1\\
@@ -836,7 +848,7 @@ The following theorem is very important throughtout the entire course!
                 \end{array}\right] \neq \left[\begin{array}{cc}
                   1 & 0\\
                   2 & 1
-                \end{array}\right]$\\
+                \end{array}\right]$\bigskip
                 
                 Thus $C A = A B$ does not implies that $C = B$, thus $a \ast c = b \ast a
                 \centernot\implies c = b$.
@@ -849,19 +861,20 @@ The following theorem is very important throughtout the entire course!
 
 \begin{thmbox}
     \begin{corollary}[Uniqueness of identity and inverse element]
-        If $(G,*)$ is a group, then for any $a\in G$, the inverse element $a'$ s.t. $aa'=e$ is $\mathbf{unique}$.\\
+        If $(G,*)$ is a group, then for any $a\in G$, the inverse element $a'$ s.t. $aa'=e$ is $\mathbf{unique}$.\bigskip
         The identity element $e$ for each group is also unique.
     \end{corollary}
     \begin{prfbox}
         \begin{proof}
-            Assume that there are two inverse element $a'$ and $a''$ in $G$, for $a\in G$. We then have:\\
+            Assume that there are two inverse element $a'$ and $a''$ in $G$, for $a\in G$. We then have:\bigskip
             \begin{center}
                 $\left\{\begin{array}{l}
                     a \ast a' = e\\
                     a \ast a'' = e
                   \end{array}\right.$    
             \end{center}
-            By left cancellation law, $a'=a''$\\\\
+            By left cancellation law, $a'=a''$\bigskip
+
             Similarly, assume there are two identity element $e'$ and $e''$ in $G$. We then have:\\
             \begin{center}
                 $\left\{\begin{array}{l}
@@ -889,8 +902,10 @@ The following theorem is very important throughtout the entire course!
     \end{prfbox}
     \begin{prfbox}
         \begin{proof}[2]
-            Consider the element $g=a^{-1}abca$. For the associativity, we have $g=a^{-1}(abc)a=a^{-1}ea$.\\\\
-            On the other hand, we have $g=(a^{-1}a)bca=bca$.\\\\
+            Consider the element $g=a^{-1}abca$. For the associativity, we have $g=a^{-1}(abc)a=a^{-1}ea$.\bigskip
+
+            On the other hand, we have $g=(a^{-1}a)bca=bca$.\bigskip
+
             Above all, we proved that $bca=e$.
         \end{proof}
     \end{prfbox}
@@ -918,7 +933,7 @@ However, $2\mathbb{Z}+ 1$ is not closed since, $1, 3 \in 2\mathbb{Z}+ 1$, but $1
 
 \begin{defbox}
     \begin{definition}[Subgroup]
-        If $T$ is a set, $*$ is a binary operation on $T$.\\
+        If $T$ is a set, $*$ is a binary operation on $T$.\bigskip
         A subset $S$ in $T$ is closed under $*$ if for any $a,b\in S,$
     \end{definition}
 \end{defbox}
@@ -960,7 +975,7 @@ S$.
             \end{tabularx}
 
             \begin{ansbox}
-                Only 2 is not a subgroup, since inverse element does not exist for most of the elements.\\
+                Only 2 is not a subgroup, since inverse element does not exist for most of the elements.\bigskip
                 (e.g. $2^{-1}=\frac{1}{2}\not\in \{1,2,2^2,2^3,...\})$
         
             \end{ansbox}
@@ -973,22 +988,22 @@ S$.
         \mathbb{C}^{\ast} : | z | = 1 \}$ a subgroup? where $| z | = \sqrt{a^2 +
         b^2}$.
         \begin{ansbox}
-            We first check whether the operation is closed or not.\\
+            We first check whether the operation is closed or not.\bigskip
 
             Note that $\forall z, w \in \mathbb{C}, | z w | = | z | | w | .$ If $z, w \in
-            U$, $| z w | = | z |  | w | = 1 \times 1 = 1$ and obviously, $1 \in U$.\\
+            U$, $| z w | = | z |  | w | = 1 \times 1 = 1$ and obviously, $1 \in U$.\bigskip
     
-            Thus we know that $U$ is closed under $\cdot$.\\
+            Thus we know that $U$ is closed under $\cdot$.\bigskip
     
-            Then we check whether the inverse element exists.\\
+            Then we check whether the inverse element exists.\bigskip
             \begin{eqnarray*}
             | z \cdot z' | & = & | 1 |\\
             | z |  | z' | & = & 1\\
             | z' | & = & 1 \in U
             \end{eqnarray*}\\
-            Thus the inverse element exist.\\
+            Thus the inverse element exist.\bigskip
     
-            Finally, the multiplication of $\mathbb{C}^{\ast}$ is associative.\\
+            Finally, the multiplication of $\mathbb{C}^{\ast}$ is associative.\bigskip
     
             Thus $U = \{ z \in \mathbb{C}^{\ast} : | z | = 1 \}$ is a subgroup.
     
@@ -1000,17 +1015,17 @@ S$.
 \begin{expbox}
     \begin{example}
         Let $\text{GL} (3, \mathbb{R})$ be a group of $3 \times 3$ real matrix under
-        $\cdot$, where $| M | \neq 0, \forall M \in \text{GL} (3, \mathbb{R})$.\\
+        $\cdot$, where $| M | \neq 0, \forall M \in \text{GL} (3, \mathbb{R})$.\bigskip
 
-        Are the following sets a subgroup under matrix multiplication?\\
+        Are the following sets a subgroup under matrix multiplication?\bigskip
         \begin{enumerate}
         \item $A =$All $3 \times 3$ diagonal real matrix, with positive integer
-        entry.\\
+        entry.\bigskip
         
-        \item $B =$All $3 \times 3$ diagonal real matrix, with $| M | = 1$\\
+        \item $B =$All $3 \times 3$ diagonal real matrix, with $| M | = 1$\bigskip
         
         \item $C =$All $3 \times 3$ upper triangular real matrix, $| M | \neq 0$,
-        non-negative entry\\\\
+        non-negative entry.\bigskip
         \end{enumerate}
 
         Before we do the question, it will be good to know some of properties.
@@ -1038,8 +1053,9 @@ S$.
             a^{- 1}_1 &  & \\
             & a^{- 1}_2 & \\
             &  & a^{- 1}_3
-        \end{array}\right] \]\\
-        Given the above properties, it will be easy for us to solve the question.\\
+        \end{array}\right] \]\bigskip
+
+        Given the above properties, it will be easy for us to solve the question.\bigskip
 
         \begin{ansbox}
             \begin{enumerate}
@@ -1053,9 +1069,9 @@ S$.
                     \frac{1}{2} &  & \\
                     & \frac{1}{3} & \\
                     &  & \frac{1}{5}
-                \end{array}\right] \not\in A \]\\
+                \end{array}\right] \not\in A \]\bigskip
         
-                \item Yes, note that the group is also abelian.\\
+                \item Yes, note that the group is also abelian.\bigskip
                 \item The operation is closed. However, most of the inverse does not exist. For
                 example:
                 \[ \left[\begin{array}{ccc}
@@ -1087,40 +1103,42 @@ Let $G$ be a group under $*$. Then we will be using the following set of notatio
 
 \begin{thmbox}
     \begin{theorem}[*Subgroup]
-        A subset $H$ of group $G$ is a subgroup if and only if\\
+        A subset $H$ of group $G$ is a subgroup if and only if:\bigskip
         \begin{enumerate}
-            \item $H$ is closed under binary operation of $G$\\
-            \item The identity element in $G: e\in H$\\
-            \item For any $a\in H$, $a^{-1}\in H$\\
+            \item $H$ is closed under binary operation of $G$\bigskip
+            \item The identity element in $G: e\in H$\bigskip
+            \item For any $a\in H$, $a^{-1}\in H$\bigskip
         \end{enumerate}
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
-            $(\implies)$\\\\
+            $(\implies)$\bigskip
+
             If $H$ is a subgroup, by the definition of subgroup, $H$ is closed under
-            binary operation of $G$.\\
+            binary operation of $G$.\bigskip
     
             $H$ is a group under reduced operation, thus there is $e'$, which is the
-            identity element of $H$. \\
+            identity element of $H$. \bigskip
             
-            We now prove that $e' = e$, where $e$ is the identity element of $G$.\\
+            We now prove that $e' = e$, where $e$ is the identity element of $G$.\bigskip
     
             \[ \left\{\begin{array}{l}
                 e' e' = e'\\
                 e' e = e'
-            \end{array}\right. \implies e' e' = e' e \implies e' = e \]\\
+            \end{array}\right. \implies e' e' = e' e \implies e' = e \]\bigskip
     
-            by the left cancellation law.\\
+            by the left cancellation law.\bigskip
     
-            Finally it is obvious that the associativity holds.\\
+            Finally it is obvious that the associativity holds.\bigskip
     
-            $(\Longleftarrow)$\\\\
-            If the three rules holds, then we have:\\
+            $(\Longleftarrow)$\bigskip
+
+            If the three rules holds, then we have:\bigskip
     
             \begin{itemize}
-                \item $H$ is closed\\
-                \item Identity element $e$ exists in $H$\\
-                \item For every $a\in H,\exists a^{-1}\in H$\\
+                \item $H$ is closed\bigskip
+                \item Identity element $e$ exists in $H$\bigskip
+                \item For every $a\in H,\exists a^{-1}\in H$\bigskip
                 \item Associativity holds
             \end{itemize}
     
@@ -1135,17 +1153,18 @@ Let $G$ be a group under $*$. Then we will be using the following set of notatio
 
 \begin{thmbox}
     \begin{proposition}
-        Let $G$ be a group and let $a \in G$. The set $\langle a \rangle = \{ a^n : n \in \mathbb{Z} \}$ is a subgroup of $G.$\\\\
+        Let $G$ be a group and let $a \in G$. The set $\langle a \rangle = \{ a^n : n \in \mathbb{Z} \}$ is a subgroup of $G.$\bigskip
+
         Moreover, $\langle a \rangle$ is the smallest subgroup. i.e. if $H$ is a subgroup, $a \in H$, then $\langle a \rangle \subset H$.
     \end{proposition}
     \begin{prfbox}
         \begin{proof}
-            Since that $a^m a^n = a^{m + n} \in H$, the operation is therefore closed.\\
+            Since that $a^m a^n = a^{m + n} \in H$, the operation is therefore closed.\bigskip
     
             The identity element $e$ exists in $\langle a \rangle$ because if we pick $n = 0$, then
-            $a^0 = e$.\\
+            $a^0 = e$.\bigskip
     
-            The inverse element $a' = a^{- n}$ also exists in $\langle a \rangle$.\\
+            The inverse element $a' = a^{- n}$ also exists in $\langle a \rangle$.\bigskip
     
             Thus $\langle a \rangle$ is the smallest subgroup.
         \end{proof}
@@ -1175,7 +1194,8 @@ Note that $\cyclic{n}$ is infinite for any $n\in\Z$ except 0 since $\cyclic{0}=\
 
 \begin{defbox}
     \begin{definition}[Cyclic group]
-        A group $G$ is called a cyclic group if there is a special element $a\in G$, s.t. $\cyclic{a}=G$.\\\\
+        A group $G$ is called a cyclic group if there is a special element $a\in G$, s.t. $\cyclic{a}=G$.\bigskip
+
         We call $a$ as the generator of $G$.
     \end{definition}
 \end{defbox}
@@ -1207,9 +1227,9 @@ Note that $\cyclic{n}$ is infinite for any $n\in\Z$ except 0 since $\cyclic{0}=\
     \end{example}
     \begin{prfbox}
         \begin{proof}
-            Suppose the group is cyclic, then there is $ a \in \mathbb{Q}$, s.t. $\cyclic{a} = \{ n a : n \in \mathbb{Z} \} =\mathbb{Q}$.\\
+            Suppose the group is cyclic, then there is $ a \in \mathbb{Q}$, s.t. $\cyclic{a} = \{ n a : n \in \mathbb{Z} \} =\mathbb{Q}$.\bigskip
     
-            Since $a$ is rational, therefore $a = \frac{p}{q}, (p, q) \in \mathbb{Z} \times \{\mathbb{Z} \backslash \{ 0,1 \}\}$.\\
+            Since $a$ is rational, therefore $a = \frac{p}{q}, (p, q) \in \mathbb{Z} \times \{\mathbb{Z} \backslash \{ 0,1 \}\}$.\bigskip
     
             Then we may write $\frac{1}{q^2} = n a = n \frac{p}{q} \Rightarrow \frac{1}{q} = n p \in \mathbb{Z}$, but $\frac{1}{q} \nin \mathbb{Z}$, contradiction!
         \end{proof}
@@ -1225,9 +1245,9 @@ Note that $\cyclic{n}$ is infinite for any $n\in\Z$ except 0 since $\cyclic{0}=\
     \end{example}
     \begin{prfbox}
         \begin{proof}
-            If $\cyclic{a} =\mathbb{Q}^{\ast}$, then $a = \frac{p}{q} = p^{k_1}_1 \ldots .p^{k_n}_n \infixor - p^{k_1}_1 \ldots .p^{k_n}_n$, where $p_1, \ldots, p_n$ are distinct primes.\\
+            If $\cyclic{a} =\mathbb{Q}^{\ast}$, then $a = \frac{p}{q} = p^{k_1}_1 \ldots .p^{k_n}_n \infixor - p^{k_1}_1 \ldots .p^{k_n}_n$, where $p_1, \ldots, p_n$ are distinct primes.\bigskip
     
-            For example, we can express $\frac{10}{77} = 2 \times 5 \times 7^{- 1} \times 11^{- 1}$.\\
+            For example, we can express $\frac{10}{77} = 2 \times 5 \times 7^{- 1} \times 11^{- 1}$.\bigskip
     
             Let $p \nin \{ p_1, \ldots, p_n \}$,then $p \nin \cyclic{a}$, however $p \in \mathbb{Z} \in \mathbb{Q}^{\ast}$, contradiction!
         \end{proof}
@@ -1288,7 +1308,8 @@ Note that $\cyclic{n}$ is infinite for any $n\in\Z$ except 0 since $\cyclic{0}=\
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
-            If $G$ is cyclic, then $G=\cyclic{a}=\{a^n:n\in\Z\}$.\\\\
+            If $G$ is cyclic, then $G=\cyclic{a}=\{a^n:n\in\Z\}$.\bigskip
+
             Pick any element $x,y\in G$, where $x=a^m,y=a^n$. We have:
             \begin{eqnarray*}
                 xy & = & a^ma^n\\
@@ -1307,7 +1328,7 @@ Note that $\cyclic{n}$ is infinite for any $n\in\Z$ except 0 since $\cyclic{0}=\
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
-            Assume that $a^n=e$ for some $n$, and assume that $n$ is the smallest such exponential.\\
+            Assume that $a^n=e$ for some $n$, and assume that $n$ is the smallest such exponential.\bigskip
             Then $\{e,a,a^2,...,a^n\}$ already forms a subgroup. This contradicts the fact that $\cyclic{a}$ is infinite.
         \end{proof}
     \end{prfbox}    
@@ -1316,7 +1337,8 @@ Note that $\cyclic{n}$ is infinite for any $n\in\Z$ except 0 since $\cyclic{0}=\
 
 \begin{defbox}
     \begin{definition}[Order]
-        If $a^n\neq e$ for any $n\in\N$, we call $a$ has infinite order, or has order $\infty$.\\
+        If $a^n\neq e$ for any $n\in\N$, we call $a$ has infinite order, or has order $\infty$.\bigskip
+
         If $a^n=e$ for some positive integer $n$, then the smallest positive integer $n$ is called the order of $a$.
     \end{definition}
 \end{defbox}
@@ -1328,8 +1350,10 @@ Note that $\cyclic{n}$ is infinite for any $n\in\Z$ except 0 since $\cyclic{0}=\
 
     \begin{prfbox}
         \begin{proof}
-            If $a=0$, then then $a^n = \underset{n}{\underbrace{a + a + a + \cdots + a}} = n a \neq 0$.\\\\
-            If $a=0$, then a is already the identity element and the order is thus 1.\\\\
+            If $a=0$, then then $a^n = \underset{n}{\underbrace{a + a + a + \cdots + a}} = n a \neq 0$.\bigskip
+
+            If $a=0$, then a is already the identity element and the order is thus 1.\bigskip
+
             In fact, for any group $G$, if $e\in G$ is the identity element, we always have $\ord{e}=1$. 
         \end{proof}
     \end{prfbox}
@@ -1381,33 +1405,37 @@ With the above theorem, we can prove the following theorem:
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
-            Let $G=\cyclic{a}$. Let $H\subset G$ be a nonempty subgroup.\\\\
-            If $H=\{e\}$, then $\cyclic{e}=\{e\}$, which proves that $H$ is cyclic.\\\\
+            Let $G=\cyclic{a}$. Let $H\subset G$ be a nonempty subgroup.\bigskip
+
+            If $H=\{e\}$, then $\cyclic{e}=\{e\}$, which proves that $H$ is cyclic.\bigskip
+
             If $H\neq\{e\}$, then there is $b\in H$, such that 
             $\left\{\begin{array}{lll}
                 b & = & a^k\\
                 b^{- 1} & = & a^{- k}
-              \end{array}\right., b, b^{- 1} \in H$.\\
+              \end{array}\right., b, b^{- 1} \in H$.\bigskip
     
               As one of the $k, - k$ must be greater than 0, therefore there
-              exist $n \in \mathbb{Z}_{> 0}$, s.t. $a^n \in H$.\\
+              exist $n \in \mathbb{Z}_{> 0}$, s.t. $a^n \in H$.\bigskip
               
-              Let $S = \{ n \in \mathbb{Z}_{> 0} : a^n \in H \}$, then $S$ is not empty.\\
+              Let $S = \{ n \in \mathbb{Z}_{> 0} : a^n \in H \}$, then $S$ is not empty.\bigskip
               
-              Let $m$ be the smallest element in $S$. We claim $H = \cyclic{a^{nm}}.$\\
+              Let $m$ be the smallest element in $S$. We claim $H = \cyclic{a^{nm}}.$\bigskip
               
-              As $a^m \in H$, $\cyclic{a^m} \subset H$.\\
+              As $a^m \in H$, $\cyclic{a^m} \subset H$.\bigskip
               
-              For $b \in H$, since $b \in G = \cyclic{a}$, therefore $b = a^n$ for some $n \in \mathbb{Z}.$\\
+              For $b \in H$, since $b \in G = \cyclic{a}$, therefore $b = a^n$ for some $n \in \mathbb{Z}.$\bigskip
               
-              Consider $n \div m$. By division algorithm\\
+              Consider $n \div m$. By division algorithm:\bigskip
               \begin{eqnarray*}
                 n & = & m q + r\\
                 r & = & n - m q
               \end{eqnarray*}
-              \[ a^r = a^{n - m q} = a^n a^{- m q} = a^n (a^m)^{- q} \in H \]\\
+
+              \[ a^r = a^{n - m q} = a^n a^{- m q} = a^n (a^m)^{- q} \in H \]\bigskip
+
               Note that $a^r \in H$, and $m$ was the smallest positive integer s.t. $a^m \in
-              H$, hence $r = 0$.\\
+              H$, hence $r = 0$.\bigskip
               
               Thus $b = a^n = (a^m)^q \in \cyclic{a^n}$, $H \subset \cyclic{a^m}$, thus $H = \cyclic{a^m}$
         \end{proof}
@@ -1422,26 +1450,28 @@ With the above theorem, we can prove the following theorem:
     \end{corollary}
     \begin{prfbox}
         \begin{proof}
-            As $\mathbb{Z}$ is cyclic, thus $H = \cyclic{n} = n\mathbb{Z}$.\\
+            As $\mathbb{Z}$ is cyclic, thus $H = \cyclic{n} = n\mathbb{Z}$.\bigskip
     
-            For $s, r \in \mathbb{Z} \infixand s, r \neq 0$, define $H = \{ m s + n r : m,n \in \mathbb{Z} \}$.\\\\
+            For $s, r \in \mathbb{Z} \infixand s, r \neq 0$, define $H = \{ m s + n r : m,n \in \mathbb{Z} \}$.\bigskip
+
             Then $H$ is closed. ($\because (m_1 s + n_1 r) + (m_2 s + n_2 r) = (m_1 + m_2) s + (n_1 + n_2) r
-            \in H$)\\
+            \in H$)\bigskip
     
-            Note that the identity element 0 also exists as $0 s + 0 r = 0 \in H$.\\
+            Note that the identity element 0 also exists as $0 s + 0 r = 0 \in H$.\bigskip
     
             If $(m s + n r) \in H, \text{ then } - (m s + n r) \in H$. Now $H$ is a
-            subgroup of $\mathbb{Z}$, thus $H = d\mathbb{Z}$ for some $d \in \mathbb{Z}$.\\
+            subgroup of $\mathbb{Z}$, thus $H = d\mathbb{Z}$ for some $d \in \mathbb{Z}$.\bigskip
     
-            Consider the properties of $d$:\\
+            Consider the properties of $d$:\bigskip
+
             \begin{itemize}
-            \item $d$ is a positive integer.\\
+            \item $d$ is a positive integer.\bigskip
             
             \item $s \in H \subset d\mathbb{Z}$ implies $d$ is a divisor of s and $d$ is
-            a divisor of $r$. Hence $d$ is a common divisor of $s$ and $r$.\\
+            a divisor of $r$. Hence $d$ is a common divisor of $s$ and $r$.\bigskip
             
             \item Let $d'$ to be another common divisor of \ $s \infixand r$. $d'$ is
-            also a divisor of every elements in $H$. In particular, $d'$ is a divisor of $d$.\\
+            also a divisor of every elements in $H$. In particular, $d'$ is a divisor of $d$.\bigskip
             \end{itemize}
             From above property, we conclude $d = \text{gcd} (r, s) = m s + n r$ for
             some $n, m \in \mathbb{Z}$.
@@ -1458,7 +1488,7 @@ With the above theorem, we can prove the following theorem:
 
 \begin{thmbox}
     \begin{theorem}[Estimation of growth of $\Pi(n)$ (Not in syllabus)]
-        Let $\Pi (n)$ to be the number of prime numbers, which are less or equal to $n$.\\
+        Let $\Pi (n)$ to be the number of prime numbers, which are less or equal to $n$.\bigskip
         
         We have
         \[ \lim_{n \rightarrow \infty} \frac{\Pi (n)}{\frac{n}{\ln n}} = 1 \]
@@ -1473,7 +1503,7 @@ With the above theorem, we can prove the following theorem:
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
-            Since every subgroup has an identity element $e$, thus $e\in H_1\cap H_2$.\\
+            Since every subgroup has an identity element $e$, thus $e\in H_1\cap H_2$.\bigskip
             For any element $g,h$ in $G$, we have:
             \begin{eqnarray*}
                 g,h\in H_1\cap H_2 & \implies & g,h\in H_1 \infixand g,h\in H_2 \\ 
@@ -1486,7 +1516,7 @@ With the above theorem, we can prove the following theorem:
 
 \begin{thmbox}
     \begin{corollary}
-        Let $m,n$ be non-zero integers. Then $m\Z\cap n\Z=N\Z$ for some positive integer $N$.\\
+        Let $m,n$ be non-zero integers. Then $m\Z\cap n\Z=N\Z$ for some positive integer $N$.\bigskip
 
         Moreover, $N$ is a common multiple of $m,n$.
     \end{corollary}    
@@ -1499,15 +1529,15 @@ With the above theorem, we can prove the following theorem:
     \begin{prfbox}
         \begin{proof}
             If order of $a$ is finite, then there exists $n \in \mathbb{Z}_{> 0}$, $a^n = e, a^j \neq
-            e$, $1 \leq j < n$.\\
+            e$, $1 \leq j < n$.\bigskip
 
-            Then $\cyclic{a} = \{ e, a, a^2, a^3, \ldots, a^{n - 1}, a^n = e, \ldots, \}$\\
+            Then $\cyclic{a} = \{ e, a, a^2, a^3, \ldots, a^{n - 1}, a^n = e, \ldots, \}$.\bigskip
 
-            Therefore $\cyclic{a}$ has $n$ elements.\\
+            Therefore $\cyclic{a}$ has $n$ elements.\bigskip
 
             Suppose there are non-distinct elements in the set, then $a^j = a^i
             \implies e = a^{j - i}$ which leads to contradiction as we have for any $j
-            < n, a^j \neq e$.\\
+            < n, a^j \neq e$.\bigskip
 
             If the order of $a$ is infinite, then
             \[ \cyclic{a} = \{ e, a, a^2, \ldots \} \]
@@ -1554,7 +1584,7 @@ With the above theorem, we can prove the following theorem:
                 \end{array}\right] = \left[\begin{array}{cc}
                 0 & 1\\
                 - 1 & 0
-                \end{array}\right]$. The order of $a$ is $4$.\\\\
+                \end{array}\right]$. The order of $a$ is $4$.\bigskip
         
                 For $b,$ note that $b^2 = \left[\begin{array}{cc}
                 1 & 0\\
@@ -1573,7 +1603,7 @@ With the above theorem, we can prove the following theorem:
                 1 & 0\\
                 2 n & 1
                 \end{array}\right] \neq I$.
-                The order of $b$ is therefore $\infty$.\\\\
+                The order of $b$ is therefore $\infty$.\bigskip
         
                 For $c$, since for any rotational matrix, we
                 have
@@ -1836,7 +1866,8 @@ To see the reason, consider $\sigma * \sigma^{-1}$:
         $\sigma * \sigma^{-1}$
     \end{tabular}
 \end{center}
-and then when you try to move the two strings, they will become the identity element.\\\\
+and then when you try to move the two strings, they will become the identity element.\bigskip
+
 In fact every braid can be represented with 4 types of elements only, and each element has inverse, thus in general every braid has inverse under such ``Multiplication''.
 \end{expbox}
 
@@ -1894,7 +1925,7 @@ In fact every braid can be represented with 4 types of elements only, and each e
     \begin{prfbox}
         \begin{proof}
             Pick any $a \in A$, then $(\sigma \circ \tau) \circ \phi (a) = (\sigma \circ \tau)
-            \circ (\phi (a)) = \sigma (\tau (\phi (a)))$\\
+            \circ (\phi (a)) = \sigma (\tau (\phi (a)))$.\bigskip
 
             And $\sigma \circ (\tau \circ \phi) (a) = \sigma ((\tau \circ \phi) (a)) =
             \sigma (\tau (\phi (a))) = (\sigma \circ \tau) \circ \phi (a)$.
@@ -1919,17 +1950,17 @@ In fact every braid can be represented with 4 types of elements only, and each e
     \begin{prfbox}
         \begin{proof}
             Since $(\sigma \circ \iota) = \sigma (\iota (a)) = \sigma (a)$, this
-            proves $\sigma \circ \iota = \sigma$.\\
+            proves $\sigma \circ \iota = \sigma$.\bigskip
 
             Also, $(\iota \circ \sigma) = i (\sigma (a)) = \sigma (a)$, this proves that
-            $\iota \circ \sigma = \sigma$.\\
+            $\iota \circ \sigma = \sigma$.\bigskip
 
-            Hence, $\iota$ is an identity element under $S_A$ under $\circ$.\\
+            Hence, $\iota$ is an identity element under $S_A$ under $\circ$.\bigskip
 
-            By lemma above, we have the associativity holds.\\
+            By lemma above, we have the associativity holds.\bigskip
 
             Finally, as $\sigma$ is bijective, thus there is \textbf{unique} $a \in A$, s.t. $\sigma (a)
-            = b$. Define $\sigma^{- 1} (b) = a$.\\
+            = b$. Define $\sigma^{- 1} (b) = a$.\bigskip
 
             Note that $\sigma \circ \sigma^{- 1} = \iota \infixand \sigma^{- 1} \sigma =
             \iota$, thus the inverse element exists.
@@ -1970,7 +2001,7 @@ If $A$ is an infinite set with extra structure, we consider the permutation that
             3 & 1 & 2
           \end{array}\right) \]
 
-          Then $\sigma(1)=3,\sigma(2)=1,\sigma(3)=2$.\\
+          Then $\sigma(1)=3,\sigma(2)=1,\sigma(3)=2$.\bigskip
 
           The identity element is given by:
           \[ \iota = \left(\begin{array}{ccc}
@@ -2029,7 +2060,7 @@ If $A$ is an infinite set with extra structure, we consider the permutation that
             1 & 2 & 3\\
             2 & 3 & 1
           \end{array}\right) = 3$ because $1 \xrightarrow{\sigma} 2 \xrightarrow{\sigma}
-          3 \xrightarrow{\sigma} 1$
+          3 \xrightarrow{\sigma} 1$.
     \end{example}
 \end{expbox}
 
@@ -2046,7 +2077,7 @@ If $A$ is an infinite set with extra structure, we consider the permutation that
                 $$\sigma^{- 1} = \left(\begin{array}{ccccccc}
                     1 & 2 & 3 & 4 & 5 & 6 & 7\\
                     5 & 4 & 6 & 1 & 3 & 7 & 2
-                \end{array}\right)$$\\
+                \end{array}\right)$$\bigskip
                 
                 Note that $1 \xrightarrow{\sigma} 4 \xrightarrow{\sigma} 2
                 \xrightarrow{\sigma} 7 \xrightarrow{\sigma} 6 \xrightarrow{\sigma} 3
@@ -2124,19 +2155,19 @@ If $A$ is an infinite set with extra structure, we consider the permutation that
         Let $\sigma = \left(\begin{array}{ccccccc}
         1 & 2 & 3 & 4 & 5 & 6 & 7\\
         5 & 2 & 4 & 7 & 1 & 3 & 6
-        \end{array}\right) \in S_7$. Find the partition of $\sigma$.\\\\
+        \end{array}\right) \in S_7$. Find the partition of $\sigma$.\bigskip
 
         \begin{ansbox}
             Pick arbitrary element, say $1$. Then $1 \xrightarrow{\sigma} 5
             \xrightarrow{\sigma} 1$. Thus we may define $\{ 1, 5 \}$ as an equivalence
-            class.\\
+            class.\bigskip
             
             Pick 2: Then $2 \xrightarrow{\sigma} 2$, thus $\{ 2 \}$ is an equivalence
-            class.\\
+            class.\bigskip
             
             Pick 3, then $3 \xrightarrow{\sigma} 4 \xrightarrow{\sigma} 7
             \xrightarrow{\sigma} 6 \xrightarrow{\sigma} 3$, thus $\{ 3, 4, 6, 7 \}$ is an
-            equivalence class.\\
+            equivalence class.\bigskip
             
             Thus $\sigma$ induces the following partition.
             \[ \{ 1, 2, \ldots, 7 \} = \{ 1, 5 \} \sqcup \{ 2 \} \sqcup \{ 3, 4, 6, 7 \}
@@ -2157,14 +2188,14 @@ If $A$ is an infinite set with extra structure, we consider the permutation that
             1 & 2 & 3 & 4 & 5 & 6 & 7\\
             4 & 5 & 7 & 1 & 2 & 3 & 6
           \end{array}\right) .$ We first pick arbitrary element, say 1: $1 \xrightarrow{\sigma} 4
-          \xrightarrow{\sigma} 1$, thus one of the orbit will be $\{ 1, 4 \}$.\\
+          \xrightarrow{\sigma} 1$, thus one of the orbit will be $\{ 1, 4 \}$.\bigskip
           
           Then we pick arbitrary element that is not picked from above, say 2: $2
           \xrightarrow{\sigma} 5 \xrightarrow{\sigma} 2$, then another orbit will be
-          $\{2, 5\}$.\\
+          $\{2, 5\}$.\bigskip
           
           Continuing, we have $3 \xrightarrow{\sigma} 7 \xrightarrow{\sigma} 6
-          \xrightarrow{\sigma} 3$, giving orbit $\{ 3, 6, 7 \}$.\\
+          \xrightarrow{\sigma} 3$, giving orbit $\{ 3, 6, 7 \}$.\bigskip
           
           Finally, we have the $\sigma = \{ 1, 4 \} \sqcup \{ 2, 5 \} \sqcup \{ 3, 6, 7
           \}$.
@@ -2179,7 +2210,7 @@ If $A$ is an infinite set with extra structure, we consider the permutation that
 
 \begin{defbox}
     \begin{definition}[Cycle]
-        $\sigma \in S_n$ is called a cycle if $\sigma = e$ or $\sigma$ has only one unique orbit containing more than 1 element. \\
+        $\sigma \in S_n$ is called a cycle if $\sigma = e$ or $\sigma$ has only one unique orbit containing more than 1 element. \bigskip
 
         The length of the cycle is the number of elements in its largest orbit.
     \end{definition}
@@ -2209,7 +2240,7 @@ That is, $\sigma$ can only have one orbit with more than 1 element, all other or
             1 & 2 & 3 & 4 & 5 & 6 & 7\\
             4 & 2 & 3 & 5 & 7 & 6 & 1
           \end{array}\right)$, note that $\sigma$ has $4$ orbits, namely $\{ 1, 4, 5, 7
-          \}, \{ 2 \}, \{ 3 \}, \{ 6 \}$. Thus $\sigma$ forms a cycle.\\
+          \}, \{ 2 \}, \{ 3 \}, \{ 6 \}$. Thus $\sigma$ forms a cycle.\bigskip
           
           Also $\sigma$ has a length of 4, because $| \{ 1, 4, 5, 7 \} | = 4$
     \end{example}
@@ -2233,17 +2264,17 @@ For example, $\sigma = \left(\begin{array}{ccccccc}
             1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9\\
             6 & 2 & 4 & 5 & 3 & 1 & 8 & 9 & 7
           \end{array}\right)$. The orbits of $\sigma$ are $\{ 1, 6 \}, \{ 2 \}, \{ 3, 4,
-          5 \}, \{ 7, 8, 9 \}$.\\
+          5 \}, \{ 7, 8, 9 \}$.\bigskip
           
           Note that $(1, 6), (3, 4, 5), (7, 8, 9)$ forms 3 cycles, and $\sigma = (1, 6)
           (3, 4, 5)(7, 8, 9)$.
     \end{example}
     \begin{prfbox}
         \begin{proof}
-            Take $i = 3$, by product of permutation, $(7, 8, 9) \times 3$=3.\\
+            Take $i = 3$, by product of permutation, $(7, 8, 9) \times 3$=3.\bigskip
 
             $(1, 6), (3, 4, 5), (7, 8, 9) \times 3 = (1, 6), (3, 4, 5) \times 3 = (1, 6)
-            \times 4 = 4 = \sigma (3)$.\\
+            \times 4 = 4 = \sigma (3)$.\bigskip
 
             Repeat the steps for $i = 1, \ldots, 9$. We have $(1, 6) \times (3, 4, 5) \times
             (7, 8, 9) i = \sigma (i)$.
@@ -2270,14 +2301,14 @@ For example, $\sigma = \left(\begin{array}{ccccccc}
     \begin{prfbox}
         \begin{proof}
             Let $\sigma = (i_1, \ldots, i_s)$ with length $s$, let $\tau = (j_1, \ldots,
-            j_t)$ with length $\tau$. where $s, t > 1$. Then $(i_1, \ldots, i_s) \cap (j_1, \ldots, j_t) = \emptyset$. \\
+            j_t)$ with length $\tau$. where $s, t > 1$. Then $(i_1, \ldots, i_s) \cap (j_1, \ldots, j_t) = \emptyset$. \bigskip
             
-            We want to prove that \ $(i_1, \ldots, i_s) \circ (j_1, \ldots, j_t) k = (j_1, \ldots, j_t) \circ (i_1, \ldots, i_s) k$.\\
+            We want to prove that \ $(i_1, \ldots, i_s) \circ (j_1, \ldots, j_t) k = (j_1, \ldots, j_t) \circ (i_1, \ldots, i_s) k$.\bigskip
 
             Case 1: $k \in (i_1, \ldots, i_s)$. Then $\tmop{LHS} = (i_1, \ldots, i_s) i$,
-            $\tmop{RHS} = (i_1, \ldots, i_s) k = \tmop{LHS}$.\\
+            $\tmop{RHS} = (i_1, \ldots, i_s) k = \tmop{LHS}$.\bigskip
 
-            Case 2: $k \in (j_1, \ldots, j_t)$: Similar proof as Case 1.\\
+            Case 2: $k \in (j_1, \ldots, j_t)$: Similar proof as Case 1.\bigskip
 
             Case 3: $k \nin (j_1, \ldots, j_t) \nin (i_1, \ldots, i_s)$: Then $\tmop{LHS}
             = \tmop{RHS} = k$.
@@ -2338,11 +2369,11 @@ For example, $\sigma = \left(\begin{array}{ccccccc}
     \begin{prfbox}
         \begin{proof}
             Let $\sigma = (a_1, \ldots, a_k)$. Write $\sigma = (a_1, a_k), (a_1,
-            a_{k - 1}), \ldots, (a_1, a_2)$, then $| (a_1, a_k), (a_1, a_{k - 1}), \ldots, (a_1, a_2) | = k - 1$. Now we want prove that $(a_1, \ldots, a_k) i = (a_1, a_k), (a_1, a_{k - 1}), \ldots, (a_1, a_2) i$.\\
+            a_{k - 1}), \ldots, (a_1, a_2)$, then $| (a_1, a_k), (a_1, a_{k - 1}), \ldots, (a_1, a_2) | = k - 1$. Now we want prove that $(a_1, \ldots, a_k) i = (a_1, a_k), (a_1, a_{k - 1}), \ldots, (a_1, a_2) i$.\bigskip
 
-            If $i \nin \{ a_1, \ldots, a_k \}$, then $\tmop{LHS} = \tmop{RHS} = i$.\\
+            If $i \nin \{ a_1, \ldots, a_k \}$, then $\tmop{LHS} = \tmop{RHS} = i$.\bigskip
 
-            Otherwise, pick $i=a_1$. We have:\\
+            Otherwise, pick $i=a_1$. We have:\bigskip
 
             \begin{center}
                 $\begin{array}{lll}
@@ -2365,9 +2396,9 @@ For example, $\sigma = \left(\begin{array}{ccccccc}
     \end{example}
     \begin{prfbox}
         \begin{proof}
-            We aim to prove $(2, 7, 1, 9) i = (2, 9) (2, 1) (2, 7) i$.\\
+            We aim to prove $(2, 7, 1, 9) i = (2, 9) (2, 1) (2, 7) i$.\bigskip
 
-            Case 1: If $i \nin  \{ 2, 7, 1, 9 \}$. Then LHS$=i=$RHS.\\
+            Case 1: If $i \nin  \{ 2, 7, 1, 9 \}$. Then LHS$=i=$RHS.\bigskip
 
             Case 2: If $i \in \{ 2, 7, 1, 9 \}$, we pick any element, say, $i=9$. Then we have:\\
 
@@ -2421,25 +2452,25 @@ For example, $\sigma = \left(\begin{array}{ccccccc}
     \begin{prfbox}
         \begin{proof}
             Choose $n \times n$ matrix $A$ ,s.t. $| A | \neq 0$. Write $A = (a_1, \ldots,
-            a_n)$ in column form, with $a_k$ to be the $k$-th column.\\
+            a_n)$ in column form, with $a_k$ to be the $k$-th column.\bigskip
 
             For $\sigma \in S_n$, $\sigma$ permute the columns of $A$ to obtain a new
-            matrix, $\sigma A$.\\
+            matrix, $\sigma A$.\bigskip
 
             $\sigma$ moves 1st column of $A$ to $\sigma (1) - \tmop{th}$ column, moves 2nd
-            column of A to $\sigma (2) - \tmop{th}$ column. etc.\\
+            column of A to $\sigma (2) - \tmop{th}$ column. etc.\bigskip
 
             Note that every transposition will interchange two colums, and by linear
-            algebra, by interchanging two columns, determinant is multiplied by $- 1$.\\
+            algebra, by interchanging two columns, determinant is multiplied by $- 1$.\bigskip
 
             If we write $\sigma = r_1 r_2 \ldots r_s$ as a product of $s$ transposition,
             then we have:
             \[ A \xrightarrow{r_s} r_s A \xrightarrow{r_{s - 1}} r_s r_{s - 1} A
             \rightarrow \cdots \rightarrow \sigma A \]
-            Thus $\det (\sigma A) = (- 1)^s \det (A)$.\\
+            Thus $\det (\sigma A) = (- 1)^s \det (A)$.\bigskip
 
             We may also write $\sigma = \tau_1 \ldots \tau_m$ as a product of $m$
-            transposition. Then $\det (\sigma A) = (- 1)^m \det (A)$.\\
+            transposition. Then $\det (\sigma A) = (- 1)^m \det (A)$.\bigskip
 
             Then we have:
             \begin{eqnarray*}
@@ -2457,7 +2488,7 @@ For example, $\sigma = \left(\begin{array}{ccccccc}
         call $\sigma$ an even permutation. \\
         
         If $\sigma$ can be written as a product of an odd number of transpositions,
-        we call $\sigma$ an odd permutation.\\
+        we call $\sigma$ an odd permutation.\bigskip
 
         Every permutation is either odd or even (can't be both).
     \end{definition}
@@ -2482,16 +2513,16 @@ For example, $\sigma = \left(\begin{array}{ccccccc}
 
 \begin{thmbox}
     \begin{theorem}
-        The product of two even or two odd permutations is even.\\
+        The product of two even or two odd permutations is even.\bigskip
 
-        The product of odd and even permutations is odd. \\
+        The product of odd and even permutations is odd.\bigskip
 
         Moreover, the set of the even permutation is closed.
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
             Given that $\sigma, \tau$ are even, then we write $\sigma = s_1 \ldots s_{2
-            m}, \tau = t_1 \ldots t_{2 n}$ in their transposition form.\\
+            m}, \tau = t_1 \ldots t_{2 n}$ in their transposition form.\bigskip
 
             Then $\sigma \circ \tau = s_1 \ldots s_{2 m} t_1 \ldots t_{2 n}$ must be even
             as they have $2 m + 2 n$ transpositions.
@@ -2540,8 +2571,8 @@ For example, $\sigma = \left(\begin{array}{ccccccc}
         \begin{proof}
             \begin{enumerate}
                 \item The identity element $e \in A_n$\\
-                \item $A_n$ is closed under $\cdot$.\\
-                \item If $\sigma \in A_n$, then $\sigma^{- 1} \in A_n$ also.\\
+                \item $A_n$ is closed under $\cdot$.\bigskip
+                \item If $\sigma \in A_n$, then $\sigma^{- 1} \in A_n$ also.\bigskip
             \end{enumerate}
             This proves that $A_n$ is a subgroup of $S_n$. 
         \end{proof}
@@ -2561,10 +2592,10 @@ For example, $\sigma = \left(\begin{array}{ccccccc}
     \begin{prfbox}
         \begin{proof}
             Let $B_n =$set of odd permutation of $S_n$. Then $S_n = A_n  \sqcup B_n$. It
-            is enough to prove that $| A_n | = | B_n |$.\\
+            is enough to prove that $| A_n | = | B_n |$.\bigskip
 
             Define a map $f : A_n \rightarrow B_n$, where $f (\sigma) = (1, 2) \sigma$.
-            Then the multiplication is odd, as $(1, 2)$ is odd.\\
+            Then the multiplication is odd, as $(1, 2)$ is odd.\bigskip
 
             By cancellation law, $f$ is one-to-one. Since:
             \begin{eqnarray*}
@@ -2579,7 +2610,7 @@ For example, $\sigma = \left(\begin{array}{ccccccc}
             & = & \tau
             \end{eqnarray*}
             This proves that $f$ is both onto and one-to-one. Hence $f$ is a bijection.
-            This implies that $| A_n | = | B_n |$.\\
+            This implies that $| A_n | = | B_n |$.\bigskip
 
             Thus half of permutations in $S_n$ are even, half are odd. $A_n = \frac{1}{2}
             S_n$.
@@ -2596,14 +2627,14 @@ For example, $\sigma = \left(\begin{array}{ccccccc}
 
         How to find the elements in $A_4$?\\
 
-        Consider regular tetrahedron. Note that tetrahedron have $120^{\circ}, 240^{\circ}$ of rotational symmetry.\\
+        Consider regular tetrahedron. Note that tetrahedron have $120^{\circ}, 240^{\circ}$ of rotational symmetry.\bigskip
 
-        Thus totally there are 8 elements related to this symmetry. And there are 3 more elements, that are obtained by rotating with $180^{\circ}$. And there is one identity element $e$. This gives all 12 elements in $A_4$.\\
+        Thus totally there are 8 elements related to this symmetry. And there are 3 more elements, that are obtained by rotating with $180^{\circ}$. And there is one identity element $e$. This gives all 12 elements in $A_4$.\bigskip
         
         Rotational symmetry: By watching at the 4 vertex of the tetrahedron, and
         rotate (read) clockwisely, we have 4 elements to be $(2, 3, 4), (1, 4, 3), (4,
         1, 2), (3, 2, 1)$. Rotating anti-clockwisely, we have other 4 elements to be
-        $(4, 3, 2), (3, 4, 1), (2, 1, 4), (1, 2, 3)$.\\
+        $(4, 3, 2), (3, 4, 1), (2, 1, 4), (1, 2, 3)$.\bigskip
 
 Also the other 3 elements are $(1, 2) (3, 4), (1, 3) (2, 4), (1, 4) (2, 3)$,
 they are formed by joining the midpoints of each line segments. 
@@ -2676,14 +2707,14 @@ they are formed by joining the midpoints of each line segments.
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
-            Suppose $a H \cap b H \neq \emptyset$, then exists $c \in a H \cap b H$.\\
+            Suppose $a H \cap b H \neq \emptyset$, then exists $c \in a H \cap b H$.\bigskip
 
-            Then $c \in a H = a h_1, h_1 \in H$, and $c \in b H = b h_2, h_2 \in H$.\\
+            Then $c \in a H = a h_1, h_1 \in H$, and $c \in b H = b h_2, h_2 \in H$.\bigskip
             
             $(a H \subset b H)$\\
             
             For arbitrary $a h \in a H$, $h \in H$. As $a h_1 = b h_2 \Rightarrow a = b
-            h_2 h^{- 1}_1$. Thus $a h = b h_2 h^{- 1}_1 h = b (h_2 h^{- 1}_1 h) \in b H$.\\
+            h_2 h^{- 1}_1$. Thus $a h = b h_2 h^{- 1}_1 h = b (h_2 h^{- 1}_1 h) \in b H$.\bigskip
             
             The opposite direction can be proven similarly. 
         \end{proof}
@@ -2760,11 +2791,11 @@ Note: Everything proven for left coset also holds for right cosets.
                 |H_2| & = & bp
             \end{eqnarray*}
 
-            Since $|H_1|,|H_2|$ are relatively prime, therefore gcd$(ap,bp)=1$. Assume that $p\geq 2$.\\
+            Since $|H_1|,|H_2|$ are relatively prime, therefore gcd$(ap,bp)=1$. Assume that $p\geq 2$.\bigskip
 
-            Then if $a=b$, then gcd$(ap,bp)=ap=bp\geq2$, which contradicts the fact that $|H_1|,|H_2|$ are relatively prime.\\
+            Then if $a=b$, then gcd$(ap,bp)=ap=bp\geq2$, which contradicts the fact that $|H_1|,|H_2|$ are relatively prime.\bigskip
 
-            Since $a\neq b$, then we must have $p=1$, otherwise gcd$(ap,bp)\geq2$.\\
+            Since $a\neq b$, then we must have $p=1$, otherwise gcd$(ap,bp)\geq2$.\bigskip
 
             The group $|H_1\cap H_2|=p$ is thus trivial. i.e. $H_1\cap H_2=\{e\}$
         \end{proof}
@@ -2774,7 +2805,7 @@ Note: Everything proven for left coset also holds for right cosets.
 \begin{thmbox}
     \begin{theorem}
         If $V_1, V_2$ are subspace in vector space $V$, then $V_1 \cap V_2$ is a
-        subspace of $V$. However, $V_1 \cup V_2$ might not be a subgroup of $V$.\\
+        subspace of $V$. However, $V_1 \cup V_2$ might not be a subgroup of $V$.\bigskip
 
         In general, if $H_1, H_2$ are subgroup of $G$, then $H_1 \cup H_2$ is not a
         subrgroup of $H$.
@@ -2785,7 +2816,7 @@ Note: Everything proven for left coset also holds for right cosets.
     \begin{example}
         Let $U_n = \{ z \in \mathbb{C}: z^n = 1 \} = \left\{ e^{\frac{2 \pi i}{n} k} :
         k = 1, 2, \ldots, k - 1 \right\}$. Then $| U_n | = n$. Take a special example
-        $U_{10}$.\\
+        $U_{10}$.\bigskip
 
         Then $U_2, U_5$ are also subgroups of $U_{10}$ as $| U_2 | = 2, | U_5 | = 5$.
         Moreover, $| U_2 | \infixand | U_5 |$ are relatively prime, thus $U_2 \cap U_5
@@ -2881,14 +2912,14 @@ The directed product set is a group under such operation.
         Consider the following finite group we've discussed so far:
         \[ S_n, A_n, \mathbb{Z}_n, V_n \]
         Note that $S_n, A_n$ are not Abelian, for $n \geq 3 \infixand n \geq 4$. While
-        $\mathbb{Z}_n$ is Abelian and cyclic. $V_n$ is cyclic.\\
+        $\mathbb{Z}_n$ is Abelian and cyclic. $V_n$ is cyclic.\bigskip
 
         Consider the group (Hint of HW)
         \[ G = \left\{ \left(\begin{array}{cc}
             a & 0\\
             0 & b
         \end{array}\right) : a, b \in \{ 1, - 1 \} \right\} \]
-        $G$ is Abelian as the diagonal matrix commutes.\\
+        $G$ is Abelian as the diagonal matrix commutes.\bigskip
 
         $G$ is not cyclic, as $G$ is going to generate 2 element subgroup. How about
         if we want to generate more such example?\\
@@ -2901,7 +2932,7 @@ The directed product set is a group under such operation.
         we take any $(a, b) \in \mathbb{Z}_5 \times \mathbb{Z}_5$, then $(a, b) +
         \cdots + (a, b) = (5 a, 5 b) = (0, 0)$. Thus $(a, b)$ will generate a group of
         5 elements, but not 25 elements. Thus $\mathbb{Z}_5 \times \mathbb{Z}_5$ is
-        never cyclic.\\
+        never cyclic.\bigskip
 
         Consider $\mathbb{Z}_3 \times \mathbb{Z}_5$, is $\mathbb{Z}_3 \times
         \mathbb{Z}_5$ cyclic?\\
@@ -2915,9 +2946,9 @@ The directed product set is a group under such operation.
 
         Consider $\underbrace{(1,1)+...+(1,1)}_{n}=(n,n)=(0,0)$if and only $n$ is a multiple of 3 and multiple of 5. As $3, 5$ are
         relatively prime, thus this means $n$ need to be a multiple of $15$. The order
-        of $(1, 1)$ therefore is 15.\\
+        of $(1, 1)$ therefore is 15.\bigskip
 
-        Thus the group is cyclic.\\
+        Thus the group is cyclic.\bigskip
 
         In general, $\mathbb{Z}_m \times \mathbb{Z}_n$ is cyclic, if and only if $m,
         n$ are relatively prime, moreover $(1, 1)$ is a generator. 
@@ -3023,12 +3054,12 @@ The directed product set is a group under such operation.
     \begin{example}
         Consider $\mathbb{Z} \times \mathbb{Z}= \{ (m, n) : m, n \in \mathbb{R} \}
         \subset \mathbb{R}^2$. Then $S = \{ (0, 1), (1, 0) \}$ generates $\mathbb{Z}
-        \times \mathbb{Z}$.\\
+        \times \mathbb{Z}$.\bigskip
 
-        In general, $(m, n) = m (1, 0) + n (0, 1)$.\\
+        In general, $(m, n) = m (1, 0) + n (0, 1)$.\bigskip
 
         Also consider $\mathbb{Z} \times \mathbb{Z} \times \mathbb{Z}$, then $T = \{
-        (0, 0, 1), (0, 1, 0), (0, 0, 1) \}$ generates $\mathbb{Z}^3$.\\
+        (0, 0, 1), (0, 1, 0), (0, 0, 1) \}$ generates $\mathbb{Z}^3$.\bigskip
 
         Consider $\mathbb{Z}_9 \times \mathbb{Z}_8$, then as $1$ generates
         $\mathbb{Z}_9 \infixand \mathbb{Z}_8$ (As both of them are cyclic), thus $S =
@@ -3044,10 +3075,10 @@ The directed product set is a group under such operation.
 
 \begin{expbox}
     \begin{example}
-        A finite group is finitely generated.\\
+        A finite group is finitely generated.\bigskip
 
         $\mathbb{Z}, \mathbb{Z} \times \mathbb{Z}, \mathbb{Z} \times \mathbb{Z} \times
-        \mathbb{Z}, \ldots$ are finitely generated.\\
+        \mathbb{Z}, \ldots$ are finitely generated.\bigskip
 
         $\mathbb{Z}_{k_1} \times \cdots \times Z_{k_n} \times
         \underset{m}{\underbrace{\mathbb{Z} \times \cdots \times \mathbb{Z}}}$ is
@@ -3219,9 +3250,9 @@ The directed product set is a group under such operation.
         \begin{prfbox}
             \begin{proof}
                 Suppose $S_3$ and $\mathbb{Z}_6$ are isomorphism. Then we have an isomorphism
-                $\p : S_3 \rightarrow \mathbb{Z}_6$.\\
+                $\p : S_3 \rightarrow \mathbb{Z}_6$.\bigskip
 
-                We start with the fact that $(1, 2) (1, 3) \neq (1, 3) (1, 2)$.\\
+                We start with the fact that $(1, 2) (1, 3) \neq (1, 3) (1, 2)$.\bigskip
 
                 \begin{eqnarray*}
                 \tmop{LHS} & = & \left(\begin{array}{ccc}
@@ -3322,7 +3353,7 @@ $(\impliedby)$
                 G' & = & \{ e, b, b^2, \ldots, b^{n - 1} \}, \infixand b^n = e
             \end{eqnarray*}
 
-            Let $\p : G \rightarrow G'$. Then $\p (a^k) = b^k$ is a isomorphism.\\
+            Let $\p : G \rightarrow G'$. Then $\p (a^k) = b^k$ is a isomorphism.\bigskip
             
 
                 [Case 1: $| G | = | G' | = \infty$]
@@ -3338,7 +3369,7 @@ $(\impliedby)$
 
 \begin{thmbox}
     \begin{theorem}
-        Let $\p : G \rightarrow G', \p (x) = x$ is always isomorphic.\\
+        Let $\p : G \rightarrow G', \p (x) = x$ is always isomorphic.\bigskip
 
         Moreover, $\Phi : G \rightarrow G', \Phi (x) = e'$ is always homomorphic, but
         not isomorphic.
@@ -3381,13 +3412,13 @@ $(\impliedby)$
 \begin{expbox}
     \begin{example}
         Let $\p : \mathbb{R}_{> 0} \rightarrow \mathbb{R}, \p (x) = \log_a (x)$ is a
-        group homomorphism.\\
+        group homomorphism.\bigskip
 
         Note that $\p$ is one-to-one and onto, thus $\p$ is also an isomorphism. 
     \end{example}
     \begin{prfbox}
         \begin{proof}
-            We need to prove that the map $\p$ is bijective.\\
+            We need to prove that the map $\p$ is bijective.\bigskip
 
             [one-to-one]\\
 
@@ -3396,7 +3427,7 @@ $(\impliedby)$
             \log_a x & = & \frac{\ln x}{\ln a}\\
             (\log_a x)' & = & \frac{1}{x \ln a} > 0 \hspace*{\fill} (\because a > 1)
             \end{eqnarray*}
-            Thus $\p$ is strictly increasing, $\p$ is one-to-one.\\
+            Thus $\p$ is strictly increasing, $\p$ is one-to-one.\bigskip
 
             [Onto]\\
 
@@ -3474,15 +3505,15 @@ $(\impliedby)$
         Let $\p : G \rightarrow G'$ be a homomorphism of groups. Then we have:\\
         \begin{itemize}
         \item $\p (e) = e'$ where $e$ is the identity for $G$, while $e'$ is the
-        identity for $G'$.\\
+        identity for $G'$.\bigskip
         
-        \item $\p (a^{- 1}) = \p (a)^{- 1}$.\\
+        \item $\p (a^{- 1}) = \p (a)^{- 1}$.\bigskip
         
         \item If $H \subset G$ is a subgroup, then $\p (H) = \left\{ \p (h) : h \in
-        H \right\}$ is a subgroup of $G'$.\\
+        H \right\}$ is a subgroup of $G'$.\bigskip
         
         \item If $H' \subset G'$ is a subgroup, $\p^{- 1} (H') = \left\{ h \in G :
-        \p (h) \in H' \right\}$ is a subgroup of $G$.\\
+        \p (h) \in H' \right\}$ is a subgroup of $G$.\bigskip
         \end{itemize}
     \end{theorem}
 \end{thmbox}
@@ -3510,12 +3541,12 @@ $(\impliedby)$
             \begin{eqnarray*}
             \p (h_1) \p (h_2) = \p (h_1 h_2) & \in & \p (H)
             \end{eqnarray*}
-            This proves that $\p (H)$ is closed.\\
+            This proves that $\p (H)$ is closed.\bigskip
 
             As $e \in H$, thus $e' = \p (e) \in \p (H)$. If $\p (h) \in \p (H), h \in H$,
             then $\p (h)^{- 1} \xequal{(2)} \p (h^{- 1}) \in \p (H) $\\
 
-            These properties proves that $\p (H)$ is a subgroup.\\
+            These properties proves that $\p (H)$ is a subgroup.\bigskip
 
             (4)\\
 
@@ -3526,14 +3557,14 @@ $(\impliedby)$
             \p (h_1 h_2) & \in & H'\\
             h_1 h_2 & \in & \p^{- 1} (H')
             \end{eqnarray*}\\
-            This proves that $\p^{- 1} (H')$ is closed.\\
+            This proves that $\p^{- 1} (H')$ is closed.\bigskip
 
-            Note that $\p (e) = e' \in H$, thus $e \in \p^{- 1} (H')$.\\
+            Note that $\p (e) = e' \in H$, thus $e \in \p^{- 1} (H')$.\bigskip
 
             If $h \in \p^{- 1} (H')$, then $\p (h) \in H'$. As $H'$ is a subgroup, thus
-            $\p (h)^{- 1} \in H'$.\\
+            $\p (h)^{- 1} \in H'$.\bigskip
 
-            As $\p (h^{- 1}) = \p (h)^{- 1} \in H'$, thus $h^{- 1} \in H$.\\
+            As $\p (h^{- 1}) = \p (h)^{- 1} \in H'$, thus $h^{- 1} \in H$.\bigskip
 
             These properties proves that $\p^{- 1} (H')$ is a subgroup.
         \end{proof}
@@ -3596,7 +3627,7 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
 \begin{thmbox}
     \begin{theorem}
         Let $\p : G \rightarrow G'$ be a homomorphism of groups, $\ker \left( \p
-        \right) = H$.\\
+        \right) = H$.\bigskip
 
         Let $b \in G'$, $\p^{- 1} (b) = \left\{ a \in G : \p (a) = b \right\}$ has
         two cases:\\
@@ -3610,9 +3641,9 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
             \begin{prfbox}
                 \begin{proof}
                     If case 1 does not happen, then $\p^{- 1} (b) \neq \emptyset$. Then we can
-                    find $a \in G$ such that $\p (a) = b$.\\
+                    find $a \in G$ such that $\p (a) = b$.\bigskip
 
-                    We want to prove $\p^{- 1} (b) = a H$.\\
+                    We want to prove $\p^{- 1} (b) = a H$.\bigskip
 
                     \begin{tabular}{|c|}
                     \hline
@@ -3626,7 +3657,7 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
                     & = & b e'\\
                     & = & b
                     \end{eqnarray*}
-                    this proves that $a h \in \p^{- 1} (b)$ and $\p^{- 1} (b) \subseteq a H$.\\
+                    this proves that $a h \in \p^{- 1} (b)$ and $\p^{- 1} (b) \subseteq a H$.\bigskip
 
                     \begin{tabular}{|c|}
                     \hline
@@ -3640,7 +3671,7 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
                     & = & b^{- 1} b\\
                     & = & e'
                     \end{eqnarray*}
-                    Thus $a^{- 1} \in \ker \left( \p \right) = H$, thus $\p^{- 1} \subset a H$.\\
+                    Thus $a^{- 1} \in \ker \left( \p \right) = H$, thus $\p^{- 1} \subset a H$.\bigskip
 
                     This proves such theorem.
                 \end{proof}
@@ -3655,7 +3686,7 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
     \begin{prfbox}
         \begin{proof}
             If $\p$ is one to one, then $\p (e) = e'$, this implies that $ \ker \left( \p
-            \right) = \p^{- 1} (e') = e$.\\
+            \right) = \p^{- 1} (e') = e$.\bigskip
 
             Conversely if $\ker \left( \p \right) = \{ e \}$, then for $b \in G$, we have
             $\p^{- 1} (b) = \emptyset$ or equal to $a \ker \left( \p \right) = \{ a \}$.
@@ -3681,10 +3712,10 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
     \begin{example}
         Let $G =\mathbb{C}^{\ast}, G' =\mathbb{R}^{\ast}$. Then let $\p :
         \mathbb{C}^{\ast} \rightarrow \mathbb{R}^{\ast}$, where $\p (z) = | z |$. Note
-        that $| z w | = | z | | w |$, thus $\p$ is a group homomorphism.\\
+        that $| z w | = | z | | w |$, thus $\p$ is a group homomorphism.\bigskip
 
         Then $H = \ker \left( \p \right) = \{ z \in \mathbb{C}^{\ast} : | z | = 1 \}
-        = \{ z \in \mathbb{C}^{\ast} : z \bar{z} = 1 \}$.\\
+        = \{ z \in \mathbb{C}^{\ast} : z \bar{z} = 1 \}$.\bigskip
 
         Let $\p^{- 1} (b) = \{ z \in \mathbb{C}^{\ast} : | z | = b \}$, then if:\\
         \begin{itemize}
@@ -3712,10 +3743,10 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
     \begin{prfbox}
         \begin{proof}
             Since $A$ defines a linear map $T_A : \mathbb{R}^n \rightarrow
-            \mathbb{R}^m$, $T_A (x) = A x$. Then $T_A$ is a group homomorphism.\\
+            \mathbb{R}^m$, $T_A (x) = A x$. Then $T_A$ is a group homomorphism.\bigskip
 
             Then $\ker (T_A) = \{ x \in \mathbb{R}^n : T_A (x) = 0 \} = \text{solution set
-            of $A x = 0$}$.\\
+            of $A x = 0$}$.\bigskip
 
             Solving $A x = b$ is equivalent of finding $T^{- 1}_A (b)$. 
         \end{proof}
@@ -3730,10 +3761,10 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
 
 \begin{expbox}
     \begin{example}
-        If $G$ is abelian, then every subgroup is normal.\\
+        If $G$ is abelian, then every subgroup is normal.\bigskip
 
         Consider $S_3$, let $\{ e \} \in S_3$, then such group is normal. Actually
-        for any group $G$, $\{ e \}$ and $G$ are normal.\\
+        for any group $G$, $\{ e \}$ and $G$ are normal.\bigskip
 
         Let $H = \{ e, (1, 2) \} \subset S_3$, then:
         \begin{eqnarray*}
@@ -3762,7 +3793,7 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
               h' g$ for some $h' \in H$. Then:\\
               
               $g h g^{- 1} = h' \in H$, hence $\forall g \in G, b \in H$, $g b g^{- 1} =
-              H$.\\
+              H$.\bigskip
               
               \begin{tabular}{|c|}
                 \hline
@@ -3771,7 +3802,7 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
               \end{tabular}\\
               
               Suppose that $g h g^{- 1} \in H, \forall g \in G, b \in H$, we want to prove
-              $H$ is normal, i.e. $g H = H g$ for all $g \in G$.\\
+              $H$ is normal, i.e. $g H = H g$ for all $g \in G$.\bigskip
               
               \begin{tabular}{|c|}
                 \hline
@@ -3780,9 +3811,9 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
               \end{tabular}\\
               
               $\forall g h \in g H, h \in H$, we have $g h = g h g^{- 1} g$, as $g h g^{- 1}
-              \in H$, thus $g h = (g h g^{- 1}) g \in H g$.\\
+              \in H$, thus $g h = (g h g^{- 1}) g \in H g$.\bigskip
               
-              Thus $g H \subset H g$.\\
+              Thus $g H \subset H g$.\bigskip
               
               \begin{tabular}{|c|}
                 \hline
@@ -3791,7 +3822,7 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
               \end{tabular}\\
               
               $\forall h g \in H g, h \in H$, we have $h g = g g^{- 1} h g \in g H$, thus $H
-              g \subset g H$.\\
+              g \subset g H$.\bigskip
               
               Thus $g H = H g$. This proves that $H$ is normal.
         \end{proof}
@@ -3849,8 +3880,8 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
         \begin{enumerate}
         \item Binary operation on $G / H$ defined by:
         \[ (a H) \cdot (b H) = (a b) H \]
-        is well defined.\\
-        \item $G / H$ is a group under the binary operation in $(1)$.\\
+        is well defined.\bigskip
+        \item $G / H$ is a group under the binary operation in $(1)$.\bigskip
         \end{enumerate}
         Then $G / H$ is called factor group of $G$ by $H$.
     \end{theorem}
@@ -3862,18 +3893,18 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
                 \hline
               \end{tabular}\\
               
-              If $a H = a' H, b H = b' H$, then we want to verify $(a b) H = (a' b') H$.\\
+              If $a H = a' H, b H = b' H$, then we want to verify $(a b) H = (a' b') H$.\bigskip
               
               Because $a' \in a' H = a H$, thus $a' \in a H$. Thus $a' = a h_1$ for some
-              $h_1 \in H$.\\
+              $h_1 \in H$.\bigskip
               
-              Similarly, $b H = b' H$ implies that $b' = b h_2$ for some $h_2 \in H$.\\
+              Similarly, $b H = b' H$ implies that $b' = b h_2$ for some $h_2 \in H$.\bigskip
               
               Thus $a' b' = a b b^{- 1} h_1 b h_2$. Note that $H$ is normal, thus $b^{- 1}
-              h_1 b \in H$, hence $b^{- 1} h_1 b h_2 \in H$, then $a' b' \in a b H$.\\
+              h_1 b \in H$, hence $b^{- 1} h_1 b h_2 \in H$, then $a' b' \in a b H$.\bigskip
               
               $a' b' \in a' b' H \cap a b H$. Therefore the intersection is non-empty, this
-              implies that $a' b' H = a b H$.\\
+              implies that $a' b' H = a b H$.\bigskip
               
               \begin{tabular}{|c|}
                 \hline
@@ -3890,7 +3921,7 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
                 ((a H) (b H)) (c H) & = & (a b H) (c H) = (a b c) H\\
                 (a H) ((b H) (c H)) & = & (a H) (b c H) = (a b c) H
               \end{eqnarray*}
-              Thus the associativity holds in $G / H$.\\
+              Thus the associativity holds in $G / H$.\bigskip
               
               \begin{tabular}{|c|}
                 \hline
@@ -3899,7 +3930,7 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
               \end{tabular}\\
               
               The $H$ itself is the identity element, and $H$ must exist, thus the identity
-              element must also exist.\\
+              element must also exist.\bigskip
               
               \begin{tabular}{|c|}
                 \hline
@@ -3907,7 +3938,7 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
                 \hline
               \end{tabular}\\
               
-              The inverse is the $a^{- 1} H$.\\
+              The inverse is the $a^{- 1} H$.\bigskip
               
               Thus $G / H$ is a group. 
         \end{proof}
@@ -3919,10 +3950,10 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
     \begin{example}
         Let $G =\mathbb{Z}$, and $H = 3\mathbb{Z}$. Then $a h = a + 3\mathbb{Z}$ and
         $\mathbb{Z}/ 3\mathbb{Z}$ is $\{ 3\mathbb{Z}, 1 + 3\mathbb{Z}, 2 + 3\mathbb{Z}
-        \}$.\\
+        \}$.\bigskip
 
         Moreover, $(a + 3\mathbb{Z}) + (b + 3\mathbb{Z}) = (a + b) + 3\mathbb{Z}$.
-        Note that $\mathbb{Z}/ 3\mathbb{Z}=\mathbb{Z}_3$.\\
+        Note that $\mathbb{Z}/ 3\mathbb{Z}=\mathbb{Z}_3$.\bigskip
 
         In general, $\mathbb{Z}/ n\mathbb{Z}=\mathbb{Z}_n$
 
@@ -3933,13 +3964,13 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
     \begin{theorem}
         \begin{itemize}
             \item If $G$ is finite, then $| G / H | = \text{number of cosets of $H$=}
-            \frac{| G |}{| H |}$.\\
+            \frac{| G |}{| H |}$.\bigskip
             
             \item Let $H$ be a normal subgroup of $G$, $G / H$ be the factor group of
             $G$ by $H$. Then the map\\
             
             $\gamma : G \rightarrow G / H, \gamma (a) = a H$ is a homomorphism and $\ker
-            (\gamma) = H$.\\
+            (\gamma) = H$.\bigskip
             
             \item If $\p : G \rightarrow G'$ is a group homomorphism, then $\ker \left(
             \p \right) = \left\{ x \in G : \p (x) = e' \right\}$ is a normal subgroup of
@@ -3969,13 +4000,13 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
         Suppose that $\p : G \rightarrow G'$ is a group homomorphism, with $\ker
         \left( \p \right) = H$, then:\\
         \begin{itemize}
-            \item $\p (G)$ is a subgroup of $G'$.\\
+            \item $\p (G)$ is a subgroup of $G'$.\bigskip
             
             \item $\mu : G / H \rightarrow \p (G)$ given by $\mu (a H) = \p (a)$ is well
-            defined, and is isomorphism.\\
+            defined, and is isomorphism.\bigskip
             
             \item $\p = \mu \circ \gamma$. The relationship can be represented by the
-            following diagram.\\
+            following diagram.\bigskip
 
         \end{itemize}
 
@@ -3994,7 +4025,7 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
 \begin{thmbox}
     \begin{prfbox}
         \begin{proof}
-            We only prove the second property.\\
+            We only prove the second property.\bigskip
 
             \begin{tabular}{|c|}
             \hline
@@ -4002,14 +4033,14 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
             \hline
             \end{tabular}\\
 
-            If $a H = a' H$, then we want to prove $\p (a) = \p (a')$.\\
+            If $a H = a' H$, then we want to prove $\p (a) = \p (a')$.\bigskip
 
             As $a' \in a' H = a H$, $a' \in a H$, $a' = a h$ for some $h \in H$.
 
             $$\p (a') = \p (a h) = \p (a) \p (h) = \p (a) e' = \p (a) \left( h \in H =
             \ker \left( \p \right) \right)$$
 
-            This proves the well-definess.\\
+            This proves the well-definess.\bigskip
 
             \begin{tabular}{|c|}
             \hline
@@ -4022,7 +4053,7 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
             \mu ( (a H) (b H)) & = & \mu (a b H) = \p (a b)\\
             \mu (a H) \mu (b H) & = & \p (a) \p (b) = \p (a b)
             \end{eqnarray*}
-            Thus $\mu (a H) \mu (b H) = \mu ( (a H) (b H))$, thus $\mu$ is homomorphism.\\
+            Thus $\mu (a H) \mu (b H) = \mu ( (a H) (b H))$, thus $\mu$ is homomorphism.\bigskip
 
             \begin{tabular}{|c|}
             \hline
@@ -4030,9 +4061,9 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
             \hline
             \end{tabular}\\
 
-            Note that $\mu$ is clearly onto.\\
+            Note that $\mu$ is clearly onto.\bigskip
 
-            To prove that $\mu$ is one-to-one, we prove that $\ker (\mu) = \{ e H \}$.\\
+            To prove that $\mu$ is one-to-one, we prove that $\ker (\mu) = \{ e H \}$.\bigskip
             \begin{eqnarray*}
             a H \in \ker (\mu) &  & \mu (a H) = e'\\
             \p (a) = e' &  & a \in \ker \left( \p \right) = H\\
@@ -4051,12 +4082,12 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
     \end{example}
     \begin{ansbox}
         Let $\p : \mathbb{C}^{\ast} \rightarrow \mathbb{C}^{\ast}$ be the homomorphism
-        given by $\p (z) = z^n$.\\
+        given by $\p (z) = z^n$.\bigskip
 
         Note that $\ker \left( \p \right) = \left\{ z \in \mathbb{C}^{\ast} : \p (z)
-        = 1 \right\} = \{ z \in \mathbb{C}^{\ast} : z^n = 1 \} = U_n$.\\
+        = 1 \right\} = \{ z \in \mathbb{C}^{\ast} : z^n = 1 \} = U_n$.\bigskip
 
-        We claim that $\p (\mathbb{C}^{\ast}) =\mathbb{C}^{\ast}$ (i.e. $\p$ is onto).\\
+        We claim that $\p (\mathbb{C}^{\ast}) =\mathbb{C}^{\ast}$ (i.e. $\p$ is onto).\bigskip
 
         For arbitrary $b \in \mathbb{C}^{\ast}$, the equation $z^n = b$ is always
         solvable (Fundamental theorem of algebra).
@@ -4073,10 +4104,10 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
     \begin{theorem}
         If $S \subset V$ is a subspace of vector space $V$, recall that every vector
         space $V$ is abelian group under the addition, and $S$ is a subgroup of $(V,
-        +)$.\\
+        +)$.\bigskip
 
         Then $V / S$ is the set of left costs of $S$, which is $\{ a + s : a \in V
-        \}$. This is the factor group of\enspace$V$ by $S$.\\
+        \}$. This is the factor group of\enspace$V$ by $S$.\bigskip
 
         For every $k \in \mathbb{R}$, we can define the scalar multiplcation on $V /
         S$: $k (a + S) = k a + S$ is well-defined.
@@ -4094,7 +4125,7 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
-            Note that $\dim (V / S) = \dim V - \dim S$.\\
+            Note that $\dim (V / S) = \dim V - \dim S$.\bigskip
 
             If $e_1, \ldots, e_n$ is a basis for $S$, we can extend the set $\{ e_1,
             \ldots, e_n \}$ to a basis $\{ e_1, \ldots, e_n, \ldots, e_N \}$ to get a
@@ -4145,9 +4176,9 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
 
 \begin{expbox}
     \begin{example}
-        Let $\sigma \in S_n$, and let $x \in X = \{ 1, \ldots, n \}$.\\
+        Let $\sigma \in S_n$, and let $x \in X = \{ 1, \ldots, n \}$.\bigskip
 
-        Then $\sigma x$ is the image of $x$ under permutation $\sigma$.\\
+        Then $\sigma x$ is the image of $x$ under permutation $\sigma$.\bigskip
 
         Note that $e x = x, \forall x \in X$, and $(\sigma_1 \sigma_2) x = \sigma_1
         (\sigma_2 (x))$, thus this is a action of $S_n$ on set $S$, or we say $S_n$
@@ -4189,18 +4220,18 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
 
 \begin{expbox}
     \begin{example}
-        Let $G$ be a symmetry group of a square. Then $| G | = 8$.\\
+        Let $G$ be a symmetry group of a square. Then $| G | = 8$.\bigskip
 
-        Let $R_a$ be the rotation along the centre anticlockwisely by $a^{\circ}$.\\
+        Let $R_a$ be the rotation along the centre anticlockwisely by $a^{\circ}$.\bigskip
 
         Then when $a = 90, 180, 270$, they form symmetry, and they can form a
-        subgroup.\\
+        subgroup.\bigskip
 
-        Let $L_M$ be the reflexion along the axis $M$.\\
+        Let $L_M$ be the reflexion along the axis $M$.\bigskip
 
-        Then $G = \{ R_0, R_{90}, R_{180}, R_{270}, L_A, L_B, L_C, L_D \}$.\\
+        Then $G = \{ R_0, R_{90}, R_{180}, R_{270}, L_A, L_B, L_C, L_D \}$.\bigskip
 
-        $G$ acts on $V = \{ 1, 2, 3, 4 \}$, which is the sets of vertices.\\
+        $G$ acts on $V = \{ 1, 2, 3, 4 \}$, which is the sets of vertices.\bigskip
 
         Moreover, $G$ can also acts on $E = \text{set of edges}$.
     \end{example}
@@ -4222,7 +4253,7 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
               \end{tabular}\\
               
               If $g_1 g_2 \in G_x$, then $(g_1 g_2) x = g_1 (g_2 x) = g_1 (x) = x$, thus
-              $g_1 g_2 \in G_x$, thus $G_x$ is closed in operation.\\
+              $g_1 g_2 \in G_x$, thus $G_x$ is closed in operation.\bigskip
               
               \begin{tabular}{|c|}
                 \hline
@@ -4230,7 +4261,7 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
                 \hline
               \end{tabular}\\
               
-              As $e x = x$, thus $e \in G_x$, thus identity element is in the set $G_x$.\\
+              As $e x = x$, thus $e \in G_x$, thus identity element is in the set $G_x$.\bigskip
               
               \begin{tabular}{|c|}
                 \hline
@@ -4246,7 +4277,7 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
                 e x & = & g^{- 1} x\\
                 g^{- 1} x & = & x
               \end{eqnarray*}
-              Thus $g^{- 1} \in G_x$.\\
+              Thus $g^{- 1} \in G_x$.\bigskip
               
               Thus $G_x$ is the subgroup.
         \end{proof}
@@ -4255,7 +4286,7 @@ Solving $(\ast)$ is equivalent of finding the kernel of $T$.
 
 \begin{expbox}
     \begin{example}
-        Let $G = S_5$ acts on $X = \{ 1, 2, 3, 4, 5 \}$.\\
+        Let $G = S_5$ acts on $X = \{ 1, 2, 3, 4, 5 \}$.\bigskip
 
         Then $G_1 = \left\{ \left(\begin{array}{ccccc}
         1 & 2 & 3 & 4 & 5\\
@@ -4298,7 +4329,7 @@ This is called the orbit of $x$.
         \left(\begin{array}{c}
         0\\
         0
-        \end{array}\right) \right\}$.\\
+        \end{array}\right) \right\}$.\bigskip
 
         The orbit of $\left(\begin{array}{c}
         1\\
@@ -4338,7 +4369,7 @@ X$,
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
-            Let $G / G_x$ be the set of all left cosets of $G_x$.\\
+            Let $G / G_x$ be the set of all left cosets of $G_x$.\bigskip
 
             Define a map $\varphi : G / G_x \rightarrow G x$ by
             \[ \varphi (g G_x) = g x \]
@@ -4355,7 +4386,7 @@ X$,
             & = & g_2 (h x)\\
             & = & g_2 x \hspace*{\fill} (\because b \in G_x)
             \end{eqnarray*}
-            Obviously $\varphi$ is a onto map.\\
+            Obviously $\varphi$ is a onto map.\bigskip
 
             \begin{tabular}{|c|}
             \hline
@@ -4371,9 +4402,9 @@ X$,
             h = g_2^{- 1} g_1 & \in & G_x\\
             g_2 h = g_1 & \tmop{so} & g_1 G_x = g_2 G_x
             \end{eqnarray*}
-            Hence $\varphi$ is one-to-one.\\
+            Hence $\varphi$ is one-to-one.\bigskip
 
-            This imples $\varphi$ is a bijection.\\
+            This imples $\varphi$ is a bijection.\bigskip
 
             Thus
             \[ \frac{| G |}{| G_x |} = | G / G_x | = | G x | \Rightarrow | G | = | G_x |
@@ -4403,23 +4434,23 @@ of $S_4$. Actually the group is exactly $A_4$.
 
 \begin{expbox}
     \begin{example}
-        Consider a cube. And let $G$ be the symmetry group of the cube.\\
+        Consider a cube. And let $G$ be the symmetry group of the cube.\bigskip
 
-        Let $F$ be the set of faces, then $| F | = 6$ and $G$ acts on $F$.\\
+        Let $F$ be the set of faces, then $| F | = 6$ and $G$ acts on $F$.\bigskip
 
         Also $G 1 = F$ and $G_1 = \text{set of symmetries that preserves face 1}$,
-        and $| G_1 | = 4$.\\
+        and $| G_1 | = 4$.\bigskip
 
-        Then $| G | = 4 \times 6 = 24$.\\
+        Then $| G | = 4 \times 6 = 24$.\bigskip
 
         Now, consider the set of vertices $V$, then $| V | = 8$ and $G$ also acts on
-        $V$.\\
+        $V$.\bigskip
 
         Then $G 1 = V$. By the theorem, we have $| G | = | G_1 |  | G 1 | \Rightarrow
-        24 = 8 | G_1 | \Rightarrow | G_1 | = 3$.\\
+        24 = 8 | G_1 | \Rightarrow | G_1 | = 3$.\bigskip
 
         Finally, let $E$ be the set of all edges, then $| E | = 12$ and $G$ also acts
-        on $| E |$.\\
+        on $| E |$.\bigskip
 
         Then $G 1 = E$. As $| G | = | G_1 |  | G_1 | \Rightarrow | G_1 | = 2$.
     \end{example}
@@ -4430,7 +4461,7 @@ of $S_4$. Actually the group is exactly $A_4$.
         If $G$ acts on $X$, then:\\
         \begin{itemize}
         \item If $x_1, x_2 \in X$, then $G x_1 = G x_2$ or $G x_1 \cap G x_2 =
-        \emptyset$.\\
+        \emptyset$.\bigskip
         
         \item $X$ is a disjoint union of orbits.
         \end{itemize}
@@ -4445,7 +4476,7 @@ of $S_4$. Actually the group is exactly $A_4$.
         Let $U = \{ z \in \mathbb{C}: | z | = 1 \}$, then $U$ acts on $\mathbb{C}$ by
         \[ z a : z \in U_1, a \in \mathbb{C} \]
         Then convert $U$ as polar form, we have $U = \{ e^{i \theta} : \theta \in [0,
-        2 \pi) \}$.\\   
+        2 \pi) \}$.\bigskip   
 
         Note that $| z a | = | z |  | a | = | a |$. Thus the orbit $U a$ is a circle
         centered at origin, with radius of $| a |$.
@@ -4463,10 +4494,10 @@ of $S_4$. Actually the group is exactly $A_4$.
         A ring is a set $R$ with an addition and a multiplcation following the axioms
         below:\\
         \begin{enumerate}
-        \item $(R, +)$ is an abelian \textbf{group}.\\
+        \item $(R, +)$ is an abelian \textbf{group}.\bigskip
         
         \item $\times$ is associative. i.e. $(a \times b) \times c = a \times (b
-        \times c), \forall a, b, c \in R$.\\
+        \times c), \forall a, b, c \in R$.\bigskip
         
         \item Distributive law holds. i.e.
         \begin{eqnarray*}
@@ -4480,12 +4511,12 @@ of $S_4$. Actually the group is exactly $A_4$.
 
 \begin{expbox}
     \begin{example}
-        For a positive integer $n$, let $\mathbb{Z}_n = \{ 0, 1, \ldots, n - 1 \}$.\\
+        For a positive integer $n$, let $\mathbb{Z}_n = \{ 0, 1, \ldots, n - 1 \}$.\bigskip
 
         Define $+$ as the modulo $n$ addition, and $\times$ as the modulo $n$
-        multiplcation.\\
+        multiplcation.\bigskip
 
-        Then $(\mathbb{Z}_n, +, \times)$ is a ring, and it is finite.\\ 
+        Then $(\mathbb{Z}_n, +, \times)$ is a ring, and it is finite.\bigskip 
 
         Consider $\mathbb{Z}_9 = \{ 0, \ldots, 8 \}$. Then $7 \times 8 = 56 = 2$.
     \end{example}
@@ -4503,9 +4534,9 @@ of $S_4$. Actually the group is exactly $A_4$.
     \begin{example}
         For each $n \geq 2$, let $M_n (\mathbb{R})$ be the set of $n \times n$
         matrices. On $M_n (\mathbb{R})$ we have matrix addition and matrix
-        multiplcation.\\
+        multiplcation.\bigskip
         
-        Then $M_n (\mathbb{R})$ is a ring under $+$ and $\times$.\\
+        Then $M_n (\mathbb{R})$ is a ring under $+$ and $\times$.\bigskip
         
         However, such ring is not a commutative ring.
     \end{example}
@@ -4514,14 +4545,14 @@ of $S_4$. Actually the group is exactly $A_4$.
 \begin{expbox}
     \begin{example}
         Consider $C (\mathbb{R})$ be the space of all continuous functions on
-        $\mathbb{R}$.\\
+        $\mathbb{R}$.\bigskip
         
-        Define $+$ to be function addition, and $\times$ to be function multiplcation.\\
+        Define $+$ to be function addition, and $\times$ to be function multiplcation.\bigskip
         
-        Then $C (\mathbb{R})$ is a ring.\\
+        Then $C (\mathbb{R})$ is a ring.\bigskip
         
         Let $C^{\infty} (\mathbb{R})$ be the function on $\mathbb{R}$ that has
-        derivative of all order, then it is also a ring.\\
+        derivative of all order, then it is also a ring.\bigskip
         
         Moreover, $C^{\infty} (\mathbb{R}) \subset C (\mathbb{R})$. For example, take
         $f = | x |$, then $f \in C (\mathbb{R})$, but $f \nin C^{\infty}
@@ -4557,7 +4588,7 @@ of $S_4$. Actually the group is exactly $A_4$.
                   & = & 0 a + 0 a\\
                   0 a & = & 0
                 \end{eqnarray*}
-                The case $a 0 = 0$ can be proved similarly.\\
+                The case $a 0 = 0$ can be proved similarly.\bigskip
 
                 \item Note that:
                 \begin{eqnarray*}
@@ -4566,7 +4597,7 @@ of $S_4$. Actually the group is exactly $A_4$.
                   & = & 0\\
                   a (- b) & = & - a b
                 \end{eqnarray*}
-                The case $- a (b) = a (- b)$ can be proved similarly.\\
+                The case $- a (b) = a (- b)$ can be proved similarly.\bigskip
 
                 \item
                 \begin{eqnarray*}
@@ -4655,15 +4686,15 @@ of $S_4$. Actually the group is exactly $A_4$.
 \begin{expbox}
     \begin{example}
         Let $\phi : \mathbb{C} \rightarrow M_2 (\mathbb{R})$. Imagine $\mathbb{C}$ to
-        be a $2 - \dim$ vector space over $\mathbb{R}$.\\
+        be a $2 - \dim$ vector space over $\mathbb{R}$.\bigskip
         
         Then we can represent $\mathbb{C}= \{ a + b i : a, b \in \mathbb{R} \}$. Then
-        it has a basis of $1, i$ over $\mathbb{R}$.\\
+        it has a basis of $1, i$ over $\mathbb{R}$.\bigskip
         
         Consider a map: $\mathbb{C} \rightarrow \mathbb{C}, z \mapsto (a + b i) z$ is
-        a linear map.\\
+        a linear map.\bigskip
         
-        Define $T_{a + b i} (z) = (a + b i) z$. Then $T$ is a linear transformation.\\
+        Define $T_{a + b i} (z) = (a + b i) z$. Then $T$ is a linear transformation.\bigskip
         
         Note that
         \begin{eqnarray*}
@@ -4709,11 +4740,11 @@ of $S_4$. Actually the group is exactly $A_4$.
     \begin{definition}[Ring with unity and Unit]
         A ring $R$ with multiplcative identity element (unity) is a ring
         {\underline{with unity}}. It is usually denoted by 1, which satisfies $1
-        \times a = a \times 1 = a, \forall a \in R$.\\
+        \times a = a \times 1 = a, \forall a \in R$.\bigskip
         
         Let $R$ be a ring with unity $1$, suppose that $1 \neq 0$, an element $u$ is
         called a unit (Invertible element) if there is $u' \in R$ such that $u u' = u'
-        u = 1$.\\
+        u = 1$.\bigskip
         
         \begin{tabular}{|c|}
           \hline
@@ -4761,15 +4792,15 @@ of $S_4$. Actually the group is exactly $A_4$.
 \begin{defbox}
     \begin{definition}[Division Ring and Field]
         Let $R$ be a ring with unity 1, we call $R$ a division ring if every nonzero
-        element $a \in R$ is a unit.\\
+        element $a \in R$ is a unit.\bigskip
         
-        A commutative division ring is called a field.\\
+        A commutative division ring is called a field.\bigskip
         
         Also, a field can be defined as following, with $R$ being a ring:\\
         \begin{itemize}
-          \item $R$ is commutative.\\
+          \item $R$ is commutative.\bigskip
           
-          \item $R$ has a unity $1$.\\
+          \item $R$ has a unity $1$.\bigskip
           
           \item For all $a \in R, a \neq 0, a^{- 1}$ exists.
         \end{itemize}
@@ -4860,9 +4891,9 @@ of $S_4$. Actually the group is exactly $A_4$.
     \begin{definition}[Integral domain]
         A ring $D$ is a integral domain, if it satisfies:\\
         \begin{enumerate}
-          \item $D$ is a commutative ring.\\
+          \item $D$ is a commutative ring.\bigskip
           
-          \item $D$ has a nonzero unity $1$.\\
+          \item $D$ has a nonzero unity $1$.\bigskip
           
           \item $D$ has no zero divisors.
         \end{enumerate}
@@ -4900,9 +4931,9 @@ of $S_4$. Actually the group is exactly $A_4$.
               \end{tabular}\\
               
               If $n$ is not a prime number, then $n = a b$ where $a \in (0, n), b \in (0,
-              n)$.\\
+              n)$.\bigskip
               
-              Then $a \neq 0, b \neq 0, a b = n = 0$, thus $a, b$ are zero divisors.\\
+              Then $a \neq 0, b \neq 0, a b = n = 0$, thus $a, b$ are zero divisors.\bigskip
               
               \begin{tabular}{|c|}
                 \hline
@@ -4911,7 +4942,7 @@ of $S_4$. Actually the group is exactly $A_4$.
               \end{tabular}\\
               
               Let $\mathbb{Z}_p = \{ 0, 1, \ldots, p - 1 \}$, if $a, b \in \mathbb{Z}_p, a
-              \neq 0, b \neq 0, a b = 0$, then the usual product $a b$ is a multiple of $p$.\\
+              \neq 0, b \neq 0, a b = 0$, then the usual product $a b$ is a multiple of $p$.\bigskip
               
               This imples that one of $a, b$ is a multiple of $p$. This contradicts to $a
               \neq 0 \infixand b \neq 0$ in $\mathbb{Z}_p$.
@@ -4926,7 +4957,7 @@ of $S_4$. Actually the group is exactly $A_4$.
     \begin{prfbox}
         \begin{proof}
             Suppose $F$ is a field, If $F$ has zero divisor, then for some $a \neq 0, b
-            \neq 0, a b = 0$.\\
+            \neq 0, a b = 0$.\bigskip
             
             As $a \neq 0$, and $F$ is a ring, thus $a^{- 1}$ exists. Hence
             \begin{eqnarray*}
@@ -4934,7 +4965,7 @@ of $S_4$. Actually the group is exactly $A_4$.
               a^{- 1} a b & = & 0\\
               b & = & 0
             \end{eqnarray*}
-            Which leads to contradiction.\\
+            Which leads to contradiction.\bigskip
             
             This implies that $F$ has no zero-divisors. So $F$ is a integral domain.
         \end{proof}
@@ -4973,11 +5004,11 @@ From this we can see the following relation:
     \begin{prfbox}
         \begin{proof}
             Assume that, for $a \in D$, we need to prove $a^{- 1}$ exists for any $a \neq
-            0$.\\
+            0$.\bigskip
             
             We list all element in $D :$
             \[ D = \{ 0, 1, a_2, \ldots, a_n \} \]
-            where $| D | = n + 1$.\\
+            where $| D | = n + 1$.\bigskip
             
             Consider the following list
             \[ \{ a 0, a 1, a a_2, \ldots, a a_n \} \]
@@ -5005,7 +5036,7 @@ From this we can see the following relation:
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
-            If $a = 0$, then $a^p - a = 0$ is a multiple of $p$.\\
+            If $a = 0$, then $a^p - a = 0$ is a multiple of $p$.\bigskip
 
             If $a$ is a negative number, then $n$ is positive. We then have:
             \begin{eqnarray*}
@@ -5013,15 +5044,15 @@ From this we can see the following relation:
               & = & - n^p + n\\
               & = & - (n^p - n)
             \end{eqnarray*}
-            So we can reduce the case where $a$ is negative to $a$ is positive.\\
+            So we can reduce the case where $a$ is negative to $a$ is positive.\bigskip
             
-            Now we prove by induction.\\
+            Now we prove by induction.\bigskip
             
             Let $a = 1$, then
             \begin{eqnarray*}
               a^p - a & = & 0
             \end{eqnarray*}
-            The result holds.\\
+            The result holds.\bigskip
             
             Now suppose for $a = n$, the result holds. Then for $a = n + 1$, we have:
             \begin{eqnarray}
@@ -5045,20 +5076,20 @@ From this we can see the following relation:
                 j
               \end{array}\right) n^j + n^p - n
             \end{eqnarray}
-            By induction assumption, we have $n^p - n$ is a multiple of $p$.\\
+            By induction assumption, we have $n^p - n$ is a multiple of $p$.\bigskip
             
             For $j \in [1, p - 1]$, we have $\left(\begin{array}{c}
               p\\
               j
-            \end{array}\right) = \frac{p!}{j! (p - j) !}$.\\
+            \end{array}\right) = \frac{p!}{j! (p - j) !}$.\bigskip
             
             Note that $p$ is prime, therefore $p$ is not a divisor of $j! (p - j) ! = (1
-            \times 2 \times \cdots \times j) (1 \times 2 \times \cdots \times (p - j))$.\\
+            \times 2 \times \cdots \times j) (1 \times 2 \times \cdots \times (p - j))$.\bigskip
             
             Thus $\left(\begin{array}{c}
               p\\
               j
-            \end{array}\right)$ is a multiple of $p$. So $(1)$ is a multiple of $p$.\\
+            \end{array}\right)$ is a multiple of $p$. So $(1)$ is a multiple of $p$.\bigskip
             
             The results holds for $a = n + 1$.
         \end{proof}
@@ -5083,7 +5114,7 @@ From this we can see the following relation:
               a^p - a & = & a (a^{p - 1} - 1)
             \end{eqnarray*}
             As $a$ is not a multiple of $p$, therefore $a^{p - 1} - 1$ must be a multiple
-            of $p$.\\
+            of $p$.\bigskip
             
             Conversely, we have:
             \begin{eqnarray*}
@@ -5121,7 +5152,7 @@ From this we can see the following relation:
 \begin{thmbox}
     \begin{theorem}[Euler's Theorem]
         For $n \in \mathbb{Z}_{> 0}$, if $a$ is relatively prime to $n$, then
-        $a^{\varphi (n) - 1}$ is a multiple of $n$.\\
+        $a^{\varphi (n) - 1}$ is a multiple of $n$.\bigskip
         
         Moreover, if $n = p$ is a prime, then $\varphi (p) = p - 1$, hence $a^{p - 1} -
         1$ is a multiple of $p$.
@@ -5145,9 +5176,9 @@ We first recall some previous knowledges.
     \begin{definition}[Integral domain]
         A ring $D$ is a integral domain, if it satisfies:\\
         \begin{enumerate}
-          \item $D$ is a commutative ring.\\
+          \item $D$ is a commutative ring.\bigskip
           
-          \item $D$ has a nonzero unity $1$.\\
+          \item $D$ has a nonzero unity $1$.\bigskip
           
           \item $D$ has no zero divisors.
         \end{enumerate}
@@ -5157,7 +5188,7 @@ We first recall some previous knowledges.
 \begin{thmbox}
     \begin{theorem}
         If $F$ is a field, then $F$ is a integral domain. However the converse may not
-        be correct.\\
+        be correct.\bigskip
         
         But if $R$ is integral domain, and $R$ is finite, then $R$ is a field.
     \end{theorem}
@@ -5167,12 +5198,12 @@ We first recall some previous knowledges.
 
 \begin{expbox}
     \begin{example}
-        We want to produce more example where a ring is an integral domain.\\
+        We want to produce more example where a ring is an integral domain.\bigskip
 
-        Consider $A =\mathbb{Z} \times \mathbb{Z}$.\\
+        Consider $A =\mathbb{Z} \times \mathbb{Z}$.\bigskip
         
         $A$ is commutative. It contains an unit of $(1, 1) \neq (0, 0)$. Consider $(1,
-        0) \times (0, 1) = (0, 0)$. Therefore there is zero divisors.\\
+        0) \times (0, 1) = (0, 0)$. Therefore there is zero divisors.\bigskip
         
         By the definition, $\mathbb{Z} \times \mathbb{Z}$ is not a integral domain. \emoji{face-with-open-mouth}
     \end{example}
@@ -5185,9 +5216,9 @@ We first recall some previous knowledges.
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
-            (1) $R$ is commutative obviously.\\
+            (1) $R$ is commutative obviously.\bigskip
 
-            (2) $R$ contains an unity, by definition.\\
+            (2) $R$ contains an unity, by definition.\bigskip
             
             (3) If $a, b \in R$, $a \neq 0, b \neq 0, a b = 0$, because $F$ is a field,
             therefore $a^{- 1}$ exists. Multiplying $a^{- 1}$ on both side, we have:
@@ -5204,11 +5235,11 @@ We first recall some previous knowledges.
 
 \begin{expbox}
     \begin{example}[Continued]
-        Let's consider the following with the help of above theorem.\\
+        Let's consider the following with the help of above theorem.\bigskip
 
-        Let $F =\mathbb{C}$ be a field.\\
+        Let $F =\mathbb{C}$ be a field.\bigskip
         
-        Then $\mathbb{Z}, \mathbb{Q}, \mathbb{R}$ are subrings of $F$.\\
+        Then $\mathbb{Z}, \mathbb{Q}, \mathbb{R}$ are subrings of $F$.\bigskip
         
         Define $\mathbb{Z} [i] = \{ m + n i : m, n \in \mathbb{Z} \}$. It is called
         the ring of Gaussian integers. Then we have:
@@ -5217,13 +5248,13 @@ We first recall some previous knowledges.
           (m + n i) (m' + n' i) & = & (m m' - n n') + (m n' + n m') i
         \end{eqnarray*}
         Therefore the operation is closed, and moreover, we have $- (m + n i) = (- m)
-        + (- n) i$ is the addition inverse in $\mathbb{Z} [i]$.\\
+        + (- n) i$ is the addition inverse in $\mathbb{Z} [i]$.\bigskip
         
         Finally, we have $1 + 0 i = 1 \in \mathbb{Z} [i]$. Therefore there is unity in
-        $\mathbb{Z} [i]$.\\
+        $\mathbb{Z} [i]$.\bigskip
         
         Therefoe $\mathbb{Z} [i]$ is a subring of $\mathbb{C}$ containing $1$.
-        Therefore it is an integral domain.\\
+        Therefore it is an integral domain.\bigskip
         
         Note that:
         \[ 5 = (2 + i) (2 - i) \]
@@ -5237,7 +5268,7 @@ We first recall some previous knowledges.
         For arbitrary positive integer $d$, define
         \[ \mathbb{Z} \left[ \sqrt{d} \right] = \left\{ m + n \sqrt{d} : m, n \in
            \mathbb{Z} \right\} \]
-        is a subring of $\mathbb{R}$.\\
+        is a subring of $\mathbb{R}$.\bigskip
         
         Note that:
         \begin{eqnarray*}
@@ -5256,9 +5287,9 @@ We first recall some previous knowledges.
 
         \nline
 
-        Define $A = \left\{ m + n d^{\frac{1}{3}} : m, n \in \mathbb{Z} \right\}$.\\
+        Define $A = \left\{ m + n d^{\frac{1}{3}} : m, n \in \mathbb{Z} \right\}$.\bigskip
 
-        Note it is closed under $+$.\\
+        Note it is closed under $+$.\bigskip
         
         And
         \begin{eqnarray*}
@@ -5266,7 +5297,7 @@ We first recall some previous knowledges.
           & = & \left( m m' + n m' d^{\frac{2}{3}} \right) (m n' + n m')
           d^{\frac{1}{3}}
         \end{eqnarray*}\\
-        Note that $d^{\frac{2}{3}}$ is not in $A$. Therefore $A$ is not a subring.\\
+        Note that $d^{\frac{2}{3}}$ is not in $A$. Therefore $A$ is not a subring.\bigskip
 
         However, if we modify the condition s.t.
         \[ A = \left\{ m + n d^{\frac{1}{3}} + p d^{\frac{2}{3}} : m, n, p \in
@@ -5288,7 +5319,7 @@ We first recall some previous knowledges.
         \frac{b_1}{3^{m_1}} \times \frac{b_2}{3^{m_2}} & = & \frac{b_1 b_2}{3^{m_1 +
         m_2}}
         \end{eqnarray*}
-        Therefore the operation is closed under $+, \times$.\\
+        Therefore the operation is closed under $+, \times$.\bigskip
 
         Note that $\mathbb{Z} \subsetneq A \subsetneq \mathbb{Q}$. For example,
         $\frac{1}{2} \nin A$.
@@ -5346,11 +5377,11 @@ We want to prove $\sim$ is an equivalence relation.
             \begin{proof}
                 \begin{itemize}
                     \item Reflexive: $(a, b) \sim (a, b)$ since $ab = ba$ as the
-                    multiplication in $D$ is commutative.\\
+                    multiplication in $D$ is commutative.\bigskip
                     
                     \item Symmetric: If $(a, b) \sim (c, d)$, then $ad = bc$.
                     Since multiplcation in $D$ is commutative, therefore $cb =
-                    da$, consequently $(c, d) \sim (a, b)$.\\
+                    da$, consequently $(c, d) \sim (a, b)$.\bigskip
                     
                     \item Transitive: If $(a, b) \sim (c, d)$ and $(c, d) \sim (r, s)$, then
                     $ad = bc$ and $cs = dr$. Using these relations
@@ -5457,7 +5488,7 @@ For a more detailed proof of this section, please refer to the textbook P.190.
                 & = & 2
               \end{eqnarray*}
               For any positive integer $n$, we have $n = 1 + \cdots + 1 \Rightarrow \phi (n)
-              = \phi (1 + \cdots + 1) = n \phi (1) = n$.\\
+              = \phi (1 + \cdots + 1) = n \phi (1) = n$.\bigskip
               
               If $n$ is negative, we have $\phi (- n) = - \phi (n) = - n$.
         \end{proof}
@@ -5547,7 +5578,7 @@ For a more detailed proof of this section, please refer to the textbook P.190.
 \begin{expbox}
     \begin{example}
         If $R$ is a ring with unity 1, $a \in R$ is an multiplcative invertible
-        element.\\
+        element.\bigskip
         
         Define a map $\phi : R \rightarrow R, \phi (x) = a x a^{- 1}$ is a ring
         homomorphism.
@@ -5582,10 +5613,10 @@ For a more detailed proof of this section, please refer to the textbook P.190.
           
           \item $\phi (- a) = - \phi (a), \forall a \in R$\\
           
-          \item If $S \subset R$ is a subring, then $\phi (S)$ is a subring of $R'$.\\
+          \item If $S \subset R$ is a subring, then $\phi (S)$ is a subring of $R'$.\bigskip
           
           \item If $S' \subset R'$ is a subring, then $\phi^{- 1} (S')$ is a subring
-          of $R$.\\
+          of $R$.\bigskip
           
           \item Do note that $\phi (a^{- 1}) \tmmathbf{\neq} \phi (a)^{- 1}$
         \end{enumerate}
@@ -5594,7 +5625,7 @@ For a more detailed proof of this section, please refer to the textbook P.190.
         \begin{proof}
             Because $\phi (a + b) = \phi (a) + \phi (b)$ implies that $\phi : R
             \rightarrow R'$ is an group homomorphism of additive group, therefore (1),(2)
-            are true.\\
+            are true.\bigskip
             
             (3),(4) are left as exercise.
         \end{proof}
@@ -5641,7 +5672,7 @@ For a more detailed proof of this section, please refer to the textbook P.190.
     \end{example}
     \begin{prfbox}
         \begin{proof}
-            1. $n\mathbb{Z}$ is a subgroup of $(\mathbb{Z}, +)$.\\
+            1. $n\mathbb{Z}$ is a subgroup of $(\mathbb{Z}, +)$.\bigskip
 
             2. If $a \in \mathbb{Z}, b \in n\mathbb{Z}, b = n c, c \in \mathbb{Z}$, then
             $a b = a (n c) = n (a c) \in \mathbb{Z}$.
@@ -5657,10 +5688,10 @@ For a more detailed proof of this section, please refer to the textbook P.190.
     \begin{prfbox}
         \begin{proof}
             Since $\phi$ is an additive group homomorphism from $R \rightarrow R'$,
-            thus $\ker (\phi)$ is an additive subgroup of $R$.\\
+            thus $\ker (\phi)$ is an additive subgroup of $R$.\bigskip
             
             If $a \in R, b \in \ker \phi$, we want to prove that $a b \in \ker (\phi)$ and
-            $b a \in \ker (\phi)$.\\
+            $b a \in \ker (\phi)$.\bigskip
             
             Check:
             \begin{eqnarray*}
@@ -5689,7 +5720,7 @@ For a more detailed proof of this section, please refer to the textbook P.190.
     \begin{prfbox}
         \begin{proof}
             For $a + I = a' + I, b + I = b' + I$, then we have $a b + I = a' b' + I$. To
-            prove $a b + I = a' b' + I$, we may prove $a b - a' b' \in I$.\\
+            prove $a b + I = a' b' + I$, we may prove $a b - a' b' \in I$.\bigskip
             
             Note that:
             \begin{eqnarray*}
@@ -5705,7 +5736,7 @@ For a more detailed proof of this section, please refer to the textbook P.190.
 \begin{thmbox}
     \begin{theorem}
         Let $I$ be an ideal of the ring $R$, then $R / I$ is a ring under addition and
-        multiplication defined as above.\\
+        multiplication defined as above.\bigskip
         
         The ring $R / I$ is called the factor ring of $R$ by $I$. 
     \end{theorem}
@@ -5715,7 +5746,7 @@ For a more detailed proof of this section, please refer to the textbook P.190.
 
 \begin{expbox}
     \begin{example}
-        Let $10\mathbb{Z}$ be an ideal of $\mathbb{Z}$.\\
+        Let $10\mathbb{Z}$ be an ideal of $\mathbb{Z}$.\bigskip
 
         Then $\mathbb{Z}/ 10\mathbb{Z}= \{ 0 + 10\mathbb{Z}, \ldots, 9 + 10\mathbb{Z}
         \} = \{ 0, 1, \ldots, 9 \} =\mathbb{Z}_{10}$
@@ -5815,7 +5846,7 @@ For a more detailed proof of this section, please refer to the textbook P.190.
 \end{thmbox}
 \begin{thmbox}
     \begin{theorem}
-        If $A$ and $B$ are similar, then their characteristic polynomial are equal.\\
+        If $A$ and $B$ are similar, then their characteristic polynomial are equal.\bigskip
 
         Note that characteristic polynomial is defined by $| x I_n - A |$ for any $n
         \times n$ matrix $A$.
@@ -5881,7 +5912,7 @@ For a more detailed proof of this section, please refer to the textbook P.190.
         For example, we can have complex matrices like $\left[\begin{array}{cc}
             1 + i & 0\\
             2 & i
-          \end{array}\right]$.\\
+          \end{array}\right]$.\bigskip
           
           If $A, B$ are complex matrices, $A, B$ are said to be similar if there is $ n
           \times n$ invertible complex matrices $T$, s.t.
@@ -6079,7 +6110,7 @@ in higher algebra. The two theorems can be considered as a special case of a sin
     \begin{definition}[Polynomials]
         A polynomial over $\mathbb{R}$ is an expression
         \[ a_n x^n + \cdots + a_1 x + a_0 \]
-        where $a_n, \ldots, a_1 \in \mathbb{R}$.\\
+        where $a_n, \ldots, a_1 \in \mathbb{R}$.\bigskip
         
         We use $\mathbb{R} [x]$ to denote all polynomial in variable $x$ with coeff in
         $\mathbb{R}$.
@@ -6184,7 +6215,7 @@ Are there any simplier ways? Also yes! By Fermat Little theorem, $x^5 - x =
         If $f \in F [x]$, $\deg (f) = n > 0$, then we have:\\
         \begin{itemize}
           \item $c \in F$ is a root of $f$ iff $f (x) = (x - c) g (x)$ for some $g \in
-          F [x]$, and $\deg (g) = n - 1$.\\
+          F [x]$, and $\deg (g) = n - 1$.\bigskip
           
           \item $f$ has at most $n$ roots in $F$. 
         \end{itemize}
@@ -6218,9 +6249,9 @@ Are there any simplier ways? Also yes! By Fermat Little theorem, $x^5 - x =
     \begin{definition}[Field]
         A field is a ring, $F$ satisfying three properties:\\
     
-        1. $F$ is commutative.\\
+        1. $F$ is commutative.\bigskip
         
-        2. $F$ has $1$ as unity, where $1 \neq 0$.\\
+        2. $F$ has $1$ as unity, where $1 \neq 0$.\bigskip
         
         3. Every nonzero element $a \in F$ has a multiplicative inverse $a^{- 1} \in
         F$. 
@@ -6303,7 +6334,7 @@ $\mathbb{R}$ itself is not countable.
 \begin{defbox}
     \begin{definition}[Vector space over a field]
         If $F$ is a field, a vector space over $F$ is a set $V$ with addition and
-        scalar multiplication s.t.\\
+        scalar multiplication s.t.\bigskip
         \begin{enumerate}
             \item $(V, +)$ is a abelian group. (This imples 0 exists, $a^{- 1}$ exists,
             and operation is associative)\\
@@ -6408,7 +6439,7 @@ then $[\mathbb{Q} (\alpha) : \mathbb{Q}] = \left\{\begin{array}{lll}
 \begin{expbox}
     \begin{example}
         Let $\bar{\mathbb{Q}}$ be the set of all algebraic number, then
-        $\bar{\mathbb{Q}}$ is a subfield of $\mathbb{C}$.\\ 
+        $\bar{\mathbb{Q}}$ is a subfield of $\mathbb{C}$.\bigskip 
         
         $\mathbb{C}- \bar{\mathbb{Q}}$ is the set of transcendal number, moreover,
         this set is uncountable.
@@ -6474,8 +6505,8 @@ then $[\mathbb{Q} (\alpha) : \mathbb{Q}] = \left\{\begin{array}{lll}
         Let $C$ be the set of constructible. Then\\
 
         \begin{enumerate}
-            \item C is a subfield of $\mathbb{R}$.\\
-            \item Any element in $C$ is algebraic.\\
+            \item C is a subfield of $\mathbb{R}$.\bigskip
+            \item Any element in $C$ is algebraic.\bigskip
             \item $[\mathbb{Q} (\alpha) : \mathbb{Q}] = 2^k, k \in \mathbb{Z}_{\geq 0}$, for
             any $\alpha \in C$.
         \end{enumerate}
