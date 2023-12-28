@@ -163,13 +163,15 @@ Some special symbols, notations and functions that will appear in this note:\big
 \section{Sets and Relations}
 
 To define a finite set, one may choose to list out every element in the set.\bigskip
+
 However, with infinite set, we may choose to characterize the set.\bigskip
+
 For example, we may write the set of all odd numbers as:
         $$A=\{a\in\R|a=2n+1,n\in\Z\}$$
 and some sets like:
         $$B=\{a\in\R|\sin(a)+\cos(a)+1=0\}$$
         $$C=\{a\in\R|a^{10}+100a^2-10a-10000=0\}$$
-Note that $C$ has finitely many $(\leq 10)$ elements (Result from root of unity)
+Note that $C$ has finitely many $(\leq 10)$ elements. (Result from root of unity)
 
 \begin{defbox}
     \begin{definition}[Subsets]
@@ -178,18 +180,19 @@ Note that $C$ has finitely many $(\leq 10)$ elements (Result from root of unity)
     \end{definition}    
 \end{defbox}
 
-
-For example, we have 
-
+\begin{expbox}
+    \begin{example}
         $$\Z\subset\Q\subset\R$$
+    \end{example}
+\end{expbox}
 
 \begin{defbox}
     \begin{definition}[Union, intersection]
         If $A,B$ are sets, then:\bigskip
 
-        The union of $A$ and $B$, denoted by $A \cup B$, are defined as $\left\{ x|x \in A \text{ or } x \in B \right\}$. \bigskip
+        The union of $A$ and $B$, denoted by $A \cup B$, is defined as $\left\{ x|x \in A \text{ or } x \in B \right\}$. \bigskip
         
-        The intersection of $A$ and $B$, denoted by $A \cap B$, are defined as $\left\{ x|x \in A \text{ and } x \in B \right\}$.            
+        The intersection of $A$ and $B$, denoted by $A \cap B$, is defined as $\left\{ x|x \in A \text{ and } x \in B \right\}$.            
     \end{definition}    
 \end{defbox}
 
@@ -341,7 +344,7 @@ We extend the concept to other sets which contains different numbers of element.
 
 \begin{expbox}
     \begin{example}
-        Let $A={1,2,3,4,5},B={4,5,6,7}$. Find the number of map such that the map is one-to-one.\bigskip
+        Let $A=\{1,2,3,4,5\},B=\{4,5,6,7\}$. Find the number of map such that the map is one-to-one.\bigskip
 
         Since $|A| > |B|$, it is impossible to find a one-to-one map.    
     \end{example}
@@ -371,9 +374,14 @@ set $B$ is ``larger" than set $A$ in terms of cardinality.
 
 \begin{expbox}
     \begin{example}
-        Prove that $(-\frac{\pi}{2},\frac{\pi}{2})=|(-1,1)|$.\bigskip
+        Prove that $(-\frac{\pi}{2},\frac{\pi}{2})=|(-1,1)|$.
 
+\begin{prfbox}
+    \begin{proof}
         Since $f:(-\frac{\pi}{2},\frac{\pi}{2})\to(-1,1),f(x)=\frac{2}{\pi}x$ is bijective, thus both sets have equal cardinality.
+    \end{proof}
+\end{prfbox}
+
     \end{example}
 \end{expbox}
 \begin{defbox}
