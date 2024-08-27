@@ -214,37 +214,52 @@ With union and intersection of sets, we have the following theorem:
     \begin{prfbox}
         \begin{proof}
             We only prove 0.1.1 (Distributive law)
-            
+            \bigskip\newline
             \begin{tabular}{|c|}
               \hline
               $(A \cup B) \cap C \subset (A \cap C) \cup (B \cap C)$\\
               \hline
             \end{tabular}
-            
+
+            \bigskip
+
             Pick arbitrary element $x$ from the left hand side. Then we have
+
             \[ x \in (A \cup B) \text{ and } x \in C \]
-            If $x \in A, x \in C$, then we have $x \in A \cap C$ and thus $x \in (A \cap
+
+            \bigskip
+
+            If $x \in A, x \in C$, we have $x \in A \cap C$ and thus $x \in (A \cap
             C) \cup (B \cap C)$
-            
+
+            \bigskip
+
             If $x \in B, x \in C$, then we have $x \in B \cap C$ and thus $x \in (A \cap
             C) \cup (B \cap C)$
-            
+
+            \bigskip
+
             \begin{tabular}{|c|}
               \hline
               $(A \cap C) \cup (B \cap C) \subset (A \cup B) \cap C$\\
               \hline
             \end{tabular}
-            
+            \bigskip
+
             Same as before, pick arbitrary element $x$ from left hand side. We have
+
             \[ x \in (A \cap C) \text{ or } x \in (B \cap C) \]
+
             If $x \in (A \cap C)$, then we have $x \in A \text{ and } x \in C$, and thus $x
             \in (A \cup B) \cap C$
-            
+            \bigskip
+
             If $x \in (B \cap C)$, then we have $x \in B$ \text{ and } $x \in C$, and thus $x \in
             (A \cup B) \cap C$
-            
+            \bigskip
+
             As $(A \cup B) \cap C \subset (A \cap C) \cup (B \cap C)$ and $(A \cap C)
-            \cup (B \cap C) \subset (A \cup B) \cap C$ and hence
+            \cup (B \cap C) \subset (A \cup B) \cap C$ we have:
             \[ (A \cup B) \cap C = (A \cap C) \cup (B \cap C) \]
             2. can be proved with similar methods as above.\bigskip
 
@@ -440,7 +455,7 @@ set $B$ is ``larger" than set $A$ in terms of cardinality.
         Let $A$ be a set. A relation $\leq$ on $A$ is called partial order on $A$ if for any $a,b,c\in A$,\bigskip
         \begin{enumerate}
             \item $a \leq a$\bigskip
-            \item $a \leq a$ and $b \leq a$ implies $a=b$\bigskip
+            \item $a \leq b$ and $b \leq a$ implies $a=b$\bigskip
             \item $a \leq b$ and $b \leq c$ implies $a \leq c$
         \end{enumerate}
     \end{definition}
