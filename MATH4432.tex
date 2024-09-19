@@ -1,0 +1,302 @@
+%!TEX program = lualatex
+\documentclass{article}
+\usepackage{tcolorbox}
+\usepackage{ntheorem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ulem}
+\usepackage{graphicx}
+\usepackage{centernot}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{tabularx}
+\usepackage{pgfcore}
+
+\usepackage[hidelinks, linktocpage]{hyperref}
+\hypersetup{
+    linktoc=all,
+}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[parfill]{parskip}
+
+\everymath{\displaystyle}
+
+\makeatletter
+\newtheoremstyle{MyNonumberplain}%
+  {\item[\theorem@headerfont\hskip\labelsep ##1\theorem@separator]}%
+  {\item[\theorem@headerfont\hskip\labelsep ##3\theorem@separator]}%
+\makeatother
+\theoremstyle{MyNonumberplain}
+\theorembodyfont{\upshape}
+
+\theoremstyle{break}
+\newtheorem*{proof}{Proof. }
+
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\cyclic}[1]{\langle #1 \rangle}
+\newcommand{\nline}{\begin{tabular}{ll}&\\\end{tabular}}
+\newcommand{\nin}{\not\in}
+\newcommand{\p}{\phi}
+\newcommand{\infixor}{\text{ or }}
+\newcommand{\infixand}{\text{ and }}
+\newcommand{\ord}[1]{\text{ord}(#1)}
+\newcommand{\tmop}{\text}
+\newcommand{\xequal}[1]{\stackrel{#1}{=}}
+\newcommand{\tmscript}[1]{\text{\scriptsize{$#1$}}}
+
+
+
+\newtcolorbox{prfbox}{colback=gray!10,colframe=black!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=0pt}
+\newtcolorbox{thmbox}{colback=orange!25,colframe=orange!85,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
+\newtcolorbox{defbox}{colback=blue!5,colframe=blue!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
+\newtcolorbox{ansbox}{colback=gray!10,colframe=black!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=0pt}
+\newtcolorbox{expbox}{colback=green!10,colframe=green!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
+\newtcolorbox{warnbox}{colback=red!15,colframe=red!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
+
+
+\newtheorem{warning}{Warning}[section]
+\newtheorem{remark}{Remark}[section]
+\theoremstyle{break}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{break}
+%\theoremstyle{definition}
+\theoremstyle{break}
+\newtheorem{definition}{Definition}[section]
+
+\title{MATH4432 Notes}
+\author{SmokingPuddle58}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+    This work is licensed under CC BY-NC-SA 4.0
+\end{center}
+
+
+\newpage
+
+    This is the lecture note typed by SmokingPuddle in September, 2024. It mainly contains what professor mentions starting from year 3. For the contents of the first two weeks, I will try my best to include as much as possible. 
+
+    The main reference source comes from the professor himself, lecture notes, tutorial notes, and also from the Internet if necessary.
+
+    Please inform me if there is any errors, better within the semester or I will have a very high chance of forgetting the contents. 
+
+    \bigskip
+
+
+\begin{thmbox}
+    Theorems, Corollary, Lemma, Proposition
+\end{thmbox}
+
+\begin{defbox}
+    Definitions
+\end{defbox}
+
+\begin{expbox}
+    Examples
+\end{expbox}
+
+\begin{warnbox}
+    Warnings / Remarks
+\end{warnbox}
+
+\begin{prfbox}
+    Proofs, Answers
+\end{prfbox}
+
+\begin{tabular}{ll}
+    &\\
+\end{tabular}
+
+Some special symbols, notations and functions that will appear in this note:\bigskip
+
+\begin{center}
+
+    \begin{tabular}{|l|l|}
+        \hline
+        $\C$ & Set of complex numbers \\ \hline
+        $\R$ & Set of real numbers \\ \hline
+        $\Z$ & Set of integers \\ \hline
+        $\Q$ & Set of rational numbers \\ \hline
+    \end{tabular}
+\end{center}
+\begin{center}
+    
+
+\end{center}
+
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+% If you wish your section number begins from 1, remove / comment the line below
+% \setcounter{section}{-1}
+
+\section{Overview}
+
+Before we start, we shall clarify some of the notations that will be used.
+
+Consider the following expression: $$P(X=x)$$
+
+If we say $r.v.$ (Random variable) $X$, we actually means the name of the variable, while for $x$, we means the realization for such $r.v.$ 
+
+Suppose we are now observing some quantitative response $Y$ and also input variable $X$, consisting of $p$ features, which can be expressed as:
+
+$$
+X=
+    \begin{bmatrix}
+        X_1 \\
+        X_2 \\
+        X_3 \\
+        \vdots \\
+        X_p
+    \end{bmatrix}
+$$
+
+where $X_1,...,X_p$ are random variables. Then the relation between $Y$ and $X$ can be expressed as: 
+
+$$
+    Y=f(X)+\varepsilon
+$$
+
+where $\varepsilon$ is the error term, and $f$ is a deterministic function. We call such model the population level model, or ground truth model. (i.e. The number of samples is infinitely many)
+
+\begin{warnbox}
+    \begin{remark}
+        Note that $Y,\varepsilon$ are all random variables, while $X$ is a collection of random variables.
+    \end{remark}
+\end{warnbox}
+
+If we want to consider a sample level (the realization of the random variables), then the equation becomes:
+    \begin{eqnarray*}
+             y_i= & f(x_i)+\varepsilon_i & i=1,...,n
+    \end{eqnarray*}
+
+where $x_i$ can be a vector like the following:
+
+$$
+    x_i=
+    \begin{bmatrix}
+        {x_i}_1 \\
+        {x_i}_2 \\
+        {x_i}_3 \\
+        \vdots \\
+        {x_i}_p
+    \end{bmatrix}
+$$
+
+and $n$ is the sample size.
+
+\begin{warnbox}
+    \begin{remark}
+        In machine learning, vectors usually means \textbf{column vectors, but not row vectors}.
+    \end{remark}
+    For example, consider the equation $f(x)=a_1 x_1+a_2 x_2 + a_3 x_3$.
+    If we know that 
+    $
+    a=    
+    \begin{bmatrix}
+        a_1 \\
+        a_2 \\
+        a_3
+    \end{bmatrix}
+    $,
+        $
+    x=    
+    \begin{bmatrix}
+        x_1 \\
+        x_2 \\
+        x_3
+    \end{bmatrix}
+    $,
+    then $f(x)=a^\intercal x$, where $a^\intercal$ is the transpose of the vector $a$.
+\end{warnbox}
+
+Now let's go back to the ground truth model, which is $Y=f(X)+\varepsilon$. Suppose we want to construct $f$ from the data, then we will have: 
+$$
+    \hat{Y}=\hat{f}(X=x)
+$$
+
+for any observed $x$.
+
+Suppose we are interested in the difference between the data and the observed prediction, then we are interested in the value of $\mathbb{E}(Y-\hat{Y})^2$, the expected square error.
+
+\begin{warnbox}
+    \begin{remark}
+        Both $Y$ and $\hat{Y}$ are random variable, since $\hat{Y}$ comes from the randomness of the data chosen. Thus we are not interested in the value of $(Y-\hat{Y})^2$, since it is not a fixed value.
+    \end{remark}
+\end{warnbox}
+
+\begin{thmbox}
+    \begin{theorem}
+    
+    \begin{eqnarray*}
+        \mathbb{E}(Y-\hat{Y})^2 & = & \underbrace{\mathbb{E}(f(X)-\hat{f}(X))^2}_{\text{Reducible}} \text{ } + \underbrace{\text{ Var}(\varepsilon)}_{\text{Irreducible}}
+    \end{eqnarray*}
+
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+\end{document}
+
+% Below are some boxes that may help with your document. They are not rendered during compilation.
+
+% Definition
+\begin{defbox}
+    \begin{definition}[]
+
+    \end{definition}
+\end{defbox}
+
+% Theorem (With a proof box included, remove if necessary)
+\begin{thmbox}
+    \begin{theorem}
+
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+% Example
+\begin{expbox}
+    \begin{example}
+
+    \end{example}
+\end{expbox}
+
+% Warning / Remarks
+\begin{warnbox}
+    \begin{warning}
+
+    \end{warning}
+\end{warnbox}
+
+\begin{warnbox}
+    \begin{remark}
+
+    \end{remark}
+\end{warnbox}
