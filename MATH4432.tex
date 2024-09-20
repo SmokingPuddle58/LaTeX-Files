@@ -11,7 +11,7 @@
 \usepackage{tikz-cd}
 \usepackage{tabularx}
 \usepackage{pgfcore}
-
+\usepackage{makecell}
 \usepackage[hidelinks, linktocpage]{hyperref}
 \hypersetup{
     linktoc=all,
@@ -33,22 +33,16 @@
 \theoremstyle{break}
 \newtheorem*{proof}{Proof. }
 
-\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\C}{\mathbb{C}}
-\newcommand{\cyclic}[1]{\langle #1 \rangle}
-\newcommand{\nline}{\begin{tabular}{ll}&\\\end{tabular}}
 \newcommand{\nin}{\not\in}
 \newcommand{\p}{\phi}
-\newcommand{\infixor}{\text{ or }}
-\newcommand{\infixand}{\text{ and }}
-\newcommand{\ord}[1]{\text{ord}(#1)}
-\newcommand{\tmop}{\text}
-\newcommand{\xequal}[1]{\stackrel{#1}{=}}
-\newcommand{\tmscript}[1]{\text{\scriptsize{$#1$}}}
+\newcommand{\ev}{\mathbb{E}}
+\newcommand{\var}{\text{Var}}
+
 
 
 
@@ -150,6 +144,8 @@ Some special symbols, notations and functions that will appear in this note:\big
 
 \section{Overview}
 
+\subsection{Introduction}
+
 Before we start, we shall clarify some of the notations that will be used.
 
 Consider the following expression: $$P(X=x)$$
@@ -235,28 +231,98 @@ $$
 
 for any observed $x$.
 
-Suppose we are interested in the difference between the data and the observed prediction, then we are interested in the value of $\mathbb{E}(Y-\hat{Y})^2$, the expected square error.
+Suppose we are interested in the difference between the data and the observed prediction, then we will be interested in the value of $\ev(Y-\hat{Y})^2$, the expected square error.
 
 \begin{warnbox}
     \begin{remark}
-        Both $Y$ and $\hat{Y}$ are random variable, since $\hat{Y}$ comes from the randomness of the data chosen. Thus we are not interested in the value of $(Y-\hat{Y})^2$, since it is not a fixed value.
+        Both $Y$ and $\hat{Y}$ are random variable, since $\hat{Y}$ is the prediction that is learnt from the data, and data comes from the random sample chosen from ground truth model. 
+        Thus we are not interested in the value of $(Y-\hat{Y})^2$, since it is not fixed.
     \end{remark}
 \end{warnbox}
 
 \begin{thmbox}
     \begin{theorem}
-    
     \begin{eqnarray*}
-        \mathbb{E}(Y-\hat{Y})^2 & = & \underbrace{\mathbb{E}(f(X)-\hat{f}(X))^2}_{\text{Reducible}} \text{ } + \underbrace{\text{ Var}(\varepsilon)}_{\text{Irreducible}}
+        \ev(Y-\hat{Y})^2 & = & \underbrace{\ev(f(X)-\hat{f}(X))^2}_{\text{Reducible}} \text{ } + \underbrace{\text{ Var}(\varepsilon)}_{\text{Irreducible}}
     \end{eqnarray*}
-
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
-
+            {To prove the equation, we have to assume $\varepsilon$ is independent of both $f(X)$ and $\hat{f}(X)$.}
+            \begin{eqnarray*}
+                \ev(Y-\hat{Y})^2 & = & \ev(f(X)+\varepsilon-\hat{f}(X))^2 \\
+                                        & = & \ev(f(X)-\hat{f}(X)+\varepsilon)^2 \\
+                                        & = & \ev(f(X)-\hat{f}(X))^2+\ev(\varepsilon^2)
+            \end{eqnarray*}
+            Since for any random variable $X$, and its expected value, $E(X)=\mu$, we have: (Covered in MATH2411)
+            \begin{eqnarray*}
+                \text{Var}(X) & = & \ev(X-\mu)^2\\
+                              & = & \ev(X^2)+\ev(\mu^2)-2\ev(X\mu)\\
+                              & = & \ev(X^2)+\mu^2-2\mu\ev(X)\\
+                              & = & \ev(X^2)+\mu^2-2\mu^2\\
+                              & = & \ev(X^2)-\mu^2
+            \end{eqnarray*}
+            Thus, 
+            \begin{eqnarray*}
+                \ev(Y-\hat{Y})^2 & = & \ev(f(X)-\hat{f}(X))^2+\ev(\varepsilon^2) \\
+                                 & = & \ev(f(X)-\hat{f}(X))^2+\var(\varepsilon)
+            \end{eqnarray*}
         \end{proof}
     \end{prfbox}
 \end{thmbox}
+
+To conclude, you can only reduce the error for the reducible part, by making your model approximate the ground truth model as well as possible, 
+while we can really do not much on the irreducible part.
+
+\subsection{Estimation of $f$}
+
+There are two methods for estimating $f$, namely parametric, and non-parametric methods.
+
+For parametric method, we assume that $f$ can be described by a set of parameters, such that once all of the parameters are known, then the model is known.
+
+\begin{expbox}
+    \begin{example}
+        One of the most simple assumption is that $f$ is linear in $X$, which can be described as:  $$f(X)=\beta_0+\beta_1X_1+\beta_2X_2+...+\beta_pX_p$$
+    \end{example}
+\end{expbox}
+
+For non-parametric method, we do not pre-specify the form of the model (Can be linear, non-linear. tree and neural network). To 
+control the flexibility, we can always tune the parameters.
+
+The advantages and disadvantages are listed in the following table.
+
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+                    & Parametric                                       & Non-parametric                                          \\ \hline
+    Advantage    & Easy to solve and understand                     & More flexible and sometimes more powerful               \\ \hline
+    Disadvantage & \makecell{The model may be too simple\\ to fit into the data} & \makecell{The model may be too flexible, \\there may be overfitting} \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{center}
+    \includegraphics*[scale=0.35]{img1.png}
+\end{center}
+
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{|l|l|}
+    \hline
+    Ground truth model & Underfitting                         \\ \hline
+    Good estimation    & Overfitting (Fitting into the noise) \\ \hline
+    \end{tabular}
+\end{table}
+
+The above image shows the example of a ground truth model, a good estimation, overfitting and underfitting. It is also included in the lecture 
+note. 
+
+
+In statistical machine learning context, to prevent overfitting, we shall introduce the concept of regularization (Covered in detail later), in which we want to find $f$, where $f$ satisfies:
+$$f=\arg\min_f\text{ Loss}(Y,f)+\lambda R(f)$$
+where $\lambda$ is a tuning parameter (weight) for the regularizer $R(f)$ of the function $f$.
+
+The introduction of the regularizer is trying to control the complexity / flexibility of the function $f$ to prevent overfitting issue.
 
 \end{document}
 
