@@ -12,6 +12,7 @@
 \usepackage{tabularx}
 \usepackage{pgfcore}
 \usepackage{makecell}
+\usepackage{mathtools}
 \usepackage[hidelinks, linktocpage]{hyperref}
 \hypersetup{
     linktoc=all,
@@ -171,7 +172,7 @@ $$
     Y=f(X)+\varepsilon
 $$
 
-where $\varepsilon$ is the error term, and $f$ is a deterministic function. We call such model the population level model, or ground truth model. (i.e. The number of samples is infinitely many)
+where $\varepsilon$ is the error term independent from $X$, with mean 0, and $f$ is a deterministic function. We call such model the population level model, or ground truth model. (i.e. The number of samples is infinitely many)
 
 \begin{warnbox}
     \begin{remark}
@@ -248,11 +249,13 @@ Suppose we are interested in the difference between the data and the observed pr
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
-            {To prove the equation, we have to assume $\varepsilon$ is independent of both $f(X)$ and $\hat{f}(X)$.}
             \begin{eqnarray*}
                 \ev(Y-\hat{Y})^2 & = & \ev(f(X)+\varepsilon-\hat{f}(X))^2 \\
-                                        & = & \ev(f(X)-\hat{f}(X)+\varepsilon)^2 \\
-                                        & = & \ev(f(X)-\hat{f}(X))^2+\ev(\varepsilon^2)
+                                 & = & \ev(f(X)-\hat{f}(X)+\varepsilon)^2 \\
+                                 & = & \ev((f(X)-\hat{f}(X))^2+2\varepsilon(f(X)-\hat{f}(X))+\varepsilon^2) \\
+                                 & = & \ev((f(X)-\hat{f}(X))^2)+\ev(2\varepsilon(f(X)-\hat{f}(X)))+\ev(\varepsilon^2) \\
+                                 & = & \ev((f(X)-\hat{f}(X))^2)+\underbrace{\ev(2\varepsilon)\ev((f(X)-\hat{f}(X)))}_{\substack{\text{Assume }\varepsilon \text{ independent from } \\ f,\hat{f}}}+\ev(\varepsilon^2) \\
+                                 & = & \ev(f(X)-\hat{f}(X))^2+\underbrace{0}_{\substack{\ev(\varepsilon)=0}}+\ev(\varepsilon^2) 
             \end{eqnarray*}
             Since for any random variable $X$, and its expected value, $E(X)=\mu$, we have: (Covered in MATH2411)
             \begin{eqnarray*}
@@ -316,13 +319,6 @@ The advantages and disadvantages are listed in the following table.
 
 The above image shows the example of a ground truth model, a good estimation, overfitting and underfitting. It is also included in the lecture 
 note. 
-
-
-In statistical machine learning context, to prevent overfitting, we shall introduce the concept of regularization (Covered in detail later), in which we want to find $f$, where $f$ satisfies:
-$$f=\arg\min_f\text{ Loss}(Y,f)+\lambda R(f)$$
-where $\lambda$ is a tuning parameter (weight) for the regularizer $R(f)$ of the function $f$.
-
-The introduction of the regularizer is trying to control the complexity / flexibility of the function $f$ to prevent overfitting issue.
 
 \end{document}
 
