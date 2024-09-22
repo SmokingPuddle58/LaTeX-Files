@@ -1,3 +1,4 @@
+% Include other package you wish to use, if necessary
 \usepackage{
     tcolorbox, 
     ntheorem, 
@@ -17,6 +18,7 @@
     linktoc=all,
 }
 
+% Adjest margin here
 \usepackage[margin=1in]{geometry}
 \usepackage[parfill]{parskip}
 
@@ -30,9 +32,7 @@
 \theoremstyle{MyNonumberplain}
 \theorembodyfont{\upshape}
 
-\theoremstyle{break}
-\newtheorem*{proof}{Proof. }
-
+% Include new commands to help with your typing
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -41,26 +41,27 @@
 \newcommand{\nin}{\not\in}
 \newcommand{\p}{\phi}
 
+% You may add different boxes in different colors. 
 \newtcolorbox{prfbox}{colback=gray!10,colframe=black!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=0pt}
 \newtcolorbox{thmbox}{colback=orange!25,colframe=orange!85,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
 \newtcolorbox{defbox}{colback=blue!5,colframe=blue!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
 \newtcolorbox{ansbox}{colback=gray!10,colframe=black!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=0pt}
 \newtcolorbox{expbox}{colback=green!10,colframe=green!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
 \newtcolorbox{warnbox}{colback=red!15,colframe=red!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
+\newtcolorbox{notebox}{colback=magenta!15,colframe=magenta!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
 
-\newtheorem{warning}{Warning}[section]
-
+% You may add different type of keywords, and do note that non-English characters are supported if you wish.
 \theoremstyle{break}
+\newtheorem*{proof}{Proof. }
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{proposition}{Proposition}[section]
 \newtheorem{example}{Example}[section]
 \newtheorem{lemma}[theorem]{Lemma}
-
-\theoremstyle{break}
-\theoremstyle{definition}
-\theoremstyle{break}
+\newtheorem{note}{Note}
+\newtheorem{warning}{Warning}[section]
 \newtheorem{definition}{Definition}[section]
 
+% Modify your title and author here.
 \title{Titles}
 \author{Author}

@@ -10,7 +10,6 @@
 \usepackage{tikz}
 \usepackage{tikz-cd}
 \usepackage{tabularx}
-\usepackage{pgfcore}
 \usepackage{makecell}
 \usepackage{mathtools}
 \usepackage[hidelinks, linktocpage]{hyperref}
@@ -43,7 +42,7 @@
 \newcommand{\p}{\phi}
 \newcommand{\ev}{\mathbb{E}}
 \newcommand{\var}{\text{Var}}
-
+\newcommand{\der}{\operatorname{d\!}{}}
 
 
 
@@ -53,7 +52,7 @@
 \newtcolorbox{ansbox}{colback=gray!10,colframe=black!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=0pt}
 \newtcolorbox{expbox}{colback=green!10,colframe=green!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
 \newtcolorbox{warnbox}{colback=red!15,colframe=red!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
-
+\newtcolorbox{notebox}{colback=magenta!15,colframe=magenta!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
 
 \newtheorem{warning}{Warning}[section]
 \newtheorem{remark}{Remark}[section]
@@ -63,6 +62,7 @@
 \newtheorem{proposition}{Proposition}[section]
 \newtheorem{example}{Example}[section]
 \newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{note}{Note}
 
 \theoremstyle{break}
 %\theoremstyle{definition}
@@ -320,6 +320,136 @@ The advantages and disadvantages are listed in the following table.
 The above image shows the example of a ground truth model, a good estimation, overfitting and underfitting. It is also included in the lecture 
 note. 
 
+\subsection{Assessing Model Accuracy}
+
+In statistical machine learning context, to find a good estimate $f$, we shall introduce the concept of regularization 
+(Covered in detail later), in which we want to minimize the following value as much as possible:
+$$\text{Loss}(Y,f)+\lambda R(f)$$
+where $Y$ is the response, $\lambda$ is a tuning parameter (weight) for the regularizer $R(f)$ of the model $f$.
+
+The introduction of the regularizer is trying to control the complexity / flexibility of the function $f$ to prevent perfect fit / overfitting issue.
+
+\begin{expbox}
+    \begin{example}[Spline interpolation]
+        Consider the loss function and the regularizer as: $$\underbrace{\sum_{i=1}^{n_{\text{train}}}(y_i-g(x_i))^2}_{\text{Loss function}}+\lambda\underbrace{\int g''(t)^2\der t}_{\text{Regularizer}}$$
+        \medskip
+        The regularizer tries to control the second derivative of $g$ to be as small as possible to ensure smoothness.
+        
+        Assume that $\lambda$ is a extremely large value, the only solution is to let the integral to be 0, i.e. $g(t)$ should 
+        be a linear function.
+        \medskip
+
+        If we put $\lambda=0$, then the solution will be $$\hat{g}(x_i)=y_i$$
+
+        i.e. The model will have a perfect fit to the data.
+        \medskip
+
+        If we tune the parameter correctly, then we can get a good model that is neither overfit nor underfit.
+    \end{example}
+\end{expbox}
+
+So how do we know if our tuning parameter is good or not?
+
+Consider there is a set of data $\{(x_i,y_i)\}_{i=1...n}$, and we want to minimize $$\sum_{i=1}^{n}(y_i-g(x_i))^2+\lambda R(f)$$ as much as possible.
+
+To achieve that, we need to spilt the data into two parts: Training data and Testing data, and the two set of datasets
+should not be overlapping with each other.
+
+The idea is, we only use the training data for solving optimization. After such process, we will 
+obtain $\hat{g}$, which is estimated from the training data. The testing data is then used to evaluate whether the model is accurate or not. i.e. We would like to 
+evaluate the value of $$\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{g}(x_i))^2$$
+where $n$ is the number of testing data. Such value is defined as MSE (Mean Square Error).
+
+\begin{defbox}
+    \begin{definition}[Mean Square Error]
+        $$MSE=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{g}(x_i))^2$$ where $g(x_i)$ is 
+        the prediction $\hat{g}$ gives for the $i-$th prediction.
+    \end{definition}
+\end{defbox}
+
+\begin{center}
+    \includegraphics*[scale=0.35]{img2.png}
+\end{center}
+
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{|l|l|}
+    \hline
+    Black: Ground truth model & Red: Testing error                         \\ \hline
+    Yellow: Simple linear model    & Gray: Training error \\ \hline
+    Green: Perfect model (Fit all data into the model)    &  \\ \hline
+    \end{tabular}
+\end{table}
+
+In the red curve, there are three point corresponding to the three different models on the left, which shows the MSE of overfitting
+, underfitting and a good model. 
+
+\begin{defbox}
+    \begin{definition}[Training and Testing Error]
+        Suppose $\hat{g}_\lambda$ is estimated from the data, and depends on $\lambda$, then the accuracy of $\hat{g}_\lambda$ based on the testing data is given by:
+        $$\frac{1}{n_\text{Test}}\sum_{i\in\text{Test}}(y_i-\hat{g}_\lambda(x_i))^2$$
+        This is called \textbf{testing mean square error (TMSE)}.
+
+        \bigskip
+        The \textbf{training error} is given by: $$\frac{1}{n_\text{Train}}\sum_{i\in\text{Train}}(y_i-\hat{g}_\lambda(x_i))^2$$
+    \end{definition}
+\end{defbox}
+
+\begin{notebox}
+    \begin{note}
+        Training error is usually less than testing error, since optimization is solved with testing error, especially when you put $\lambda=0$.
+    \end{note}
+\end{notebox}
+
+\begin{center}
+    \includegraphics*[scale=0.35]{img3.png}
+\end{center}
+
+Note that linear regression above provides a very poor fit to the data, while perfect fit model 
+does not increase error too much, since the noise is very small. 
+
+\begin{center}
+    \includegraphics*[scale=0.35]{img4.png}
+\end{center}
+
+For this dataset, the ground truth model is close to linear, and due to the large noise,
+the high flexibility gives more error.
+
+\newpage
+
+\subsection{Bias-Variance Trade-Off}
+
+As shown in the previous example, we can see that the testing error are in U-shape. To understand
+the reason, we will need to introduce the concept of bias-variance trade-off.
+
+Suppose we are interested in learning an unknown function $f(X)$ from the dataset $\mathcal{D}$,
+namely $\hat{f}(X;\mathcal{D})$. Then at some future query point $X=x_0$, we want to
+find $\hat{f}$, such that $\hat{f}$ satisfies: $$\min_{\hat{f}}[f(x_0)-\hat{f}(x_0,\mathcal{D})|X=x_0]^2$$
+
+However are we really interested in evaluating this? Actually No! It is because the 
+training dataset comes from a random selection! The prediction may not be accurate
+if we changed another training dataset.
+
+In order to solve the problem, we should take the random selection process in an \textbf{average sense}. 
+
+Thus we are actually more interested in the following: $$\min_{\hat{f}}\ev_{\mathcal{D}}[f(x_0)-\hat{f}(x_0,\mathcal{D})|X=x_0]^2$$
+
+\begin{thmbox}
+    \begin{theorem}
+        \begin{eqnarray*}
+            \ev_{\mathcal{D}}[f(x_0)-\hat{f}(x_0,\mathcal{D})|X=x_0]^2&=&\underbrace{[f(x_0)-\ev_{\mathcal{D}}(\hat{f}(x_0,\mathcal{D}))|X=x_0]^2}_{\text{Bias}^2}\\
+            &+&\underbrace{\ev_{\mathcal{D}}[[\ev_{\mathcal{D}}(\hat{f}(x_0,\mathcal{D}))-\hat{f}(x_0,\mathcal{D})|X=x_0]^2]}_{\text{Variance}}
+        \end{eqnarray*}
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+To be continued...
+
 \end{document}
 
 % Below are some boxes that may help with your document. They are not rendered during compilation.
@@ -338,7 +468,7 @@ note.
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
-
+            
         \end{proof}
     \end{prfbox}
 \end{thmbox}
@@ -362,3 +492,10 @@ note.
 
     \end{remark}
 \end{warnbox}
+
+% Notes
+\begin{notebox}
+    \begin{note}
+
+    \end{note}
+\end{notebox}
