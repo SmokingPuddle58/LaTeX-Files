@@ -43,6 +43,8 @@
 \newcommand{\ev}{\mathbb{E}}
 \newcommand{\var}{\text{Var}}
 \newcommand{\der}{\operatorname{d\!}{}}
+\newcommand{\evd}{\ev_{\mathcal{D}}}
+
 
 
 
@@ -424,7 +426,7 @@ the reason, we will need to introduce the concept of bias-variance trade-off.
 
 Suppose we are interested in learning an unknown function $f(X)$ from the dataset $\mathcal{D}$,
 namely $\hat{f}(X;\mathcal{D})$. Then at some future query point $X=x_0$, we want to
-find $\hat{f}$, such that $\hat{f}$ satisfies: $$\min_{\hat{f}}[f(x_0)-\hat{f}(x_0,\mathcal{D})|X=x_0]^2$$
+find $\hat{f}$, such that $\hat{f}$ satisfies: $$\min_{\hat{f}}[f(x_0)-\hat{f}(x_0;\mathcal{D})|X=x_0]^2$$
 
 However are we really interested in evaluating this? Actually No! It is because the 
 training dataset comes from a random selection! The prediction may not be accurate
@@ -432,23 +434,69 @@ if we changed another training dataset.
 
 In order to solve the problem, we should take the random selection process in an \textbf{average sense}. 
 
-Thus we are actually more interested in the following: $$\min_{\hat{f}}\ev_{\mathcal{D}}[f(x_0)-\hat{f}(x_0,\mathcal{D})|X=x_0]^2$$
+Thus we are actually more interested in the following: $$\min_{\hat{f}}\evd[f(x_0)-\hat{f}(x_0;\mathcal{D})|X=x_0]^2$$
 
 \begin{thmbox}
     \begin{theorem}
         \begin{eqnarray*}
-            \ev_{\mathcal{D}}[f(x_0)-\hat{f}(x_0,\mathcal{D})|X=x_0]^2&=&\underbrace{[f(x_0)-\ev_{\mathcal{D}}(\hat{f}(x_0,\mathcal{D}))|X=x_0]^2}_{\text{Bias}^2}\\
-            &+&\underbrace{\ev_{\mathcal{D}}[[\ev_{\mathcal{D}}(\hat{f}(x_0,\mathcal{D}))-\hat{f}(x_0,\mathcal{D})|X=x_0]^2]}_{\text{Variance}}
+            \evd[f(x_0)-\hat{f}(x_0;\mathcal{D})|X=x_0]^2&=&\underbrace{[f(x_0)-\evd(\hat{f}(x_0;\mathcal{D}))|X=x_0]^2}_{\text{Bias}^2}\\
+            &+&\underbrace{\evd[[\evd(\hat{f}(x_0;\mathcal{D}))-\hat{f}(x_0;\mathcal{D})|X=x_0]^2]}_{\text{Variance}}
         \end{eqnarray*}
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
-            
+            \begin{eqnarray*}
+                [f(x_0)-\hat{f}(x_0,\mathcal{D})|X=x_0]^2 & = & [f(x_0)\underbrace{-\evd(\hat{f}(x_0;\mathcal{D}))+\evd(\hat{f}(x_0;\mathcal{D}))}_{=0}-\hat{f}(x_0,\mathcal{D})|X=x_0]^2\\
+                &=& [f(x_0)-\evd(\hat{f}(x_0;\mathcal{D}))|X=x_0]^2 + [\evd(\hat{f}(x_0;\mathcal{D}))-\hat{f}(x_0,\mathcal{D})|X=x_0]^2\\
+                &+& 2[f(x_0)-\evd(\hat{f}(x_0;\mathcal{D}))|X=x_0][\evd(\hat{f}(x_0;\mathcal{D}))-\hat{f}(x_0,\mathcal{D})|X=x_0]
+            \end{eqnarray*}
+
+            Now we take expectation to the expression above with respect to $\mathcal{D}$. We have:
+            \begin{eqnarray*}
+                &   &\evd[f(x_0)-\hat{f}(x_0,\mathcal{D})|X=x_0]^2\\
+                & = & \underbrace{[f(x_0)-\evd(\hat{f}(x_0;\mathcal{D}))|X=x_0]^2}_{\text{Bias, as constant value}}\\
+                & + & \underbrace{\evd\biggl([\evd(\hat{f}(x_0;\mathcal{D}))-\hat{f}(x_0,\mathcal{D})|X=x_0]^2\biggr)}_{\text{Variance}}\\
+                & + & 2 \evd \biggl\{[f(x_0)-\evd(\hat{f}(x_0;\mathcal{D}))|X=x_0][\evd(\hat{f}(x_0;\mathcal{D}))-\hat{f}(x_0,\mathcal{D})|X=x_0]\biggr\}
+            \end{eqnarray*}
+            Consider the last term, we expand this term, then we will have: 
+                \begin{eqnarray*}
+                    && 2 \evd \biggl\{[f(x_0)-\evd(\hat{f}(x_0;\mathcal{D}))|X=x_0][\evd(\hat{f}(x_0;\mathcal{D}))-\hat{f}(x_0,\mathcal{D})|X=x_0]\biggr\} \\
+                \end{eqnarray*}
         \end{proof}
     \end{prfbox}
 \end{thmbox}
 
-To be continued...
+\begin{thmbox}
+    \begin{prfbox}
+        \begin{eqnarray*}
+            &=& 2 \evd \biggl\{f(x_0)\evd[\hat{f}(x_0;\mathcal{D})]-f(x_0)\hat{f}(x_0;\mathcal{D})-[\evd[\hat{f}(x_0;\mathcal{D})]]^2+\hat{f}(x_0;\mathcal{D})\evd[\hat{f}(x_0;\mathcal{D})]\biggr\} \\
+            &=& 2  \textcolor{red}{\Biggl\{}\evd\biggl\{f(x_0)\evd[\hat{f}(x_0;\mathcal{D})]\biggr\}-\evd\biggl\{f(x_0)\hat{f}(x_0;\mathcal{D})\biggr\}-\evd\biggl\{[\evd[\hat{f}(x_0;\mathcal{D})]]^2\biggr\} \\
+            &+& \evd\biggl\{\hat{f}(x_0;\mathcal{D})\evd[\hat{f}(x_0;\mathcal{D})]\biggr\}\textcolor{red}{\Biggr\}}\\
+            &=& \evd(f(x_0))\evd(\hat{f}(x_0;\mathcal{D}))-\evd(f(x_0))\evd(\hat{f}(x_0;\mathcal{D}))-\evd(\hat{f}(x_0;\mathcal{D}))^2+\evd(\hat{f}(x_0;\mathcal{D}))^2\\
+            &=& 0
+        \end{eqnarray*}
+        The last term vanished, since we know that $\evd(f(x_0))=f(x_0)$ and $\evd(\evd(\hat{f}(x_0;\mathcal{D}))) = \evd(\hat{f}(x_0;\mathcal{D})).$
+
+        \bigskip
+        Also do note that even though $\hat{f}(X;\mathcal{D})$ is a random variable due to the randomness of the dataset, $\evd\hat{f}(X;\mathcal{D})$ is 
+        no longer a random variable with respect to $\mathcal{D}$.
+
+        \begin{expbox}
+            \begin{example}
+                If $Z\sim N(\mu,\sigma^2)$ is a random variable, then $\ev(Z)=\mu$ is no longer random variable.
+            \end{example}
+        \end{expbox}
+
+    \end{prfbox}
+\end{thmbox}
+
+\begin{defbox}
+    \begin{definition}[Bias and Variance]
+        Consider
+    \end{definition}
+\end{defbox}
+
+To be continued... [2024-09-12, 58:00]
 
 \end{document}
 
