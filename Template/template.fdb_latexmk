@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1727026717.86276 "/home/smokingpuddle58/Documents/GitHub/LaTeX-Files/Template/template.tex" "template.pdf" "template" 1727026718.40044 0
-  "/home/smokingpuddle58/Documents/GitHub/LaTeX-Files/Template/template.tex" 1727026717.6842 2337 cdcdc09eb40100f4544396b1647e4202 ""
+["pdflatex"] 1727063833.66317 "/home/smokingpuddle58/Documents/GitHub/LaTeX-Files/Template/template.tex" "template.pdf" "template" 1727063834.30205 0
+  "/home/smokingpuddle58/Documents/GitHub/LaTeX-Files/Template/template.tex" 1727063833.48131 3261 fd2a1832ddb19f5d60845029e73b462c ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1716849630 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1716849630 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1716849630 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -166,13 +166,13 @@
   "/usr/share/texmf-dist/tex/latex/url/url.sty" 1716849630 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty" 1716849630 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1716849630 41588 b43d3e860a4f94167ee1e725ff526a72 ""
-  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1726750036.20818 5309663 3e32307324973fc208e9426262cbac84 ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1726749994 7112994 66608ee31c908bb9dec83f110400d1d9 ""
-  "premeable.tex" 1727026663.44514 2360 07eee3c15e31af06f90b63529601e03d ""
-  "template.aux" 1727026718.3392 273 caddcaa6904a0f9d2b2bc321473c2b7a "pdflatex"
-  "template.out" 1727026718.3392 116 db1b177a7d7b72b48f7f6540b6504024 "pdflatex"
-  "template.tex" 1727026717.6842 2337 cdcdc09eb40100f4544396b1647e4202 ""
-  "template.toc" 1727026718.3392 70 9bb62da0c49e6fe9276c5dddaacba25f "pdflatex"
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1727063379.9159 5321915 7ca621f82cf86eb6ebbeae45e2ffd2b4 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1727063367 7113313 bd430df933ff4243e394f9b80a0ace4e ""
+  "premeable.tex" 1727063700.27156 2398 996db8fa8de702ea10d32ad9341417ac ""
+  "template.aux" 1727063834.21824 984 eada7435ba8983b36f8652fcdeaa1da9 "pdflatex"
+  "template.out" 1727063834.21924 116 db1b177a7d7b72b48f7f6540b6504024 "pdflatex"
+  "template.tex" 1727063833.48131 3261 fd2a1832ddb19f5d60845029e73b462c ""
+  "template.toc" 1727063834.21924 70 9bb62da0c49e6fe9276c5dddaacba25f "pdflatex"
   (generated)
   "template.aux"
   "template.log"

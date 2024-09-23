@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.9.19)  23 SEP 2024 01:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.9.23)  23 SEP 2024 11:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -551,9 +551,10 @@ Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
 \c@note=\count320
 \c@warning=\count321
 \c@definition=\count322
+\c@remark=\count323
 ) (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count323
+\l__color_backend_stack_int=\count324
 \l__pdf_internal_box=\box78
 ) (./template.aux)
 \openout1 = `template.aux'.
@@ -578,16 +579,16 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count324
+\scratchcounter=\count325
 \scratchdimen=\dimen289
 \scratchbox=\box79
-\nofMPsegments=\count325
-\nofMParguments=\count326
+\nofMPsegments=\count326
+\nofMParguments=\count327
 \everyMPshowfont=\toks60
-\MPscratchCnt=\count327
+\MPscratchCnt=\count328
 \MPscratchDim=\dimen290
-\MPnumerator=\count328
-\makeMPintoPDFobject=\count329
+\MPnumerator=\count329
+\makeMPintoPDFobject=\count330
 \everyMPtoPDFconversion=\toks61
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -649,6 +650,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `template.toc'.
 
  [3]
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 89.
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 97.
+Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 101.
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 109.
+Package hyperref Info: bookmark level for unknown warning defaults to 0 on input line 116.
+Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 122.
+Package hyperref Info: bookmark level for unknown note defaults to 0 on input line 129.
 \tf@thm=\write6
 \openout6 = `template.thm'.
 
@@ -661,18 +669,18 @@ Package rerunfilecheck Info: File `template.out' has not changed.
 (rerunfilecheck)             Checksum: DB1B177A7D7B72B48F7F6540B6504024;116.
  ) 
 Here is how much of TeX's memory you used:
- 24145 strings out of 476076
- 467157 string characters out of 5793775
- 1933187 words of memory out of 5000000
- 45861 multiletter control sequences out of 15000+600000
+ 24217 strings out of 476065
+ 468516 string characters out of 5793264
+ 1934187 words of memory out of 5000000
+ 45928 multiletter control sequences out of 15000+600000
  565731 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 106i,8n,110p,929b,463s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 106i,8n,110p,929b,847s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on template.pdf (4 pages, 95783 bytes).
+Output written on template.pdf (4 pages, 104008 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
- 7 named destinations out of 1000 (max. 500000)
+ 91 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
+ 14 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
