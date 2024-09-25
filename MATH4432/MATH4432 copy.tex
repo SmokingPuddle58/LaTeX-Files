@@ -1,0 +1,180 @@
+%!TEX program = lualatex
+\documentclass{article}
+\usepackage{tcolorbox}
+\usepackage{ntheorem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ulem}
+\usepackage{graphicx}
+\usepackage{centernot}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{mathtools}
+\usepackage[hidelinks, linktocpage]{hyperref}
+\hypersetup{
+    linktoc=all,
+}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[parfill]{parskip}
+
+\everymath{\displaystyle}
+
+\makeatletter
+\newtheoremstyle{MyNonumberplain}%
+  {\item[\theorem@headerfont\hskip\labelsep ##1\theorem@separator]}%
+  {\item[\theorem@headerfont\hskip\labelsep ##3\theorem@separator]}%
+\makeatother
+\theoremstyle{MyNonumberplain}
+\theorembodyfont{\upshape}
+
+\theoremstyle{break}
+\newtheorem*{proof}{Proof. }
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\nin}{\not\in}
+\newcommand{\p}{\phi}
+\newcommand{\ev}{\mathbb{E}}
+\newcommand{\var}{\text{Var}}
+\newcommand{\der}{\operatorname{d\!}{}}
+\newcommand{\evd}{\ev_{\mathcal{D}}}
+
+
+
+\newtcolorbox{prfbox}{colback=gray!10,colframe=black!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=0pt}
+\newtcolorbox{thmbox}{colback=orange!25,colframe=orange!85,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
+\newtcolorbox{defbox}{colback=blue!5,colframe=blue!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
+\newtcolorbox{ansbox}{colback=gray!10,colframe=black!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=0pt}
+\newtcolorbox{expbox}{colback=green!10,colframe=green!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
+\newtcolorbox{warnbox}{colback=red!15,colframe=red!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
+\newtcolorbox{notebox}{colback=magenta!15,colframe=magenta!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
+
+\newtheorem{warning}{Warning}[section]
+\newtheorem{remark}{Remark}[section]
+\theoremstyle{break}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{note}{Note}
+\newtheorem*{answer}{Answer}
+
+
+\theoremstyle{break}
+\theoremstyle{break}
+\newtheorem{definition}{Definition}[section]
+
+\title{MATH4432 Homework 1 [Conceptual Parts]}
+\author{Zhang Zhe 20866321}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\section*{Chapter 2}
+
+1. For each of parts (a) through (d), indicate whether we would generally
+expect the performance of a flexible statistical learning method to be
+better or worse than an infexible method. Justify your answer.
+
+(a) The sample size $n$ is extremely large, and the number of predictors $p$ is small.
+
+(b) The number of predictors $p$ is extremely large, and the number
+of observations $n$ is small.
+
+(c) The relationship between the predictors and response is highly
+non-linear.
+
+(d) The variance of the error terms, i.e. $\sigma^2$ = Var($\varepsilon$), is extremely
+high.
+
+\begin{prfbox}
+    \begin{answer}  
+        (a) 
+        \bigskip
+        (b)
+
+        \bigskip
+
+        (c) The performance for flexible statistical learning method will in general be better, 
+        it is because a flexible method is able to fit into more data points, whilst an inflexible method
+        is unable to fit most of the data points, and this brings underfitting issue.
+
+        \bigskip
+
+        (d) If the variance of the error terms is high, it indicates that the sample contains a lot of noises,
+        and performance of a flexible statistical learning method will be worse, since the model may fit into these
+        unwanted noises.
+    \end{answer} 
+\end{prfbox}
+
+
+3. We now revisit the bias-variance decomposition.
+
+(a) Provide a sketch of typical (squared) bias, variance, training error, test error, and Bayes (or irreducible) error curves, on a single plot, as we go from less fexible statistical learning methods
+towards more fexible approaches. The $x$-axis should represent
+the amount of fexibility in the method, and the $y$-axis should
+represent the values for each curve. There should be five curves.
+Make sure to label each one.
+
+(b) Explain why each of the five curves has the shape displayed in
+part (a).
+
+\end{document}
+
+% Below are some boxes that may help with your document. They are not rendered during compilation.
+
+% Definition
+\begin{defbox}
+    \begin{definition}[]
+
+    \end{definition}
+\end{defbox}
+
+% Theorem (With a proof box included, remove if necessary)
+\begin{thmbox}
+    \begin{theorem}
+
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+% Example
+\begin{expbox}
+    \begin{example}
+
+    \end{example}
+\end{expbox}
+
+% Warning / Remarks
+\begin{warnbox}
+    \begin{warning}
+
+    \end{warning}
+\end{warnbox}
+
+\begin{warnbox}
+    \begin{remark}
+
+    \end{remark}
+\end{warnbox}
+
+% Notes
+\begin{notebox}
+    \begin{note}
+
+    \end{note}
+\end{notebox}

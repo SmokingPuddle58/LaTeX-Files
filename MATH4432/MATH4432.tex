@@ -44,7 +44,7 @@
 \newcommand{\var}{\text{Var}}
 \newcommand{\der}{\operatorname{d\!}{}}
 \newcommand{\evd}{\ev_{\mathcal{D}}}
-
+\newcommand{\bias}{\text{Bias}}
 
 
 
@@ -492,9 +492,91 @@ Thus we are actually more interested in the following: $$\min_{\hat{f}}\evd[f(x_
 
 \begin{defbox}
     \begin{definition}[Bias and Variance]
-        Consider
+        Given an estimator $\hat{\theta}$ for some parameter $\theta$, the bias is defined as: 
+        $$\text{Bias}(\hat{\theta},\theta)=\ev(\hat{\theta})-\theta$$
+        while given a random variable $X$, the variance is defined as:
+        $$
+            \text{Var}(X)=\ev\bigl[(X-\ev(X))^2\bigr]
+        $$
     \end{definition}
 \end{defbox}
+
+Suppose we are interested in a model that perfectly fits into the data. For example,
+
+$$Y=f(X)+\varepsilon$$
+
+This is the population-level model we seen before. Let $\text{Var}(\varepsilon)=\sigma^2$ and $\ev{(\varepsilon)}=0$,
+
+We now take samples from such model, we will then have $(x_i,y_i)$ that is in relationship of:
+\begin{eqnarray*}
+    y_i=f(x_i)+\varepsilon_i &  & i=1,...,n
+\end{eqnarray*}
+
+We are interested in finding $g$, where $g$ can minimizes:
+
+$$\sum_{i}(y_i-g(x_i))^2$$
+
+After solving the optimization problem, we will obtain $\hat{g}$, that $\hat{g}(x_i)=y_i, i=1,...,n$.
+
+To adopt bias-variance view, we will have to evaluate $\ev(\hat{g})\text{ and Var}(\hat{g})$.
+
+Note that:
+
+\begin{eqnarray*}
+    \ev(\hat{g}(x_i)) &=& \ev(y_i)\\
+                      &=& \ev(f(x_i)+\varepsilon_i)\\
+                      &=& \ev(f(x_i))\\
+                      &=& f(x_i)
+\end{eqnarray*}
+
+To see if our estimator having bias or not, we only need to check $\ev(\hat{g}(x_i))-f(x_i)$.
+
+However, since $\ev(\hat{g}(x_i))=f(x_i)$, thus $\ev(\hat{g}(x_i))-f(x_i)=0$. This implies if the model is very flexible
+that can perfectly fits into the data, then the model is unbiased. 
+
+Now, consider the variance, we have: 
+\begin{eqnarray*}
+    \var(\hat{g}(x_i)) &=& \var(y_i)\\
+                       &=& \var(f(x_i)+\varepsilon_i)\\
+                       &=& \var(\varepsilon_i)\\
+                       &=& \sigma^2
+\end{eqnarray*}
+ 
+For a very flexible model, the bias can be very small, while the variance will be extremely large. 
+
+\begin{center}
+    \includegraphics*[scale=0.1]{img5.jpg}
+\end{center}
+
+Suppose there is an dataset $\mathcal{D}$, and we want to solve the following optimization problem: $$\min_g\sum_{i=1}^{n}\bigl((y_i-g(x_i))\bigr)^2+\lambda\cdot R(g)$$
+
+If $g(x_i)=C$ is a constant function (That is, totally not fitting into the data).
+
+Since $\ev(\hat{g}(x_i))=C$, and $\var(\hat{g})=0$.
+
+Thus 
+
+\begin{eqnarray*}
+    \bias &=&\ev(\hat{g}(x_0))-f(x_0)\\
+          &=& C-f(x_0)
+\end{eqnarray*}
+
+Which is not reducible. This implies the model is biased. However, the variance is 0. 
+
+To conclude, we want to find a model, which can keeps a perfect balance between bias and variance. The
+model may be good, even if the model is biased.
+
+\begin{center}
+    \includegraphics*[scale=0.3]{img6.png}
+\end{center}
+
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+           Red line: Test MSE     & Blue line: Bias                                       & Orange line: Variance                                        \\ \hline
+    \end{tabular}
+\end{table}
 
 To be continued... [2024-09-12, 58:00]
 

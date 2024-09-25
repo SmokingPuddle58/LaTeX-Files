@@ -1,8 +1,8 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Arch Linux)  (format=lualatex 2024.9.23)  25 SEP 2024 17:58
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Arch Linux)  (format=lualatex 2024.9.23)  24 SEP 2024 21:28
  restricted system commands enabled.
  file:line:error style messages enabled.
-**/home/smokingpuddle58/Documents/GitHub/LaTeX-Files/MATH4432/MATH4432
-(/home/smokingpuddle58/Documents/GitHub/LaTeX-Files/MATH4432/MATH4432.tex
+**"/home/smokingpuddle58/Documents/GitHub/LaTeX-Files/MATH4432/MATH4432 copy"
+("/home/smokingpuddle58/Documents/GitHub/LaTeX-Files/MATH4432/MATH4432 copy.tex"
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
@@ -611,14 +611,15 @@ Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
 \c@proposition=\count323
 \c@example=\count324
 \c@note=\count325
-\c@definition=\count326
+\c@answer=\count326
+\c@definition=\count327
  (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
 File: l3backend-luatex.def 2024-02-20 L3 backend support: PDF output (LuaTeX)
-\l__color_backend_stack_int=\count327
+\l__color_backend_stack_int=\count328
 Inserting `l3color' in `luaotfload.parse_color'.
 \l__pdf_internal_box=\box79
-) (./MATH4432.aux)
-\openout1 = MATH4432.aux
+) ("./MATH4432 copy.aux")
+\openout1 = MATH4432 copy.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 77.
 LaTeX Font Info:    ... okay on input line 77.
@@ -646,16 +647,16 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 77.
 LaTeX Font Info:    ... okay on input line 77.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count328
+\scratchcounter=\count329
 \scratchdimen=\dimen299
 \scratchbox=\box80
-\nofMPsegments=\count329
-\nofMParguments=\count330
+\nofMPsegments=\count330
+\nofMParguments=\count331
 \everyMPshowfont=\toks62
-\MPscratchCnt=\count331
+\MPscratchCnt=\count332
 \MPscratchDim=\dimen300
-\MPnumerator=\count332
-\makeMPintoPDFobject=\count333
+\MPnumerator=\count333
+\makeMPintoPDFobject=\count334
 \everyMPtoPDFconversion=\toks63
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -664,10 +665,10 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring OFF on input line 77.
- (./MATH4432.out) (./MATH4432.out)
+ ("./MATH4432 copy.out") ("./MATH4432 copy.out")
 \@outlinefile=\write4
 
-\openout4 = MATH4432.out
+\openout4 = MATH4432 copy.out
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -712,89 +713,34 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 80.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./MATH4432.toc)
-\tf@toc=\write5
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Package hyperref Info: bookmark level for unknown answer defaults to 0 on input line 102.
+\tf@thm=\write5
 
-\openout5 = MATH4432.toc
- [3]
-Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 181.
- [4]
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 248.
-Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 254.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 282.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 282.
-
-[5]
-Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 290.
-<img1.png, id=80, 1054.6903pt x 847.66687pt>
-File: img1.png Graphic file (type png)
-<use img1.png>
-Package luatex.def Info: img1.png  used on input line 310.
-(luatex.def)             Requested size: 369.14714pt x 296.68785pt.
- [6<./img1.png>]
-Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 366.
-<img2.png, id=90, 1142.76938pt x 624.08156pt>
-File: img2.png Graphic file (type png)
-<use img2.png>
-Package luatex.def Info: img2.png  used on input line 373.
-(luatex.def)             Requested size: 399.97528pt x 218.43181pt.
- [7]
-Package hyperref Info: bookmark level for unknown note defaults to 0 on input line 402.
-<img3.png, id=100, 1310.8975pt x 735.74875pt>
-File: img3.png Graphic file (type png)
-<use img3.png>
-Package luatex.def Info: img3.png  used on input line 407.
-(luatex.def)             Requested size: 458.821pt x 257.51591pt.
- [8<./img2.png>]
-<img4.png, id=110, 1310.8975pt x 735.74875pt>
-File: img4.png Graphic file (type png)
-<use img4.png>
-Package luatex.def Info: img4.png  used on input line 414.
-(luatex.def)             Requested size: 458.821pt x 257.51591pt.
- [9<./img3.png><./img4.png>] [10] [11]
-<img5.jpg, id=134, 1593.955pt x 2582.64874pt>
-File: img5.jpg Graphic file (type jpg)
-<use img5.jpg>
-Package luatex.def Info: img5.jpg  used on input line 548.
-(luatex.def)             Requested size: 159.40483pt x 258.28pt.
- [12<./img5.jpg>]
-<img6.png, id=141, 1506.62875pt x 707.64375pt>
-File: img6.png Graphic file (type png)
-<use img6.png>
-Package luatex.def Info: img6.png  used on input line 570.
-(luatex.def)             Requested size: 451.99211pt x 212.29475pt.
-\tf@thm=\write6
-
-\openout6 = MATH4432.thm
- [13<./img6.png>] (./MATH4432.aux)
+\openout5 = MATH4432 copy.thm
+ [2] ("./MATH4432 copy.aux")
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-Package rerunfilecheck Info: File `MATH4432.out' has not changed.
-(rerunfilecheck)             Checksum: 10A41DA0FA9FBE6AB677045C42F51E5C;696.
+Package rerunfilecheck Info: File `"MATH4432 copy".out' has not changed.
+(rerunfilecheck)             Checksum: <no file>.
 )
 
 Here is how much of LuaTeX's memory you used:
- 25715 strings out of 476447
+ 25563 strings out of 476447
  125086,1977958 words of node,token memory allocated
- 723 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 50 attribute, 64 glue_spec, 50 attribute_list, 2 write nodes
-   avail lists: 1:1,2:1630,3:395,4:56,5:457,6:41,7:5061,8:61,9:1172,10:10,11:282
- 47132 multiletter control sequences out of 65536+600000
- 60 fonts using 4054263 bytes
- 101i,21n,101p,924b,1266s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/opentype/public/lm/lmroman5-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on MATH4432.pdf (13 pages, 1466194 bytes).
+ 551 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 7 attribute, 64 glue_spec, 7 attribute_list, 2 write nodes
+   avail lists: 2:248,3:127,4:21,5:220,6:26,7:3698,8:2,9:140,10:5,11:244
+ 47028 multiletter control sequences out of 65536+600000
+ 57 fonts using 3659199 bytes
+ 101i,6n,101p,931b,484s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+Output written on MATH4432 copy.pdf (2 pages, 37125 bytes).
 
-PDF statistics: 236 PDF objects out of 1000 (max. 8388607)
- 169 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 131072)
- 116 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 65 PDF objects out of 1000 (max. 8388607)
+ 43 compressed objects within 1 object stream
+ 5 named destinations out of 1000 (max. 131072)
+ 16 words of extra memory for PDF output out of 10000 (max. 100000000)
 
