@@ -45,6 +45,9 @@
 \newcommand{\der}{\operatorname{d\!}{}}
 \newcommand{\evd}{\ev_{\mathcal{D}}}
 \newcommand{\bias}{\text{Bias}}
+\newcommand{\bt}[1]{\beta_{#1}}
+\newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+
 
 
 
@@ -65,6 +68,10 @@
 \newtheorem{example}{Example}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{note}{Note}
+\newtheorem*{question}{Question}
+\newtheorem*{answer}{Answer}
+
+
 
 \theoremstyle{break}
 %\theoremstyle{definition}
@@ -470,7 +477,7 @@ Thus we are actually more interested in the following: $$\min_{\hat{f}}\evd[f(x_
     \begin{prfbox}
         \begin{eqnarray*}
             &=& 2 \evd \biggl\{f(x_0)\evd[\hat{f}(x_0;\mathcal{D})]-f(x_0)\hat{f}(x_0;\mathcal{D})-[\evd[\hat{f}(x_0;\mathcal{D})]]^2+\hat{f}(x_0;\mathcal{D})\evd[\hat{f}(x_0;\mathcal{D})]\biggr\} \\
-            &=& 2  \textcolor{red}{\Biggl\{}\evd\biggl\{f(x_0)\evd[\hat{f}(x_0;\mathcal{D})]\biggr\}-\evd\biggl\{f(x_0)\hat{f}(x_0;\mathcal{D})\biggr\}-\evd\biggl\{[\evd[\hat{f}(x_0;\mathcal{D})]]^2\biggr\} \\
+            &=& 2  \textcolor{red}{\biggl\{}\evd\biggl\{f(x_0)\evd[\hat{f}(x_0;\mathcal{D})]\biggr\}-\evd\biggl\{f(x_0)\hat{f}(x_0;\mathcal{D})\biggr\}-\evd\biggl\{[\evd[\hat{f}(x_0;\mathcal{D})]]^2\Biggr\} \\
             &+& \evd\biggl\{\hat{f}(x_0;\mathcal{D})\evd[\hat{f}(x_0;\mathcal{D})]\biggr\}\textcolor{red}{\Biggr\}}\\
             &=& \evd(f(x_0))\evd(\hat{f}(x_0;\mathcal{D}))-\evd(f(x_0))\evd(\hat{f}(x_0;\mathcal{D}))-\evd(\hat{f}(x_0;\mathcal{D}))^2+\evd(\hat{f}(x_0;\mathcal{D}))^2\\
             &=& 0
@@ -489,6 +496,39 @@ Thus we are actually more interested in the following: $$\min_{\hat{f}}\evd[f(x_
 
     \end{prfbox}
 \end{thmbox}
+\begin{notebox}
+    \begin{note}
+        The reason for us to condition on $x_0$, is because we want to simplify the entire process.
+
+        In fact, by using total expectation law, we are able to evaluate for $\evd\bigl[f(X)-\hat{f}(X;\mathcal{D})\bigr]^2$
+
+        \begin{thmbox}
+            \begin{theorem}[Total Expectation Law]
+                Given any random variables $X,Y$, then we have 
+                $$\ev(X)=\ev_Y\Bigl(\ev(X|Y)\Bigr)$$ 
+            \end{theorem}
+        \end{thmbox}
+        Thus we have: 
+        \begin{eqnarray*}
+            \evd\bigl[f(X)-\hat{f}(X;\mathcal{D})\bigr]^2 &=& \ev_X\biggl[\evd\bigl[f(X)-\hat{f}(X;\mathcal{D})\bigr]^2|X=x_0\biggr]
+        \end{eqnarray*}
+    \end{note}
+\end{notebox}
+
+\begin{notebox}
+    \begin{note}
+        Practically, $\evd\biggl(\hat{f}(x_0;\mathcal{D})\biggr)$ can be estimated by: 
+        \begin{eqnarray*}
+            \evd\biggl(\hat{f}(x_0;\mathcal{D})\biggr)&=&\frac{1}{B}\sum_{b=1}^B \hat{f}^{(b)}(x_0)
+        \end{eqnarray*}
+        From this, we can estimate the variance term by:
+            \begin{eqnarray*}
+                \evd\biggl[[\evd(\hat{f}(x_0;\mathcal{D}))-\hat{f}(x_0;\mathcal{D})|X=x_0]^2\biggr] &=& \frac{1}{B} \Biggl(\sum_{b=1}^B\biggl[\hat{f}(x_0)-\frac{1}{B}\sum_{b=1}^B\hat{f}^{(b)}(x_0)\biggr]\Biggr)
+            \end{eqnarray*}
+
+            This implies that, to estimate for variance, it is not necessary for us to know the ground-truth model. However, to know the bias, we do need to know the ground-truth model.
+    \end{note}
+\end{notebox}
 
 \begin{defbox}
     \begin{definition}[Bias and Variance]
@@ -555,7 +595,6 @@ If $g(x_i)=C$ is a constant function (That is, totally not fitting into the data
 Since $\ev(\hat{g}(x_i))=C$, and $\var(\hat{g})=0$.
 
 Thus 
-
 \begin{eqnarray*}
     \bias &=&\ev(\hat{g}(x_0))-f(x_0)\\
           &=& C-f(x_0)
@@ -578,7 +617,60 @@ model may be good, even if the model is biased.
     \end{tabular}
 \end{table}
 
-To be continued... [2024-09-12, 58:00]
+\section{Regression analysis}
+\subsection{Simple Linear Regression}
+\begin{defbox}
+    \begin{definition}[Simple Linear Regression]
+        In simple linear regression, there are only 1 variable, and thus there is only 2 parameters to fit in, which is:
+        $$Y=\underbrace{\bt{0}+\bt{1}X}_{f(X)}+\varepsilon$$
+    \end{definition}
+\end{defbox}
+
+Suppose we want to estimate $\hat{\bt{0}},\hat{\bt{1}}$, then we have the realization value to be:
+
+$$\hat{Y}=\bt{0}+\bt{1}X$$
+
+To figure out the estimate, suppose there is some observed training data $D=\biggl\{(x_i,y_i)\biggr\}_{i=1...n}$.
+
+What we want to do now is to solve the optimization problem on the squared loss
+
+$$(\hat{\bt{0}},\hat{\bt{1}})=\arg\min_{\bt{0},\bt{1}}\sum_{i=1}^n\bigl(y_i-\bt{0}-\bt{1}x_i\bigr)^2$$
+
+This problem is also known as least square problem, and the figure below shows the function that we want to find the optimized value.
+
+\begin{center}
+    \includegraphics*[scale=0.25]{img7.png}
+\end{center}
+
+\begin{thmbox}
+    \begin{theorem}[Least Square Problem]
+        The solution to the least square problem is given by: 
+    \end{theorem}
+        \begin{eqnarray*}
+            \hat{\bt{1}}&=& \ddfrac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sum_{i=1}^n(x_i-\bar{x})^2}\\
+            \hat{\bt{0}}&=& \bar{y}- \hat{\bt{1}}\bar{x}
+        \end{eqnarray*}
+\end{thmbox}
+
+\begin{prfbox}
+    \begin{question*}
+        Given $\mathcal{D}^{(1)}$, we can generate $\hat{\bt{0}}^{(1)}$ and $\hat{\bt{1}}^{(1)}$.
+
+        Given $\mathcal{D}^{(2)}$, we can generate $\hat{\bt{0}}^{(2)}$ and $\hat{\bt{1}}^{(2)}$.
+        etc.
+
+        In an average sense, will $\hat{\bt{0}}^{(1)}=\bt{0}^*$? i.e. does $$\evd\bigl({\bt{0}}^{(1)}\bigr)=\bt{0}^*$$
+
+        \begin{answer}
+            Unbiased
+        \end{answer}
+    \end{question*}
+
+\end{prfbox}
+
+Consider the variance of $\hat{\bt{0}}$, which is $\var(\hat{\bt{0}})$. We always wanted to keep the variance as small as possible. The following shows an example of the estimation of $\hat{\bt{0}}$. Note that both of them are unbiased, however, the one on the right hand side obviously have a larger variance than the left hand side. 
+
+To be continued... [2024-09-19, 00:00]
 
 \end{document}
 
