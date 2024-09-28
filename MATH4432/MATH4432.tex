@@ -12,6 +12,7 @@
 \usepackage{tabularx}
 \usepackage{makecell}
 \usepackage{mathtools}
+\usepackage{emoji}
 \usepackage[hidelinks, linktocpage]{hyperref}
 \hypersetup{
     linktoc=all,
@@ -650,6 +651,11 @@ This problem is also known as least square problem, and the figure below shows t
             \hat{\bt{1}}&=& \ddfrac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sum_{i=1}^n(x_i-\bar{x})^2}\\
             \hat{\bt{0}}&=& \bar{y}- \hat{\bt{1}}\bar{x}
         \end{eqnarray*}
+        \begin{prfbox}
+            \begin{proof}
+                I have a proof of this theorem, but there is not enough space in this margin to write it. \emoji{nerd-face}\emoji{point-up}
+            \end{proof}
+        \end{prfbox}
 \end{thmbox}
 
 \begin{prfbox}
@@ -668,9 +674,45 @@ This problem is also known as least square problem, and the figure below shows t
 
 \end{prfbox}
 
-Consider the variance of $\hat{\bt{0}}$, which is $\var(\hat{\bt{0}})$. We always wanted to keep the variance as small as possible. The following shows an example of the estimation of $\hat{\bt{0}}$. Note that both of them are unbiased, however, the one on the right hand side obviously have a larger variance than the left hand side. 
+Consider the variance of $\hat{\bt{0}},\hat{\bt{1}}$, which is $\var(\hat{\bt{0}})$ and $\var(\hat{\bt{1}})$. We always wanted to keep the variance as small as possible. The following shows an example of the estimation of $\hat{\bt{0}}$ and $\hat{\bt{1}}$. Note that both of them are unbiased, however, the one on the right hand side obviously have a larger variance than the left hand side. 
 
-To be continued... [2024-09-19, 00:00]
+\begin{center}
+    \includegraphics*[scale=0.1]{image8}
+\end{center}
+
+\begin{defbox}
+    \begin{definition}[Quadratic Form]
+        If $A$ is a positive definite matrix, then $f$ is called a quadratic from, if:
+        $$f(x)=x^\intercal Ax$$
+    \end{definition}
+\end{defbox}
+
+\begin{expbox}
+    \begin{example}
+        Consider the equation
+        $$x_1^2+x_2^2=1.$$
+        We can write this equation into quadratic form:
+        $$\begin{bmatrix}
+            x_1\\
+            x_2
+        \end{bmatrix}^\intercal
+       \begin{bmatrix}
+            1 & 0\\
+            0 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+            x_1\\
+            x_2
+        \end{bmatrix}.
+        $$
+    \end{example}
+\end{expbox}
+
+With quadratic form, we can rewrite the least square problem as:
+
+$$\sum_{i=1}^n (y_i-x_i^\intercal\beta)^2$$
+
+To be continued... [2024-09-19, 15:00]
 
 \end{document}
 
@@ -693,7 +735,7 @@ To be continued... [2024-09-19, 00:00]
             
         \end{proof}
     \end{prfbox}
-\end{thmbox}
+\end{thmbox} 
 
 % Example
 \begin{expbox}
