@@ -15,9 +15,14 @@
 \contentsline {theorem}{{Theorem}{1.{3}}{Total Expectation Law}}{11}{theorem.1.3}%
 \contentsline {note}{{Note}{3}{}}{11}{note.3}%
 \contentsline {definition}{{Definition}{1.{3}}{Bias and Variance}}{12}{definition.1.3}%
+\contentsline {note}{{Note}{4}{}}{12}{note.4}%
 \contentsline {definition}{{Definition}{2.{1}}{Simple Linear Regression}}{14}{definition.2.1}%
 \contentsline {theorem}{{Theorem}{2.{1}}{Least Square Problem}}{15}{theorem.2.1}%
 \contentsline {proof}{{Proof. }{3}{}}{15}{proof.3}%
 \contentsline {answer}{{Answer}{1}{}}{15}{answer.1}%
 \contentsline {definition}{{Definition}{2.{2}}{Quadratic Form}}{16}{definition.2.2}%
 \contentsline {example}{{Example}{2.{1}}{}}{16}{example.2.1}%
+\contentsline {definition}{{Definition}{2.{3}}{Residual Sum of Square (RSS)}}{16}{definition.2.3}%
+\contentsline {theorem}{{Theorem}{2.{2}}{}}{17}{theorem.2.2}%
+\contentsline {note}{{Note}{5}{}}{17}{note.5}%
+\contentsline {example}{{Example}{2.{2}}{}}{17}{example.2.2}%

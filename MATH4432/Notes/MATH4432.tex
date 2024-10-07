@@ -1,4 +1,4 @@
-%!TEX program = lualatex
+% !TeX program = lualatex
 \documentclass{article}
 \usepackage{tcolorbox}
 \usepackage{ntheorem}
@@ -142,7 +142,6 @@ Some special symbols, notations and functions that will appear in this note:\big
     
 
 \end{center}
-
 
 \newpage
 
@@ -315,7 +314,7 @@ The advantages and disadvantages are listed in the following table.
 \end{table}
 
 \begin{center}
-    \includegraphics*[scale=0.35]{img1.png}
+    \includegraphics*[scale=0.35]{Images/img1.png}
 \end{center}
 
 \begin{table}[!h]
@@ -378,7 +377,7 @@ where $n$ is the number of testing data. Such value is defined as MSE (Mean Squa
 \end{defbox}
 
 \begin{center}
-    \includegraphics*[scale=0.35]{img2.png}
+    \includegraphics*[scale=0.35]{Images/img2.png}
 \end{center}
 
 \begin{table}[!h]
@@ -412,14 +411,14 @@ In the red curve, there are three point corresponding to the three different mod
 \end{notebox}
 
 \begin{center}
-    \includegraphics*[scale=0.35]{img3.png}
+    \includegraphics*[scale=0.35]{Images/img3.png}
 \end{center}
 
 Note that linear regression above provides a very poor fit to the data, while perfect fit model 
 does not increase error too much, since the noise is very small. 
 
 \begin{center}
-    \includegraphics*[scale=0.35]{img4.png}
+    \includegraphics*[scale=0.35]{Images/img4.png}
 \end{center}
 
 For this dataset, the ground truth model is close to linear, and due to the large noise,
@@ -501,7 +500,7 @@ Thus we are actually more interested in the following: $$\min_{\hat{f}}\evd[f(x_
     \begin{note}
         The reason for us to condition on $x_0$, is because we want to simplify the entire process.
 
-        In fact, by using total expectation law, we are able to evaluate for $\evd\bigl[f(X)-\hat{f}(X;\mathcal{D})\bigr]^2$
+        In fact, by using total expectation law, we are able to evaluate for $\evd\bigl[f(X)-\hat{f}(X;\mathcal{D})\bigr]^2$.
 
         \begin{thmbox}
             \begin{theorem}[Total Expectation Law]
@@ -511,7 +510,7 @@ Thus we are actually more interested in the following: $$\min_{\hat{f}}\evd[f(x_
         \end{thmbox}
         Thus we have: 
         \begin{eqnarray*}
-            \evd\bigl[f(X)-\hat{f}(X;\mathcal{D})\bigr]^2 &=& \ev_X\biggl[\evd\bigl[f(X)-\hat{f}(X;\mathcal{D})\bigr]^2|X=x_0\biggr]
+            \evd\bigl[f(X)-\hat{f}(X;\mathcal{D})\bigr]^2 &=& \ev_X\biggl[\evd\bigl[f(X)-\hat{f}(X;\mathcal{D})\bigr]^2|X=x_0\biggr].
         \end{eqnarray*}
     \end{note}
 \end{notebox}
@@ -524,7 +523,7 @@ Thus we are actually more interested in the following: $$\min_{\hat{f}}\evd[f(x_
         \end{eqnarray*}
         From this, we can estimate the variance term by:
             \begin{eqnarray*}
-                \evd\biggl[[\evd(\hat{f}(x_0;\mathcal{D}))-\hat{f}(x_0;\mathcal{D})|X=x_0]^2\biggr] &=& \frac{1}{B} \Biggl(\sum_{b=1}^B\biggl[\hat{f}(x_0)-\frac{1}{B}\sum_{b=1}^B\hat{f}^{(b)}(x_0)\biggr]\Biggr)
+                \evd\biggl[[\evd(\hat{f}(x_0;\mathcal{D}))-\hat{f}(x_0;\mathcal{D})|X=x_0]^2\biggr] &=& \frac{1}{B} \Biggl(\sum_{b=1}^B\biggl[\hat{f}(x_0)-\frac{1}{B}\sum_{b=1}^B\hat{f}^{(b)}(x_0)\biggr]\Biggr).
             \end{eqnarray*}
 
             This implies that, to estimate for variance, it is not necessary for us to know the ground-truth model. However, to know the bias, we do need to know the ground-truth model.
@@ -537,10 +536,16 @@ Thus we are actually more interested in the following: $$\min_{\hat{f}}\evd[f(x_
         $$\text{Bias}(\hat{\theta},\theta)=\ev(\hat{\theta})-\theta$$
         while given a random variable $X$, the variance is defined as:
         $$
-            \text{Var}(X)=\ev\bigl[(X-\ev(X))^2\bigr]
+            \text{Var}(X)=\ev\bigl[(X-\ev(X))^2\bigr].
         $$
     \end{definition}
 \end{defbox}
+
+\begin{notebox}
+    \begin{note}
+        When we talk about variance here, such as $\var(\hat{\beta})$, mostly we means the variance \textbf{due to the change of the training data}.
+    \end{note}
+\end{notebox}
 
 Suppose we are interested in a model that perfectly fits into the data. For example,
 
@@ -555,7 +560,7 @@ We now take samples from such model, we will then have $(x_i,y_i)$ that is in re
 
 We are interested in finding $g$, where $g$ can minimizes:
 
-$$\sum_{i}(y_i-g(x_i))^2$$
+$$\sum_{i}(y_i-g(x_i))^2.$$
 
 After solving the optimization problem, we will obtain $\hat{g}$, that $\hat{g}(x_i)=y_i, i=1,...,n$.
 
@@ -586,7 +591,7 @@ Now, consider the variance, we have:
 For a very flexible model, the bias can be very small, while the variance will be extremely large. 
 
 \begin{center}
-    \includegraphics*[scale=0.1]{img5.jpg}
+    \includegraphics*[scale=0.1]{Images/img5.jpg}
 \end{center}
 
 Suppose there is an dataset $\mathcal{D}$, and we want to solve the following optimization problem: $$\min_g\sum_{i=1}^{n}\bigl((y_i-g(x_i))\bigr)^2+\lambda\cdot R(g)$$
@@ -598,16 +603,16 @@ Since $\ev(\hat{g}(x_i))=C$, and $\var(\hat{g})=0$.
 Thus 
 \begin{eqnarray*}
     \bias &=&\ev(\hat{g}(x_0))-f(x_0)\\
-          &=& C-f(x_0)
+          &=& C-f(x_0).
 \end{eqnarray*}
 
-Which is not reducible. This implies the model is biased. However, the variance is 0. 
+This is not reducible, which implies the model is biased. However, the variance is 0. 
 
 To conclude, we want to find a model, which can keeps a perfect balance between bias and variance. The
 model may be good, even if the model is biased.
 
 \begin{center}
-    \includegraphics*[scale=0.3]{img6.png}
+    \includegraphics*[scale=0.3]{Images/img6.png}
 \end{center}
 
 \begin{table}[!h]
@@ -623,24 +628,24 @@ model may be good, even if the model is biased.
 \begin{defbox}
     \begin{definition}[Simple Linear Regression]
         In simple linear regression, there are only 1 variable, and thus there is only 2 parameters to fit in, which is:
-        $$Y=\underbrace{\bt{0}+\bt{1}X}_{f(X)}+\varepsilon$$
+        $$Y=\underbrace{\bt{0}+\bt{1}X}_{f(X)}+\varepsilon.$$
     \end{definition}
 \end{defbox}
 
 Suppose we want to estimate $\hat{\bt{0}},\hat{\bt{1}}$, then we have the realization value to be:
 
-$$\hat{Y}=\bt{0}+\bt{1}X$$
+$$\hat{Y}=\bt{0}+\bt{1}X.$$
 
 To figure out the estimate, suppose there is some observed training data $D=\biggl\{(x_i,y_i)\biggr\}_{i=1...n}$.
 
 What we want to do now is to solve the optimization problem on the squared loss
 
-$$(\hat{\bt{0}},\hat{\bt{1}})=\arg\min_{\bt{0},\bt{1}}\sum_{i=1}^n\bigl(y_i-\bt{0}-\bt{1}x_i\bigr)^2$$
+$$(\hat{\bt{0}},\hat{\bt{1}})=\arg\min_{\bt{0},\bt{1}}\sum_{i=1}^n\bigl(y_i-\bt{0}-\bt{1}x_i\bigr)^2.$$
 
 This problem is also known as least square problem, and the figure below shows the function that we want to find the optimized value.
 
 \begin{center}
-    \includegraphics*[scale=0.25]{img7.png}
+    \includegraphics*[scale=0.25]{Images/img7.png}
 \end{center}
 
 \begin{thmbox}
@@ -677,7 +682,7 @@ This problem is also known as least square problem, and the figure below shows t
 Consider the variance of $\hat{\bt{0}},\hat{\bt{1}}$, which is $\var(\hat{\bt{0}})$ and $\var(\hat{\bt{1}})$. We always wanted to keep the variance as small as possible. The following shows an example of the estimation of $\hat{\bt{0}}$ and $\hat{\bt{1}}$. Note that both of them are unbiased, however, the one on the right hand side obviously have a larger variance than the left hand side. 
 
 \begin{center}
-    \includegraphics*[scale=0.1]{image8}
+    \includegraphics*[scale=0.1]{Images/img8}
 \end{center}
 
 \begin{defbox}
@@ -710,9 +715,49 @@ Consider the variance of $\hat{\bt{0}},\hat{\bt{1}}$, which is $\var(\hat{\bt{0}
 
 With quadratic form, we can rewrite the least square problem as:
 
-$$\sum_{i=1}^n (y_i-x_i^\intercal\beta)^2$$
+$$\sum_{i=1}^n (y_i-x_i^\intercal\beta)^2$$.
 
-To be continued... [2024-09-19, 15:00]
+\begin{defbox}
+    \begin{definition}[Residual Sum of Square (RSS)]
+        The residual sum of square is the sum of the square of the error terms. i.e.
+        \begin{eqnarray*}
+            RSS&=&e_1^2+e_2^2+...+e_n^2\\
+               &=&\sum_{i=1}^n(y_i-\hat{\bt{0}}-\hat{\bt{1}}x_i)^2
+        \end{eqnarray*}
+    \end{definition}
+\end{defbox}
+
+We would like to know how accurate is our estimated parameter as estimate of ground truth value. This can be done by computing the standard error these parameters.
+
+\begin{thmbox}
+    \begin{theorem}
+        Define $SE$ as standard error. We have:
+        \begin{eqnarray*}
+            SE(\hat{\mu})^2&=&\frac{\sigma^2}{n}\\
+            SE(\hat{\bt{0}})&=&\sigma^2\Biggl[\frac{1}{n}+\frac{\bar{x}^2}{\sum_i^n (x_i-\bar{x})^2}\Biggr]\\
+            SE(\hat{\bt{1}})&=&\frac{\sigma^2}{\sum_i^n (x_i-\bar{x})^2}
+        \end{eqnarray*}
+        where $\sigma^2$ is estimated by $\hat{\sigma}^2=\frac{RSS}{n-2}$
+        \begin{notebox}
+            \begin{note}
+                The reason why the denominator is $n-2$, is because we are estimating 2 parameters. This is related to degree of freedom.
+                Let's take a very simple example:
+                \begin{expbox}
+                    \begin{example}
+                        Let $z_i\sim N(\mu,\sigma^2)$. Suppose we pick 3 data points: $\{z_1,z_2,z_3\}$. Then we can estimate the mean by the following formula:
+                        $$\hat{\mu}=\frac{1}{3}(z_1+z_2+z_3).$$
+                        Suppose we now know the value of $z_1,z_2$ and $\mu$. Then we will also know the value of $z_3$. The number of sample is no longer 3, since
+                        when we know 2 of them, we immediately get the third one, with the constraint of the value of $\hat\mu$.
+                    \end{example}
+                \end{expbox}
+            \end{note}
+        \end{notebox}
+    \end{theorem}
+\end{thmbox} 
+
+
+
+To be continued... [2024-09-19, 30:00]
 
 \end{document}
 
