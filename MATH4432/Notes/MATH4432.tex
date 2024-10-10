@@ -738,24 +738,40 @@ We would like to know how accurate is our estimated parameter as estimate of gro
             SE(\hat{\bt{1}})&=&\frac{\sigma^2}{\sum_i^n (x_i-\bar{x})^2}
         \end{eqnarray*}
         where $\sigma^2$ is estimated by $\hat{\sigma}^2=\frac{RSS}{n-2}$
-        \begin{notebox}
-            \begin{note}
-                The reason why the denominator is $n-2$, is because we are estimating 2 parameters. This is related to degree of freedom.
-                Let's take a very simple example:
-                \begin{expbox}
-                    \begin{example}
-                        Let $z_i\sim N(\mu,\sigma^2)$. Suppose we pick 3 data points: $\{z_1,z_2,z_3\}$. Then we can estimate the mean by the following formula:
-                        $$\hat{\mu}=\frac{1}{3}(z_1+z_2+z_3).$$
-                        Suppose we now know the value of $z_1,z_2$ and $\mu$. Then we will also know the value of $z_3$. The number of sample is no longer 3, since
-                        when we know 2 of them, we immediately get the third one, with the constraint of the value of $\hat\mu$.
-                    \end{example}
-                \end{expbox}
-            \end{note}
-        \end{notebox}
     \end{theorem}
 \end{thmbox} 
 
+\begin{notebox}
+    \begin{note}
+        The reason why the denominator for $\hat{\sigma}^2$ is $n-2$, is because we are estimating 2 parameters. This is related to degree of freedom.
+        Let's take a very simple example:
+        \begin{expbox}
+            \begin{example}
+                Let $z_i\sim N(\mu,\sigma^2)$. Suppose we pick 3 data points: $\{z_1,z_2,z_3\}$. Then we can estimate the mean by the following formula:
+                $$\hat{\mu}=\frac{1}{3}(z_1+z_2+z_3).$$
+                Suppose we now know the value of $z_1,z_2$ and $\hat\mu$. Then we will also know the value of $z_3$. The number of sample is no longer 3, since
+                when we know 2 of them, we immediately get the third one, with the constraint of the value of $\hat\mu$.
+            \end{example}
+        \end{expbox}
+    \end{note}
+\end{notebox}
 
+
+
+
+
+\begin{defbox}
+    \begin{definition}[$t$-statistics]
+        Given the null hypothesis of 
+        $$\mathcal{H}_0:\bt{1}=0,$$
+        $t$-statistics is defined as:
+        $$t=\frac{\hat{\bt{1}}-{\bt{1}}}{SE(\hat{\bt{1}})},$$
+        which we have a $t$-distribution with $n-2$ degree of freedom.
+
+    \end{definition}
+\end{defbox}
+
+We will reject the null hypothesis, if we observe a too large $|t|$, or $p$-value is 
 
 To be continued... [2024-09-19, 30:00]
 
