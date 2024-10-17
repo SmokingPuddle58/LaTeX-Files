@@ -756,10 +756,6 @@ We would like to know how accurate is our estimated parameter as estimate of gro
     \end{note}
 \end{notebox}
 
-
-
-
-
 \begin{defbox}
     \begin{definition}[$t$-statistics]
         Given the null hypothesis of 
@@ -771,9 +767,196 @@ We would like to know how accurate is our estimated parameter as estimate of gro
     \end{definition}
 \end{defbox}
 
-We will reject the null hypothesis if we observe a too large $|t|$, or $p$-value is 
+We will reject the null hypothesis if we observe a very large $|t|$, or $p$-value is small enough.
 
-To be continued... [2024-09-19, 30:00]
+To access the accuracy of a model, we will use $R^2$. But first we shall define the residual standard error.
+
+\begin{defbox}
+    \begin{definition}[Residual Standard Error (RSE)]
+        \begin{eqnarray*}
+            RSE &=& \sqrt{\frac{1}{n-2}RSS}\\
+                &=& \sqrt{\frac{1}{n-2}\sum_{i=1}^n (y_i-\hat{y_i}^2)} .
+        \end{eqnarray*}
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}[$R^2$]
+        \begin{eqnarray*}
+            R^2 &=& \frac{TSS-RSS}{TSS}\\
+            &=& 1 - \frac{RSS}{TSS}.
+        \end{eqnarray*}
+        where $TSS=\sum(y_i-\bar{y})$ is the total sum of squares.
+    \end{definition}
+\end{defbox}
+
+\begin{warnbox}
+    \begin{remark}
+        If we calculate $R^2$ based on the testing / future data, we call that predicted $R^2$.
+        In such case, $R^2$ can be negative, if the method is really bad, even worse than 0.
+    \end{remark}
+\end{warnbox}
+
+\begin{warnbox}
+    \begin{remark}
+        $R^2$ is mainly used in simple linear regression, and we seldom apply it to multivariable regression.
+    \end{remark}
+\end{warnbox}
+
+\subsection{Multiple Linear Regression}
+
+\begin{defbox}
+    \begin{definition}[Multiple Linear Regression]
+        In multiple linear regression, there are $p$ distinct variables, and thus there are $p$ parameters to fit in, that is:
+        $$Y=\underbrace{\bt{0}+\bt{1}X_1+\bt{2}X_2+...+\bt{p}X_p}_{f(X)}+\varepsilon.$$
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{theorem}[Least Square Problem]
+        Let $\hat\beta=[\hat\beta_{0},\hat\beta_{1},...,\hat\beta_{p}]$ be the least squares
+
+        $$\hat\beta=\arg\min_{\beta=[\beta_{0},\beta_{1},...,\beta_{p}]}\sum_i^n(y_i-\bt{0}-\bt{1}x_{i1}-...-\bt{p}x_{ip})^2$$
+
+        The solution to the least square problem in multple linear regression is given by: 
+
+        $$\hat\beta=(X^\intercal X)^{-1}X^\intercal y.$$
+
+        Where: 
+
+        \begin{eqnarray*}
+           y=\begin{bmatrix}
+            y_1 \\
+            y_2 \\
+            ... \\
+            y_n 
+            \end{bmatrix} \text{ is the response} &\text{and}& X=
+            \begin{bmatrix}
+                1 & x_{11} &...& x_{1p}\\
+                1 & x_{21} &...& x_{2p}\\
+                ...&...&...&...\\
+                1 & x_{n1} &...& x_{np}\\
+            \end{bmatrix} \text{ is the design matrix.}
+        \end{eqnarray*}
+    \end{theorem}
+        \begin{prfbox}
+            \begin{proof}
+                Our goal is to evaluate for:
+
+                \begin{eqnarray}
+                    \min_{\bt{0},...,\bt{p}}\sum_{i=1}^n \bigl(y_i-(\bt{1}x_{i1}+...+\bt{p}x_{ip})\bigr)^2
+                \end{eqnarray}
+
+            \end{proof}
+        \end{prfbox}
+\end{thmbox}
+
+
+\begin{thmbox}
+    \begin{prfbox}
+        Define 
+        $$y=
+            \begin{bmatrix}
+                y_1 \\
+                y_2 \\
+                ... \\
+                y_n 
+            \end{bmatrix}
+            , X=
+            \begin{bmatrix}
+                1 & x_{11} &...& x_{1p}\\
+                1 & x_{21} &...& x_{2p}\\
+                ...&...&...&...\\
+                1 & x_{n1} &...& x_{np}\\
+            \end{bmatrix} 
+            , \text{ and } \beta=
+            \begin{bmatrix}
+                \beta_1 \\
+                \beta_2 \\
+                ... \\
+                \beta_p
+            \end{bmatrix}.$$
+    If we observe deeply, then we will see that if we take $i$-th row of $(y-X\beta)$, then we will get exactly $$\bigl(y_i-(\bt{1}x_{i1}+...+\bt{p}x_{ip})\bigr).$$
+
+    Note that for any \textbf{column vector}, say $y$, we have (Just some equivalent forms for reference)
+    \begin{eqnarray*}
+        \sum_{i=1}^n y_i^2 &=& y_1^2+y_2^2+...+y_n^2 \\
+                           &=& y^\intercal y\\
+                           &=& \left\lVert y\right\rVert^2.
+    \end{eqnarray*}
+    We can now rewrite the equation (1) into the form of:
+    \begin{eqnarray*}
+        & & \sum_i \bigl((y-X\beta)_i\bigr)^2\\
+        &=& (y-X\beta)^\intercal (y-X\beta).
+    \end{eqnarray*}
+    Our goal now changes to:
+    \begin{eqnarray}
+        \min_\beta (y-X\beta)^\intercal (y-X\beta).
+    \end{eqnarray}
+    Since:
+    \begin{eqnarray*}
+        & &(y-X\beta)^\intercal (y-X\beta) \\
+        &=&(y^\intercal-\beta^\intercal X^\intercal) (y-X\beta)\\
+        &=&y^\intercal y - y^\intercal X\beta - \beta^\intercal X^\intercal y + \beta^\intercal X^\intercal X\beta.
+    \end{eqnarray*}
+    This is in fact a quadratic form, and if we treat it as a function of $\beta$, then this is going to be a quadratic function.
+
+    Note that $y^\intercal X\beta$ and $\beta^\intercal X^\intercal y$ are actually equivalent. The reason why is because $y^\intercal X\beta$ is acutally a scalar, since the multiplication result has a dimension of
+    \begin{eqnarray*}
+        (1,p) \times (p,n) \times (1,n) &=& (1,n) \times (n,1)\\
+                                        &=& (1,1)
+    \end{eqnarray*}
+    We can take transpose to a scalar without changing its value. Then $(y^\intercal X\beta)^\intercal = \beta^\intercal X^\intercal y$. Thus:
+    \begin{eqnarray*}
+        & &y^\intercal y - y^\intercal X\beta - \beta^\intercal X^\intercal y + \beta^\intercal X^\intercal X\beta\\
+        &=&y^\intercal y - 2y^\intercal X\beta + \beta^\intercal X^\intercal X\beta
+    \end{eqnarray*}
+
+    Now we take derivative w.r.t. $\beta$ for $y^\intercal y - 2y^\intercal X\beta + \beta^\intercal X^\intercal X\beta$. We have:
+
+
+    \end{prfbox}
+\end{thmbox} 
+
+\begin{thmbox}
+    \begin{prfbox}
+        \begin{eqnarray*}
+            & &\frac{\partial}{\partial\beta} y^\intercal y - 2y^\intercal X\beta + \beta^\intercal X^\intercal X\beta\\
+            &=& 0-2(x^\intercal y)^\intercal\beta+2X^\intercal X\beta
+        \end{eqnarray*}   
+        Set the term to be zero, then we have:
+        \begin{eqnarray}
+            X^\intercal X\beta &=& X^\intercal y\\
+            \beta &=& (X^\intercal X)^{-1} X^\intercal y
+        \end{eqnarray}
+        Note that the dimension on the L.H.S. of (3) will be $(p+1,p+1)\times(p+1,1)=(p+1,1)$. This implies there are $(p+1)$ constraints, and therefore reducing $p+1$ degree of freedoms.
+    \end{prfbox}
+\end{thmbox}
+
+The geometric meaning of the solution is actually the projection onto the plane spanned by $x_1,x_2$ (Yellow Region). 
+\begin{center}
+    \includegraphics[scale=0.1]{Images/img9.png}
+\end{center}
+
+\begin{thmbox}
+    \begin{theorem}
+        Define residual vector as $r$. Then
+        $$r=y-\hat{y}=0$$
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            We want to prove that $r\perp X$. Then we wish to prove $X^\intercal r=0$.
+            Since:
+            \begin{eqnarray*}
+                X^\intercal r &=& X^\intercal (y-X\hat{\beta}) \\
+                &=& X^\intercal y - X^\intercal X (X^\intercal X)^{-1} X^\intercal y\\
+                &=& 0
+            \end{eqnarray*}
+        \end{proof}
+    \end{prfbox}
+\end{thmbox} 
+
+To be continued... [2024-09-19, FINISHED]
 
 \newpage
 remarks for smoking: below notes start from p.35 of lecture3.pdf 
@@ -782,9 +965,12 @@ remarks for smoking: below notes start from p.35 of lecture3.pdf
        
            Quick review:
            
-            True Positive(TP): \quad you thought is \textbf{positive(1)}, and the truth really is \textbf{positive(1)}\\
-            False Positive(FP):\quad you thought is \textbf{positive(1)}, but the truth is \textbf{negative(0)}\\
-            True Negative(TN): \quad you thought is \textbf{negative(0)}, and the truth really is \textbf{negative(0)} \\
+            True Positive(TP): \quad you thought is \textbf{positive(1)}, and the truth really is \textbf{positive(1)}
+
+            False Positive(FP):\quad you thought is \textbf{positive(1)}, but the truth is \textbf{negative(0)}
+
+            True Negative(TN): \quad you thought is \textbf{negative(0)}, and the truth really is \textbf{negative(0)} 
+            
             False Negative(FN):\quad you thought is \textbf{negative(0)}, but the truth is \textbf{positive(1)}        
     \end{definition}
 \end{defbox}
@@ -833,6 +1019,8 @@ some terminology of Confusion matrix:
         \end{itemize}
     \end{definition}
 \end{defbox}
+
+\end{document}
 
 \begin{thmbox}
     \begin{theorem}

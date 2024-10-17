@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023/Fedora 40)  (format=lualatex 2024.10.3)  8 OCT 2024 17:22
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023/Fedora 40)  (format=lualatex 2024.10.3)  18 OCT 2024 01:44
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/home/smokingpuddle58/Documents/GitHub/LaTeX-Files/MATH4432/Notes/MATH4432
@@ -831,79 +831,85 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 [5]
 Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 297.
-<Images/img1.png, id=92, 1054.6903pt x 847.66687pt>
+<Images/img1.png, id=98, 1054.6903pt x 847.66687pt>
 File: Images/img1.png Graphic file (type png)
 <use Images/img1.png>
 Package luatex.def Info: Images/img1.png  used on input line 317.
 (luatex.def)             Requested size: 369.14714pt x 296.68785pt.
  [6<./Images/img1.png>]
 Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 373.
-<Images/img2.png, id=102, 1142.76938pt x 624.08156pt>
+<Images/img2.png, id=108, 1142.76938pt x 624.08156pt>
 File: Images/img2.png Graphic file (type png)
 <use Images/img2.png>
 Package luatex.def Info: Images/img2.png  used on input line 380.
 (luatex.def)             Requested size: 399.97528pt x 218.43181pt.
  [7]
 Package hyperref Info: bookmark level for unknown note defaults to 0 on input line 409.
-<Images/img3.png, id=112, 1310.8975pt x 735.74875pt>
+<Images/img3.png, id=118, 1310.8975pt x 735.74875pt>
 File: Images/img3.png Graphic file (type png)
 <use Images/img3.png>
 Package luatex.def Info: Images/img3.png  used on input line 414.
 (luatex.def)             Requested size: 458.821pt x 257.51591pt.
  [8<./Images/img2.png>]
-<Images/img4.png, id=122, 1310.8975pt x 735.74875pt>
+<Images/img4.png, id=128, 1310.8975pt x 735.74875pt>
 File: Images/img4.png Graphic file (type png)
 <use Images/img4.png>
 Package luatex.def Info: Images/img4.png  used on input line 421.
 (luatex.def)             Requested size: 458.821pt x 257.51591pt.
  [9<./Images/img3.png><./Images/img4.png>] [10] [11]
-<Images/img5.jpg, id=148, 1593.955pt x 2582.64874pt>
+<Images/img5.jpg, id=154, 1593.955pt x 2582.64874pt>
 File: Images/img5.jpg Graphic file (type jpg)
 <use Images/img5.jpg>
 Package luatex.def Info: Images/img5.jpg  used on input line 594.
 (luatex.def)             Requested size: 159.40483pt x 258.28pt.
  [12]
-<Images/img6.png, id=156, 1506.62875pt x 707.64375pt>
+<Images/img6.png, id=162, 1506.62875pt x 707.64375pt>
 File: Images/img6.png Graphic file (type png)
 <use Images/img6.png>
 Package luatex.def Info: Images/img6.png  used on input line 615.
 (luatex.def)             Requested size: 451.99211pt x 212.29475pt.
  [13<./Images/img5.jpg>]
-<Images/img7.png, id=163, 1675.25874pt x 834.11626pt>
+<Images/img7.png, id=170, 1675.25874pt x 834.11626pt>
 File: Images/img7.png Graphic file (type png)
 <use Images/img7.png>
 Package luatex.def Info: Images/img7.png  used on input line 648.
 (luatex.def)             Requested size: 418.81366pt x 208.52855pt.
  [14<./Images/img6.png>]
 Package hyperref Info: bookmark level for unknown answer defaults to 0 on input line 676.
-<Images/img8.jpg, id=173, 2459.1875pt x 1308.89pt>
+<Images/img8.jpg, id=179, 2459.1875pt x 1308.89pt>
 File: Images/img8.jpg Graphic file (type jpg)
 <use Images/img8.jpg>
 Package luatex.def Info: Images/img8.jpg  used on input line 685.
 (luatex.def)             Requested size: 245.93315pt x 130.89667pt.
- [15<./Images/img7.png></tmp/lua_m4P7QD></tmp/lua_Tl5o1z>] [16<./Images/img8.jpg>]
+ [15<./Images/img7.png></tmp/lua_FYuxCG></tmp/lua_qKZ0dL>] [16<./Images/img8.jpg>] [17] [18] [19]
+<Images/img9.png, id=231, 1484.54625pt x 1114.1625pt>
+File: Images/img9.png Graphic file (type png)
+<use Images/img9.png>
+Package luatex.def Info: Images/img9.png  used on input line 938.
+(luatex.def)             Requested size: 148.46332pt x 111.42278pt.
+ [20<./Images/img9.png>]
 \tf@thm=\write6
 
 \openout6 = MATH4432.thm
- [17] (./MATH4432.aux)
+ [21] (./MATH4432.aux)
 Package rerunfilecheck Info: File `MATH4432.out' has not changed.
-(rerunfilecheck)             Checksum: 9040148405EE44CEE9EF6220F0A506DF;1020.
+(rerunfilecheck)             Checksum: 20AD317D21C60D688F7D21135D9998D2;1213.
 )
 
 Here is how much of LuaTeX's memory you used:
- 33104 strings out of 478285
+ 33159 strings out of 478285
  125086,1977958 words of node,token memory allocated
- 897 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 2 sub_mlist, 1 glyph, 92 attribute, 64 glue_spec, 92 attribute_list, 2 write nodes
-   avail lists: 2:1833,3:559,4:86,5:517,6:41,7:5532,8:61,9:1275,10:10,11:282
- 52151 multiletter control sequences out of 65536+600000
- 78 fonts using 8527167 bytes
+ 945 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 2 sub_mlist, 1 glyph, 104 attribute, 64 glue_spec, 104 attribute_list, 2 write nodes
+   avail lists: 2:1890,3:657,4:116,5:535,6:56,7:5532,8:61,9:1275,10:10,11:282
+ 52178 multiletter control sequences out of 65536+600000
+ 80 fonts using 8790607 bytes
  99i,21n,98p,562b,1266s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman5-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on MATH4432.pdf (17 pages, 1816966 bytes).
+</usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman5-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on MATH4432.pdf (21 pages, 2048118 bytes).
 
-PDF statistics: 299 PDF objects out of 1000 (max. 8388607)
- 214 compressed objects within 3 object streams
- 56 named destinations out of 1000 (max. 131072)
- 152 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 350 PDF objects out of 1000 (max. 8388607)
+ 257 compressed objects within 3 object streams
+ 78 named destinations out of 1000 (max. 131072)
+ 160 words of extra memory for PDF output out of 10000 (max. 100000000)
 
