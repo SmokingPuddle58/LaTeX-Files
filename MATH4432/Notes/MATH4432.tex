@@ -771,11 +771,85 @@ We would like to know how accurate is our estimated parameter as estimate of gro
     \end{definition}
 \end{defbox}
 
-We will reject the null hypothesis, if we observe a too large $|t|$, or $p$-value is 
+We will reject the null hypothesis if we observe a too large $|t|$, or $p$-value is 
 
 To be continued... [2024-09-19, 30:00]
 
-\end{document}
+\newpage
+remarks for smoking: below notes start from p.35 of lecture3.pdf 
+\begin{defbox}
+    \begin{definition}[Confusion matrix]
+       
+           Quick review:
+           
+            True Positive(TP): \quad you thought is \textbf{positive(1)}, and the truth really is \textbf{positive(1)}\\
+            False Positive(FP):\quad you thought is \textbf{positive(1)}, but the truth is \textbf{negative(0)}\\
+            True Negative(TN): \quad you thought is \textbf{negative(0)}, and the truth really is \textbf{negative(0)} \\
+            False Negative(FN):\quad you thought is \textbf{negative(0)}, but the truth is \textbf{positive(1)}        
+    \end{definition}
+\end{defbox}
+
+some terminology of Confusion matrix:
+\begin{defbox}
+    \begin{definition}[sensitivity]
+        \begin{itemize}
+            below are things equivalent to sensitivity:
+            \item $\textbf{Positive True Rate}$
+            \item $P(\hat{y_i} = 1 \mid y_i = 1)$
+            \item $\frac{TP}{TP + FN}$
+        \end{itemize}
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}[specificity]
+        \begin{itemize}
+            below are things equivalent to specificity:
+            \item $\textbf{Negative True Rate}$
+            \item $P(\hat{y_i} = 0 \mid y_i = 0)$
+            \item $\frac{TN}{FP + TN}$
+        \end{itemize}
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}[Type I error]
+        \begin{itemize}
+            below are things equivalent to Type I error:
+            \item $\textbf{Positive False Rate}$
+            \item $P(\hat{y_i} = 1 \mid y_i = 0)$
+            \item $\frac{FP}{FP + TN}$
+        \end{itemize}
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}[Type II error]
+        \begin{itemize}
+            below are things equivalent to Type II error:
+            \item $\textbf{Negative False Rate}$
+            \item $P(\hat{y_i} = 0 \mid y_i = 1)$
+            \item $\frac{FN}{TP + FN}$
+        \end{itemize}
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{theorem}
+
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            
+        \end{proof}
+    \end{prfbox}
+\end{thmbox} 
+
+\begin{notebox}
+    \begin{note}
+
+    \end{note}
+\end{notebox}
 
 % Below are some boxes that may help with your document. They are not rendered during compilation.
 
