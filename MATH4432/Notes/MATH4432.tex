@@ -17,9 +17,10 @@
 \hypersetup{
     linktoc=all,
 }
-
+\usepackage[toc,page]{appendix}
 \usepackage[margin=1in]{geometry}
 \usepackage[parfill]{parskip}
+\usepackage{nicematrix}
 
 \everymath{\displaystyle}
 
@@ -41,13 +42,18 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\nin}{\not\in}
 \newcommand{\p}{\phi}
+\newcommand{\ve}{\varepsilon}
 \newcommand{\ev}{\mathbb{E}}
 \newcommand{\var}{\text{Var}}
+\newcommand{\cov}{\text{Cov}}
+\newcommand{\T}{^\intercal}
 \newcommand{\der}{\operatorname{d\!}{}}
 \newcommand{\evd}{\ev_{\mathcal{D}}}
+\newcommand{\D}{\mathcal{D}}
 \newcommand{\bias}{\text{Bias}}
 \newcommand{\bt}[1]{\beta_{#1}}
 \newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+\newcommand{\matindex}[1]{\mbox{\scriptsize#1}}% Matrix index
 
 
 
@@ -71,7 +77,7 @@
 \newtheorem{note}{Note}
 \newtheorem*{question}{Question}
 \newtheorem*{answer}{Answer}
-
+\renewcommand{\thempfootnote}{\textbf{\textcolor{red}\arabic{mpfootnote}}}
 
 
 \theoremstyle{break}
@@ -121,6 +127,10 @@
 \begin{prfbox}
     Proofs, Answers
 \end{prfbox}
+
+\begin{notebox}
+    Notes
+\end{notebox}
 
 \begin{tabular}{ll}
     &\\
@@ -178,20 +188,20 @@ $$
 where $X_1,...,X_p$ are random variables. Then the relation between $Y$ and $X$ can be expressed as: 
 
 $$
-    Y=f(X)+\varepsilon
+    Y=f(X)+\ve
 $$
 
-where $\varepsilon$ is the error term independent from $X$, with mean 0, and $f$ is a deterministic function. We call such model the population level model, or ground truth model. (i.e. The number of samples is infinitely many)
+where $\ve$ is the error term independent from $X$, with mean 0, and $f$ is a deterministic function. We call such model the population level model, or ground truth model. (i.e. The number of samples is infinitely many)
 
 \begin{warnbox}
     \begin{remark}
-        Note that $Y,\varepsilon$ are all random variables, while $X$ is a collection of random variables.
+        Note that $Y,\ve$ are all random variables, while $X$ is a collection of random variables.
     \end{remark}
 \end{warnbox}
 
 If we want to consider a sample level (the realization of the random variables), then the equation becomes:
     \begin{eqnarray*}
-             y_i= & f(x_i)+\varepsilon_i & i=1,...,n
+             y_i= & f(x_i)+\ve_i & i=1,...,n
     \end{eqnarray*}
 
 where $x_i$ can be a vector like the following:
@@ -231,10 +241,10 @@ and $n$ is the sample size.
         x_3
     \end{bmatrix}
     $,
-    then $f(x)=a^\intercal x$, where $a^\intercal$ is the transpose of the vector $a$.
+    then $f(x)=a\T x$, where $a\T$ is the transpose of the vector $a$.
 \end{warnbox}
 
-Now let's go back to the ground truth model, which is $Y=f(X)+\varepsilon$. Suppose we want to construct $f$ from the data, then we will have: 
+Now let's go back to the ground truth model, which is $Y=f(X)+\ve$. Suppose we want to construct $f$ from the data, then we will have: 
 $$
     \hat{Y}=\hat{f}(X=x)
 $$
@@ -253,18 +263,18 @@ Suppose we are interested in the difference between the data and the observed pr
 \begin{thmbox}
     \begin{theorem}
     \begin{eqnarray*}
-        \ev(Y-\hat{Y})^2 & = & \underbrace{\ev(f(X)-\hat{f}(X))^2}_{\text{Reducible}} \text{ } + \underbrace{\text{ Var}(\varepsilon)}_{\text{Irreducible}}
+        \ev(Y-\hat{Y})^2 & = & \underbrace{\ev(f(X)-\hat{f}(X))^2}_{\text{Reducible}} \text{ } + \underbrace{\text{ Var}(\ve)}_{\text{Irreducible}}
     \end{eqnarray*}
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
             \begin{eqnarray*}
-                \ev(Y-\hat{Y})^2 & = & \ev(f(X)+\varepsilon-\hat{f}(X))^2 \\
-                                 & = & \ev(f(X)-\hat{f}(X)+\varepsilon)^2 \\
-                                 & = & \ev((f(X)-\hat{f}(X))^2+2\varepsilon(f(X)-\hat{f}(X))+\varepsilon^2) \\
-                                 & = & \ev((f(X)-\hat{f}(X))^2)+\ev(2\varepsilon(f(X)-\hat{f}(X)))+\ev(\varepsilon^2) \\
-                                 & = & \ev((f(X)-\hat{f}(X))^2)+\underbrace{\ev(2\varepsilon)\ev((f(X)-\hat{f}(X)))}_{\substack{\text{Assume }\varepsilon \text{ independent from } \\ f,\hat{f}}}+\ev(\varepsilon^2) \\
-                                 & = & \ev(f(X)-\hat{f}(X))^2+\underbrace{0}_{\substack{\ev(\varepsilon)=0}}+\ev(\varepsilon^2) 
+                \ev(Y-\hat{Y})^2 & = & \ev(f(X)+\ve-\hat{f}(X))^2 \\
+                                 & = & \ev(f(X)-\hat{f}(X)+\ve)^2 \\
+                                 & = & \ev((f(X)-\hat{f}(X))^2+2\ve(f(X)-\hat{f}(X))+\ve^2) \\
+                                 & = & \ev((f(X)-\hat{f}(X))^2)+\ev(2\ve(f(X)-\hat{f}(X)))+\ev(\ve^2) \\
+                                 & = & \ev((f(X)-\hat{f}(X))^2)+\underbrace{\ev(2\ve)\ev((f(X)-\hat{f}(X)))}_{\substack{\text{Assume }\ve \text{ independent from } \\ f,\hat{f}}}+\ev(\ve^2) \\
+                                 & = & \ev(f(X)-\hat{f}(X))^2+\underbrace{0}_{\substack{\ev(\ve)=0}}+\ev(\ve^2) 
             \end{eqnarray*}
             Since for any random variable $X$, and its expected value, $E(X)=\mu$, we have: (Covered in MATH2411)
             \begin{eqnarray*}
@@ -276,8 +286,8 @@ Suppose we are interested in the difference between the data and the observed pr
             \end{eqnarray*}
             Thus, 
             \begin{eqnarray*}
-                \ev(Y-\hat{Y})^2 & = & \ev(f(X)-\hat{f}(X))^2+\ev(\varepsilon^2) \\
-                                 & = & \ev(f(X)-\hat{f}(X))^2+\var(\varepsilon)
+                \ev(Y-\hat{Y})^2 & = & \ev(f(X)-\hat{f}(X))^2+\ev(\ve^2) \\
+                                 & = & \ev(f(X)-\hat{f}(X))^2+\var(\ve)
             \end{eqnarray*}
         \end{proof}
     \end{prfbox}
@@ -549,13 +559,13 @@ Thus we are actually more interested in the following: $$\min_{\hat{f}}\evd[f(x_
 
 Suppose we are interested in a model that perfectly fits into the data. For example,
 
-$$Y=f(X)+\varepsilon$$
+$$Y=f(X)+\ve$$
 
-This is the population-level model we seen before. Let $\text{Var}(\varepsilon)=\sigma^2$ and $\ev{(\varepsilon)}=0$,
+This is the population-level model we seen before. Let $\text{Var}(\ve)=\sigma^2$ and $\ev{(\ve)}=0$,
 
 We now take samples from such model, we will then have $(x_i,y_i)$ that is in relationship of:
 \begin{eqnarray*}
-    y_i=f(x_i)+\varepsilon_i &  & i=1,...,n
+    y_i=f(x_i)+\ve_i &  & i=1,...,n
 \end{eqnarray*}
 
 We are interested in finding $g$, where $g$ can minimizes:
@@ -570,7 +580,7 @@ Note that:
 
 \begin{eqnarray*}
     \ev(\hat{g}(x_i)) &=& \ev(y_i)\\
-                      &=& \ev(f(x_i)+\varepsilon_i)\\
+                      &=& \ev(f(x_i)+\ve_i)\\
                       &=& \ev(f(x_i))\\
                       &=& f(x_i)
 \end{eqnarray*}
@@ -583,8 +593,8 @@ that can perfectly fits into the data, then the model is unbiased.
 Now, consider the variance, we have: 
 \begin{eqnarray*}
     \var(\hat{g}(x_i)) &=& \var(y_i)\\
-                       &=& \var(f(x_i)+\varepsilon_i)\\
-                       &=& \var(\varepsilon_i)\\
+                       &=& \var(f(x_i)+\ve_i)\\
+                       &=& \var(\ve_i)\\
                        &=& \sigma^2
 \end{eqnarray*}
  
@@ -628,7 +638,7 @@ model may be good, even if the model is biased.
 \begin{defbox}
     \begin{definition}[Simple Linear Regression]
         In simple linear regression, there are only 1 variable, and thus there is only 2 parameters to fit in, which is:
-        $$Y=\underbrace{\bt{0}+\bt{1}X}_{f(X)}+\varepsilon.$$
+        $$Y=\underbrace{\bt{0}+\bt{1}X}_{f(X)}+\ve.$$
     \end{definition}
 \end{defbox}
 
@@ -688,7 +698,7 @@ Consider the variance of $\hat{\bt{0}},\hat{\bt{1}}$, which is $\var(\hat{\bt{0}
 \begin{defbox}
     \begin{definition}[Quadratic Form]
         If $A$ is a positive definite matrix, then $f$ is called a quadratic from, if:
-        $$f(x)=x^\intercal Ax$$
+        $$f(x)=x\T Ax$$
     \end{definition}
 \end{defbox}
 
@@ -700,7 +710,7 @@ Consider the variance of $\hat{\bt{0}},\hat{\bt{1}}$, which is $\var(\hat{\bt{0}
         $$\begin{bmatrix}
             x_1\\
             x_2
-        \end{bmatrix}^\intercal
+        \end{bmatrix}\T
        \begin{bmatrix}
             1 & 0\\
             0 & 1
@@ -715,7 +725,7 @@ Consider the variance of $\hat{\bt{0}},\hat{\bt{1}}$, which is $\var(\hat{\bt{0}
 
 With quadratic form, we can rewrite the least square problem as:
 
-$$\sum_{i=1}^n (y_i-x_i^\intercal\beta)^2$$.
+$$\sum_{i=1}^n (y_i-x_i\T\beta)^2$$.
 
 \begin{defbox}
     \begin{definition}[Residual Sum of Square (RSS)]
@@ -808,7 +818,7 @@ To access the accuracy of a model, we will use $R^2$. But first we shall define 
 \begin{defbox}
     \begin{definition}[Multiple Linear Regression]
         In multiple linear regression, there are $p$ distinct variables, and thus there are $p$ parameters to fit in, that is:
-        $$Y=\underbrace{\bt{0}+\bt{1}X_1+\bt{2}X_2+...+\bt{p}X_p}_{f(X)}+\varepsilon.$$
+        $$Y=\underbrace{\bt{0}+\bt{1}X_1+\bt{2}X_2+...+\bt{p}X_p}_{f(X)}+\ve.$$
     \end{definition}
 \end{defbox}
 
@@ -820,7 +830,7 @@ To access the accuracy of a model, we will use $R^2$. But first we shall define 
 
         The solution to the least square problem in multple linear regression is given by: 
 
-        $$\hat\beta=(X^\intercal X)^{-1}X^\intercal y.$$
+        $$\hat\beta=(X\T X)^{-1}X\T y.$$
 
         Where: 
 
@@ -876,43 +886,43 @@ To access the accuracy of a model, we will use $R^2$. But first we shall define 
                 ... \\
                 \beta_p
             \end{bmatrix}.$$
-    If we observe deeply, then we will see that if we take $i$-th row of $(y-X\beta)$, then we will get exactly $$\bigl(y_i-(\bt{1}x_{i1}+...+\bt{p}x_{ip})\bigr).$$
+    If we observe deeply \emoji{flushed}, we can see if we take $i$-th row of $(y-X\beta)$, then we will get exactly: $$(y-X\beta)_i=\bigl(y_i-(\bt{1}x_{i1}+...+\bt{p}x_{ip})\bigr).$$
 
     Note that for any \textbf{column vector}, say $y$, we have (Just some equivalent forms for reference)
     \begin{eqnarray*}
         \sum_{i=1}^n y_i^2 &=& y_1^2+y_2^2+...+y_n^2 \\
-                           &=& y^\intercal y\\
+                           &=& y\T y\\
                            &=& \left\lVert y\right\rVert^2.
     \end{eqnarray*}
     We can now rewrite the equation (1) into the form of:
     \begin{eqnarray*}
         & & \sum_i \bigl((y-X\beta)_i\bigr)^2\\
-        &=& (y-X\beta)^\intercal (y-X\beta).
+        &=& (y-X\beta)\T (y-X\beta).
     \end{eqnarray*}
     Our goal now changes to:
     \begin{eqnarray}
-        \min_\beta (y-X\beta)^\intercal (y-X\beta).
+        \min_\beta (y-X\beta)\T (y-X\beta).
     \end{eqnarray}
     Since:
     \begin{eqnarray*}
-        & &(y-X\beta)^\intercal (y-X\beta) \\
-        &=&(y^\intercal-\beta^\intercal X^\intercal) (y-X\beta)\\
-        &=&y^\intercal y - y^\intercal X\beta - \beta^\intercal X^\intercal y + \beta^\intercal X^\intercal X\beta.
+        & &(y-X\beta)\T (y-X\beta) \\
+        &=&(y\T-\beta\T X\T) (y-X\beta)\\
+        &=&y\T y - y\T X\beta - \beta\T X\T y + \beta\T X\T X\beta.
     \end{eqnarray*}
     This is in fact a quadratic form, and if we treat it as a function of $\beta$, then this is going to be a quadratic function.
 
-    Note that $y^\intercal X\beta$ and $\beta^\intercal X^\intercal y$ are actually equivalent. The reason why is because $y^\intercal X\beta$ is acutally a scalar, since the multiplication result has a dimension of
+    Note that $y\T X\beta$ and $\beta\T X\T y$ are actually equivalent. The reason why is because $y\T X\beta$ is acutally a scalar, since the multiplication result has a dimension of
     \begin{eqnarray*}
         (1,p) \times (p,n) \times (1,n) &=& (1,n) \times (n,1)\\
                                         &=& (1,1)
     \end{eqnarray*}
-    We can take transpose to a scalar without changing its value. Then $(y^\intercal X\beta)^\intercal = \beta^\intercal X^\intercal y$. Thus:
+    We can take transpose to a scalar without changing its value. Then $(y\T X\beta)\T = \beta\T X\T y$. Thus:
     \begin{eqnarray*}
-        & &y^\intercal y - y^\intercal X\beta - \beta^\intercal X^\intercal y + \beta^\intercal X^\intercal X\beta\\
-        &=&y^\intercal y - 2y^\intercal X\beta + \beta^\intercal X^\intercal X\beta
+        & &y\T y - y\T X\beta - \beta\T X\T y + \beta\T X\T X\beta\\
+        &=&y\T y - 2y\T X\beta + \beta\T X\T X\beta
     \end{eqnarray*}
 
-    Now we take derivative w.r.t. $\beta$ for $y^\intercal y - 2y^\intercal X\beta + \beta^\intercal X^\intercal X\beta$. We have:
+    Now we take derivative w.r.t. $\beta$ for $y\T y - 2y\T X\beta + \beta\T X\T X\beta$. We have:
 
 
     \end{prfbox}
@@ -921,13 +931,13 @@ To access the accuracy of a model, we will use $R^2$. But first we shall define 
 \begin{thmbox}
     \begin{prfbox}
         \begin{eqnarray*}
-            & &\frac{\partial}{\partial\beta} y^\intercal y - 2y^\intercal X\beta + \beta^\intercal X^\intercal X\beta\\
-            &=& 0-2(x^\intercal y)^\intercal\beta+2X^\intercal X\beta
+            & &\frac{\partial}{\partial\beta} y\T y - 2y\T X\beta + \beta\T X\T X\beta\\
+            &=& 0-2(X\T y)\T\beta+2X\T X\beta
         \end{eqnarray*}   
         Set the term to be zero, then we have:
         \begin{eqnarray}
-            X^\intercal X\beta &=& X^\intercal y\\
-            \beta &=& (X^\intercal X)^{-1} X^\intercal y
+            X\T X\beta &=& X\T y\\
+            \beta &=& (X\T X)^{-1} X\T y
         \end{eqnarray}
         Note that the dimension on the L.H.S. of (3) will be $(p+1,p+1)\times(p+1,1)=(p+1,1)$. This implies there are $(p+1)$ constraints, and therefore reducing $p+1$ degree of freedoms.
     \end{prfbox}
@@ -941,22 +951,142 @@ The geometric meaning of the solution is actually the projection onto the plane 
 \begin{thmbox}
     \begin{theorem}
         Define residual vector as $r$. Then
-        $$r=y-\hat{y}=0$$
+        $$r=y-\hat{y}=0.$$
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
-            We want to prove that $r\perp X$. Then we wish to prove $X^\intercal r=0$.
+            We want to prove that $r\perp X$. Then we wish to prove $X\T r=0$.
             Since:
             \begin{eqnarray*}
-                X^\intercal r &=& X^\intercal (y-X\hat{\beta}) \\
-                &=& X^\intercal y - X^\intercal X (X^\intercal X)^{-1} X^\intercal y\\
-                &=& 0
+                X\T r &=& X\T (y-X\hat{\beta}) \\
+                &=& X\T y - X\T X (X\T X)^{-1} X\T y\\
+                &=& 0,
             \end{eqnarray*}
+            thus $r\perp X$.
         \end{proof}
     \end{prfbox}
 \end{thmbox} 
 
-To be continued... [2024-09-19, FINISHED]
+\begin{thmbox}
+    \begin{theorem}
+        Given the following assumption:
+
+        \begin{itemize}
+            \medskip
+            \item $y=X\beta+\ve$ (Model Assumption) (i.e. Assume the ground truth model is a linear model.)
+            \medskip
+            \item $\ve$ is independent of $X$. Moreover, $\ev[\ve_i]=0$
+            \medskip
+            \item Cov$(\ve_i, \ve_i')=0$ and $\var(\ve_i)=\sigma_e^2$. i.e. $\var(\ve)=\sigma_e^2I$
+        \end{itemize}
+        \medskip
+        Define $\hat{\beta}=(X\T X)^{-1}X\T y$. Then $\hat\beta$ is a unbiased estimator of $\beta$.
+        Moreover, $\var(\hat\beta)\sigma_e^2 = (X\T X)^{-1}$ is a square matrix of dimension $(p,p) \text{, or } (p+1,p+1)$ if $\bt{0}$ is in consideration.
+    \end{theorem}
+\end{thmbox} 
+
+
+
+\begin{thmbox}
+    \begin{prfbox}
+        \begin{proof}
+            \begin{eqnarray*}
+                \ev(\hat\beta) &=& \ev\bigl[(X\T X)^{-1}X\T y\bigr]\\
+                               &=& (X\T X)^{-1}X\T\ev(y) \footnote[1]{$X$\text{ is already observed and is no longer random.}}\\
+                               &=& (X\T X)^{-1}X\T X\beta \footnote[2]{$y=X\beta+\ve\implies \ev(y)=\ev(X\beta+\ve)=X\beta$}\\
+                               &=& \beta
+            \end{eqnarray*}
+            \begin{eqnarray*}
+                \var(\hat\beta) &=& \var\bigl[(X\T X)^{-1}X\T (X\beta+\ve)\bigr]\\
+                                &=& \var\bigl[\beta+(X\T X)^{-1}X\T\ve\bigr]\\
+                                &=& \ev\bigl[(X\T X)^{-1}X\T\ve\ve\T X(X\T X)^{-1}\bigr] - \ev\bigl[(X\T X)^{-1}X\T\ve\bigr]\ev\T\bigl[(X\T X)^{-1}X\T \ve\bigr]\\
+                                &=& (X\T X)^{-1}X\T\ev(\ve\ve\T)(X\T X)^{-1}X - (X\T X)^{-1}X\T\ev(\ve)\ev\T(\ve)X(X\T X)^{-1}\\
+                                &=& X(X\T X)^{-1}X\T\bigl[\underbrace{\ev(\ve\ve\T) - \ev(\ve)\ev\T(\ve)}_{\var(\ve)}\bigr]X(X\T X)^{-1}\\
+                                &=& X(X\T X)^{-1}X\T \sigma_e^2 I X(X\T X)^{-1}\\
+                                &=& \sigma_e^2 (X\T X)^{-1}
+            \end{eqnarray*}
+            \begin{notebox}
+                \begin{note}
+                    The reason why we can directly treat $\var(\ve)$ as $\sigma_e^2 I$, is because of the design of covariance matrix along with the assumption.
+                    Note that this matrix has a form of:
+                        \[
+                            \NiceMatrixOptions{code-for-first-row=\scriptstyle,code-for-last-row=\scriptstyle}
+                            \begin{pNiceMatrix}[first-row,first-col]
+                                  & \ve_1 & \ve_2 & \cdots & \ve_n\\
+                                \ve_1 & \var(\ve_1) & \cov(\ve_1,\ve_2) & \cdots & \cov(\ve_1,\ve_n) \\
+                                \ve_2 & \cov(\ve_2,\ve_1) & \var(\ve_2) & \cdots & \cov(\ve_2,\ve_n) \\
+                                \vdots & \vdots & 	\vdots & \ddots & \vdots \\
+                                \ve_n & \cov(\ve_n,\ve_1) & \cdots & \cdots & \var(\ve_n)\\
+                            \end{pNiceMatrix}.
+                        \]
+                        Since $\cov(\ve_i,\ve_i')$ is 0, thus the matrix is a diagonal matrix. 
+                \end{note}
+            \end{notebox}
+        \end{proof}
+    \end{prfbox}
+    \begin{notebox}
+        \begin{note}
+            The model is useful for prediction, even if the assumption is not met, since by bias-variance tradeoff, even if there is bias, but
+            due to the simpliness in the model, the variance will be small.
+            However, the assumption is critical, if you are doing statistical inference.
+        \end{note}
+    \end{notebox}
+\end{thmbox} 
+
+\subsection{Maximum Likelihood Estimate}
+
+Assume we have a probablistic model $P(\D|\theta)$, where $\theta$ is the parameter for the probablistic model. 
+We know that if we are given the parameters, we can generate data $\D$ from the probablistic model. 
+
+Now, if we are given the observed data $\D$, how can we estimate $\theta$?
+
+Let's take an very simple example: Suppose we have a dataset $\D=\bigl\{z_1,z_2,\cdots, z_n \bigr\}$, where $z_i\sim N(\mu,1)$, and indeed $\theta=\bigl\{ \mu \bigr\}$.
+
+What we wish is to evaluate for:
+$$\hat\theta = \arg\max_\theta \log P(\D|\theta).$$
+
+Note the probablistic model for $Z$ is given by:
+$$P(z_i|\theta)=\frac{1}{\sqrt{2\pi}}\exp\Biggl(-\frac{1}{2}(z_i-\mu)^2\Biggr).$$
+
+Since for each $z_i$, they are IID (Independent and Identically Distributed), thus: 
+$$P(\D|\theta)=\prod_{i=1}^n P(z_i|\theta).$$
+
+Now we take $\log$ on both sides. We now have:
+
+\begin{eqnarray*}
+    \log P(\D|\theta)&=&\sum_{i=1}^n \log P(z_i|\theta)\\
+                     &=&n\log\Biggl(\frac{1}{\sqrt{2\pi}}\Biggr) + \sum_{i=1}^n -\frac{1}{2}(z_i-\mu)^2.
+\end{eqnarray*}
+
+Maximize with respect to $\theta$ on L.H.S. is now equivalent to maximizing with respect to $\mu$ on R.H.S.. So we take derivative on the R.H.S. with respect to $\mu$.
+$$\frac{\partial}{\partial\mu} =  \sum_{i=1}^n (z_i-\mu).$$
+
+Set the derivative to be 0, we have:
+$$\hat\mu=\frac{1}{n}\sum_{i=1}^n z_i.$$
+
+Now, we apply the concept to linear regression model.
+
+Suppose we are given the data $\D=\Bigl\{(x_i,y_i)\Bigr\}$, where $y_i=x_i\T\beta+\ve_i$ (Sample version, different from the one we previously seen).
+
+Assume that $\ve_i\sim N(0,\sigma_e^2)$. Then we have:
+$$\ve_i=y_i-x_i\T\beta\sim N(0,\sigma_e^2).$$
+
+Thus:
+$$P(y_i|x_i;\beta)=\frac{1}{\sqrt{2\pi\sigma_e^2}}\exp\Biggl(-\frac{1}{2\sigma_e^2}(y_i-x_i\T\beta)^2\Biggr),$$
+and:
+$$P(y_i|x;\beta)=\prod_{i=1}^{n}P(y_i|x_i;\beta).$$
+
+We take $\log$ on both sides, and maximize both side w.r.t. $\beta$.
+$$\hat\beta=\max_\beta\log P(y_i|x;\beta)=\max_\beta\Biggl\{\frac{n}{\sqrt{2\pi\sigma_e^2}} + \sum_{i=1}^{n}-\frac{1}{2\pi\sigma_e^2} (y_i-x_i\T\beta)^2\Biggr\}.$$
+
+\begin{notebox}
+    \begin{note}[Fisher Information Matrix]
+        Define $\mathcal{I}$ as the Fisher Information Matrix, where: $$\mathcal{I}=\frac{\partial^2 (\log P(y_i|x;\beta))}{\partial\beta\partial\beta\T}.$$
+        Note that if we take inverse to $\mathcal{I}$, we get exactly $\var(\hat\beta)$. This is another method for you to find the variance.
+    \end{note}
+\end{notebox}
+
+To be continued... [2024-09-24, ENDED]
 
 \newpage
 remarks for smoking: below notes start from p.35 of lecture3.pdf 
@@ -1020,24 +1150,8 @@ some terminology of Confusion matrix:
     \end{definition}
 \end{defbox}
 
+
 \end{document}
-
-\begin{thmbox}
-    \begin{theorem}
-
-    \end{theorem}
-    \begin{prfbox}
-        \begin{proof}
-            
-        \end{proof}
-    \end{prfbox}
-\end{thmbox} 
-
-\begin{notebox}
-    \begin{note}
-
-    \end{note}
-\end{notebox}
 
 % Below are some boxes that may help with your document. They are not rendered during compilation.
 

@@ -36,8 +36,13 @@
 \contentsline {proof}{{Proof. }{4}{}}{18}{proof.4}%
 \contentsline {theorem}{{Theorem}{2.{4}}{}}{20}{theorem.2.4}%
 \contentsline {proof}{{Proof. }{5}{}}{20}{proof.5}%
-\contentsline {definition}{{Definition}{2.{8}}{Confusion matrix}}{21}{definition.2.8}%
-\contentsline {definition}{{Definition}{2.{9}}{sensitivity}}{21}{definition.2.9}%
-\contentsline {definition}{{Definition}{2.{10}}{specificity}}{21}{definition.2.10}%
-\contentsline {definition}{{Definition}{2.{11}}{Type I error}}{21}{definition.2.11}%
-\contentsline {definition}{{Definition}{2.{12}}{Type II error}}{21}{definition.2.12}%
+\contentsline {theorem}{{Theorem}{2.{5}}{}}{20}{theorem.2.5}%
+\contentsline {proof}{{Proof. }{6}{}}{21}{proof.6}%
+\contentsline {note}{{Note}{6}{}}{21}{note.6}%
+\contentsline {note}{{Note}{7}{}}{21}{note.7}%
+\contentsline {note}{{Note}{8}{Fisher Information Matrix}}{23}{note.8}%
+\contentsline {definition}{{Definition}{2.{8}}{Confusion matrix}}{24}{definition.2.8}%
+\contentsline {definition}{{Definition}{2.{9}}{sensitivity}}{24}{definition.2.9}%
+\contentsline {definition}{{Definition}{2.{10}}{specificity}}{24}{definition.2.10}%
+\contentsline {definition}{{Definition}{2.{11}}{Type I error}}{24}{definition.2.11}%
+\contentsline {definition}{{Definition}{2.{12}}{Type II error}}{24}{definition.2.12}%

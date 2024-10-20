@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023/Fedora 40)  (format=lualatex 2024.10.3)  18 OCT 2024 01:44
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023/Fedora 40)  (format=lualatex 2024.10.3)  20 OCT 2024 18:29
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/home/smokingpuddle58/Documents/GitHub/LaTeX-Files/MATH4432/Notes/MATH4432
@@ -616,14 +616,19 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
 \Hy@SectionHShift=\skip68
+) (/usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2020/02/08 v1.2c extra appendix facilities
+\c@@pps=\count324
+\c@@ppsavesec=\count325
+\c@@ppsaveapp=\count326
 ) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count324
-\Gm@cntv=\count325
-\c@Gm@tempcnt=\count326
+\Gm@cnth=\count327
+\Gm@cntv=\count328
+\c@Gm@tempcnt=\count329
 \Gm@bindingoffset=\dimen293
 \Gm@wd@mp=\dimen294
 \Gm@odd@mp=\dimen295
@@ -635,57 +640,121 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@dimlist=\toks60
 ) (/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+) (/usr/share/texlive/texmf-dist/tex/latex/nicematrix/nicematrix.sty (/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2023-02-02 LaTeX2e option processing using LaTeX3 keys
 )
-\c@proof=\count327
-\c@warning=\count328
-\c@remark=\count329
-\c@theorem=\count330
-\c@corollary=\count331
-\c@proposition=\count332
-\c@example=\count333
-\c@note=\count334
-\c@question=\count335
-\c@answer=\count336
-\c@definition=\count337
+Package: nicematrix 2023/03/06 v6.16 Enhanced arrays with the help of PGF/TikZ
+\g__nicematrix_env_int=\count330
+\g__nicematrix_NiceMatrixBlock_int=\count331
+\l__nicematrix_note_in_caption_int=\count332
+\l__nicematrix_columns_width_dim=\dimen301
+\l__nicematrix_col_width_dim=\dimen302
+\g__nicematrix_row_total_int=\count333
+\g__nicematrix_col_total_int=\count334
+\g__nicematrix_last_row_node_int=\count335
+\l__nicematrix_key_nb_rows_int=\count336
+\g__nicematrix_blocks_wd_dim=\dimen303
+\g__nicematrix_blocks_ht_dim=\dimen304
+\g__nicematrix_blocks_dp_dim=\dimen305
+\l__nicematrix_width_dim=\dimen306
+\l__nicematrix_tabular_width_dim=\dimen307
+\l__nicematrix_rule_width_dim=\dimen308
+\l__nicematrix_old_iRow_int=\count337
+\l__nicematrix_old_jCol_int=\count338
+\g__nicematrix_total_X_weight_int=\count339
+\l__nicematrix_X_columns_dim=\dimen309
+\l__nicematrix_x_initial_dim=\dimen310
+\l__nicematrix_y_initial_dim=\dimen311
+\l__nicematrix_x_final_dim=\dimen312
+\l__nicematrix_y_final_dim=\dimen313
+\l__nicematrix_tmpc_dim=\dimen314
+\l__nicematrix_tmpd_dim=\dimen315
+\g__nicematrix_width_last_col_dim=\dimen316
+\g__nicematrix_width_first_col_dim=\dimen317
+\l__nicematrix_row_min_int=\count340
+\l__nicematrix_row_max_int=\count341
+\l__nicematrix_col_min_int=\count342
+\l__nicematrix_col_max_int=\count343
+\g__nicematrix_static_num_of_col_int=\count344
+\l__nicematrix_rounded_corners_dim=\dimen318
+\l__nicematrix_line_width_dim=\dimen319
+\g__nicematrix_block_box_int=\count345
+\l__nicematrix_submatrix_extra_height_dim=\dimen320
+\l__nicematrix_submatrix_left_xshift_dim=\dimen321
+\l__nicematrix_submatrix_right_xshift_dim=\dimen322
+\l__nicematrix_first_row_int=\count346
+\l__nicematrix_first_col_int=\count347
+\l__nicematrix_last_row_int=\count348
+\l__nicematrix_last_col_int=\count349
+\c@tabularnote=\count350
+\c@nicematrix_draft=\count351
+\l__nicematrix_cell_space_top_limit_dim=\dimen323
+\l__nicematrix_cell_space_bottom_limit_dim=\dimen324
+\l__nicematrix_xdots_inter_dim=\dimen325
+\l__nicematrix_xdots_shorten_start_dim=\dimen326
+\l__nicematrix_xdots_shorten_end_dim=\dimen327
+\l__nicematrix_xdots_radius_dim=\dimen328
+\l__nicematrix_notes_above_space_dim=\dimen329
+\l__nicematrix_left_margin_dim=\dimen330
+\l__nicematrix_right_margin_dim=\dimen331
+\l__nicematrix_extra_left_margin_dim=\dimen332
+\l__nicematrix_extra_right_margin_dim=\dimen333
+\c__nicematrix_max_l_dim=\dimen334
+\l__nicematrix_position_int=\count352
+\l__nicematrix_start_int=\count353
+\l__nicematrix_multiplicity_int=\count354
+\l__nicematrix_brace_yshift_dim=\dimen335
+)
+\c@proof=\count355
+\c@warning=\count356
+\c@remark=\count357
+\c@theorem=\count358
+\c@corollary=\count359
+\c@proposition=\count360
+\c@example=\count361
+\c@note=\count362
+\c@question=\count363
+\c@answer=\count364
+\c@definition=\count365
  (./MATH4432.aux)
 \openout1 = MATH4432.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 85.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 85.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 91.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 91.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count338
-\scratchdimen=\dimen301
+\scratchcounter=\count366
+\scratchdimen=\dimen336
 \scratchbox=\box79
-\nofMPsegments=\count339
-\nofMParguments=\count340
+\nofMPsegments=\count367
+\nofMParguments=\count368
 \everyMPshowfont=\toks61
-\MPscratchCnt=\count341
-\MPscratchDim=\dimen302
-\MPnumerator=\count342
-\makeMPintoPDFobject=\count343
+\MPscratchCnt=\count369
+\MPscratchDim=\dimen337
+\MPnumerator=\count370
+\makeMPintoPDFobject=\count371
 \everyMPtoPDFconversion=\toks62
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -699,56 +768,56 @@ Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 85.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 85.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 85.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 85.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 85.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 85.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 85.
-LaTeX Font Info:    Redeclaring math accent \check on input line 85.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 85.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 85.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 85.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 85.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 85.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 85.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 85.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 85.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 85.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 85.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 85.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 85.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 85.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 85.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 85.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 85.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 91.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 91.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 91.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 91.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 91.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 91.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 91.
+LaTeX Font Info:    Redeclaring math accent \check on input line 91.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 91.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 91.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 91.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 91.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 85.
+(Font)              `operators' in the math version `normal' on input line 91.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 85.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 91.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 85.
+(Font)              `operators' in the math version `bold' on input line 91.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 85.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 91.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 85.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 85.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 85.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 85.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 85.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 91.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 85.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 85.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 85.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 85.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 91.
 luaotfload | cache : Lookup cache loaded from /home/smokingpuddle58/.texlive2023/texmf-var/luatex-cache/generic/names/luaotfload-lookup-cache.luc.
 
 Package fontspec Info: Font family 'NotoColorEmoji(0)' created for font 'Noto
@@ -762,7 +831,7 @@ Package fontspec Info: Font family 'NotoColorEmoji(0)' created for font 'Noto
 (fontspec)             <->"NotoColorEmoji:mode=harf;script=DFLT;language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
-Package hyperref Info: Link coloring OFF on input line 85.
+Package hyperref Info: Link coloring OFF on input line 91.
  (./MATH4432.out) (./MATH4432.out)
 \@outlinefile=\write4
 
@@ -802,11 +871,11 @@ Package hyperref Info: Link coloring OFF on input line 85.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 88.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 94.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 88.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 94.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -816,100 +885,123 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 \openout5 = MATH4432.toc
  [3]
-Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 188.
+Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 198.
  [4]
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 255.
-Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 261.
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 265.
+Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 271.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 289.
+(hyperref)                removing `math shift' on input line 299.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 289.
+(hyperref)                removing `math shift' on input line 299.
 
 [5]
-Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 297.
-<Images/img1.png, id=98, 1054.6903pt x 847.66687pt>
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 307.
+<Images/img1.png, id=104, 1054.6903pt x 847.66687pt>
 File: Images/img1.png Graphic file (type png)
 <use Images/img1.png>
-Package luatex.def Info: Images/img1.png  used on input line 317.
+Package luatex.def Info: Images/img1.png  used on input line 327.
 (luatex.def)             Requested size: 369.14714pt x 296.68785pt.
  [6<./Images/img1.png>]
-Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 373.
-<Images/img2.png, id=108, 1142.76938pt x 624.08156pt>
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 383.
+<Images/img2.png, id=114, 1142.76938pt x 624.08156pt>
 File: Images/img2.png Graphic file (type png)
 <use Images/img2.png>
-Package luatex.def Info: Images/img2.png  used on input line 380.
+Package luatex.def Info: Images/img2.png  used on input line 390.
 (luatex.def)             Requested size: 399.97528pt x 218.43181pt.
  [7]
-Package hyperref Info: bookmark level for unknown note defaults to 0 on input line 409.
-<Images/img3.png, id=118, 1310.8975pt x 735.74875pt>
+Package hyperref Info: bookmark level for unknown note defaults to 0 on input line 419.
+<Images/img3.png, id=124, 1310.8975pt x 735.74875pt>
 File: Images/img3.png Graphic file (type png)
 <use Images/img3.png>
-Package luatex.def Info: Images/img3.png  used on input line 414.
+Package luatex.def Info: Images/img3.png  used on input line 424.
 (luatex.def)             Requested size: 458.821pt x 257.51591pt.
  [8<./Images/img2.png>]
-<Images/img4.png, id=128, 1310.8975pt x 735.74875pt>
+<Images/img4.png, id=134, 1310.8975pt x 735.74875pt>
 File: Images/img4.png Graphic file (type png)
 <use Images/img4.png>
-Package luatex.def Info: Images/img4.png  used on input line 421.
+Package luatex.def Info: Images/img4.png  used on input line 431.
 (luatex.def)             Requested size: 458.821pt x 257.51591pt.
  [9<./Images/img3.png><./Images/img4.png>] [10] [11]
-<Images/img5.jpg, id=154, 1593.955pt x 2582.64874pt>
+<Images/img5.jpg, id=160, 1593.955pt x 2582.64874pt>
 File: Images/img5.jpg Graphic file (type jpg)
 <use Images/img5.jpg>
-Package luatex.def Info: Images/img5.jpg  used on input line 594.
+Package luatex.def Info: Images/img5.jpg  used on input line 604.
 (luatex.def)             Requested size: 159.40483pt x 258.28pt.
  [12]
-<Images/img6.png, id=162, 1506.62875pt x 707.64375pt>
+<Images/img6.png, id=169, 1506.62875pt x 707.64375pt>
 File: Images/img6.png Graphic file (type png)
 <use Images/img6.png>
-Package luatex.def Info: Images/img6.png  used on input line 615.
+Package luatex.def Info: Images/img6.png  used on input line 625.
 (luatex.def)             Requested size: 451.99211pt x 212.29475pt.
  [13<./Images/img5.jpg>]
-<Images/img7.png, id=170, 1675.25874pt x 834.11626pt>
+<Images/img7.png, id=176, 1675.25874pt x 834.11626pt>
 File: Images/img7.png Graphic file (type png)
 <use Images/img7.png>
-Package luatex.def Info: Images/img7.png  used on input line 648.
+Package luatex.def Info: Images/img7.png  used on input line 658.
 (luatex.def)             Requested size: 418.81366pt x 208.52855pt.
  [14<./Images/img6.png>]
-Package hyperref Info: bookmark level for unknown answer defaults to 0 on input line 676.
-<Images/img8.jpg, id=179, 2459.1875pt x 1308.89pt>
+Package hyperref Info: bookmark level for unknown answer defaults to 0 on input line 686.
+<Images/img8.jpg, id=185, 2459.1875pt x 1308.89pt>
 File: Images/img8.jpg Graphic file (type jpg)
 <use Images/img8.jpg>
-Package luatex.def Info: Images/img8.jpg  used on input line 685.
+Package luatex.def Info: Images/img8.jpg  used on input line 695.
 (luatex.def)             Requested size: 245.93315pt x 130.89667pt.
- [15<./Images/img7.png></tmp/lua_FYuxCG></tmp/lua_qKZ0dL>] [16<./Images/img8.jpg>] [17] [18] [19]
-<Images/img9.png, id=231, 1484.54625pt x 1114.1625pt>
+ [15<./Images/img7.png></tmp/lua_l49Kz5></tmp/lua_I9uJvf>] [16<./Images/img8.jpg>] [17] [18] [19</tmp/lua_SoJcNc>]
+<Images/img9.png, id=239, 1484.54625pt x 1114.1625pt>
 File: Images/img9.png Graphic file (type png)
 <use Images/img9.png>
-Package luatex.def Info: Images/img9.png  used on input line 938.
+Package luatex.def Info: Images/img9.png  used on input line 948.
 (luatex.def)             Requested size: 148.46332pt x 111.42278pt.
- [20<./Images/img9.png>]
+\g__nicematrix_max_cell_width_dim=\dimen338
+\c@iRow=\count372
+\c@jCol=\count373
+\l__nicematrix_cell_box=\box80
+\l__nicematrix_the_array_box=\box81
+\l__nicematrix_left_delim_dim=\dimen339
+\l__nicematrix_right_delim_dim=\dimen340
+\g__nicematrix_dp_row_zero_dim=\dimen341
+\g__nicematrix_ht_row_zero_dim=\dimen342
+\g__nicematrix_ht_row_one_dim=\dimen343
+\g__nicematrix_dp_ante_last_row_dim=\dimen344
+\g__nicematrix_ht_last_row_dim=\dimen345
+\g__nicematrix_dp_last_row_dim=\dimen346
+\g__nicematrix_ddots_int=\count374
+\g__nicematrix_iddots_int=\count375
+\g__nicematrix_delta_x_one_dim=\dimen347
+\g__nicematrix_delta_y_one_dim=\dimen348
+\g__nicematrix_delta_x_two_dim=\dimen349
+\g__nicematrix_delta_y_two_dim=\dimen350
+\l__nicematrix_initial_i_int=\count376
+\l__nicematrix_initial_j_int=\count377
+\l__nicematrix_final_i_int=\count378
+\l__nicematrix_final_j_int=\count379
+ [20<./Images/img9.png>] [21] [22] [23]
 \tf@thm=\write6
 
 \openout6 = MATH4432.thm
- [21] (./MATH4432.aux)
+ [24] (./MATH4432.aux)
 Package rerunfilecheck Info: File `MATH4432.out' has not changed.
-(rerunfilecheck)             Checksum: 20AD317D21C60D688F7D21135D9998D2;1213.
+(rerunfilecheck)             Checksum: 6D1BA6F614FC4D46A49CBC4CB75D11A6;1411.
 )
 
 Here is how much of LuaTeX's memory you used:
- 33159 strings out of 478285
+ 35821 strings out of 478285
  125086,1977958 words of node,token memory allocated
- 945 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 2 sub_mlist, 1 glyph, 104 attribute, 64 glue_spec, 104 attribute_list, 2 write nodes
-   avail lists: 2:1890,3:657,4:116,5:535,6:56,7:5532,8:61,9:1275,10:10,11:282
- 52178 multiletter control sequences out of 65536+600000
- 80 fonts using 8790607 bytes
- 99i,21n,98p,562b,1266s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman5-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on MATH4432.pdf (21 pages, 2048118 bytes).
+ 1114 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 2 sub_mlist, 1 glyph, 145 attribute, 65 glue_spec, 145 attribute_list, 2 write nodes
+   avail lists: 1:1,2:3686,3:1396,4:170,5:540,6:56,7:5532,8:61,9:1766,10:10,11:282
+ 54802 multiletter control sequences out of 65536+600000
+ 81 fonts using 8922295 bytes
+ 99i,21n,98p,585b,1771s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman6-bold.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman7-bold.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman5-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on MATH4432.pdf (24 pages, 2099959 bytes).
 
-PDF statistics: 350 PDF objects out of 1000 (max. 8388607)
- 257 compressed objects within 3 object streams
- 78 named destinations out of 1000 (max. 131072)
- 160 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 414 PDF objects out of 1000 (max. 8388607)
+ 303 compressed objects within 4 object streams
+ 89 named destinations out of 1000 (max. 131072)
+ 168 words of extra memory for PDF output out of 10000 (max. 100000000)
 
