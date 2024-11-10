@@ -7,3 +7,16 @@
 \contentsline {subsection}{\numberline {2.1}Simple Linear Regression}{14}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Multiple Linear Regression}{18}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Maximum Likelihood Estimate}{21}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Prediction}{23}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Extension of Linear Model}{24}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Model Diagnosis}{24}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}Nonlinearity of Data}{24}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}Correlation of Error Terms}{25}{subsubsection.2.6.2}%
+\contentsline {subsubsection}{\numberline {2.6.3}Non-constant Variance of Error Terms}{25}{subsubsection.2.6.3}%
+\contentsline {subsubsection}{\numberline {2.6.4}Outliers}{26}{subsubsection.2.6.4}%
+\contentsline {subsubsection}{\numberline {2.6.5}High-leverage Points (and model flexibility)}{26}{subsubsection.2.6.5}%
+\contentsline {subsubsection}{\numberline {2.6.6}Collinearity}{29}{subsubsection.2.6.6}%
+\contentsline {subsubsection}{\numberline {2.6.7}Hypothesis testing of OLS (Not included in final)}{30}{subsubsection.2.6.7}%
+\contentsline {subsection}{\numberline {2.7}K-Nearest Neighbours (KNN)}{31}{subsection.2.7}%
+\contentsline {section}{\numberline {3}Classification}{34}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Logistic Regression}{34}{subsection.3.1}%

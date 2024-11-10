@@ -7,6 +7,7 @@
 \usepackage{ulem}
 \usepackage{graphicx}
 \usepackage{centernot}
+\usepackage{pgfplots}
 \usepackage{tikz}
 \usepackage{tikz-cd}
 \usepackage{tabularx}
@@ -17,10 +18,38 @@
 \hypersetup{
     linktoc=all,
 }
+\usepackage{listings}
 \usepackage[toc,page]{appendix}
 \usepackage[margin=1in]{geometry}
 \usepackage[parfill]{parskip}
 \usepackage{nicematrix}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
 
 \everymath{\displaystyle}
 
@@ -54,9 +83,9 @@
 \newcommand{\bt}[1]{\beta_{#1}}
 \newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
 \newcommand{\matindex}[1]{\mbox{\scriptsize#1}}% Matrix index
-
-
-
+\newcommand{\inv}{^{-1}}
+\newcommand{\pd}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\tr}{\text{tr}}
 
 \newtcolorbox{prfbox}{colback=gray!10,colframe=black!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=0pt}
 \newtcolorbox{thmbox}{colback=orange!25,colframe=orange!85,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
@@ -648,8 +677,7 @@ $$\hat{Y}=\bt{0}+\bt{1}X.$$
 
 To figure out the estimate, suppose there is some observed training data $D=\biggl\{(x_i,y_i)\biggr\}_{i=1...n}$.
 
-What we want to do now is to solve the optimization problem on the squared loss
-
+What we want to do now is to solve the optimization problem on the squared loss:
 $$(\hat{\bt{0}},\hat{\bt{1}})=\arg\min_{\bt{0},\bt{1}}\sum_{i=1}^n\bigl(y_i-\bt{0}-\bt{1}x_i\bigr)^2.$$
 
 This problem is also known as least square problem, and the figure below shows the function that we want to find the optimized value.
@@ -911,7 +939,7 @@ To access the accuracy of a model, we will use $R^2$. But first we shall define 
     \end{eqnarray*}
     This is in fact a quadratic form, and if we treat it as a function of $\beta$, then this is going to be a quadratic function.
 
-    Note that $y\T X\beta$ and $\beta\T X\T y$ are actually equivalent. The reason why is because $y\T X\beta$ is acutally a scalar, since the multiplication result has a dimension of
+    Note that $y\T X\beta$ and $\beta\T X\T y$ are actually equivalent. The reason why is because $y\T X\beta$ is actually a scalar, since the multiplication result has a dimension of
     \begin{eqnarray*}
         (1,p) \times (p,n) \times (1,n) &=& (1,n) \times (n,1)\\
                                         &=& (1,1)
@@ -1077,7 +1105,13 @@ and:
 $$P(y_i|x;\beta)=\prod_{i=1}^{n}P(y_i|x_i;\beta).$$
 
 We take $\log$ on both sides, and maximize both side w.r.t. $\beta$.
-$$\hat\beta=\max_\beta\log P(y_i|x;\beta)=\max_\beta\Biggl\{\frac{n}{\sqrt{2\pi\sigma_e^2}} + \sum_{i=1}^{n}-\frac{1}{2\pi\sigma_e^2} (y_i-x_i\T\beta)^2\Biggr\}.$$
+\begin{eqnarray*}
+    \hat\beta=\max_\beta\log P(y_i|x;\beta)&=&\max_\beta\Biggl\{\frac{n}{\sqrt{2\pi\sigma_e^2}} + \sum_{i=1}^{n}-\frac{1}{2\sigma_e^2} (y_i-x_i\T\beta)^2\Biggr\}\\
+    &=&\max_\beta\sum_{i=1}^{n} (y_i-x_i\T\beta)^2.
+\end{eqnarray*}
+
+In the end, since $\ve$ is a constant, maximizing the L.H.S. is actually equivalent to minimizing the sum of ordinary least square.
+Thus, the solution for using MLE approach is equivalent to using OLS approach. i.e. $$\hat\beta=(X\T X)^{-1}X\T y.$$
 
 \begin{notebox}
     \begin{note}[Fisher Information Matrix]
@@ -1086,22 +1120,579 @@ $$\hat\beta=\max_\beta\log P(y_i|x;\beta)=\max_\beta\Biggl\{\frac{n}{\sqrt{2\pi\
     \end{note}
 \end{notebox}
 
-To be continued... [2024-09-24, ENDED]
+\subsection{Prediction}
+
+Suppose we already have the estimate, $\hat\beta$, and a new data $x_{\text{new}}$. The prediction $y_{\text{new}}$ can be formed by:
+    $$\hat{y}_{\text{new}}=x_{\text{new}}\T\hat\beta$$
+This is known as point prediction. 
+However, we do not sure how accurate our prediction is. 
+That is, we do not have an range for the variance of such prediction $\hat{y_{\text{new}}}$.
+
+\begin{thmbox}
+    \begin{theorem}
+        $$\var(\hat{y}_{\text{new}}) = \var({x}_{\text{new}}\T\hat\beta)$$
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Note that:
+        \begin{eqnarray*}
+            \var(\hat{y}_{\text{new}}) &=& \var({x}_{\text{new}}\T\hat\beta)\\
+                                    &=& \ev({x}_{\text{new}}\T\hat\beta\hat\beta\T {x}_{\text{new}}) - \ev({x}_{\text{new}}\T\hat\beta)\ev\T({x}_{\text{new}}\T\hat\beta)\\
+                                    &=& {x}_{\text{new}}\T \underbrace{\Biggl[\ev(\hat\beta\hat\beta\T) - \ev(\hat\beta)\ev\T(\hat\beta)\Biggr]}_{\var(\hat\beta)} {x}_{\text{new}}\\
+                                    &=& {x}_{\text{new}}\T\var(\hat\beta){x}_{\text{new}}.
+        \end{eqnarray*}
+
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
+
+
+\begin{center}
+    \begin{tikzpicture}
+        % Draw axes
+        \draw[->] (0,0) -- (0,4) node[above] {$Y$-axis};
+        \draw[->] (0,0) -- (5,0) node[right] {$X$-axis};
+    
+        % Point estimation
+        \draw[fill=red] (2,2.5) circle (2pt) ;
+        \draw[fill=red] (3,3) circle (2pt) ;
+    
+        % Confidence interval bar
+        \draw[thick, blue] (2,2) -- (2,3) ;
+        \draw[thick, blue] (3,2.5) -- (3,3.5) ;
+    
+        % Confidence interval ends
+        \draw[thick, orange] (1.8,2) -- (2.2,2);
+        \draw[thick, orange] (1.8,3) -- (2.2,3);
+        \draw[thick, orange] (2.8,2.5) -- (3.2,2.5);
+        \draw[thick, orange] (2.8,3.5) -- (3.2,3.5);
+    
+    \end{tikzpicture}    
+\end{center}
+
+The blue bar is also known as the confidence interval. However, in practice, there will be additional noise $\ve_i$.
+Thus the predictive interval refers to $$\var(\hat{y_i})+\var(\ve_i)$$.
+
+\subsection{Extension of Linear Model}
+
+Suppose we have a model:
+$$Y=\bt{0}+\bt{1}X_1+...+\bt{j}X_j.$$
+
+We can treat each $\bt{i}X_i$ as $f_i(X_i)$. And the formula can be generalized by:
+$$Y=\sum_j f_j(X_j).$$
+
+Note that $f_i$ can be some nonlinear function, say you can let $f_1\mapsto 3X_1-4\sin(X_1)$. Then we call such model additive model. 
+However, the model $Y=2+\sin(X_1X_2)+X_3$ is not additive.
+
+Another possible generalization is we try to include some interaction / synergy terms.
+
+For example, consider the following model:
+$$Y=\bt{0}+\bt{1}X_1+\bt{2}X_2+\bt{3}X_1X_2.$$
+
+Then the interaction term is $\bt{3}X_1X_2$. And it means the effect of $X_1$ on $Y$ depends on $X_2$.
+
+We can also consider some kind of "non-linear model" if the linear model is not good enough. Say:
+$$Y=\bt{0}+\bt{1}X+\bt{2}X^2.$$
+
+Note that since $X^2$ is given, thus it is still a linear regression model. OLS methods can still be used to solve the problem.
+
+\subsection{Model Diagnosis}
+
+\subsubsection{Nonlinearity of Data}
+
+In usual cases, we assume our model is a linear model. However, what if the model is not linear?
+
+Suppose we have an observed data $y_i=x_i\T\beta+\ve_i$, and a fitted value $\hat{y}_i=x_i\T\hat\beta$, where $\hat\beta$ is the fitted OLS value. 
+Then the residual is defined as $r=y_i-\hat{y}_i$. 
+
+\includegraphics[scale=0.2]{Images/img10.png}
+
+Notice that by our assumption, $\var(\ve_i)=\sigma^2$ is a constant and $\ev(\ve_i)=0$. 
+This implies if the residual value is not close to zero and the variance of the residual is varying, then the model must have something wrong (Left one).
+
+To prevent the issue, consider adding nonlinear terms (Right one).
+
+\subsubsection{Correlation of Error Terms}
+
+Previously, we assumed that $\cov(\ve_i,ve_i')=0$. 
+If the assumption does not hold, then we will get an incorrect $\var(\hat\beta)$, which will affect the further inferences and testings.
+
+\subsubsection{Non-constant Variance of Error Terms}
+
+We assumed that $\var(\ve_i)=\sigma^2$ is a constant. The model will not be good if the variance in $\var(\ve_i)$ is large. 
+One way to detect is by residual graph. 
+
+\includegraphics[scale=0.2]{Images/img11.png}
+
+As you can see from the left hand side, the trend is not a straight line, that is, the variance is not a constant.
+
+To make the variance almost a constant, consider taking $\log$ transformation.
+
+\subsubsection{Outliers}
+
+We have assumed that the noise, $\ve_i$ follows a normal distribution $\mathcal{N}\sim (0,\sigma^2)$.
+However, in practice, there is some data points that is extremely deviated from the ground truth model. 
+Then you will get a model that is different from the ground truth to minimize the error from the deviated data point by using OLS method.
+
+\begin{center}
+    \begin{tikzpicture}
+
+        % Draw axes
+        \draw[->] (0,0) -- (10,0) node[right] {$X$};
+        \draw[->] (0,0) -- (0,6) node[above] {$Y$};
+        
+        % Draw ground truth line
+        \draw[blue, thick] (0,1) -- (10,5) node[right] {Ground Truth Model};
+        
+        % Draw data points
+        \foreach \x in {1, 2, 3, 4, 5, 6, 7, 8, 9} {
+            \pgfmathsetmacro{\y}{0.5*\x + rand*0.5}
+            \fill[black] (\x,\y) circle (2pt);
+        }
+        
+        % Draw outlier point
+        \fill[red] (5,5) circle (4pt) node[above right] {Outlier};
+        
+        % Draw adjusted least squares line
+        \draw[orange, thick, dashed] (0,2) -- (10,5.5) node[right] {OLS Model (with Outlier)};
+        
+    \end{tikzpicture}
+\end{center}
+    
+One of the solution is that, we only consider the absolute value of the error term, instead of squared value as used in OLS.
+Then the new model will be robust to outliers.
+
+The reason we are not using this model is because the minimization task now becomes:
+$$\min_\beta\sum_i|y_i-x_i\T\beta|.$$
+
+And this is not differentiable, and we thus cannot obtain a closed-form solution. 
+
+Another way is to add a weight for different $\beta$. The task now becomes:
+$$\min_\beta\sum_{i=1}^nw_i\bigl(y_i-x_i\beta\bigr)^2$$
+
+Intuitively, if there is an outlier, then the weight will be close to 0. The method to determine for $w_i$ is shown as below.
+
+\begin{lstlisting}[ mathescape]
+    $w_i \gets 1$
+    $\hat\beta\gets(X\T X)^{-1}X\T Y$
+    while the algorithm does not converge do:
+        $r_i\gets y_i-x_i\T\hat\beta$
+        Assign $w_i \gets 1 / r_i^2$
+        Evaluate for the OLS with the weight with $\hat\beta\gets (X\T WX)^{-1}X\T WY$.
+        Update the weight $w_i$
+\end{lstlisting}
+
+\subsubsection{High-leverage Points (and model flexibility)}
+
+It is very difficult to distinguish high-leverage point and outliers visually. Consider the following:
+
+\begin{defbox}
+    \begin{definition}[High Leverage Point]
+        Let $\mathcal{D}=\bigl\{x_i,y_i\bigr\}$ be the training dataset. Assume that $y_i=x_i\T\beta+\ve_i, i=1\cdots n$.
+        Then the ordinary least square solution for $\hat\beta=(X\T X)\inv X\T y$. Then the fitted value of $\hat y=X\hat\beta$, where
+        $y=\begin{bmatrix}
+            y_1\\
+            y_2\\
+            \vdots\\
+            y_n
+            \end{bmatrix}	
+        $ is a column vector. Then if $\pd{\hat y_i}{y_i}$, the model sensitivity, is large, then $i$ is said to be a leverage point.
+        
+    \end{definition}
+\end{defbox}
+
+This means that a small change in the $y_i$ will leads to a large change in $\hat y_i$ if such point is high leverage. 
+
+From the equation stated in definition, we have $\hat y=X(X\T X)\inv X\T y$.
+
+\begin{thmbox}
+    \begin{theorem}
+        Let $H=X(X\T X)\inv X\T$. It is called hat matrix. Then $\pd{\hat y_i}{y_i}=H_{ii}$. 
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Given that $\hat y=X(X\T X)\inv X\T y$, and $H=X(X\T X)\inv X\T$, we can rewrite $\hat y=H y$.
+
+            Note that $y$ has a dimension of $(n,1)$. This implies $H$ has a dimension of $(n,n)$. Thus:
+
+            $$
+                \begin{bmatrix}
+                    \hat y_1\\
+                    \hat y_2\\
+                    \vdots\\
+                    \hat y_n
+                \end{bmatrix} = 
+                \begin{bmatrix}
+                    h_{11} & h_{12} & \cdots & h_{1n}\\
+                    h_{21} & h_{12} & \cdots & h_{1n}\\
+                    \vdots & \vdots & \ddots & h_{1n}\\
+                    h_{n1} & h_{n2} & \cdots & h_{nn}\\
+                \end{bmatrix}
+                \begin{bmatrix}
+                    y_1\\
+                    y_2\\
+                    \vdots\\
+                    y_n
+                \end{bmatrix}.
+            $$
+
+            Then $y_i=h_{i1}y_1+h_{i2}y_2+\cdots+h_{in}y_n$. The partial derivative $\pd{\hat y_i}{y_i}=h_{ii}$.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox} 
+
+
+\begin{thmbox}
+    \begin{theorem}
+        Here are some interesting properties related to $H$. (Just something fun to know, not required)
+        \begin{enumerate}
+            \item H is a $n\times n$ symmetric matrix.
+            \item $H\times H=H$
+        \end{enumerate}
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Left as exercise to reader.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox} 
+
+From this we can see that high leverage point actually only depends on $X$, while outliers depends on both $X$ and $y$.
+
+Note that a point can be both high leverage point and outlier.
+
+\begin{center}
+    \includegraphics*[scale=0.24]{Images/img12.png}
+\end{center}
+
+Now, let's consider the sensitivity of all the data points, $\sum_{i=0}^n \pd{\hat y_i}{y_i}$. 
+
+\begin{thmbox}
+    \begin{theorem}
+        \vphantom{.}
+
+        $\sum_{i=0}^n \pd{\hat y_i}{y_i}=p$, where $p$ is the size of the matrix $X^T X$.
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            \begin{eqnarray*}
+                \sum_{i=0}^n \pd{\hat y_i}{y_i} &=& \sum_{i=0}^n h_{ii}\\
+                                                &=& \tr(H)\\
+                                                &=& \tr\biggl(X(X\T X)\inv X\T\biggr)
+            \end{eqnarray*}
+            Since $\tr(AB)=\tr(BA)$, thus
+            \begin{eqnarray*}
+                \tr\biggl(X(X\T X)\inv X\T\biggr) &=& \tr\biggl((X\T X)\inv X\T X\biggr)\\
+                                                  &=& \tr(I_p)\\
+                                                  &=& p
+            \end{eqnarray*}
+        \end{proof}
+    \end{prfbox}
+\end{thmbox} 
+
+Note that $p$ means the number of parameters. This means the more parameters in the model, the
+higher the sensitivity of all the data points.
+
+Let's go back to this image introduced at the beginning.:
+
+\begin{center}
+    \includegraphics*[scale=0.3]{Images/img2.png}
+\end{center}
+
+Assume that we have the data $\bigl\{(x_i,y_i)\bigr\},i=1\cdots n$, and assume the model is very flexible, say $\hat y_i=\hat f(x_i)=y_i$,
+then $\pd{\hat y_i}{y_i}=1$. Summing up, we have $\sum_{i=0}^n \pd{\hat y_i}{y_i}=n$. Note this is the upper bound for the flexibility of the model.
+
+The higher the model flexibility, the more sentitive the model is to a new data point. This implies that whenever a data point changes a little, the model
+is able to capture the change and fit into the data point.
+
+Note that one should not simply defines model flexibility as the number of parameters. 
+It also depends on how many constraints given to the parameters.
+
+\subsubsection{Collinearity}
+
+Consider the following data:
+
+\begin{center}
+    \includegraphics*[scale=0.25]{Images/img13.png}
+\end{center}
+
+Note that the two data \texttt{Limit} and \texttt{Rating} are highly correlated. Then these two data exists some collinearity.
+
+From a linear algebra view, let $X$ be a design matrix 
+$\begin{bmatrix}
+    x_1 & x_2 & \cdots & x_p
+\end{bmatrix}$, where each $x_i$ is a column vector. 
+Collinearity implies there exist a column that is a linear combination of all other columns.
+In other words, the design matrix $X$ is not full rank.
+
+In such situation, we will run into problem, since $X$ is not full rank implies $X\T X$ is not full rank also.
+Then $(X\T X)\inv$ does not exist. 
+
+To handle such cases, in the old days we adopt a method, where we want to find out which column is
+a linear combination of other columns. We pick the $j$-th column as response $Y$. Then we will regress $Y$ with
+other variables. If $R^2$ is close to 1, then this implies that this variable can be represented by other variables 
+by linear combination. Define inflation vector as:
+$$
+VIF(\hat\beta_j)=\frac{1}{1-R^2_{X_j|X_{-j}}}
+$$
+
+Then the vector will be very large if $R^2$ is close to 1.
+
+In nowadays, we will solve by slightly modifying the ordinary least square solution like this:
+$$
+\hat\beta=(X\T X+\lambda I)\inv X\T y,
+$$
+
+where $\lambda$ is a positive constant, and $I$ is the identity matrix. This is what we called Ridge regression. We will study this part deeply later.
+
+The following parts (Hypothesis testing) will not be included in the final exam but can be used as a reference.
+
+\subsubsection{Hypothesis testing of OLS (Not included in final)}
+
+Given that $\hat\beta=(X\T X)\inv X\T y$, and the three assumption stated in the earlier times, we have:
+
+$$
+\begin{cases}
+\ev(\hat\beta)=\beta \\
+\var(\hat\beta)=\sigma^2(X\T X)\inv
+\end{cases}
+$$
+
+Consider the $j$-th variable $\hat\beta_j$. Define $t=\frac{\hat\beta_j}{\hat\sigma_j}$.
+View $\hat\beta$ as a random variable, then by central limit theorem, $\hat\beta\sim \mathcal{N}(\beta,\sigma^2(X\T X))$. Then we have $\hat\beta-\beta\sim\mathcal{N}(0,\sigma^2(X\T X))$.
+
+It follows that for the $j$-th variable, we have $\hat\beta_j-\beta_j\sim\mathcal{N}(0,\sigma^2_j)$. Then $\frac{\hat\beta_j-\beta_j}{\sigma_j}\sim\mathcal{N}(0,1)$.
+
+We define our null hypothesis to be $H_0:\beta_j=0$. 
+The reason we want to test this is because we want to see if $Y=\sum_jX_J\beta_j+\ve=0$.
+Assume the hypothesis is true / hold. If the observed data is consistent, then the hypothesis is very likely to be true. 
+
+If the hypothesis holds, then $z_j=\frac{\hat\beta_j}{\hat\sigma_j}\sim \mathcal{N}(0,1)$. The value is called $z$-value, and $\mathcal{N}(0,1)$ is called null distribution.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            axis lines = middle,
+            xlabel = $x$,
+            ylabel = {$f(x)$},
+            xtick={-3,-2,-1,0,1,2,3},
+            ytick={0,0.1,0.2,0.3},
+            ymin=0, ymax=0.4,
+            samples=100,
+            domain=-4:4,
+            enlargelimits,
+            grid = both,
+            title={Normal Distribution ($\mu=0$, $\sigma=1$)},
+            ]
+            \addplot[blue, thick] {1/(sqrt(2*pi))*exp(-x^2/2)};
+    
+            % Points
+            \addplot[red, only marks, mark=*] coordinates {(1,0)};
+            \addplot[orange, only marks, mark=*] coordinates {(4.5,0)};
+    
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+Suppose the test statistic $z_j$ lies in the red point, then the evidence is not contradictory to the null distribution. 
+However, if the observation lies in the orange point, then the evidence is contradictory to the distribution. To test for the 
+evidence, we introduce the concept called $p$-value. $p$-value is defined as:
+$$
+P(|z|>z_{obs}|H_0 \text{ holds})
+$$
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            axis lines = middle,
+            xlabel = $x$,
+            ylabel = {$f(x)$},
+            xtick={-3,-2,-1,0,1,2,3},
+            ytick={0,0.1,0.2,0.3},
+            ymin=0, ymax=0.4,
+            samples=100,
+            domain=-4:4,
+            enlargelimits,
+            grid = both,
+            title={Normal Distribution ($\mu=0$, $\sigma=1$)},
+            ]
+            % Plot the normal distribution
+            \addplot[blue, thick] {1/(sqrt(2*pi))*exp(-x^2/2)};
+    
+            % Shade the area to the right of x=1
+            \addplot [
+                domain=1:4, 
+                samples=50, 
+                fill=red, 
+                opacity=0.5
+            ] {1/(sqrt(2*pi))*exp(-x^2/2)} \closedcycle;
+    
+            % Point at (1,0)
+            \addplot[red, only marks, mark=*] coordinates {(1,0)};
+    
+            % P-value label
+            \node at (axis cs:3,0.15) [anchor=north] {$p$-value area};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+If $p$-value is greater than a specific value, then it seems we do not have enough evidence to reject null hypothesis. 
+In contrast, if the $p$-value is very small, then the observed data does not follow the distribution. It means we have enough evidence to 
+reject the null hypothesis.
+
+Actually, notice that $\hat\sigma_j$ is an estimated value, thus we actually need to use $t$-distribution instead of normal distribution.
+
+\subsection{K-Nearest Neighbours (KNN)}
+
+Suppose we have the training data $\mathcal{D}=\bigl\{(x_i,y_i)\bigr\}$, where $x_i\in\mathbb{R}^p$, while $y_i\in\mathbb{R}$.
+Given any query point $x_0$, we are going to find the nearest neighbour $N(x_0)$ of the query point based on the number of $K$.
+
+\begin{center}
+    \begin{tikzpicture}
+
+        % Draw x-y axis
+        \draw[->] (-1,0) -- (6,0) node[right] {$x_1$};
+        \draw[->] (0,-1) -- (0,6) node[above] {$x_2$};
+        
+        % Draw blue data points
+        \fill[blue] (1,1) circle (3pt);
+        \fill[blue] (2,3) circle (3pt);
+        \fill[blue] (3,2) circle (3pt);
+        \fill[blue] (4,4) circle (3pt);
+        \fill[blue] (5,1) circle (3pt);
+        \fill[blue] (5,5) circle (3pt);
+        \fill[blue] (1,5) circle (3pt);
+        \fill[blue] (-1,3) circle (3pt);
+
+
+        % Draw the query point in red
+        \fill[red] (3,3) circle (3pt);
+        
+        % Highlight the 3 nearest neighbours in orange
+        \fill[orange] (2,3) circle (3pt);
+        \fill[orange] (3,2) circle (3pt);
+        \fill[orange] (4,4) circle (3pt);
+        
+    \end{tikzpicture}    
+\end{center}
+
+Then $\hat y$ is predicted as:
+
+$$
+\hat y=\frac{1}{K}\sum_{i\in N(x_0)}y_i
+$$
+
+Instead of using KNN as regression, we may also use KNN as classification, where majority vote method is being used.
+
+\begin{center}
+    \includegraphics*[scale=0.4]{Images/img14.png}
+\end{center}
+
+The one on the left is $K=1$, while the one on the right is $K=9$. It is easy to observe the curve plotted is smoother when $K$ is large.
+
+\begin{center}
+    \includegraphics*[scale=0.4]{Images/img15.png}
+\end{center}
+
+This is the 1-D dataset. Indeed KNN is flexible from the plot. Note the black line is the linear model.
+
+\begin{center}
+    \includegraphics*[scale=0.2]{Images/img16.png}
+\end{center}
+
+Testing error for KNN model. Note that $1/K$ is small implies $K$ is large. Note the error is quite large when compared
+with a linear model since the ground truth is actually linear.
+
+\begin{center}
+    \includegraphics*[scale=0.2]{Images/img17.png}
+\end{center}
+
+Another extreme case, where the data is non-linear in relationship. In this case, KNN is doing better than linear model since linear model
+will give a large bias.
+
+\begin{center}
+    \includegraphics*[scale=0.2]{Images/img18.png}
+\end{center}
+
+This case demonstrates the introduction of noise variables. In the beginning, KNN performs
+better than linear model. As the number of noise variable increases, the test error of KNN increases drastically. 
+
+\section{Classification}
+
+Given some training data $\mathcal{D}=\Bigl\{(x_i,y_i)\Bigr\}_{i=1...n}$, where $x_i\in\mathbb{R}^p$, while $y_i\in{0,1}$.
+This is called 2-class classification problem.
+
+Consider the following case:
+
+\begin{center}
+    \includegraphics*[scale=0.2]{Images/img19.png}
+\end{center}
+
+In this case, the linear regression model is not good for classification, since the output is not constrainted between 0 and 1.
+This is the reason why we introduce logistic regression.
+
+\subsection{Logistic Regression}
+
+\begin{defbox}
+    \begin{definition}[Logistic Regression]
+        We assume that 
+        $$
+        P(Y=1|X)=\frac{1}{1+\exp(-\beta\T X)}.
+        $$
+        Then the probability is indeed bounded between 0 and 1. Similarly, we have:
+        $$
+        P(Y=0|X)=\frac{1}{1+\exp(\beta\T X)}.
+        $$        
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        $$\log{\frac{P(Y=1|X)}{P(Y=0|X)}}=\beta\T X$$
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            Skipped.
+        \end{proof}
+    \end{prfbox}
+\end{thmbox} 
+
+This is called log-odds ratio.
+
+[2024-10-10 0:00]
 
 \newpage
 remarks for smoking: below notes start from p.35 of lecture3.pdf 
 \begin{defbox}
     \begin{definition}[Confusion matrix]
-       
-           Quick review:
+
+        Define the confusion matrix as:
+
+        \[
+            \NiceMatrixOptions{code-for-first-row=\scriptstyle,code-for-last-row=\scriptstyle}
+            \begin{pNiceMatrix}[first-row,first-col]
+                  & +ve & -ve \\
+                +ve & TP  & FN \\
+                -ve & FP & TN  \\
+            \end{pNiceMatrix}.
+        \]
+
+
+        where:
+
+        \begin{itemize}
+            \item         True Positive(TP): Predicted is \textbf{positive(1)}, and the truth is \textbf{positive(1)}
+             
+            \item         False Positive(FP): Predicted is \textbf{positive(1)}, but the truth is \textbf{negative(0)}
+             
+            \item         True Negative(TN):  Predicted is \textbf{negative(0)}, and the truth is \textbf{negative(0)} 
            
-            True Positive(TP): \quad you thought is \textbf{positive(1)}, and the truth really is \textbf{positive(1)}
+            \item         False Negative(FN): Predicted is \textbf{negative(0)}, but the truth is \textbf{positive(1)}        
+        \end{itemize}
 
-            False Positive(FP):\quad you thought is \textbf{positive(1)}, but the truth is \textbf{negative(0)}
 
-            True Negative(TN): \quad you thought is \textbf{negative(0)}, and the truth really is \textbf{negative(0)} 
-            
-            False Negative(FN):\quad you thought is \textbf{negative(0)}, but the truth is \textbf{positive(1)}        
+
+
     \end{definition}
 \end{defbox}
 
