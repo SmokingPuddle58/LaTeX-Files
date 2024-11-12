@@ -53,8 +53,11 @@
 \contentsline {definition}{{Definition}{3.{1}}{Logistic Regression}}{34}{definition.3.1}%
 \contentsline {theorem}{{Theorem}{3.{1}}{}}{34}{theorem.3.1}%
 \contentsline {proof}{{Proof. }{11}{}}{34}{proof.11}%
-\contentsline {definition}{{Definition}{3.{2}}{Confusion matrix}}{35}{definition.3.2}%
-\contentsline {definition}{{Definition}{3.{3}}{sensitivity}}{35}{definition.3.3}%
-\contentsline {definition}{{Definition}{3.{4}}{specificity}}{35}{definition.3.4}%
-\contentsline {definition}{{Definition}{3.{5}}{Type I error}}{35}{definition.3.5}%
-\contentsline {definition}{{Definition}{3.{6}}{Type II error}}{35}{definition.3.6}%
+\contentsline {theorem}{{Theorem}{3.{2}}{}}{35}{theorem.3.2}%
+\contentsline {proof}{{Proof. }{12}{}}{35}{proof.12}%
+\contentsline {note}{{Note}{9}{}}{35}{note.9}%
+\contentsline {definition}{{Definition}{3.{2}}{Confusion matrix}}{38}{definition.3.2}%
+\contentsline {definition}{{Definition}{3.{3}}{sensitivity}}{38}{definition.3.3}%
+\contentsline {definition}{{Definition}{3.{4}}{specificity}}{38}{definition.3.4}%
+\contentsline {definition}{{Definition}{3.{5}}{Type I error}}{38}{definition.3.5}%
+\contentsline {definition}{{Definition}{3.{6}}{Type II error}}{38}{definition.3.6}%

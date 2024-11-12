@@ -86,6 +86,7 @@
 \newcommand{\inv}{^{-1}}
 \newcommand{\pd}[2]{\frac{\partial {#1}}{\partial {#2}}}
 \newcommand{\tr}{\text{tr}}
+\newcommand{\dd}{\mathrm{d}}
 
 \newtcolorbox{prfbox}{colback=gray!10,colframe=black!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=0pt}
 \newtcolorbox{thmbox}{colback=orange!25,colframe=orange!85,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
@@ -1061,7 +1062,7 @@ The geometric meaning of the solution is actually the projection onto the plane 
     \end{notebox}
 \end{thmbox} 
 
-\subsection{Maximum Likelihood Estimate}
+\subsection{Maximum Likelihood Estimate} \label{MLE}
 
 Assume we have a probablistic model $P(\D|\theta)$, where $\theta$ is the parameter for the probablistic model. 
 We know that if we are given the parameters, we can generate data $\D$ from the probablistic model. 
@@ -1336,7 +1337,7 @@ From the equation stated in definition, we have $\hat y=X(X\T X)\inv X\T y$.
                 \end{bmatrix}.
             $$
 
-            Then $y_i=h_{i1}y_1+h_{i2}y_2+\cdots+h_{in}y_n$. The partial derivative $\pd{\hat y_i}{y_i}=h_{ii}$.
+            Then $\hat y_i=h_{i1}y_1+h_{i2}y_2+\cdots+h_{in}y_n$. The partial derivative $\pd{\hat y_i}{y_i}=h_{ii}$.
         \end{proof}
     \end{prfbox}
 \end{thmbox} 
@@ -1635,16 +1636,31 @@ This is the reason why we introduce logistic regression.
 
 \begin{defbox}
     \begin{definition}[Logistic Regression]
-        We assume that 
+        The logistic regression is defined as: 
         $$
         P(Y=1|X)=\frac{1}{1+\exp(-\beta\T X)}.
         $$
-        Then the probability is indeed bounded between 0 and 1. Similarly, we have:
+        The probability is indeed bounded between 0 and 1.
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{theorem}
         $$
         P(Y=0|X)=\frac{1}{1+\exp(\beta\T X)}.
         $$        
-    \end{definition}
-\end{defbox}
+    \end{theorem}
+    \begin{prfbox}
+        \begin{proof}
+            \begin{eqnarray*}
+                P(Y=1|X) &=& 1 - P(Y=0|X)\\
+                         &=& 1 - \frac{1}{1+\exp(-\beta\T X)}\\
+                         &=& \Biggl[\frac{\exp(-\beta\T X)}{1+\exp(-\beta\T X)}\Biggr]\Biggl[\frac{\exp(\beta\T X)}{\exp(\beta\T X)}\Biggr]\\
+                         &=& \frac{1}{1+\exp(\beta\T X)}.
+            \end{eqnarray*}
+        \end{proof}
+    \end{prfbox}
+\end{thmbox}
 
 \begin{thmbox}
     \begin{theorem}
@@ -1652,15 +1668,113 @@ This is the reason why we introduce logistic regression.
     \end{theorem}
     \begin{prfbox}
         \begin{proof}
-            Skipped.
+            \begin{eqnarray*}
+                \log{\frac{P(Y=1|X)}{P(Y=0|X)}} &=& \log{\Biggl[\frac{1}{1+\exp(-\beta\T X)}\Biggr]\Biggl[\frac{1+\exp(-\beta\T X)}{\exp(-\beta\T X)}\Biggr]}\\
+                                                &=& \log{\Biggl[\frac{1}{\exp(-\beta\T X)}\Biggr]}\\
+                                                &=& \beta\T X
+            \end{eqnarray*}
         \end{proof}
     \end{prfbox}
     This is called log-odds ratio.
 \end{thmbox}
 
+Let's go back to a polulational linear model, where $Y=X\T\beta+\ve$, or $Y=\beta\T X+\ve$. Suppose that $\ve$ is zero mean, then $\ev(Y\vert X)=\beta\T X$.
 
+Since the log-odds scale is also linear, this implies we can generalize on the non-linear function. Details will be given later.
 
-[2024-10-10 0:00]
+We will explain on how to perform parametric estimation for $\beta$ on the log-odds scale. 
+Notice that the ordinary least square solution that we used on linear regression no longer applies.
+For log-odds ratio we do not have a closed form solution. 
+
+We will do the same thing for logistic regression as what we did in linear regression. Click \ref{MLE} as a reference.
+
+\begin{notebox}
+    \begin{note}
+        The derivation below may have skipped some proof for the pace concern. I think I will put the proof back after Winter.
+    \end{note}
+\end{notebox}
+
+By definition, we have $P(Y=1|X)=\frac{1}{1+\exp(-\beta\T X)}.$ Assume that for the given $x_i$, all the $y_i$ are independent, then we can rewrite the probability
+density function as:
+\begin{eqnarray*}
+    P(y\vert X,\beta) &=& \prod_{i=1}^n P(y_i\vert x_i;\beta)\\
+                      &=& \prod_{i:y_i=0}P(y_i=1\vert x_i;\beta) \prod_{i:y_i=1}^nP(y_i=0\vert x_i;\beta)\\
+                      &=& \prod_{i:y_i=0}\frac{1}{1+\exp(-\beta\T x_i)} \prod_{i:y_i=1}^n\frac{1}{1+\exp(\beta\T x_i)}\\
+                      &\overset{\text{equiv.}}{=}& \prod_{i:y_i=0}\frac{\exp(y_i\beta\T x_i)}{1+\exp(\beta\T x_i)}\\
+    l=\log P(y\vert X,\beta) &=& \sum_{i=1}^n \Bigl[y_i\beta\T x_i-\log(1+\exp(\beta\T x_i))\Bigr]
+\end{eqnarray*}
+
+Since there is no closed form solution for $\nabla l$, or $\pd{l}{\beta}$,
+we will use Newton's method to perform maximum likelihood approach. Here is the idea (For single variable calculus).
+
+Suppose we want to find $x$, such that 
+$$
+    g(x) = \frac{\dd{f}}{\dd{x}} = 0.
+$$
+Assume that $x_0$ is one of the solution for the equation. Then we perform first-order linear approximation with:
+$$
+    g(x)\simeq g(x_0)+g'(x_0)(x-x_0).
+$$
+Then $x$ is given by:
+$$
+    x = x_0-g(x_0)\bigl[g'(x_0)\bigr]\inv.
+$$
+
+We will perform the operation again and again, with each $x_0$ the $x$ evaluated at the previous estimations.
+
+Now, let's come back to our problem, that we want to solve for $g(\beta)=\pd{l}{\beta}=0$.
+
+Then by Newton's method, we have:
+$$
+    \beta_{\text{new}} = \beta_{\text{old}}-g(\beta_{\text{old}})\bigl[g'(\beta_{\text{old}})\bigr]\inv.
+$$
+We will need to evaluate for the gradient, $g(\beta_{\text{old}})$, and Hessian matrix $\bigl[g'(\beta_{\text{old}})\bigr]$ to evaluate for the new point.
+Recall the likelihood formula:
+$$
+    l(\beta)=\log P(y\vert X,\beta) = \sum_{i=1}^n \Bigl[y_i\beta\T x_i-\log(1+\exp(\beta\T x_i))\Bigr].
+$$
+We now take the first order derivative to $l$.
+\begin{eqnarray*}
+    \pd{l}{\beta} &=& \sum_{i=1}^n \Biggl[y_ix_i-\frac{\exp(\beta\T x_i)x_i}{1+\exp(\beta\T x_i)}\Biggr]\\
+                  &=& \sum_{i=1}^n \Biggl[y_i-\frac{1}{1+\exp(-\beta\T x_i)}\Biggr]x_i.
+\end{eqnarray*}
+Note that $\frac{1}{1+\exp(-\beta\T x_i)}$ is exactly the same as $P(Y=1\vert X=x_i)$. We give it a name $P_i$ for simplicity. Then,
+$$
+\pd{l}{\beta} = \sum_{i=1}^n \bigl(y_i-P_i\bigr)x_i
+$$
+It is easy to show that $ \sum_{i=1}^n \bigl(y_i-P_i\bigr)x_i = X\T (y-P)$. This is left as an exercise to reader. (Remind me to put the proof on my site if I have time since space here is not sufficient.)
+
+Now, we can tell why there is no closed form solution of $\nabla l$ is because the derivative involves summation and the parameter we wish to estimate.
+It will be extremely difficult for us to evaluate for a closed form solution.
+
+Let's come back to $\pd{l}{\beta}$. We want to calculate for the second derivative. Recall that:
+$$
+\pd{l}{\beta} =\sum_{i=1}^n \Biggl[y_i-\frac{1}{1+\exp(-\beta\T x_i)}\Biggr]x_i.
+$$
+Taking the derivative again, we have:
+\begin{eqnarray*}
+    \pd{}{\beta\T} &=& \pd{}{\beta\T}\sum_{i=1}^n \Biggl[y_i-\frac{1}{1+\exp(-\beta\T x_i)}\Biggr]x_i\\
+                   &=& \sum_{i=1}^n x_i\Biggl[-\frac{\exp(-\beta\T x_i)(-x_i\T)}{(1+\exp(-\beta\T x_i))^2}\Biggr]\\
+                   &=& -\sum_{i=1}^n x_i \Biggl[\frac{1}{(1+\exp(-\beta\T x_i))}\Biggr]\Biggl[\frac{\exp(-\beta\T x_i)}{(1+\exp(-\beta\T x_i))}\Biggr]x_i\T\\
+                   &=& -\sum_{i=1}^n x_i P_i (1-P_i) x_i\T\\
+                   &=& -\sum_{i=1}^n P_i (1-P_i) x_i x_i\T.
+\end{eqnarray*}
+
+This is in fact the Hessian matrix, and it can further be rewritten as $-x\T Wx$,
+
+where $W=\text{diag}(P_1 (1-P_1),...,P_n (1-P_n))$ is a diagonal matrix.
+
+To perform Newton's method, we first initiallize $\beta_{\text{old}}$ as a zero vector. Then: 
+\begin{eqnarray*}
+    \beta_{\text{new}} &=& \beta_{\text{old}} - H\inv\vert_{\beta_{\text{old}}} g\vert_{\beta_{\text{old}}}\\
+                       &=& \beta_{\text{old}} + (x\T Wx)\inv x\T(y-p)\\
+                       &=& (x\T Wx)\inv x\T Wz,
+\end{eqnarray*}
+where $z=\beta_{\text{old}}+w\inv(y-p)$
+
+The reason why we separate $z$ out, is because it can be viewed as iterative reweighted least square form.
+
+[2024-10-10 END]
 
 \newpage
 remarks for smoking: below notes start from p.35 of lecture3.pdf 
