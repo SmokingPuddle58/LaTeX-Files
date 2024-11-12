@@ -1,18 +1,27 @@
 % Include other package you wish to use, if necessary
-\usepackage{
-    tcolorbox, 
-    ntheorem, 
-    amsmath, 
-    amssymb, 
-    ulem, 
-    graphicx, 
-    centernot, 
-    tikz, 
-    tikz-cd, 
-    tabularx, 
-    pgfcore
-}
+% The use of emoji package requires lualatex to compile. Please notice that.
+\usepackage{tcolorbox}
+\usepackage{ntheorem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ulem}
+\usepackage{graphicx}
+\usepackage{centernot}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{mathtools}
+% \usepackage{emoji}
+\usepackage{nicematrix}
+\usepackage{xcolor}
+\usepackage{listings}
 
+% Please keep this setting 
+\pgfplotsset{compat=1.18}
+
+% Hyperlink settings
 \usepackage[hidelinks, linktocpage]{hyperref}
 \hypersetup{
     linktoc=all
@@ -22,10 +31,13 @@
 \usepackage[margin=1in]{geometry}
 \usepackage[parfill]{parskip}
 
+% Remove this if you do not want your inline formula to be displayed
+% like full-line formula
 \everymath{\displaystyle}
 
+% I forgot what this does
 \makeatletter
-\newtheoremstyle{MyNonumberplain}%
+\newtheoremstyle{MyNonumberplain}
   {\item[\theorem@headerfont\hskip\labelsep ##1\theorem@separator]}%
   {\item[\theorem@headerfont\hskip\labelsep ##3\theorem@separator]}%
 \makeatother
@@ -40,6 +52,22 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\nin}{\not\in}
 \newcommand{\p}{\phi}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\ev}{\mathbb{E}}
+\newcommand{\var}{\text{Var}}
+\newcommand{\cov}{\text{Cov}}
+\newcommand{\T}{^\intercal}
+\newcommand{\der}{\operatorname{d\!}{}}
+\newcommand{\evd}{\ev_{\mathcal{D}}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\bias}{\text{Bias}}
+\newcommand{\bt}[1]{\beta_{#1}}
+\newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+\newcommand{\matindex}[1]{\mbox{\scriptsize#1}}% Matrix index
+\newcommand{\inv}{^{-1}}
+\newcommand{\pd}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\tr}{\text{tr}}
+\newcommand{\dd}{\mathrm{d}}
 
 % You may add different boxes in different colors. 
 \newtcolorbox{prfbox}{colback=gray!10,colframe=black!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=0pt}
@@ -51,18 +79,23 @@
 \newtcolorbox{notebox}{colback=magenta!15,colframe=magenta!70,boxrule=0pt,arc=0pt,boxsep=2pt,left=2pt,right=2pt,leftrule=2.5pt}
 
 % You may add different type of keywords, and do note that non-English characters are supported if you wish.
+\newtheorem{warning}{Warning}[section]
+\newtheorem{remark}{Remark}[section]
 \theoremstyle{break}
-\newtheorem*{proof}{Proof. }
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{proposition}{Proposition}[section]
 \newtheorem{example}{Example}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{note}{Note}
-\newtheorem{warning}{Warning}[section]
+\newtheorem*{question}{Question}
+\newtheorem*{answer}{Answer}
 \newtheorem{definition}{Definition}[section]
-\newtheorem{remark}{Remarks}[section]
+\theoremstyle{break}
+\newtheorem*{proof}{Proof. }
 
+% The footnote command
+\renewcommand{\thempfootnote}{\textbf{\textcolor{red}\arabic{mpfootnote}}}
 
 % Modify your title and author here.
 \title{Titles}
